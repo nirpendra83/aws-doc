@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
-  <head>
+  <head><script src="/nirpendra83/aws-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra83/aws-doc.git/livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.148.2">
@@ -14,7 +14,7 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
     <meta name="twitter:description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
 Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
 Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
-    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/02/index.html">
+    <meta property="og:url" content="http://localhost:1313/nirpendra83/aws-doc.git/02/index.html">
     <meta property="og:site_name" content="AWS Solution Architect">
     <meta property="og:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
     <meta property="og:description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
@@ -29,34 +29,34 @@ Legacy Approach: Single AWS Account Before multi-account strategies became popul
 Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
     <meta itemprop="wordCount" content="362">
     <title>AWS Multi-Account Strategy :: AWS Solution Architect</title>
-    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757399877" rel="stylesheet">
-    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757399877" defer></script>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757399925" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.js?1757399925" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../searchindex.en.js?1757399877";
+      window.relearn.index_js_url="../searchindex.en.js?1757399925";
     </script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757399925" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399877" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399877" rel="stylesheet"></noscript>
-    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757399877" rel="stylesheet">
-    <link href="../css/theme.min.css?1757399877" rel="stylesheet">
-    <link href="../css/format-html.min.css?1757399877" rel="stylesheet" id="R-format-style">
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399925" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399925" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757399925" rel="stylesheet">
+    <link href="../css/theme.css?1757399925" rel="stylesheet">
+    <link href="../css/format-html.css?1757399925" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
-      window.relearn.min = `.min`;
+      window.relearn.min = ``;
       window.relearn.path='\/02\/index.html';
       window.relearn.relBasePath='..';
       window.relearn.relBaseUri='..';
-      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra83\/aws-doc.git';
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       window.relearn.disableInlineCopyToClipboard=false;
@@ -350,8 +350,8 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757399877" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.js?1757399925" defer></script>
   </body>
 </html>
