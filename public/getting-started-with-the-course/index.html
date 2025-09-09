@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
+AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Getting Started with AWS :: AWS Solution Architect">
+    <meta name="twitter:description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
+AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
+    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/getting-started-with-the-course/index.html">
+    <meta property="og:site_name" content="AWS Solution Architect">
+    <meta property="og:title" content="Getting Started with AWS :: AWS Solution Architect">
+    <meta property="og:description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
+AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
+    <meta itemprop="name" content="Getting Started with AWS :: AWS Solution Architect">
+    <meta itemprop="description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
+AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
+    <meta itemprop="wordCount" content="588">
+    <title>Getting Started with AWS :: AWS Solution Architect</title>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757399877" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757399877" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js?1757399877";
+    </script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757399877" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399877" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399877" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757399877" rel="stylesheet">
+    <link href="../css/theme.min.css?1757399877" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757399877" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = `.min`;
+      window.relearn.path='\/getting-started-with-the-course\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../getting-started-with-the-course/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#aws-account">AWS Account</a></li>
+    <li><a href="#aws-regions">AWS Regions</a></li>
+    <li><a href="#availability-zones-azs">Availability Zones (AZs)</a></li>
+    <li><a href="#edge-locations">Edge Locations</a></li>
+    <li><a href="#aws-support">AWS Support</a></li>
+    <li><a href="#visual-overview">Visual Overview</a></li>
+    <li><a href="#aws-well-architected-framework">AWS Well-Architected Framework</a></li>
+    <li><a href="#1-operational-excellence">1. Operational Excellence</a></li>
+    <li><a href="#2-security">2. Security</a></li>
+    <li><a href="#3-reliability">3. Reliability</a></li>
+    <li><a href="#4-performance-efficiency">4. Performance Efficiency</a></li>
+    <li><a href="#5-cost-optimization">5. Cost Optimization</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Getting Started with AWS</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../index.html" title="AWS Certified Solutions Architect - Professional (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../02/index.html" title="AWS Multi-Account Strategy (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="getting-started-with-aws">Getting Started with AWS</h1>
+
+<p>This guide introduces the foundational concepts of AWS, including <strong>AWS Account</strong>, <strong>Regions</strong>, <strong>Availability Zones (AZs)</strong>, <strong>Edge Locations</strong>, and <strong>Support</strong>. Understanding these will help you navigate AWS’s global infrastructure confidently.</p>
+<hr>
+<h2 id="aws-account">AWS Account</h2>
+<p>Your <strong>AWS Account</strong> is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.</p>
+<ul>
+<li>Manages access to AWS services</li>
+<li>Tracks usage and billing</li>
+<li>Supports multiple users via <strong>IAM</strong> (Identity and Access Management)</li>
+<li>Can be organized into <strong>Organizations</strong> for managing multiple accounts</li>
+</ul>
+<hr>
+<h2 id="aws-regions">AWS Regions</h2>
+<p>An <strong>AWS Region</strong> is a geographically distinct area containing multiple data centers.</p>
+<ul>
+<li>Designed for fault tolerance and low latency</li>
+<li>Each Region consists of multiple <strong>Availability Zones</strong></li>
+<li>Example Regions: <code>us-east-1</code> (N. Virginia), <code>eu-west-1</code> (Ireland), <code>ap-south-1</code> (Mumbai)</li>
+</ul>
+<hr>
+<h2 id="availability-zones-azs">Availability Zones (AZs)</h2>
+<p>Availability Zones are isolated data centers within a Region.</p>
+<ul>
+<li>Physically separated to prevent single points of failure</li>
+<li>Connected via low-latency networks for high availability</li>
+<li>Deploy resources across AZs for fault tolerance and disaster recovery</li>
+</ul>
+<hr>
+<h2 id="edge-locations">Edge Locations</h2>
+<p><strong>Edge Locations</strong> are part of AWS’s Content Delivery Network (CDN).</p>
+<ul>
+<li>Located globally to cache and deliver content closer to users</li>
+<li>Used by <strong>Amazon CloudFront</strong> to speed up distribution of websites, videos, APIs, etc.</li>
+<li>Improve performance by reducing latency and load on origin servers</li>
+</ul>
+<hr>
+<h2 id="aws-support">AWS Support</h2>
+<p>AWS offers multiple support plans to help users:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Basic</td>
+          <td>Free, includes customer service and docs</td>
+      </tr>
+      <tr>
+          <td>Developer</td>
+          <td>Business hours email support</td>
+      </tr>
+      <tr>
+          <td>Business</td>
+          <td>24/7 phone, chat, and email support</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>Dedicated Technical Account Manager and Concierge</td>
+      </tr>
+  </tbody>
+</table>
+<p>Choose a plan based on your business needs and technical requirements.</p>
+<hr>
+<h2 id="visual-overview">Visual Overview</h2>
+<pre class="mermaid align-center ">graph TD;
+    AWS_Account[&#34;AWS Account&#34;]
+    AWS_Account --&gt; IAM[&#34;IAM Users &amp; Roles&#34;]
+    AWS_Account --&gt; Billing[&#34;Billing &amp; Cost Management&#34;]
+    AWS_Account --&gt; Regions[&#34;AWS Regions&#34;]
+
+    subgraph Regions
+        Region1[&#34;Region 1 (us-east-1)&#34;]
+        Region2[&#34;Region 2 (eu-west-1)&#34;]
+    end
+
+    Region1 --&gt; AZ1[&#34;AZ 1a&#34;]
+    Region1 --&gt; AZ2[&#34;AZ 1b&#34;]
+    Region2 --&gt; AZ3[&#34;AZ 2a&#34;]
+    Region2 --&gt; AZ4[&#34;AZ 2b&#34;]
+
+    EdgeLocations[&#34;Edge Locations (CloudFront)&#34;]
+    EdgeLocations --&gt;|Cache &amp; Deliver| Region1
+    EdgeLocations --&gt;|Cache &amp; Deliver| Region2
+
+    AWS_Account --&gt; Support[&#34;AWS Support Plans&#34;]</pre>
+<h2 id="aws-well-architected-framework">AWS Well-Architected Framework</h2>
+<p>The <strong>AWS Well-Architected Framework</strong> helps cloud architects build secure, high-performing, resilient, and efficient infrastructure for their applications. It is based on five pillars:</p>
+<hr>
+<h2 id="1-operational-excellence">1. Operational Excellence</h2>
+<p>Focuses on running and monitoring systems to deliver business value and continuously improve processes and procedures.</p>
+<p><strong>Key Topics:</strong></p>
+<ul>
+<li>Perform operations as code</li>
+<li>Make frequent, small, reversible changes</li>
+<li>Refine operations procedures frequently</li>
+<li>Anticipate failure</li>
+<li>Learn from all operational failures</li>
+</ul>
+<hr>
+<h2 id="2-security">2. Security</h2>
+<p>Protect information, systems, and assets while delivering business value through risk assessments and mitigation strategies.</p>
+<p><strong>Key Topics:</strong></p>
+<ul>
+<li>Implement strong identity foundation</li>
+<li>Enable traceability</li>
+<li>Apply security at all layers</li>
+<li>Automate security best practices</li>
+<li>Protect data in transit and at rest</li>
+<li>Prepare for security events</li>
+</ul>
+<hr>
+<h2 id="3-reliability">3. Reliability</h2>
+<p>Ensure a workload performs its intended function correctly and consistently when expected.</p>
+<p><strong>Key Topics:</strong></p>
+<ul>
+<li>Automatically recover from failure</li>
+<li>Test recovery procedures</li>
+<li>Scale horizontally to increase aggregate workload availability</li>
+<li>Manage change in automation</li>
+</ul>
+<hr>
+<h2 id="4-performance-efficiency">4. Performance Efficiency</h2>
+<p>Use IT and computing resources efficiently to meet system requirements and maintain efficiency as demand changes.</p>
+<p><strong>Key Topics:</strong></p>
+<ul>
+<li>Democratize advanced technologies</li>
+<li>Go global in minutes</li>
+<li>Use serverless architectures</li>
+<li>Experiment more often</li>
+<li>Monitor performance and make trade-offs</li>
+</ul>
+<hr>
+<h2 id="5-cost-optimization">5. Cost Optimization</h2>
+<p>Avoid unnecessary costs by selecting the right resource types and sizes, and scaling to meet actual needs without overspending.</p>
+<p><strong>Key Topics:</strong></p>
+<ul>
+<li>Adopt a consumption model</li>
+<li>Measure overall efficiency</li>
+<li>Stop spending money on undifferentiated heavy lifting</li>
+<li>Analyze and attribute expenditure</li>
+<li>Use managed services to reduce cost of ownership</li>
+</ul>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>The AWS Well-Architected Framework provides a consistent approach to evaluate architectures and implement designs that will scale over time. It’s essential for building resilient and efficient applications on AWS.</p>
+<hr>
+<p>For more details, visit the <a href="https://aws.amazon.com/architecture/well-architected/" rel="external" target="_blank">AWS Well-Architected Framework official page</a>.</p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../index.html">
+            <div class="logo-title">AWS Solution Architect</div>
+          </a>
+        </div>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="active " data-nav-id="/getting-started-with-the-course/index.html"><a class="padding" href="../getting-started-with-the-course/index.html">Getting Started with AWS</a></li>
+            <li class="" data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS Multi-Account Strategy</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../nirpendra83/aws-doc.git/js/js-yaml/js-yaml.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-color.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-dispatch.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-drag.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-ease.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-interpolate.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-selection.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-timer.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-transition.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/d3/d3-zoom.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/mermaid/mermaid.min.js?1757399877" defer></script>
+    <script>
+      window.relearn.themeUseMermaid = JSON.parse("{}");
+    </script>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757399877" defer></script>
+  </body>
+</html>

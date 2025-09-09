@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
+Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
+Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
+    <meta name="twitter:description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
+Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
+Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
+    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/02/index.html">
+    <meta property="og:site_name" content="AWS Solution Architect">
+    <meta property="og:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
+    <meta property="og:description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
+Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
+Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
+    <meta itemprop="name" content="AWS Multi-Account Strategy :: AWS Solution Architect">
+    <meta itemprop="description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
+Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
+Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
+    <meta itemprop="wordCount" content="362">
+    <title>AWS Multi-Account Strategy :: AWS Solution Architect</title>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757399877" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757399877" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js?1757399877";
+    </script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757399877" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399877" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399877" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757399877" rel="stylesheet">
+    <link href="../css/theme.min.css?1757399877" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757399877" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = `.min`;
+      window.relearn.path='\/02\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../02/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#legacy-approach-single-aws-account">Legacy Approach: Single AWS Account</a>
+      <ul>
+        <li><a href="#challenges-of-the-legacy-approach">Challenges of the Legacy Approach:</a></li>
+      </ul>
+    </li>
+    <li><a href="#why-use-multiple-aws-accounts">Why Use Multiple AWS Accounts?</a></li>
+    <li><a href="#key-components-of-a-multi-account-strategy">Key Components of a Multi-Account Strategy</a>
+      <ul>
+        <li><a href="#aws-organizations">AWS Organizations</a></li>
+        <li><a href="#account-structure-models">Account Structure Models</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices">Best Practices</a></li>
+    <li><a href="#visual-overview">Visual Overview</a></li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">AWS Multi-Account Strategy</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../getting-started-with-the-course/index.html" title="Getting Started with AWS (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="aws-multi-account-strategy">AWS Multi-Account Strategy</h1>
+
+<p>Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The <strong>AWS Multi-Account Strategy</strong> helps you organize your cloud environment efficiently.</p>
+<hr>
+<h2 id="legacy-approach-single-aws-account">Legacy Approach: Single AWS Account</h2>
+<p>Before multi-account strategies became popular, many organizations used a <strong>single AWS account</strong> for all workloads, environments, and teams.</p>
+<h3 id="challenges-of-the-legacy-approach">Challenges of the Legacy Approach:</h3>
+<ul>
+<li><strong>Security risks:</strong> Lack of isolation increases blast radius if credentials are compromised.</li>
+<li><strong>Billing confusion:</strong> Difficult to track costs per project, environment, or team.</li>
+<li><strong>Resource limits:</strong> AWS service quotas apply per account, limiting scalability.</li>
+<li><strong>Complex permissions:</strong> Managing IAM policies for diverse teams and environments becomes complicated.</li>
+<li><strong>Operational risks:</strong> Accidental resource changes can impact production workloads.</li>
+</ul>
+<hr>
+<h2 id="why-use-multiple-aws-accounts">Why Use Multiple AWS Accounts?</h2>
+<ul>
+<li><strong>Isolation of workloads:</strong> Separate development, testing, and production environments.</li>
+<li><strong>Security boundaries:</strong> Limit blast radius if one account is compromised.</li>
+<li><strong>Billing clarity:</strong> Track costs by team, project, or environment.</li>
+<li><strong>Simplified compliance:</strong> Enforce policies and audits more easily.</li>
+<li><strong>Resource limits:</strong> Avoid hitting AWS service limits by distributing resources across accounts.</li>
+</ul>
+<hr>
+<h2 id="key-components-of-a-multi-account-strategy">Key Components of a Multi-Account Strategy</h2>
+<h3 id="aws-organizations">AWS Organizations</h3>
+<ul>
+<li>Centralized management of multiple AWS accounts.</li>
+<li>Use <strong>Service Control Policies (SCPs)</strong> to set permission guardrails.</li>
+<li>Consolidated billing for all linked accounts.</li>
+<li>Automated account creation and lifecycle management.</li>
+</ul>
+<h3 id="account-structure-models">Account Structure Models</h3>
+<h4 id="1-environment-based">1. Environment-Based</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Account Name</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Prod</td>
+          <td>Production workloads</td>
+      </tr>
+      <tr>
+          <td>Dev</td>
+          <td>Development environment</td>
+      </tr>
+      <tr>
+          <td>Test</td>
+          <td>Testing and QA</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="2-business-unit-based">2. Business Unit-Based</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Account Name</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Marketing</td>
+          <td>Marketing projects</td>
+      </tr>
+      <tr>
+          <td>Finance</td>
+          <td>Financial systems</td>
+      </tr>
+      <tr>
+          <td>Engineering</td>
+          <td>Engineering projects</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="3-application-based">3. Application-Based</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Account Name</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>App-A</td>
+          <td>Application A workloads</td>
+      </tr>
+      <tr>
+          <td>App-B</td>
+          <td>Application B workloads</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li><strong>Centralize logging and monitoring:</strong> Use AWS CloudTrail and AWS Config aggregated in a dedicated account.</li>
+<li><strong>Use cross-account roles:</strong> Enable secure access between accounts.</li>
+<li><strong>Automate account provisioning:</strong> Use AWS Control Tower or custom automation.</li>
+<li><strong>Implement guardrails:</strong> Apply SCPs to enforce security policies.</li>
+<li><strong>Tag consistently:</strong> Use tags for cost allocation and resource management.</li>
+</ul>
+<hr>
+<h2 id="visual-overview">Visual Overview</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>AWS Organizations
+</span></span><span style="display:flex;"><span>│
+</span></span><span style="display:flex;"><span>├── Security Account (centralized logging, monitoring)
+</span></span><span style="display:flex;"><span>├── Shared Services Account (DNS, directory services)
+</span></span><span style="display:flex;"><span>├── Prod Account(s)
+</span></span><span style="display:flex;"><span>├── Dev Account(s)
+</span></span><span style="display:flex;"><span>└── Test Account(s)</span></span></code></pre></div>
+<hr>
+<h2 id="summary">Summary</h2>
+<p>A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.</p>
+<hr>
+<p>For more information, see the <a href="https://aws.amazon.com/organizations/" rel="external" target="_blank">AWS Multi-Account Strategy whitepaper</a>.</p>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../index.html">
+            <div class="logo-title">AWS Solution Architect</div>
+          </a>
+        </div>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/getting-started-with-the-course/index.html"><a class="padding" href="../getting-started-with-the-course/index.html">Getting Started with AWS</a></li>
+            <li class="active " data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS Multi-Account Strategy</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757399877" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757399877" defer></script>
+  </body>
+</html>

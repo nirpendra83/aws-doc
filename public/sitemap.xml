@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/index.html</loc>
+    <loc>https://github.com/nirpendra83/aws-doc.git/getting-started-with-the-course/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/categories/index.html</loc>
+    <loc>https://github.com/nirpendra83/aws-doc.git/02/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/tags/index.html</loc>
+    <loc>https://github.com/nirpendra83/aws-doc.git/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/categories/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/tags/index.html</loc>
   </url>
 </urlset>

@@ -1,6 +1,6 @@
 baseURL = 'https://github.com/nirpendra83/aws-doc.git'
 languageCode = 'en-us'
-title = 'My Doc'
+title = 'AWS Solution Architect'
 theme = 'hugo-theme-relearn'
 relativeURLs = true
 canonifyURLs = true
