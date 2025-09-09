@@ -1,4 +1,4 @@
-baseURL = 'https://innersource.soprasteria.com/nirpendra.kumar/mypersonal-doc.git'
+baseURL = 'https://github.com/nirpendra83/aws-doc.git'
 languageCode = 'en-us'
 title = 'My Doc'
 theme = 'hugo-theme-relearn'
