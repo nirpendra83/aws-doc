@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/nirpendra.kumar/mypersonal-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra.kumar/mypersonal-doc.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types This document provides a complete overview of the key concepts and cluster types in the VMware Tanzu Kubernetes Grid (TKG) ecosystem.
+🔹 TKG – Tanzu Kubernetes Grid Definition:
+VMware’s enterprise Kubernetes platform to deploy, operate, and manage Kubernetes clusters across vSphere, AWS, Azure, and other infrastructures.
+✅ Key Features: Unified CLI (tanzu) Declarative cluster management using Cluster API Multi-cloud support Secure, tested Kubernetes releases (TKRs) Supports both Standalone and vSphere with Tanzu (TKGS) modes 🧱 TKG Deployment Modes: Mode Description TKG Standalone Uses a Management Cluster to manage lifecycle of Workload Clusters TKGS (vSphere with Tanzu) Uses a Supervisor Cluster embedded in vSphere to manage TKCs (Guest Clusters) 🔹 TKR – Tanzu Kubernetes Release Definition:
+A VMware-curated Kubernetes distribution that includes:">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="VMware Tanzu Terms :: My Doc">
+    <meta name="twitter:description" content="Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types This document provides a complete overview of the key concepts and cluster types in the VMware Tanzu Kubernetes Grid (TKG) ecosystem.
+🔹 TKG – Tanzu Kubernetes Grid Definition:
+VMware’s enterprise Kubernetes platform to deploy, operate, and manage Kubernetes clusters across vSphere, AWS, Azure, and other infrastructures.
+✅ Key Features: Unified CLI (tanzu) Declarative cluster management using Cluster API Multi-cloud support Secure, tested Kubernetes releases (TKRs) Supports both Standalone and vSphere with Tanzu (TKGS) modes 🧱 TKG Deployment Modes: Mode Description TKG Standalone Uses a Management Cluster to manage lifecycle of Workload Clusters TKGS (vSphere with Tanzu) Uses a Supervisor Cluster embedded in vSphere to manage TKCs (Guest Clusters) 🔹 TKR – Tanzu Kubernetes Release Definition:
+A VMware-curated Kubernetes distribution that includes:">
+    <meta property="og:url" content="http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/vmware-tanzu/index.html">
+    <meta property="og:site_name" content="My Doc">
+    <meta property="og:title" content="VMware Tanzu Terms :: My Doc">
+    <meta property="og:description" content="Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types This document provides a complete overview of the key concepts and cluster types in the VMware Tanzu Kubernetes Grid (TKG) ecosystem.
+🔹 TKG – Tanzu Kubernetes Grid Definition:
+VMware’s enterprise Kubernetes platform to deploy, operate, and manage Kubernetes clusters across vSphere, AWS, Azure, and other infrastructures.
+✅ Key Features: Unified CLI (tanzu) Declarative cluster management using Cluster API Multi-cloud support Secure, tested Kubernetes releases (TKRs) Supports both Standalone and vSphere with Tanzu (TKGS) modes 🧱 TKG Deployment Modes: Mode Description TKG Standalone Uses a Management Cluster to manage lifecycle of Workload Clusters TKGS (vSphere with Tanzu) Uses a Supervisor Cluster embedded in vSphere to manage TKCs (Guest Clusters) 🔹 TKR – Tanzu Kubernetes Release Definition:
+A VMware-curated Kubernetes distribution that includes:">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Docs">
+    <meta itemprop="name" content="VMware Tanzu Terms :: My Doc">
+    <meta itemprop="description" content="Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types This document provides a complete overview of the key concepts and cluster types in the VMware Tanzu Kubernetes Grid (TKG) ecosystem.
+🔹 TKG – Tanzu Kubernetes Grid Definition:
+VMware’s enterprise Kubernetes platform to deploy, operate, and manage Kubernetes clusters across vSphere, AWS, Azure, and other infrastructures.
+✅ Key Features: Unified CLI (tanzu) Declarative cluster management using Cluster API Multi-cloud support Secure, tested Kubernetes releases (TKRs) Supports both Standalone and vSphere with Tanzu (TKGS) modes 🧱 TKG Deployment Modes: Mode Description TKG Standalone Uses a Management Cluster to manage lifecycle of Workload Clusters TKGS (vSphere with Tanzu) Uses a Supervisor Cluster embedded in vSphere to manage TKCs (Guest Clusters) 🔹 TKR – Tanzu Kubernetes Release Definition:
+A VMware-curated Kubernetes distribution that includes:">
+    <meta itemprop="wordCount" content="607">
+    <title>VMware Tanzu Terms :: My Doc</title>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/auto-complete/auto-complete.min.css?1757049472" rel="stylesheet">
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/auto-complete/auto-complete.min.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search-lunr.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search.js?1757049472" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../../searchindex.en.js?1757049472";
+    </script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.min.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.stemmer.support.min.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.multi.min.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.en.min.js?1757049472" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757049472" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757049472" rel="stylesheet"></noscript>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757049472" rel="stylesheet">
+    <link href="../../css/theme.css?1757049472" rel="stylesheet">
+    <link href="../../css/format-html.css?1757049472" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/docs\/vmware-tanzu\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra.kumar\/mypersonal-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../docs/vmware-tanzu/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#tanzu-kubernetes-concepts-tkg-tkr-tkc-and-cluster-types">Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types</a></li>
+    <li><a href="#-tkg--tanzu-kubernetes-grid">🔹 TKG – Tanzu Kubernetes Grid</a>
+      <ul>
+        <li><a href="#-key-features">✅ Key Features:</a></li>
+        <li><a href="#-tkg-deployment-modes">🧱 TKG Deployment Modes:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tkr--tanzu-kubernetes-release">🔹 TKR – Tanzu Kubernetes Release</a>
+      <ul>
+        <li><a href="#-example-tkr-name">📦 Example TKR Name:</a></li>
+        <li><a href="#-tkr-usage">🛠️ TKR Usage:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-tkc--tanzu-kubernetes-cluster">🔹 TKC – Tanzu Kubernetes Cluster</a>
+      <ul>
+        <li><a href="#-example-tkc-yaml">📄 Example TKC YAML:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-supervisor-cluster">🔹 Supervisor Cluster</a>
+      <ul>
+        <li><a href="#-key-roles">✅ Key Roles:</a></li>
+        <li><a href="#-runs-on">📌 Runs on:</a></li>
+        <li><a href="#-enabled-by">🛠️ Enabled By:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-management-cluster-tkg-standalone">🔹 Management Cluster (TKG Standalone)</a>
+      <ul>
+        <li><a href="#-functions">✅ Functions:</a></li>
+        <li><a href="#-created-via">📌 Created via:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-workload-cluster">🔹 Workload Cluster</a>
+      <ul>
+        <li><a href="#-characteristics">✅ Characteristics:</a></li>
+        <li><a href="#-created-via-1">📌 Created via:</a></li>
+      </ul>
+    </li>
+    <li><a href="#-cluster-relationships-overview">🔁 Cluster Relationships Overview</a></li>
+    <li><a href="#-summary-table-of-cluster-types">🧭 Summary Table of Cluster Types</a></li>
+    <li><a href="#-summary-of-core-terms">✅ Summary of Core Terms</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../index.html"><span itemprop="name">My docs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../docs/index.html"><span itemprop="name">My Docs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">VMware Tanzu Terms</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/tasks/index.html" title="Tasks to do  (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/vmware/index.html" title="VMware Upgrade Cheat Sheet (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable docs" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="vmware-tanzu-terms">VMware Tanzu Terms</h1>
+
+<h2 id="tanzu-kubernetes-concepts-tkg-tkr-tkc-and-cluster-types">Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types</h2>
+<p>This document provides a complete overview of the key concepts and cluster types in the <strong>VMware Tanzu Kubernetes Grid (TKG)</strong> ecosystem.</p>
+<hr>
+<h2 id="-tkg--tanzu-kubernetes-grid">🔹 TKG – Tanzu Kubernetes Grid</h2>
+<p><strong>Definition</strong>:<br>
+VMware’s enterprise Kubernetes platform to deploy, operate, and manage Kubernetes clusters across vSphere, AWS, Azure, and other infrastructures.</p>
+<h3 id="-key-features">✅ Key Features:</h3>
+<ul>
+<li>Unified CLI (<code>tanzu</code>)</li>
+<li>Declarative cluster management using Cluster API</li>
+<li>Multi-cloud support</li>
+<li>Secure, tested Kubernetes releases (TKRs)</li>
+<li>Supports both <strong>Standalone</strong> and <strong>vSphere with Tanzu (TKGS)</strong> modes</li>
+</ul>
+<h3 id="-tkg-deployment-modes">🧱 TKG Deployment Modes:</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Mode</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TKG Standalone</strong></td>
+          <td>Uses a <strong>Management Cluster</strong> to manage lifecycle of <strong>Workload Clusters</strong></td>
+      </tr>
+      <tr>
+          <td><strong>TKGS (vSphere with Tanzu)</strong></td>
+          <td>Uses a <strong>Supervisor Cluster</strong> embedded in vSphere to manage <strong>TKCs</strong> (Guest Clusters)</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-tkr--tanzu-kubernetes-release">🔹 TKR – Tanzu Kubernetes Release</h2>
+<p><strong>Definition</strong>:<br>
+A <strong>VMware-curated Kubernetes distribution</strong> that includes:</p>
+<ul>
+<li>A specific Kubernetes version</li>
+<li>Core system images (e.g., CoreDNS, kube-proxy)</li>
+<li>Add-ons (CNI, CSI, metrics-server, etc.)</li>
+<li>BOM file listing component versions</li>
+</ul>
+<h3 id="-example-tkr-name">📦 Example TKR Name:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>v1.26.8---vmware.1-tkg.1</code></pre></div>
+<h3 id="-tkr-usage">🛠️ TKR Usage:</h3>
+<ul>
+<li>In <strong>TKG Standalone</strong>: referenced during workload cluster creation</li>
+<li>In <strong>TKGS (vSphere with Tanzu)</strong>: used in <code>TanzuKubernetesCluster</code> specs</li>
+</ul>
+<hr>
+<h2 id="-tkc--tanzu-kubernetes-cluster">🔹 TKC – Tanzu Kubernetes Cluster</h2>
+<p><strong>Definition</strong>:<br>
+A Kubernetes Custom Resource (<code>kind: TanzuKubernetesCluster</code>) used in <strong>TKGS</strong> to declaratively define Kubernetes clusters inside a vSphere Namespace.</p>
+<h3 id="-example-tkc-yaml">📄 Example TKC YAML:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">run.tanzu.vmware.com/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TanzuKubernetesCluster</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">dev-cluster</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">dev-ns</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">distribution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">version</span>: <span style="color:#ae81ff">v1.26.8---vmware.1-tkg.1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">topology</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">controlPlane</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">count</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">class</span>: <span style="color:#ae81ff">best-effort-small</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">workers</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">count</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">class</span>: <span style="color:#ae81ff">best-effort-small</span></span></span></code></pre></div>
+<blockquote>
+<p>📝 Used only in <strong>vSphere with Tanzu (TKGS)</strong>, not TKG Standalone</p></blockquote>
+<hr>
+<h2 id="-supervisor-cluster">🔹 Supervisor Cluster</h2>
+<p><strong>Definition</strong>:<br>
+A <strong>Kubernetes control plane embedded directly into vSphere</strong> when you enable <strong>Workload Management</strong>.</p>
+<h3 id="-key-roles">✅ Key Roles:</h3>
+<ul>
+<li>Hosts Spherelet (Kubelet for ESXi)</li>
+<li>Schedules vSphere Pods (optional)</li>
+<li>Manages <strong>vSphere Namespaces</strong></li>
+<li>Deploys and manages <strong>Tanzu Kubernetes Clusters (TKCs)</strong></li>
+</ul>
+<h3 id="-runs-on">📌 Runs on:</h3>
+<ul>
+<li>ESXi hosts directly (not inside VMs)</li>
+<li>Created and managed by vCenter</li>
+</ul>
+<h3 id="-enabled-by">🛠️ Enabled By:</h3>
+<ul>
+<li>Going to <strong>vCenter &gt; Workload Management</strong></li>
+<li>Selecting compatible networking (NSX-T, HAProxy, AVI)</li>
+</ul>
+<hr>
+<h2 id="-management-cluster-tkg-standalone">🔹 Management Cluster (TKG Standalone)</h2>
+<p><strong>Definition</strong>:<br>
+A Kubernetes cluster created by TKG CLI to <strong>bootstrap and manage other (workload) clusters</strong>.</p>
+<h3 id="-functions">✅ Functions:</h3>
+<ul>
+<li>Hosts Cluster API controllers</li>
+<li>Manages lifecycle of workload clusters</li>
+<li>Used in TKG on vSphere, AWS, Azure</li>
+</ul>
+<h3 id="-created-via">📌 Created via:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu management-cluster create</span></span></code></pre></div>
+<hr>
+<h2 id="-workload-cluster">🔹 Workload Cluster</h2>
+<p><strong>Definition</strong>:<br>
+A standard Kubernetes cluster deployed by the <strong>Management Cluster (TKG Standalone)</strong> to run your actual applications.</p>
+<h3 id="-characteristics">✅ Characteristics:</h3>
+<ul>
+<li>Uses a selected <strong>TKR</strong></li>
+<li>Runs on VMs provisioned by the management cluster</li>
+<li>Can be scaled, upgraded, or deleted using <code>tanzu</code> CLI</li>
+</ul>
+<h3 id="-created-via-1">📌 Created via:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu cluster create my-cluster --tkr &lt;version&gt;</span></span></code></pre></div>
+<hr>
+<h2 id="-cluster-relationships-overview">🔁 Cluster Relationships Overview</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>TKG (Platform)
+├── Uses TKR (versioned Kubernetes releases)
+│
+├── In Standalone mode:
+│     ├── Management Cluster (bootstrap)
+│     └── Workload Clusters (app workloads)
+│
+└── In vSphere with Tanzu (TKGS):
+      ├── Supervisor Cluster (on ESXi)
+      └── Tanzu Kubernetes Clusters (TKCs, created as CRs)</code></pre></div>
+<hr>
+<h2 id="-summary-table-of-cluster-types">🧭 Summary Table of Cluster Types</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Cluster Type</th>
+          <th>Where It’s Used</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Supervisor Cluster</strong></td>
+          <td>TKGS (vSphere with Tanzu)</td>
+          <td>Native Kubernetes layer running on ESXi</td>
+      </tr>
+      <tr>
+          <td><strong>TKC</strong></td>
+          <td>TKGS</td>
+          <td>Custom Resource to create workload clusters</td>
+      </tr>
+      <tr>
+          <td><strong>Management Cluster</strong></td>
+          <td>TKG Standalone</td>
+          <td>Manages lifecycle of other clusters</td>
+      </tr>
+      <tr>
+          <td><strong>Workload Cluster</strong></td>
+          <td>TKG Standalone</td>
+          <td>Runs your applications; managed by Management Cluster</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="-summary-of-core-terms">✅ Summary of Core Terms</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Term</th>
+          <th>Full Form</th>
+          <th>What It Is</th>
+          <th>Used In</th>
+          <th>Example</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TKG</strong></td>
+          <td>Tanzu Kubernetes Grid</td>
+          <td>Full Kubernetes platform by VMware</td>
+          <td>Standalone, TKGS</td>
+          <td><code>tanzu cluster create ...</code></td>
+      </tr>
+      <tr>
+          <td><strong>TKR</strong></td>
+          <td>Tanzu Kubernetes Release</td>
+          <td>Curated Kubernetes version and components</td>
+          <td>TKG &amp; TKGS</td>
+          <td><code>v1.26.8---vmware.1-tkg.1</code></td>
+      </tr>
+      <tr>
+          <td><strong>TKC</strong></td>
+          <td>Tanzu Kubernetes Cluster</td>
+          <td>CR to deploy a K8s cluster in TKGS</td>
+          <td>Only in TKGS</td>
+          <td><code>kind: TanzuKubernetesCluster</code></td>
+      </tr>
+      <tr>
+          <td><strong>Supervisor Cluster</strong></td>
+          <td>–</td>
+          <td>Embedded Kubernetes in vSphere</td>
+          <td>Only in TKGS</td>
+          <td>Runs on ESXi directly</td>
+      </tr>
+      <tr>
+          <td><strong>Management Cluster</strong></td>
+          <td>–</td>
+          <td>Cluster that manages workload clusters</td>
+          <td>Only in TKG Standalone</td>
+          <td>Created via CLI</td>
+      </tr>
+      <tr>
+          <td><strong>Workload Cluster</strong></td>
+          <td>–</td>
+          <td>K8s cluster for app workloads</td>
+          <td>Only in TKG Standalone</td>
+          <td>Created by Management Cluster</td>
+      </tr>
+  </tbody>
+</table>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            <div class="logo-title">My Doc</div>
+          </a>
+        </div>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/docs/index.html"><a class="padding" href="../../docs/index.html">My Docs</a><ul id="R-subsections-b5fa667da3c6d162416dac7e8c63bf8a" class="collapsible-menu">
+            <li class="" data-nav-id="/docs/env-details/index.html"><a class="padding" href="../../docs/env-details/index.html">All App Urls</a></li>
+            <li class="" data-nav-id="/docs/aviprd/index.html"><a class="padding" href="../../docs/aviprd/index.html">AvI PRD</a></li>
+            <li class="" data-nav-id="/docs/avistg/index.html"><a class="padding" href="../../docs/avistg/index.html">AvI Stg</a></li>
+            <li class="" data-nav-id="/docs/frequentissues/index.html"><a class="padding" href="../../docs/frequentissues/index.html">Frequent issues</a></li>
+            <li class="" data-nav-id="/docs/innersource-onprem/index.html"><a class="padding" href="../../docs/innersource-onprem/index.html">Innersource onpPrem </a></li>
+            <li class="" data-nav-id="/docs/ex280/index.html"><a class="padding" href="../../docs/ex280/index.html">OpenShift EX280 Practice </a></li>
+            <li class="" data-nav-id="/docs/ex280-01/index.html"><a class="padding" href="../../docs/ex280-01/index.html">OpenShift EX280 Practice with Solution</a></li>
+            <li class="" data-nav-id="/docs/tasks/index.html"><a class="padding" href="../../docs/tasks/index.html">Tasks to do </a></li>
+            <li class="active " data-nav-id="/docs/vmware-tanzu/index.html"><a class="padding" href="../../docs/vmware-tanzu/index.html">VMware Tanzu Terms</a></li>
+            <li class="" data-nav-id="/docs/vmware/index.html"><a class="padding" href="../../docs/vmware/index.html">VMware Upgrade Cheat Sheet</a></li>
+            <li class="" data-nav-id="/docs/aws-gitlab-stg/index.html"><a class="padding" href="../../docs/aws-gitlab-stg/index.html">Gitlab on AWS Using Gitlab Environment Toolkit</a></li>
+            <li class="" data-nav-id="/docs/kube-virt/index.html"><a class="padding" href="../../docs/kube-virt/index.html">Openshift Virtualization</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/clipboard/clipboard.min.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757049472" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/theme.js?1757049472" defer></script>
+  </body>
+</html>

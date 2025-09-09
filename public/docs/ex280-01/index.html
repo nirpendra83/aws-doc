@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/nirpendra.kumar/mypersonal-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra.kumar/mypersonal-doc.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Q1. Manage Identity Providers: configure the Oauth to use HTPasswd as the identity provider. Identity Provider name is ex280-provider. Create 4 users, harry, leader , raja, qa-engineer and all should have review password. Configure user and apply password for them. Or Ensure that four users account exist. Secret name is super-secret Solution: Check Currenty logged in user oc whoamiGenerate htpasswd file and users htpasswd -c -B -b /home/student/htpasswd harry review - -c =&gt; Create a new file - -B ==&gt; encrypt the password - -b =&gt; will provide the user name &amp; password.Check all users cat /home/student/htpasswdCreate all users now htpasswd -b /home/student/htpasswd leader review htpasswd -b /home/student/htpasswd raja review htpasswd -b /home/student/htpasswd qa-engineer reviewVerify again if you want cat /home/student/htpasswdCreate a Secret for htpasswd file oc create secret generic super-secret --from-file htpasswd=/home/student/htpasswd -n openshift-configVerify newly created Secret oc get secret compreview-users -n openshift-configNow create the backup of existing oauth oc get oauth cluster -o yaml &gt; oauth.yamlCheck the console to login with UI oc whoami --show-console Make the changes as per given below vi oauth.yamlspec:identityProviders:- htpasswd:fileData:name: super-secretmappingMethod: claimname: ex280-providertype: HTPasswdReplace the existing oauth now oc replace -f oauth.yamlDuring the oauth updation check authentication pods watch oc get pods -n openshift-authenticationNow try to login with all users one by one oc login -u jarry If you are using REDHAT LAB then use below to create the lab for this question. lab start appsec-scc oc login -u admin -p redhatocp https://api.ocp4.example.com:6443Question 2. Manage Cluster Project and Permissions: Create 3 projects, front-end, back-end, and app-db harry user should have cluster administrator rights. leader user should be able create project but not administrator tasks. No other user should able to create project. raja user can only view the resources of front-end and back-end projects. qa-engineer user should have admin access to front-end project. kubaadmin is not present (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable) Solution: Create a 3 groups by `harry’ user. oc new-project front-endoc new-project back-endoc new-project app-dbCluster administrator for harry oc adm policy add-cluster-role-to-user cluster-admin harryor no other user should able to create project. oc describe clusterrolebindings self-provisioners You may observe that ClusterRoleBinding “self-provisioners” has some group added like “system:authenticated:oauth”">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OpenShift EX280 Practice with Solution :: My Doc">
+    <meta name="twitter:description" content="Q1. Manage Identity Providers: configure the Oauth to use HTPasswd as the identity provider. Identity Provider name is ex280-provider. Create 4 users, harry, leader , raja, qa-engineer and all should have review password. Configure user and apply password for them. Or Ensure that four users account exist. Secret name is super-secret Solution: Check Currenty logged in user oc whoamiGenerate htpasswd file and users htpasswd -c -B -b /home/student/htpasswd harry review - -c =&gt; Create a new file - -B ==&gt; encrypt the password - -b =&gt; will provide the user name &amp; password.Check all users cat /home/student/htpasswdCreate all users now htpasswd -b /home/student/htpasswd leader review htpasswd -b /home/student/htpasswd raja review htpasswd -b /home/student/htpasswd qa-engineer reviewVerify again if you want cat /home/student/htpasswdCreate a Secret for htpasswd file oc create secret generic super-secret --from-file htpasswd=/home/student/htpasswd -n openshift-configVerify newly created Secret oc get secret compreview-users -n openshift-configNow create the backup of existing oauth oc get oauth cluster -o yaml &gt; oauth.yamlCheck the console to login with UI oc whoami --show-console Make the changes as per given below vi oauth.yamlspec:identityProviders:- htpasswd:fileData:name: super-secretmappingMethod: claimname: ex280-providertype: HTPasswdReplace the existing oauth now oc replace -f oauth.yamlDuring the oauth updation check authentication pods watch oc get pods -n openshift-authenticationNow try to login with all users one by one oc login -u jarry If you are using REDHAT LAB then use below to create the lab for this question. lab start appsec-scc oc login -u admin -p redhatocp https://api.ocp4.example.com:6443Question 2. Manage Cluster Project and Permissions: Create 3 projects, front-end, back-end, and app-db harry user should have cluster administrator rights. leader user should be able create project but not administrator tasks. No other user should able to create project. raja user can only view the resources of front-end and back-end projects. qa-engineer user should have admin access to front-end project. kubaadmin is not present (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable) Solution: Create a 3 groups by `harry’ user. oc new-project front-endoc new-project back-endoc new-project app-dbCluster administrator for harry oc adm policy add-cluster-role-to-user cluster-admin harryor no other user should able to create project. oc describe clusterrolebindings self-provisioners You may observe that ClusterRoleBinding “self-provisioners” has some group added like “system:authenticated:oauth”">
+    <meta property="og:url" content="http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/ex280-01/index.html">
+    <meta property="og:site_name" content="My Doc">
+    <meta property="og:title" content="OpenShift EX280 Practice with Solution :: My Doc">
+    <meta property="og:description" content="Q1. Manage Identity Providers: configure the Oauth to use HTPasswd as the identity provider. Identity Provider name is ex280-provider. Create 4 users, harry, leader , raja, qa-engineer and all should have review password. Configure user and apply password for them. Or Ensure that four users account exist. Secret name is super-secret Solution: Check Currenty logged in user oc whoamiGenerate htpasswd file and users htpasswd -c -B -b /home/student/htpasswd harry review - -c =&gt; Create a new file - -B ==&gt; encrypt the password - -b =&gt; will provide the user name &amp; password.Check all users cat /home/student/htpasswdCreate all users now htpasswd -b /home/student/htpasswd leader review htpasswd -b /home/student/htpasswd raja review htpasswd -b /home/student/htpasswd qa-engineer reviewVerify again if you want cat /home/student/htpasswdCreate a Secret for htpasswd file oc create secret generic super-secret --from-file htpasswd=/home/student/htpasswd -n openshift-configVerify newly created Secret oc get secret compreview-users -n openshift-configNow create the backup of existing oauth oc get oauth cluster -o yaml &gt; oauth.yamlCheck the console to login with UI oc whoami --show-console Make the changes as per given below vi oauth.yamlspec:identityProviders:- htpasswd:fileData:name: super-secretmappingMethod: claimname: ex280-providertype: HTPasswdReplace the existing oauth now oc replace -f oauth.yamlDuring the oauth updation check authentication pods watch oc get pods -n openshift-authenticationNow try to login with all users one by one oc login -u jarry If you are using REDHAT LAB then use below to create the lab for this question. lab start appsec-scc oc login -u admin -p redhatocp https://api.ocp4.example.com:6443Question 2. Manage Cluster Project and Permissions: Create 3 projects, front-end, back-end, and app-db harry user should have cluster administrator rights. leader user should be able create project but not administrator tasks. No other user should able to create project. raja user can only view the resources of front-end and back-end projects. qa-engineer user should have admin access to front-end project. kubaadmin is not present (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable) Solution: Create a 3 groups by `harry’ user. oc new-project front-endoc new-project back-endoc new-project app-dbCluster administrator for harry oc adm policy add-cluster-role-to-user cluster-admin harryor no other user should able to create project. oc describe clusterrolebindings self-provisioners You may observe that ClusterRoleBinding “self-provisioners” has some group added like “system:authenticated:oauth”">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Docs">
+    <meta itemprop="name" content="OpenShift EX280 Practice with Solution :: My Doc">
+    <meta itemprop="description" content="Q1. Manage Identity Providers: configure the Oauth to use HTPasswd as the identity provider. Identity Provider name is ex280-provider. Create 4 users, harry, leader , raja, qa-engineer and all should have review password. Configure user and apply password for them. Or Ensure that four users account exist. Secret name is super-secret Solution: Check Currenty logged in user oc whoamiGenerate htpasswd file and users htpasswd -c -B -b /home/student/htpasswd harry review - -c =&gt; Create a new file - -B ==&gt; encrypt the password - -b =&gt; will provide the user name &amp; password.Check all users cat /home/student/htpasswdCreate all users now htpasswd -b /home/student/htpasswd leader review htpasswd -b /home/student/htpasswd raja review htpasswd -b /home/student/htpasswd qa-engineer reviewVerify again if you want cat /home/student/htpasswdCreate a Secret for htpasswd file oc create secret generic super-secret --from-file htpasswd=/home/student/htpasswd -n openshift-configVerify newly created Secret oc get secret compreview-users -n openshift-configNow create the backup of existing oauth oc get oauth cluster -o yaml &gt; oauth.yamlCheck the console to login with UI oc whoami --show-console Make the changes as per given below vi oauth.yamlspec:identityProviders:- htpasswd:fileData:name: super-secretmappingMethod: claimname: ex280-providertype: HTPasswdReplace the existing oauth now oc replace -f oauth.yamlDuring the oauth updation check authentication pods watch oc get pods -n openshift-authenticationNow try to login with all users one by one oc login -u jarry If you are using REDHAT LAB then use below to create the lab for this question. lab start appsec-scc oc login -u admin -p redhatocp https://api.ocp4.example.com:6443Question 2. Manage Cluster Project and Permissions: Create 3 projects, front-end, back-end, and app-db harry user should have cluster administrator rights. leader user should be able create project but not administrator tasks. No other user should able to create project. raja user can only view the resources of front-end and back-end projects. qa-engineer user should have admin access to front-end project. kubaadmin is not present (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable) Solution: Create a 3 groups by `harry’ user. oc new-project front-endoc new-project back-endoc new-project app-dbCluster administrator for harry oc adm policy add-cluster-role-to-user cluster-admin harryor no other user should able to create project. oc describe clusterrolebindings self-provisioners You may observe that ClusterRoleBinding “self-provisioners” has some group added like “system:authenticated:oauth”">
+    <meta itemprop="wordCount" content="5660">
+    <title>OpenShift EX280 Practice with Solution :: My Doc</title>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/auto-complete/auto-complete.min.css?1757062749" rel="stylesheet">
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/auto-complete/auto-complete.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search-lunr.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search.js?1757062749" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../../searchindex.en.js?1757062749";
+    </script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.stemmer.support.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.multi.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.en.min.js?1757062749" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757062749" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757062749" rel="stylesheet"></noscript>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757062749" rel="stylesheet">
+    <link href="../../css/theme.css?1757062749" rel="stylesheet">
+    <link href="../../css/format-html.css?1757062749" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/docs\/ex280-01\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra.kumar\/mypersonal-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../docs/ex280-01/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#q1--manage-identity-providers">Q1.  Manage Identity Providers:</a></li>
+        <li><a href="#solution">Solution:</a></li>
+      </ul>
+    </li>
+    <li><a href="#if-you-are-using-redhat-lab-then-use-below-to-create-the-lab-for-this-question">If you are using REDHAT LAB then use below to create the lab for this question.</a>
+      <ul>
+        <li><a href="#question-2-manage-cluster-project-and-permissions">Question 2. Manage Cluster Project and Permissions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#solution-1">Solution:</a>
+      <ul>
+        <li><a href="#create-a-3-groups-by-harry-user">Create a 3 groups by `harry&rsquo; user.</a></li>
+        <li><a href="#cluster-administrator-for-harry">Cluster administrator for harry</a></li>
+        <li><a href="#or-no-other-user-should-able-to-create-project">or no other user should able to create project.</a></li>
+        <li><a href="#lets-remove-this-group-from-this-clusterrole">Let&rsquo;s remove this group from this ClusterRole.</a></li>
+        <li><a href="#leader-user-should-be-able-create-project-but-not-administrator-tasks"><code>leader</code> user should be able create project but not administrator tasks</a></li>
+        <li><a href="#raja-user-can-only-view-the-resources-of-front-end-and-back-end-projects"><code>raja</code> user can only <code>view</code> the resources of <code>front-end</code> and <code>back-end</code> projects.</a></li>
+        <li><a href="#qa-engineer-user-should-have-admin-access-to--front-end-project"><code>qa-engineer</code> user should have <code>admin</code> access to  <code>front-end</code> project.</a></li>
+      </ul>
+    </li>
+    <li><a href="#q3--create-project-and-assign-role-for-user">Q3.  Create project and assign Role For user</a></li>
+    <li><a href="#solution-2">Solution</a>
+      <ul>
+        <li><a href="#login-with-harry-user-please-bear-in-my-mind-that-now-admin-user-is-harry">Login with <code>harry</code> user. Please bear in my mind that now, admin user is <code>harry</code>.</a></li>
+        <li><a href="#the-harry-user-will-create-3-groups-leaders-developers-and-qa">The <code>harry</code> user will create 3 groups, <code>leaders</code>, <code>developers</code> and <code>qa</code>.</a></li>
+      </ul>
+    </li>
+    <li><a href="#post-checks">Post checks.</a>
+      <ul>
+        <li><a href="#assign-the-qa-engineer-user-to-the-qa-group">Assign the <code>qa-engineer</code> user to the <code>qa</code> group.</a></li>
+        <li><a href="#oc-adm-groups-add-users-group_name-username"><code>oc adm groups add-users group_name username</code></a></li>
+        <li><a href="#assign-the-leader-user-to-the-leaders-group">Assign the <code>leader</code> user to the <code>leaders</code> group.</a></li>
+        <li><a href="#assign-the-raja-user-to-the-developers-group">Assign the <code>raja</code> user to the <code>developers</code> group.</a></li>
+        <li><a href="#leader-group-members-are-able-to-edit-the-group-back-end-and-app-db">leader group members are able to <code>edit</code> the group <code>back-end</code> and <code>app-db</code></a></li>
+        <li><a href="#qa-group-members-are-able-to-view-front-end-group"><code>qa</code> group members are able to view front-end group.</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab">Prepare the lab.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#create-secure-route--with-below-information">Create secure Route  with below information</a></li>
+        <li><a href="#solution-3">Solution:</a></li>
+        <li><a href="#go-to-the-give-project-quart">Go to the give project <code>quart</code></a></li>
+        <li><a href="#check-the-website">Check the website.</a></li>
+      </ul>
+    </li>
+    <li><a href="#check-route">Check route</a>
+      <ul>
+        <li><a href="#delete-this-route-so-that-we-will-create-a-new-one">Delete this route, so that we will create a new one.</a></li>
+        <li><a href="#you-can-use-the-script">You can use the script</a></li>
+      </ul>
+    </li>
+    <li><a href="#or-you-can-generate-manually">Or you can generate manually.</a>
+      <ul>
+        <li><a href="#1-generate-a-private-key">1. Generate a Private Key:</a></li>
+        <li><a href="#2-generate-the-csr-file">2. Generate the CSR file:</a></li>
+        <li><a href="#3-generate-the-certificate">3. Generate the Certificate.</a></li>
+        <li><a href="#now-we-have-to-delete-the-existing-route-and-created-the-cretificate-and-keys-from-the-script--manual">Now, we have to delete the existing route and created the cretificate and keys from the script / manual.</a></li>
+        <li><a href="#we-need-to-create-the-route-edge">We need to create the route edge.</a></li>
+        <li><a href="#post-check">Post check</a></li>
+        <li><a href="#open-the-browser">Open the browser</a></li>
+        <li><a href="#how-to-delete-the-lab">How to delete the lab.</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-1">Prepare the lab for this question 1?</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#pre-check-you-must-observe-that-pod-is-in-the-pending-state">Pre-Check, you must observe that pod is in the pending state.</a></li>
+        <li><a href="#identify-the-nodes-on-which-having-issue">Identify the nodes on which having issue.</a></li>
+        <li><a href="#check-the-events">Check the events.</a></li>
+        <li><a href="#if-you-observe-the-untolerated-taint-errror-message-it-means-that-taint-is-applied-on-nodes-and-you-have-to-add-the-toleration-on-pod-or-remove-the-taint-from-the-node">If you observe the <code>untolerated taint</code> errror message, it means that taint is applied on nodes and you have to add the toleration on pod or remove the taint from the node.</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-remove-the-taint-from-nodes-please-note-that-if-you-have-multiple-nodes-then-you-have-to-remove-the-taint-from-all-the-workernodes">How to remove the taint from nodes? Please note that, if you have multiple nodes then you have to remove the taint from all the workernodes.</a>
+      <ul>
+        <li><a href="#post-check-1">Post check.</a></li>
+        <li><a href="#check-the-service-is-created-or-not-">Check the service is created or not ?</a></li>
+      </ul>
+    </li>
+    <li><a href="#if-it-is-not-created-then-create-a-new-one">If it is not created then create a new one.</a>
+      <ul>
+        <li><a href="#how-to-check-">How to check ?</a></li>
+        <li><a href="#open-the-webiste-either-cli-or-webportal">Open the webiste. Either CLI or webportal.</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-2">Prepare the lab for this question 2?</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-4">Solution</a></li>
+        <li><a href="#check-the-resources">Check the resources.</a></li>
+        <li><a href="#you-may-observe-that-pods-is-running-so-check-the-logs-and-event">You may observe that pods is running. So, check the logs and event</a></li>
+        <li><a href="#you-may-not-observe-any-thing-so-lets-open-the-url">You may not observe any thing. So let&rsquo;s open the URL</a></li>
+        <li><a href="#for-my-lab-it-is--webserver-app2-chapter2appsocp4examplecom">For my lab, it is : webserver-app2-chapter2.apps.ocp4.example.com</a></li>
+        <li><a href="#it-should-not-work-it-means-that-application-inside-the-pod-is-working-fine-but-we-are-not-able-to-reach-to-pod">It should not work. It means that application inside the pod is working fine but we are not able to reach to pod.</a></li>
+        <li><a href="#check-service">Check service.</a></li>
+        <li><a href="#one-can-notice-that-endpoints-are-missing-you-need-to-update-the-label-on-service-thus-check-the-deployments-yaml-file-and-look-for-templatemetadatalabel">One can notice that endpoints are missing. You need to update the label on service. Thus, check the Deployment&rsquo;s yaml file and look for <code>template.metadata.label</code></a></li>
+        <li><a href="#deployment-is-working-so-we-will-not-going-to-change-the-label-of-deployment-and-service-is-not-working-so-we-will-modify-the-service-label">Deployment is working so we will not going to change the label of Deployment and service is not working, so we will modify the service label.</a></li>
+        <li><a href="#for-your-references">For your references.</a></li>
+        <li><a href="#or-you-can-use-the-yq-command-to-verify-the-labels">Or you can use the &ldquo;yq&rdquo; command, to verify the labels</a></li>
+        <li><a href="#see-the-reference-image">See the reference image.</a></li>
+        <li><a href="#check-the-service-again">check the service again.</a></li>
+        <li><a href="#you-may-not-observe-any-thing-so-lets-open-the-url-1">You may not observe any thing. So let&rsquo;s open the URL</a></li>
+        <li><a href="#for-my-lab-it-is--webserver-app2-chapter2appsocp4examplecom-1">For my lab, it is : webserver-app2-chapter2.apps.ocp4.example.com</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-3">Prepare the lab for this question 3?</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-5">Solution</a></li>
+        <li><a href="#check-the-resources-1">Check the resources.</a></li>
+      </ul>
+    </li>
+    <li><a href="#got-to-the-project">Got to the project</a>
+      <ul>
+        <li><a href="#check-the-logs-of-pod">Check the logs of pod.</a></li>
+      </ul>
+    </li>
+    <li><a href="#check-the-events-1">Check the events.</a>
+      <ul>
+        <li><a href="#from-the-above-output-it-is-clear-that-we-have-issue-due-to-to-nodeselector">From the above output, it is clear that, we have issue due to to <code>nodeSelector</code>.</a></li>
+        <li><a href="#check-the-nodeselector-value-in-the-deployment">Check the nodeSelector value in the deployment</a></li>
+        <li><a href="#check-the-label-on-nodes-please-note-that-i-have-1-node-so-i-am-checking-label-on-1-node-only-if--you-have-multiple-then-you-need-to-check-the-label-on-all-nodes">Check the label on nodes. Please note that I have 1 node, so I am checking label on 1 node only. If  you have multiple, then you need to check the label on all nodes.</a></li>
+        <li><a href="#please-note-that-i-am-adding-label-on-1-node-only-if--you-have-multiple-nodes-then-you-need-to-add-the-label-on-all-nodes">Please note that, I am adding label on 1 node only. If  you have multiple nodes, then you need to add the label on all nodes.</a></li>
+        <li><a href="#check-the-label-again-on-node">Check the label again on node.</a></li>
+        <li><a href="#post-checks-1">Post checks!!</a></li>
+      </ul>
+    </li>
+    <li><a href="#check-the-route">Check the route.</a>
+      <ul>
+        <li><a href="#copy-the-url-and-paste-into-the-webbrowser">Copy the URL and paste into the webbrowser.</a></li>
+        <li><a href="#below-are-for-your-references">Below are for your references.</a></li>
+        <li><a href="#prepare-for-question-4">Prepare for Question 4.</a></li>
+        <li><a href="#do-it-by-yourself">Do it by yourself.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prepare-the-lab-for-question-5">Prepare the lab for question 5.</a></li>
+      </ul>
+    </li>
+    <li><a href="#solution-6">Solution.</a></li>
+    <li><a href="#go-to-the-project-first">Go to the project first.</a></li>
+    <li><a href="#you-observe-pod-is-in-pending-state">You observe pod is in pending state.</a></li>
+    <li><a href="#check-the-events-2">Check the events.</a></li>
+    <li><a href="#from-the-output-you-get-to-know-that-there-is-some-issue-with-cpu-or-memory-both-are-part-of-resources-remember-this-keyword">From the output, you get to know that there is some issue with CPU or Memory. Both are part of <code>resources</code>. Remember this keyword.</a>
+      <ul>
+        <li><a href="#check-the-deployment">Check the deployment.</a></li>
+        <li><a href="#edite-the-deployment-and-modify-the-memory-to-300mi">Edite the Deployment and modify the memory to 300Mi</a></li>
+        <li><a href="#execute-the-below-command-again">Execute the below command again.</a></li>
+        <li><a href="#check-the-pods">Check the pods.</a></li>
+        <li><a href="#expose-the-service">Expose the service.</a></li>
+        <li><a href="#check-the-route-1">Check the route.</a></li>
+        <li><a href="#finally-post-checks">Finally, Post checks&hellip;..</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-clear-the-lab">How to clear the Lab?</a></li>
+    <li><a href="#prepare-the-lab-for-this-question">Prepare the lab for this question.</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#create-a-service-account-called-ex280-sa-in-a-alpha-project-this-project-is-already-created-for-you">Create a Service Account called <code>ex280-sa</code> in a <code>alpha</code> project. This project is already created for you.</a></li>
+    <li><a href="#solution-7">Solution:</a>
+      <ul>
+        <li><a href="#create-a-service-account-called-ex280-sa-in-a-alpha-project">Create a Service Account called ex280-sa in a alpha project.</a></li>
+        <li><a href="#oc-adm-policy-add-scc-to-user-scc_name--systemserviceaccountserviceaccount_namespaceserviceaccount_name">oc adm policy add-scc-to-user &lt;scc_name&gt;  system:serviceaccount:&lt;serviceaccount_namespace&gt;:&lt;serviceaccount_name&gt;</a></li>
+        <li><a href="#if-you-are-currently-in-the-project-to-which-the-service-account-belongs-you-can-use-the--z-flag-and-just-specify-the-serviceaccount_name">If you are currently in the project to which the service account belongs, you can use the -z flag and just specify the &lt;serviceaccount_name&gt;.</a></li>
+        <li><a href="#security-context-constraints-sccs">Security Context Constraints (SCCs)</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#deploy-application-in-the-project-alpha">Deploy application in the project <code>alpha</code>:</a>
+      <ul>
+        <li><a href="#solution-8">Solution</a></li>
+        <li><a href="#go-to-the-project-first-1">Go to the project first.</a></li>
+        <li><a href="#check-the-application">Check the application.</a></li>
+        <li><a href="#check-the-pod-status">Check the Pod status.</a></li>
+        <li><a href="#due-to-the-permission-issue-our-application-is-not-running-it-means-you-need-to-set-the-serviceaccount-so-that-container-can-run-with-any-user">Due to the permission issue, our application is not running. It means you need to set the serviceaccount so that container can run with any user.</a></li>
+        <li><a href="#please-bear-in-mind-that-you-need-to-check-if-deployment-or-dc-is-runing">Please bear in mind that, you need to check if deployment or dc is runing.</a></li>
+        <li><a href="#how-to-do-post-check-">How to do post check ?</a></li>
+        <li><a href="#you-must-obseve-output-like-below">You must obseve output like below:</a></li>
+        <li><a href="#expose-the-service-1">Expose the service</a></li>
+        <li><a href="#post-check-2">Post check</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-4">Prepare the lab for this question.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-9">Solution</a></li>
+        <li><a href="#go-to-the-project-first-2">Go to the project first.</a></li>
+        <li><a href="#create-a-generic-secret-with-name-ex280-secret-with-option---from-literalmysql_passwordredhat123">Create a generic secret with name <code>ex280-secret</code> with option <code>--from-literal=MYSQL_PASSWORD=redhat123</code></a></li>
+        <li><a href="#once-secret-created-you-can-verify-it">Once secret created, you can verify it.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-10">Solution:</a></li>
+        <li><a href="#go-to-the-project-first-3">Go to the project first.</a></li>
+        <li><a href="#due-to-env-variable-the-application-is-not-running">Due to env variable the application is not running.</a></li>
+        <li><a href="#verify-that-the-subjective-pod-is-a-part-of-deployment-or-statefulset-or-deploymentconfig-dc-if-it-is-belongs-to-deploymentconfig-then-run">Verify that the subjective pod is a part of Deployment or StatefulSet or DeploymentConfig (dc). If it is belongs to deploymentConfig then run</a></li>
+        <li><a href="#if-it-is-deployment-then-run-the-below-commmand">If it is deployment, then run the below commmand.</a></li>
+        <li><a href="#check-the-logs-or-events">check the logs or events.</a></li>
+        <li><a href="#once-you-set-the-environment-variable-and-after-that-application-is-not-working-than-you-can-see-the-logs-and-events-for-further-reasons-may-be-on-worker-node-taint-is-applied-if-it-is-than-remove-the-taint-from-worker-node-only">Once you set the environment variable and after that application is not working than you can see the logs and events for further reasons. May be on worker node taint is applied. if it is than remove the taint from worker node only.</a></li>
+        <li><a href="#if-this-is-an-issue-with-taint-then-go-to-this-page">If this is an issue with taint then, go to this page</a></li>
+      </ul>
+    </li>
+    <li><a href="#note">Note:</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#solution-11">Solution:</a>
+      <ul>
+        <li><a href="#createa--project-first">Createa  project first.</a></li>
+        <li><a href="#check-the-quota">Check the quota.</a></li>
+      </ul>
+    </li>
+    <li><a href="#not-sure-the-command-">Not sure the command ?</a>
+      <ul>
+        <li><a href="#now-create-the-quota">Now, create the quota.</a></li>
+        <li><a href="#post-check-for-quota">Post Check for quota.</a></li>
+        <li><a href="#question-2---create-a-quota-with-below-details">Question 2:   Create a quota with below details.</a></li>
+        <li><a href="#solution-">Solution :</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-12">Solution.</a></li>
+        <li><a href="#in-this-question-we-need-to-set-the-limit-range-at-pod-and-container-level">In this question, we need to set the limit range at pod and container level.</a></li>
+        <li><a href="#set-the-pod-memory-limit-between-5mi-and-300mi">Set the <code>pod memory limit</code> between <code>5Mi and 300Mi</code>.</a></li>
+        <li><a href="#set-the-container-memory-limit-between-5mi-and-300mi-and-container-default-memory-request-is-100mi">Set the <code>container memory limit</code> between <code>5Mi and 300Mi</code> and container <code>default memory request</code> is <code>100Mi</code></a></li>
+        <li><a href="#create-a-file">Create a file.</a></li>
+        <li><a href="#create-the-limitrange">Create the limitRange.</a></li>
+        <li><a href="#post-checks-2">Post Checks.</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-5">Prepare the lab for this question.</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#question-scale-the-single-pod-replicas-to-5-under-the-project-tiger-and-all-pods-should-run">Question: Scale the single-pod replicas to <code>5</code> under the project <code>tiger</code> and all pods should run.</a>
+      <ul>
+        <li><a href="#solution-13">Solution:</a></li>
+        <li><a href="#go-to-the-project-first-4">Go to the project, first.</a></li>
+        <li><a href="#lets-check-all-the-resources-in-this-project-tiger-you-must-see-one-deployment">Let&rsquo;s check all the resources in this project <code>tiger</code>. You must see one deployment.</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-6">Prepare the lab for this question.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-14">Solution:</a></li>
+      </ul>
+    </li>
+    <li><a href="#firt-go-to-project">Firt go to project.</a>
+      <ul>
+        <li><a href="#check-the-resources-2">Check the resources</a></li>
+        <li><a href="#task-1-minimum-replicas--2--maximum-replicas--5-and-cpu-percentage--50">Task 1. Minimum replicas = 2 , Maximum replicas = 5 and cpu percentage = 50%</a></li>
+        <li><a href="#post-check-3">Post check</a></li>
+        <li><a href="#task-2-default-request-for-containers-memory-should-100mi-and-cpu-50m">Task 2: Default request for containers memory should 100Mi and CPU 50m</a></li>
+        <li><a href="#we-can-directly-edit-the-deployment-oc-edit-deploymenthello-or-we-can-use-oc-set-resources-command-is-more-easy">We can directly <code>edit</code> the deployment &ldquo;oc edit deployment/hello&rdquo;. Or we can use &ldquo;oc set resources&rdquo;. Command is more easy.</a></li>
+        <li><a href="#syntax-would-be-oc-set-resources-deploymenthello---requests-cpu200mmemory256mi---limits-cpu500mmemory512mi">Syntax would be &ldquo;oc set resources deployment/hello <code>--requests</code> cpu=200m,memory=256Mi <code>--limits</code> cpu=500m,memory=512Mi</a></li>
+        <li><a href="#or-if-you-want-to-edit-then-make-the-entry-like-this--need-to-check">Or if you want to edit then make the entry like this. ### Need to check.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#solution-15">Solution:</a>
+      <ul>
+        <li><a href="#first-create-a-project-mass">First, create a project <code>mass</code></a></li>
+        <li><a href="#use-the-helm-repo-list-command-to-list-the-repositories-that-are-configured-for-the-student-user">Use the helm repo list command to list the repositories that are configured for the student user.</a></li>
+        <li><a href="#first-add-the-repository-with-one-fancy-name-do280-repo">First, add the repository with one fancy name &ldquo;do280-repo&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#lets-check-the-versions-of-this-repo">Let&rsquo;s check the versions of this repo.</a>
+      <ul>
+        <li><a href="#see-the-below-output-just-as-an-references">See the below output, just as an references.</a></li>
+        <li><a href="#the-etherpad-chart-has-the-007-and-006-versions-this-chart-is-a-copy-of-a-chart-from-the--repository">The <code>etherpad</code> chart has the 0.0.7 and 0.0.6 versions. This chart is a copy of a chart from the <a href="https://github.com/redhat-cop/helm-charts">https://github.com/redhat-cop/helm-charts</a> repository.</a></li>
+      </ul>
+    </li>
+    <li><a href="#now-we-can-install-the-application-etherpad-with-version-please-note-that-if-in-the-exam-it-is-not-asked-for-any-version-then-you-can-use-the-latest-one">Now, we can install the application &ldquo;etherpad&rdquo; with version. Please note that, if in the exam it is not asked for any version then you can use the latest one.</a>
+      <ul>
+        <li><a href="#for-more-details-follow-the-lab-">For more details, follow the lab : <a href="https://rol.redhat.com/rol/app/courses/do280-4.14/pages/ch02s04">https://rol.redhat.com/rol/app/courses/do280-4.14/pages/ch02s04</a></a></li>
+        <li><a href="#practice-purpose-only">Practice Purpose only&hellip;..</a></li>
+        <li><a href="#create-a-cronjob-test-cron1-in-the-tiger-project">Create a cronjob <code>test-cron1</code> in the `tiger&rsquo; project</a></li>
+      </ul>
+    </li>
+    <li><a href="#qeustion-with-solution">Qeustion with Solution.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#lets-use-the-help-command">Let&rsquo;s use the help command.</a></li>
+        <li><a href="#cat-etccrontab-fron-this-file-we-get-to-know-the-sytax-of-05-04-2--">cat /etc/crontab, fron this file, we get to know the sytax of &ldquo;05 04 */2 * *&rdquo;</a></li>
+        <li><a href="#use---dry-runserver-instead-of---dry-runclient-you-will-get-the-syntax-of-successful-job-history-limit">Use <code>--dry-run=server</code> instead of <code>--dry-run=client</code>. You will get the syntax of &ldquo;Successful job history limit&rdquo;</a></li>
+        <li><a href="#explanation-of-the-command">Explanation of the Command:</a></li>
+        <li><a href="#lets-open-the-file-and-update-the-value-successful-job-history-limit--14">Let&rsquo;s open the file and update the value &ldquo;Successful job history limit = 14&rdquo;</a></li>
+        <li><a href="#its-time-to-create-the-cronjob-from-our-yaml-file">Its time to create the cronjob from our yaml file.</a></li>
+        <li><a href="#use-service-account-and-service-account-name-is"><strong>Use service account and service account name is <code>ex280-sa</code>.</strong></a></li>
+        <li><a href="#give-the-privileges-to-service-account-ex280-sa">Give the privileges to service account &ldquo;ex280-sa&rdquo;.</a></li>
+        <li><a href="#pre-check-before-adding-the-service-account-in-the-cronjob">Pre-check before adding the Service Account in the cronjob.</a></li>
+        <li><a href="#add-the-serviceaccount-ex280-sa">Add the serviceAccount &ldquo;ex280-sa&rdquo;</a></li>
+        <li><a href="#post-check-4">Post check</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-7">Prepare the lab for this question.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-16">Solution:</a></li>
+        <li><a href="#there-are-2-projects-running-network-policy--different-namespace">There are 2 projects running, <code>network-policy</code> &amp; <code>different-namespace</code></a></li>
+        <li><a href="#we-will-create-the-network-policy-at-the-end-first-lets-add-the-desired-labels">We will create the network policy at the end, first let&rsquo;s add the desired labels.</a></li>
+        <li><a href="#policy-uses-labels-to-specify-namespace-with-network-different-namespace">Policy uses labels to specify namespace with <code>network: different-namespace</code></a></li>
+        <li><a href="#if-we-create-a-netpol-networkpolicy-in-the-network-policy-namespace-then-we-have-to-add-the-label-network-different-namespace-on-namespace-different-namespace">If we create a netpol (networkpolicy) in the &ldquo;network-policy&rdquo; namespace then we have to add the label &ldquo;network: different-namespace&rdquo; on namespace <code>different-namespace</code></a></li>
+        <li><a href="#uses-label-envproduction">Uses label env=production</a></li>
+        <li><a href="#modify-the-deployment-with-label-env-production">Modify the deployment with label &ldquo;env: production&rdquo;</a></li>
+        <li><a href="#create-a-network-policy-to-allow-traffic-to-the-hello-pod-in-the-network-policy-project-from-the-sample-app-pod-in-the-different-namespace-project-via-tcp-on-port-8080">Create a network policy to allow traffic to the hello pod in the network-policy project from the sample-app pod in the different-namespace project via TCP on port 8080.</a></li>
+        <li><a href="#it-would-be-easy-to-create-the-networkpolicy-from-web-portal">It would be easy to create the networkpolicy from web portal.</a></li>
+        <li><a href="#from-cli-first-go-to-network-pollicy-project-so-that-netpol-will-be-created-on-network-policy-namespace">From CLI, first go to <code>network-pollicy</code> project, so that <code>netpol</code> will be created on &ldquo;network-policy&rdquo; namespace.</a></li>
+      </ul>
+    </li>
+    <li><a href="#from-web-portal">From WEB Portal.</a>
+      <ul>
+        <li><a href="#copy-the-link-from-the-above-command-output-and-then-open-the-web-browser-and-past-the-link--administrator--networking-networkpolicies-">Copy the link from the above command output and then Open the web browser and past the link, &ndash;&gt; Administrator &ndash;&gt; Networking&ndash;&gt; NetworkPolicies &ndash;&gt;</a></li>
+        <li><a href="#post-checks-3">Post checks</a></li>
+      </ul>
+    </li>
+    <li><a href="#change-the-project">Change the project.</a>
+      <ul>
+        <li><a href="#if-it-work-then-congratulation">If it work then, congratulation</a></li>
+        <li><a href="#how-to-clear-the-lab-">How to clear the lab ?</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#open-the-web-console">Open the web console</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#question-create-an-project-template-with-limitrange-with-container">Question: Create an project template with limitrange with container</a></li>
+        <li><a href="#open-the-web-console-1">Open the web console</a></li>
+        <li><a href="#go-to-administrator---limitrange-then-copy-the-yaml-file-and-then-paste-in-one-file">Go to &ldquo;Administrator -&gt; LimitRange&rdquo;, then copy the yaml file and then paste in one file.</a></li>
+        <li><a href="#modify-the-values-as-per-the-question">Modify the values as per the question.</a></li>
+        <li><a href="#--minimum-memory-is-5mi-max-is-1gi-defaultrequest-254-mi-defaultlimit-is-512-mi-">- minimum memory is 5Mi, max is 1Gi. <code>defaultrequest</code> 254 Mi <code>defaultlimit</code> is 512 Mi .</a></li>
+        <li><a href="#copy-the-values-from-the-above-file-tmplimitrangeyaml-and-paste-it-on-file-tmpbootstrapyaml">Copy the values from the above file &ldquo;/tmp/limitrange.yaml&rdquo; and paste it on file &ldquo;/tmp/bootstrap.yaml&rdquo;.</a></li>
+        <li><a href="#create-the-bootstrap-template">Create the bootstrap template.</a></li>
+        <li><a href="#we-can-check-the-template">We can check the template.</a></li>
+        <li><a href="#you-must-see-like-this-output">You must see like this output.</a></li>
+        <li><a href="#--make-sure-this-template-available-as-default-request-new-project-template-for-users">- make sure this template available as default request <code>new-project</code> template for users.</a></li>
+        <li><a href="#you-must-see-like-this-output-1">You must see like this output.</a></li>
+        <li><a href="#check-the-pods-in-the-namespace-openshift-apiserver">Check the pods in the namespace &ldquo;openshift-apiserver&rdquo;.</a></li>
+        <li><a href="#once-the-new-pods-started-running-then-create-a-new-project-and-our-limitrange-should-be-there">Once the new pod/s started running then, create a new project and our limitrange should be there.</a></li>
+      </ul>
+    </li>
+    <li><a href="#prepare-the-lab-for-this-question-8">Prepare the lab for this question.</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-17">Solution</a></li>
+        <li><a href="#go-to-the-project-tuesday">Go to the project <code>tuesday</code></a></li>
+        <li><a href="#open-the-web-console-2">Open the web console.</a></li>
+        <li><a href="#select-the-project-follow-the-steps-in-the-below-print-screen">Select the project, follow the steps in the below print screen.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-18">Solution</a></li>
+        <li><a href="#execute-the-below-command-to-get-gather-all-the-system-details">Execute the below command to get gather all the system details.</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-get-the-cluster-id">How to get the cluster ID?</a>
+      <ul>
+        <li><a href="#--use-command-tar-cvaf">- Use command tar cvaf</a></li>
+        <li><a href="#create-a-tar-file-with-name-student101clusteridtargz">Create a tar file with name student101&lt;cluster.id&gt;.tar.gz</a></li>
+        <li><a href="#usrbinscript-student101clusteridtargz">/usr/bin/script student101&lt;cluster.id&gt;.tar.gz</a></li>
+        <li><a href="#now-send-the-report-to-redhat">Now, send the report to Redhat.</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#solution-19">Solution</a></li>
+        <li><a href="#open-the-console-gui">Open the Console GUI</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-to-remove-the-serviceaccount-from-security-context-constraint-scc-group--lab-mo-06">How to remove the serviceaccount from Security Context Constraint (SCC) group : Lab mo. 06</a>
+      <ul>
+        <li><a href="#syntax">Syntax</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../index.html"><span itemprop="name">My docs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../docs/index.html"><span itemprop="name">My Docs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">OpenShift EX280 Practice with Solution</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/ex280/index.html" title="OpenShift EX280 Practice  (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/docker/container03/index.html" title="Security (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable docs" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="openshift-ex280-practice-with-solution">OpenShift EX280 Practice with Solution</h1>
+
+<h3 id="q1--manage-identity-providers">Q1.  Manage Identity Providers:</h3>
+<ul>
+<li>configure the Oauth to use HTPasswd as the identity provider.</li>
+<li>Identity Provider name is <code>ex280-provider</code>.</li>
+<li>Create 4 users, <code>harry</code>, <code>leader</code> , <code>raja</code>, <code>qa-engineer</code> and all should have <code>review</code> password.</li>
+<li>Configure  user and apply password for them. Or Ensure that four users account exist.</li>
+<li>Secret name is  <code>super-secret</code></li>
+</ul>
+<h3 id="solution">Solution:</h3>
+<ul>
+<li>Check Currenty logged in user</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc whoami</span></span></code></pre></div>
+<ul>
+<li>Generate htpasswd file and users</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>htpasswd -c -B -b /home/student/htpasswd harry review
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- -c <span style="color:#f92672">=</span>&gt; Create a new file
+</span></span><span style="display:flex;"><span>- -B <span style="color:#f92672">==</span>&gt; encrypt the password
+</span></span><span style="display:flex;"><span>- -b <span style="color:#f92672">=</span>&gt; will provide the user name &amp; password.</span></span></code></pre></div>
+<ul>
+<li>Check all users</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /home/student/htpasswd</span></span></code></pre></div>
+<ul>
+<li>Create all users now</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>htpasswd -b /home/student/htpasswd leader review
+</span></span><span style="display:flex;"><span>htpasswd -b /home/student/htpasswd raja review
+</span></span><span style="display:flex;"><span>htpasswd -b /home/student/htpasswd  qa-engineer review</span></span></code></pre></div>
+<ul>
+<li>Verify again if you want</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat /home/student/htpasswd</span></span></code></pre></div>
+<ul>
+<li>Create a Secret for htpasswd file</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc create secret generic super-secret --from-file htpasswd<span style="color:#f92672">=</span>/home/student/htpasswd -n openshift-config</span></span></code></pre></div>
+<ul>
+<li>Verify newly created Secret</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc get secret compreview-users -n openshift-config</span></span></code></pre></div>
+<ul>
+<li>Now create the backup of existing oauth</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span> oc get oauth cluster  -o yaml &gt;  oauth.yaml</span></span></code></pre></div>
+<ul>
+<li>Check the console to login with UI</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc whoami --show-console </span></span></code></pre></div>
+<ul>
+<li>Make the changes as per given below</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>vi  oauth.yaml</span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>spec:
+  identityProviders:
+  - htpasswd:
+      fileData:
+        name: super-secret
+    mappingMethod: claim
+    name: ex280-provider
+    type: HTPasswd</code></pre></div>
+<ul>
+<li>Replace the existing oauth now</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc replace -f oauth.yaml</span></span></code></pre></div>
+<ul>
+<li>During the oauth updation check authentication pods</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>watch oc get pods -n openshift-authentication</span></span></code></pre></div>
+<ul>
+<li>Now try to login with all users one by one</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc login -u jarry </span></span></code></pre></div>
+<h2 id="if-you-are-using-redhat-lab-then-use-below-to-create-the-lab-for-this-question">If you are using REDHAT LAB then use below to create the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>lab start appsec-scc
+</span></span><span style="display:flex;"><span>oc login -u admin -p redhatocp https://api.ocp4.example.com:6443</span></span></code></pre></div>
+<h3 id="question-2-manage-cluster-project-and-permissions">Question 2. Manage Cluster Project and Permissions:</h3>
+<ul>
+<li>Create 3 projects, <code>front-end</code>, <code>back-end</code>, and <code>app-db</code></li>
+<li><code>harry</code> user should have cluster administrator rights.</li>
+<li><code>leader</code> user should be able create project but not administrator tasks.</li>
+<li>No other user should able to create project.</li>
+<li><code>raja</code> user can only <code>view</code> the resources of <code>front-end</code> and <code>back-end</code> projects.</li>
+<li><code>qa-engineer</code> user should have <code>admin</code> access to  <code>front-end</code> project.</li>
+<li><code>kubaadmin</code> is  not present  (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable)</li>
+</ul>
+<hr>
+<h2 id="solution-1">Solution:</h2>
+<h3 id="create-a-3-groups-by-harry-user">Create a 3 groups by `harry&rsquo; user.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc  new-project  front-end</span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc  new-project  back-end</span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc  new-project  app-db</span></span></code></pre></div>
+<h3 id="cluster-administrator-for-harry">Cluster administrator for harry</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc adm policy add-cluster-role-to-user cluster-admin harry</span></span></code></pre></div>
+<h3 id="or-no-other-user-should-able-to-create-project">or no other user should able to create project.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc describe clusterrolebindings self-provisioners </span></span></code></pre></div>
+<blockquote>
+<p>You may observe that ClusterRoleBinding &ldquo;self-provisioners&rdquo; has some group added like &ldquo;system:authenticated:oauth&rdquo;</p></blockquote>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>[<span style="color:#ae81ff">student@workstation compreview-review]$ oc get clusterrolebindings self-provisioners -o yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io/v1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRoleBinding</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">annotations</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">rbac.authorization.kubernetes.io/autoupdate</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">creationTimestamp</span>: <span style="color:#e6db74">&#34;2024-01-23T12:13:32Z&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">self-provisioners</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">resourceVersion</span>: <span style="color:#e6db74">&#34;9902&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">uid</span>: <span style="color:#ae81ff">c7d8554f-3cd8-40d2-be67-6455c21b03ca</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">roleRef</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">ClusterRole             </span> <span style="color:#75715e">### &gt;&gt;&gt; This is the CLusterRole</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">self-provisioner        </span> <span style="color:#75715e">### This is the ClusterRole Name.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">subjects</span>:
+</span></span><span style="display:flex;"><span>- <span style="color:#f92672">apiGroup</span>: <span style="color:#ae81ff">rbac.authorization.k8s.io</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">Group                          </span> <span style="color:#75715e">### Kind = Group, it means taht this Cluster-Role_Binding is for Group.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">system:authenticated:oauth     </span> <span style="color:#75715e">### Name of the Group is &#34;system:authenticated:oauth&#34;</span></span></span></code></pre></div>
+<h3 id="lets-remove-this-group-from-this-clusterrole">Let&rsquo;s remove this group from this ClusterRole.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc adm policy remove-cluster-role-from-group  self-provisioner system:authenticated:oauth</span></span></code></pre></div>
+<h3 id="leader-user-should-be-able-create-project-but-not-administrator-tasks"><code>leader</code> user should be able create project but not administrator tasks</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc adm policy add-cluster-role-to-user self-provisioners leader</span></span></code></pre></div>
+<h3 id="raja-user-can-only-view-the-resources-of-front-end-and-back-end-projects"><code>raja</code> user can only <code>view</code> the resources of <code>front-end</code> and <code>back-end</code> projects.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc adm policy add-cluster-role-to-user view raja -n front-end
+</span></span><span style="display:flex;"><span>oc adm policy add-cluster-role-to-user view raja -n back-end</span></span></code></pre></div>
+<h3 id="qa-engineer-user-should-have-admin-access-to--front-end-project"><code>qa-engineer</code> user should have <code>admin</code> access to  <code>front-end</code> project.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc policy add-role-to-user admin qa-engineer -n front-end</span></span></code></pre></div>
+<blockquote>
+<p>As of now, we haven&rsquo;t tried to login into the cluster, so these user are not created at cluster level.</p></blockquote>
+<ul>
+<li>Check all users exiting on cluster</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc get users </span></span></code></pre></div>
+<ul>
+<li>Login with user( If not done already)</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc login -u harry -p review</span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u leader -p review</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u raja -p review</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u qa-engineer -p review</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project  test</code></pre></div>
+<blockquote>
+<p><code>kubeadmin</code> user should not exist (remove kubeadmin user)  (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable)
+Now, its time to remove the kubeadmin but before that login with harry user.
+Firtly, we will login from our newly admin user <code>harry</code></p></blockquote>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc login -u harry -p review</span></span></code></pre></div>
+<ul>
+<li>Check kubeadmin user</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc  -n kube-system  get secret/kubeadmin</span></span></code></pre></div>
+<ul>
+<li>Delete kubeadm if another user has become cluster admin</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>oc  -n kube-system  delete secret/kubeadmin</span></span></code></pre></div>
+<h2 id="q3--create-project-and-assign-role-for-user">Q3.  Create project and assign Role For user</h2>
+<ul>
+<li>The <code>harry</code> user will create 3 groups, <code>leaders</code>, <code>developers</code> and <code>qa</code>.</li>
+<li>Add <code>leader</code> user in <code>leaders</code> group.</li>
+<li>Add <code>raja</code> user in <code>developers</code> group.</li>
+<li>Assign the <code>qa-engineer</code> user to the <code>qa</code> group.</li>
+<li>Give <code>edit</code> permission to <code>leaders</code> group members to <code>back-end</code> and <code>app-db</code> projects.</li>
+<li>Give <code>view</code> permission to <code>qa</code> group members to <code>front-end</code> project.</li>
+</ul>
+<hr>
+<h2 id="solution-2">Solution</h2>
+<h3 id="login-with-harry-user-please-bear-in-my-mind-that-now-admin-user-is-harry">Login with <code>harry</code> user. Please bear in my mind that now, admin user is <code>harry</code>.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u harry -p review</code></pre></div>
+<h3 id="the-harry-user-will-create-3-groups-leaders-developers-and-qa">The <code>harry</code> user will create 3 groups, <code>leaders</code>, <code>developers</code> and <code>qa</code>.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm groups new leaders</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm groups new developers</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm groups new qa</code></pre></div>
+<h2 id="post-checks">Post checks.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get groups</code></pre></div>
+<h3 id="assign-the-qa-engineer-user-to-the-qa-group">Assign the <code>qa-engineer</code> user to the <code>qa</code> group.</h3>
+<h3 id="oc-adm-groups-add-users-group_name-username"><code>oc adm groups add-users group_name username</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm groups add-users qa  qa-engineer</code></pre></div>
+<h3 id="assign-the-leader-user-to-the-leaders-group">Assign the <code>leader</code> user to the <code>leaders</code> group.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm groups add-users leaders  leader</code></pre></div>
+<h3 id="assign-the-raja-user-to-the-developers-group">Assign the <code>raja</code> user to the <code>developers</code> group.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm groups add-users developers  raja</code></pre></div>
+<h3 id="leader-group-members-are-able-to-edit-the-group-back-end-and-app-db">leader group members are able to <code>edit</code> the group <code>back-end</code> and <code>app-db</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy add-role-to-group edit leaders -n back-end</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy add-role-to-group edit leaders -n app-db</code></pre></div>
+<h3 id="qa-group-members-are-able-to-view-front-end-group"><code>qa</code> group members are able to view front-end group.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy add-role-to-group view qa -n front-end</code></pre></div>
+<h2 id="prepare-the-lab">Prepare the lab.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project quart
+oc new-app --name todo-http --image registry.ocp4.example.com:8443/redhattraining/todo-angular:v1.1
+oc expose service todo-http --hostname  server1.apps.ocp4.example.com</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>curl -o /tmp/Openssl-script.sh https://raw.githubusercontent.com/anishrana2001/Openshift/refs/heads/main/DO280/Openssl-script.sh
+mv  /tmp/Openssl-script.sh /tmp/script.sh
+chmod +x /tmp/script.sh
+sudo mv /tmp/script.sh /usr/bin/</code></pre></div>
+<h1 id="protect-external-traffic-with-tls">Protect External Traffic with TLS</h1>
+<h3 id="create-secure-route--with-below-information">Create secure Route  with below information</h3>
+<ul>
+<li>Create a secure route in <code>quart</code> project.</li>
+<li>End user traffic must decrypt at router level.</li>
+<li>Expose application <a href="https://anishrana2001.apps.ocp4.example.com" rel="external" target="_blank">https://anishrana2001.apps.ocp4.example.com</a></li>
+<li>Generate self sign certificate using given  subject</li>
+<li>&ldquo;/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=anishrana2001.apps.ocp4.example.com&rdquo;</li>
+<li>Note: Service already  created  in any given project you just have to expose  service  with https</li>
+<li>The application should produce the output.</li>
+<li>You can use the script to generate the certificate <code>sh script.sh</code></li>
+</ul>
+<hr>
+<h3 id="solution-3">Solution:</h3>
+<h3 id="go-to-the-give-project-quart">Go to the give project <code>quart</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project quart</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="check-the-website">Check the website.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>curl server1.apps.ocp4.example.com</code></pre></div>
+<h2 id="check-route">Check route</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<h3 id="delete-this-route-so-that-we-will-create-a-new-one">Delete this route, so that we will create a new one.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc delete routes.route.openshift.io todo-http</code></pre></div>
+<h3 id="you-can-use-the-script">You can use the script</h3>
+<p><a href="#R-image-74b3e29055bfd1ef26ad63d7e5612704" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/092e8ce5-fd32-42c0-a9e6-c2a894910843" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-74b3e29055bfd1ef26ad63d7e5612704"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/092e8ce5-fd32-42c0-a9e6-c2a894910843"></a></p>
+<h2 id="or-you-can-generate-manually">Or you can generate manually.</h2>
+<h3 id="1-generate-a-private-key">1. Generate a Private Key:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>openssl genrsa -out server.key 4096</code></pre></div>
+<ul>
+<li>openssl genrsa: This command generates an RSA private key.</li>
+<li>-out server.key: Specifies the output file name for the key.</li>
+<li>4096: Sets the key size to 4096 bits (a common and secure size)</li>
+</ul>
+<h3 id="2-generate-the-csr-file">2. Generate the CSR file:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>openssl req -new -key server.key -out server.csr -subj &#34;/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=anishrana2001.apps.ocp4.example.com&#34;</code></pre></div>
+<ul>
+<li>-req: Indicates that you&rsquo;re using a CSR.</li>
+<li>-key server.key: Specifies the private key file to use.</li>
+<li>-out server.crt: Specifies the output file name for the self-signed certificate.</li>
+<li>Subject is given in the question.    ==&gt; &ldquo;/C=US/ST=North Carolina/L=Raleigh/O=Red Hat/CN=anishrana2001.apps.ocp4.example.com&rdquo;</li>
+<li>C: Country Name                       ==&gt; US</li>
+<li>ST: State or Province Name            ==&gt; North Carolina</li>
+<li>L: Locality Name (City)               ==&gt; Raleigh</li>
+<li>O: Organization Name                  ==&gt; Red Hat</li>
+<li>CN: Common Name (FQDN of your server) ==&gt; anishrana2001.apps.ocp4.example.com</li>
+</ul>
+<h3 id="3-generate-the-certificate">3. Generate the Certificate.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt</code></pre></div>
+<ul>
+<li>openssl x509: This command generates the certificate.</li>
+<li>-days 365: Specifies the validity period of the certificate in days (365 in this example).</li>
+<li>-in Your CSR file.</li>
+<li>-signkey Signature key</li>
+<li>-out your Certificate file.</li>
+</ul>
+<h3 id="now-we-have-to-delete-the-existing-route-and-created-the-cretificate-and-keys-from-the-script--manual">Now, we have to delete the existing route and created the cretificate and keys from the script / manual.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="we-need-to-create-the-route-edge">We need to create the route edge.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create route edge --service todo-http --key server.key --cert server.crt --hostname anishrana2001.apps.ocp4.example.com</code></pre></div>
+<h3 id="post-check">Post check</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<h3 id="open-the-browser">Open the browser</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>https://anishrana2001.apps.ocp4.example.com</code></pre></div>
+<h3 id="how-to-delete-the-lab">How to delete the lab.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc delete route todo-http
+oc delete service todo-http
+oc delete deployment todo-http
+rm -rf server.key server.csr server.crt
+oc delete project quart
+sudo rm -rf /usr/bin/script.sh</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question-1">Prepare the lab for this question 1?</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm taint node $(oc get nodes | awk &#39;{print $1}&#39; | grep -v NAME) datacenter=delhi:NoSchedule
+oc new-project chapter1
+oc new-app --name webserver-app1 --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0 </code></pre></div>
+<h1 id="question-1-an-application-is-running-on-the-chapter1-project-there-is-one-pod-running-and-your-task-is-it-must-generate-the-output">Question 1. An application is running on the <code>chapter1</code> project. There is one pod running and your task is it must generate the output.</h1>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project chapter1</code></pre></div>
+<h3 id="pre-check-you-must-observe-that-pod-is-in-the-pending-state">Pre-Check, you must observe that pod is in the pending state.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="identify-the-nodes-on-which-having-issue">Identify the nodes on which having issue.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get pods -o wide</code></pre></div>
+<h3 id="check-the-events">Check the events.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc event</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>3m14s                 Normal    ScalingReplicaSet   Deployment/webserver-app1              Scaled up replica set webserver-app1-c8995748c to 1
+3m14s                 Normal    ScalingReplicaSet   Deployment/webserver-app1              Scaled up replica set webserver-app1-6bc4fdd7b6 to 1
+3m14s                 Normal    SuccessfulCreate    ReplicaSet/webserver-app1-c8995748c    Created pod: webserver-app1-c8995748c-4cg5l
+3m14s                 Warning   FailedScheduling    Pod/webserver-app1-c8995748c-4cg5l     0/1 nodes are available: 1 node(s) had **`untolerated taint`** {datacenter: delhi}. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling..
+3m13s                 Warning   FailedCreate        ReplicaSet/webserver-app1-6bc4fdd7b6   Error creating: Pod &#34;webserver-app1-6bc4fdd7b6-6kzn4&#34; is invalid: spec.containers[0].image: Invalid value: &#34; &#34;: must not have leading or trailing whitespace
+30s (x7 over 3m12s)   Warning   FailedCreate        ReplicaSet/webserver-app1-6bc4fdd7b6   (combined from similar events): Error creating: Pod &#34;webserver-app1-6bc4fdd7b6-wvwzj&#34; is invalid: spec.containers[0].image: Invalid value: &#34; &#34;: must not have leading or trailing whitespace</code></pre></div>
+<h3 id="if-you-observe-the-untolerated-taint-errror-message-it-means-that-taint-is-applied-on-nodes-and-you-have-to-add-the-toleration-on-pod-or-remove-the-taint-from-the-node">If you observe the <code>untolerated taint</code> errror message, it means that taint is applied on nodes and you have to add the toleration on pod or remove the taint from the node.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc describe node master01 | grep -i taint</code></pre></div>
+<h2 id="how-to-remove-the-taint-from-nodes-please-note-that-if-you-have-multiple-nodes-then-you-have-to-remove-the-taint-from-all-the-workernodes">How to remove the taint from nodes? Please note that, if you have multiple nodes then you have to remove the taint from all the workernodes.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm taint node master01 datacenter-</code></pre></div>
+<h3 id="post-check-1">Post check.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get pods</code></pre></div>
+<h4 id="see-the-below-output-only-for-your-references">See the below output only for your references.</h4>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>[student@workstation ~]$ oc get pods
+NAME                             READY   STATUS    RESTARTS   AGE
+webserver-app1-c8995748c-4cg5l   0/1     Pending   0          6m44s
+
+[student@workstation ~]$ oc describe node master01 | grep -i taint
+Taints:             datacenter=delhi:NoSchedule
+
+[student@workstation ~]$ oc adm taint node master01 datacenter-
+node/master01 untainted
+
+[student@workstation ~]$ oc describe node master01 | grep -i taint
+Taints:             &lt;none&gt;
+
+[student@workstation ~]$ oc get pods
+NAME                             READY   STATUS    RESTARTS   AGE
+webserver-app1-c8995748c-4cg5l   1/1     Running   0          9m48s
+[student@workstation ~]$</code></pre></div>
+<h3 id="check-the-service-is-created-or-not-">Check the service is created or not ?</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get service</code></pre></div>
+<h2 id="if-it-is-not-created-then-create-a-new-one">If it is not created then create a new one.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc expose service webserver-app1</code></pre></div>
+<h3 id="how-to-check-">How to check ?</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get svc,route</code></pre></div>
+<h3 id="open-the-webiste-either-cli-or-webportal">Open the webiste. Either CLI or webportal.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>curl ebserver-app1-chapter1.apps.ocp4.example.com  | head</code></pre></div>
+<hr>
+<h2 id="prepare-the-lab-for-this-question-2">Prepare the lab for this question 2?</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project chapter2
+oc new-app --name webserver-app2 --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0
+oc expose service webserver-app2 
+oc patch service webserver-app2 -n chapter2 --type=json -p=&#39;[{&#34;op&#34;: &#34;replace&#34;, &#34;path&#34;: &#34;/spec/selector/deployment&#34;, &#34;value&#34;: &#34;anishrana2001&#34;}]&#39;</code></pre></div>
+<h1 id="question-2-an-application-is-running-on-the-chapter2-project-there-is-one-pod-running-and-your-task-is-it-must-generate-the-output">Question 2. An application is running on the <code>chapter2</code> project. There is one pod running and your task is it must generate the output.</h1>
+<hr>
+<h3 id="solution-4">Solution</h3>
+<h3 id="check-the-resources">Check the resources.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="you-may-observe-that-pods-is-running-so-check-the-logs-and-event">You may observe that pods is running. So, check the logs and event</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc logs pods/pod_name</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc events</code></pre></div>
+<h3 id="you-may-not-observe-any-thing-so-lets-open-the-url">You may not observe any thing. So let&rsquo;s open the URL</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<h3 id="for-my-lab-it-is--webserver-app2-chapter2appsocp4examplecom">For my lab, it is : webserver-app2-chapter2.apps.ocp4.example.com</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>http://webserver-app2-chapter2.apps.ocp4.example.com</code></pre></div>
+<h3 id="it-should-not-work-it-means-that-application-inside-the-pod-is-working-fine-but-we-are-not-able-to-reach-to-pod">It should not work. It means that application inside the pod is working fine but we are not able to reach to pod.</h3>
+<h3 id="check-service">Check service.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc describe service webserver-app2</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>[student@workstation ~]$ oc describe service webserver-app2 
+Name:              webserver-app2
+Namespace:         chapter2
+Labels:            app=webserver-app2
+                   app.kubernetes.io/component=webserver-app2
+                   app.kubernetes.io/instance=webserver-app2
+Annotations:       openshift.io/generated-by: OpenShiftNewApp
+Selector:          deployment=anishrana2001      ### Check the label
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                172.30.127.45
+IPs:               172.30.127.45
+Port:              8080-tcp  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         &lt;none&gt;      ### End points are empty.
+Session Affinity:  None
+Events:            &lt;none&gt;</code></pre></div>
+<h3 id="one-can-notice-that-endpoints-are-missing-you-need-to-update-the-label-on-service-thus-check-the-deployments-yaml-file-and-look-for-templatemetadatalabel">One can notice that endpoints are missing. You need to update the label on service. Thus, check the Deployment&rsquo;s yaml file and look for <code>template.metadata.label</code></h3>
+<h3 id="deployment-is-working-so-we-will-not-going-to-change-the-label-of-deployment-and-service-is-not-working-so-we-will-modify-the-service-label">Deployment is working so we will not going to change the label of Deployment and service is not working, so we will modify the service label.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get deployment/deployment_name -o yaml </code></pre></div>
+<h3 id="for-your-references">For your references.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>  template:
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        deployment: webserver-app2   &gt;&gt;&gt;&gt;
+    spec:
+      containers:
+      - image: registry.ocp4.example.com:8443/redhattraining/hello-world-nginx@sha256:6926d361b8e2f778f88341fbd0d231337c38d12c177fdacf2a677dc6b70a1f59
+        imagePullPolicy: IfNotPresent</code></pre></div>
+<h3 id="or-you-can-use-the-yq-command-to-verify-the-labels">Or you can use the &ldquo;yq&rdquo; command, to verify the labels</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get deployment webserver-app2  -o yaml  | yq r - spec.template.metadata.labels</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc edit service/todo-svc</code></pre></div>
+<h3 id="see-the-reference-image">See the reference image.</h3>
+<p><a href="#R-image-5de18575327d2e9e63ee65fb39be5bf9" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/5c61faff-6404-440e-98a4-05f52d8bdae1" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5de18575327d2e9e63ee65fb39be5bf9"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/5c61faff-6404-440e-98a4-05f52d8bdae1"></a></p>
+<h3 id="check-the-service-again">check the service again.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc describe service webserver-app2</code></pre></div>
+<h3 id="you-may-not-observe-any-thing-so-lets-open-the-url-1">You may not observe any thing. So let&rsquo;s open the URL</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<h3 id="for-my-lab-it-is--webserver-app2-chapter2appsocp4examplecom-1">For my lab, it is : webserver-app2-chapter2.apps.ocp4.example.com</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>http://webserver-app2-chapter2.apps.ocp4.example.com</code></pre></div>
+<hr>
+<h2 id="prepare-the-lab-for-this-question-3">Prepare the lab for this question 3?</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project chapter3
+
+cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: webserver-app3
+    app.kubernetes.io/component: webserver-app3
+    app.kubernetes.io/instance: webserver-app3
+  name: webserver-app3
+  namespace: chapter3
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: webserver-app3
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: &#34;2025-05-13T03:57:01-04:00&#34;
+        openshift.io/generated-by: OpenShiftNewApp
+      labels:
+        deployment: webserver-app3
+    spec:
+      containers:
+      - image: registry.ocp4.example.com:8443/redhattraining/hello-world-nginx@sha256:6926d361b8e2f778f88341fbd0d231337c38d12c177fdacf2a677dc6b70a1f59
+        imagePullPolicy: IfNotPresent
+        name: webserver-app3
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        disktype: ssd
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+EOF
+oc expose deployment/webserver-app3
+oc expose service webserver-app3</code></pre></div>
+<h1 id="question-3-an-application-is-running-on-the-chapter3-project-there-is-one-pod-which-is-in-pending-state-your-task-is-it-must-generate-the-output">Question 3. An application is running on the <code>chapter3</code> project. There is one pod, which is in pending state. Your task is it must generate the output.</h1>
+<hr>
+<h3 id="solution-5">Solution</h3>
+<h3 id="check-the-resources-1">Check the resources.</h3>
+<h2 id="got-to-the-project">Got to the project</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project chaper3</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="check-the-logs-of-pod">Check the logs of pod.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc log pod/PODNAME</code></pre></div>
+<h2 id="check-the-events-1">Check the events.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc event</code></pre></div>
+<h3 id="from-the-above-output-it-is-clear-that-we-have-issue-due-to-to-nodeselector">From the above output, it is clear that, we have issue due to to <code>nodeSelector</code>.</h3>
+<h3 id="check-the-nodeselector-value-in-the-deployment">Check the nodeSelector value in the deployment</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get deployment/webserver-app3 -o yaml | grep -iA 5 selector</code></pre></div>
+<h3 id="check-the-label-on-nodes-please-note-that-i-have-1-node-so-i-am-checking-label-on-1-node-only-if--you-have-multiple-then-you-need-to-check-the-label-on-all-nodes">Check the label on nodes. Please note that I have 1 node, so I am checking label on 1 node only. If  you have multiple, then you need to check the label on all nodes.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc describe nodes master01  | grep -iA 5 label</code></pre></div>
+<h3 id="please-note-that-i-am-adding-label-on-1-node-only-if--you-have-multiple-nodes-then-you-need-to-add-the-label-on-all-nodes">Please note that, I am adding label on 1 node only. If  you have multiple nodes, then you need to add the label on all nodes.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc label nodes master01 disktype=ssd</code></pre></div>
+<h3 id="check-the-label-again-on-node">Check the label again on node.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc describe nodes master01  | grep -iA 5 label</code></pre></div>
+<h3 id="post-checks-1">Post checks!!</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get pods</code></pre></div>
+<h2 id="check-the-route">Check the route.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<h3 id="copy-the-url-and-paste-into-the-webbrowser">Copy the URL and paste into the webbrowser.</h3>
+<h3 id="below-are-for-your-references">Below are for your references.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>[student@workstation ~]$ oc event
+5m8s        Normal    Killing                  Pod/webserver-app3-7b4bd5c879-lhwjk    Stopping container webserver-app3
+5m8s        Warning   FailedScheduling         Pod/webserver-app3-5946c66dc4-pxq87    skip schedule deleting pod: chapter3/webserver-app3-5946c66dc4-pxq87
+4m53s       Normal    SuccessfulCreate         ReplicaSet/webserver-app3-5946c66dc4   Created pod: webserver-app3-5946c66dc4-rvsz5
+4m53s       Normal    ScalingReplicaSet        Deployment/webserver-app3              Scaled up replica set webserver-app3-5946c66dc4 to 1
+4m53s       Warning   FailedScheduling         Pod/webserver-app3-5946c66dc4-rvsz5    **0/1 nodes are available: 1 node(s) didn&#39;t match Pod&#39;s node `affinity/selector`. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling..**
+
+
+[student@workstation ~]$ oc get deployment/webserver-app3 -o yaml | grep -iA 5 selector
+      {&#34;apiVersion&#34;:&#34;apps/v1&#34;,&#34;kind&#34;:&#34;Deployment&#34;,&#34;metadata&#34;:{&#34;annotations&#34;:{},&#34;labels&#34;:{&#34;app&#34;:&#34;webserver-app3&#34;,&#34;app.kubernetes.io/component&#34;:&#34;webserver-app3&#34;,&#34;app.kubernetes.io/instance&#34;:&#34;webserver-app3&#34;},&#34;name&#34;:&#34;webserver-app3&#34;,&#34;namespace&#34;:&#34;chapter3&#34;},&#34;spec&#34;:{&#34;progressDeadlineSeconds&#34;:600,&#34;replicas&#34;:1,&#34;revisionHistoryLimit&#34;:10,&#34;selector&#34;:{&#34;matchLabels&#34;:{&#34;deployment&#34;:&#34;webserver-app3&#34;}},&#34;strategy&#34;:{&#34;rollingUpdate&#34;:{&#34;maxSurge&#34;:&#34;25%&#34;,&#34;maxUnavailable&#34;:&#34;25%&#34;},&#34;type&#34;:&#34;RollingUpdate&#34;},&#34;template&#34;:{&#34;metadata&#34;:{&#34;annotations&#34;:{&#34;kubectl.kubernetes.io/restartedAt&#34;:&#34;2025-05-13T03:57:01-04:00&#34;,&#34;openshift.io/generated-by&#34;:&#34;OpenShiftNewApp&#34;},&#34;labels&#34;:{&#34;deployment&#34;:&#34;webserver-app3&#34;}},&#34;spec&#34;:{&#34;containers&#34;:[{&#34;image&#34;:&#34;registry.ocp4.example.com:8443/redhattraining/hello-world-nginx@sha256:6926d361b8e2f778f88341fbd0d231337c38d12c177fdacf2a677dc6b70a1f59&#34;,&#34;imagePullPolicy&#34;:&#34;IfNotPresent&#34;,&#34;name&#34;:&#34;webserver-app3&#34;,&#34;ports&#34;:[{&#34;containerPort&#34;:8080,&#34;protocol&#34;:&#34;TCP&#34;}],&#34;resources&#34;:{},&#34;terminationMessagePath&#34;:&#34;/dev/termination-log&#34;,&#34;terminationMessagePolicy&#34;:&#34;File&#34;}],&#34;dnsPolicy&#34;:&#34;ClusterFirst&#34;,&#34;nodeSelector&#34;:{&#34;disktype&#34;:&#34;ssd&#34;},&#34;restartPolicy&#34;:&#34;Always&#34;,&#34;schedulerName&#34;:&#34;default-scheduler&#34;,&#34;securityContext&#34;:{},&#34;terminationGracePeriodSeconds&#34;:30}}}}
+  creationTimestamp: &#34;2025-05-13T08:03:49Z&#34;
+  generation: 1
+  labels:
+    app: webserver-app3
+    app.kubernetes.io/component: webserver-app3
+--
+  selector:
+    matchLabels:
+      deployment: webserver-app3
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+--
+      nodeSelector:            ### 👈👈👈
+        disktype: ssd          ### 👈👈👈
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+
+[student@workstation ~]$ oc describe nodes master01  | grep -i label
+Labels:             beta.kubernetes.io/arch=amd64
+
+[student@workstation ~]$ oc label nodes master01 disktype=ssd
+node/master01 labeled
+
+[student@workstation ~]$ oc describe nodes master01  | grep -iA 5 label
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    disktype=ssd    ### 👈👈👈
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=master01
+                    kubernetes.io/os=linux
+[student@workstation ~]$ oc get pods
+NAME                              READY   STATUS    RESTARTS   AGE
+webserver-app3-5946c66dc4-rvsz5   1/1     Running   0          6m30s
+[student@workstation ~]$ </code></pre></div>
+<h3 id="prepare-for-question-4">Prepare for Question 4.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project chapter4
+oc adm taint node $(oc get nodes | awk &#39;{print $1}&#39; | grep -v NAME) datacenter=delhi:NoSchedule
+cat &lt;&lt;EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: webserver-app4
+    app.kubernetes.io/component: webserver-app4
+    app.kubernetes.io/instance: webserver-app4
+  name: webserver-app4
+  namespace: chapter4
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      deployment: webserver-app4
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: &#34;2025-05-13T03:57:01-04:00&#34;
+        openshift.io/generated-by: OpenShiftNewApp
+      labels:
+        deployment: webserver-app4
+    spec:
+      containers:
+      - image: registry.ocp4.example.com:8443/redhattraining/hello-world-nginx@sha256:6926d361b8e2f778f88341fbd0d231337c38d12c177fdacf2a677dc6b70a1f59
+        imagePullPolicy: IfNotPresent
+        name: webserver-app4
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        disktype: ssd
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+EOF
+oc expose deployment/webserver-app4
+oc expose service webserver-app4
+oc patch service webserver-app4 -n chapter4 --type=json -p=&#39;[{&#34;op&#34;: &#34;replace&#34;, &#34;path&#34;: &#34;/spec/selector/deployment&#34;, &#34;value&#34;: &#34;anishrana2001&#34;}]&#39;</code></pre></div>
+<h3 id="do-it-by-yourself">Do it by yourself.</h3>
+<h1 id="question-5-an-application-is-running-on-the-chapter5-project-there-is-one-pod-which-is-in-pending-state-your-task-is-it-must-generate-the-output">Question 5. An application is running on the chapter5 project. There is one pod, which is in pending state. Your task is it must generate the output.</h1>
+<h3 id="prepare-the-lab-for-question-5">Prepare the lab for question 5.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+oc new-project chapter5
+oc new-app --name webserver-app5 --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0
+
+oc patch deployment webserver-app5 -p &#39;{&#34;spec&#34;: {&#34;template&#34;: {&#34;spec&#34;: {&#34;containers&#34;: [{&#34;name&#34;: &#34;webserver-app5&#34;, &#34;resources&#34;: {&#34;limits&#34;: {&#34;cpu&#34;: &#34;2&#34;, &#34;memory&#34;: &#34;18Gi&#34;}}}]}}}}&#39;
+oc delete replicasets.apps $(oc get replicasets.apps | awk &#39;$4~ /1/ {print $1}&#39;)</code></pre></div>
+<h2 id="solution-6">Solution.</h2>
+<h2 id="go-to-the-project-first">Go to the project first.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project chapter5</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h2 id="you-observe-pod-is-in-pending-state">You observe pod is in pending state.</h2>
+<h2 id="check-the-events-2">Check the events.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get events --sort-by=&#39;.lastTimestamp&#39; | tail</code></pre></div>
+<h2 id="from-the-output-you-get-to-know-that-there-is-some-issue-with-cpu-or-memory-both-are-part-of-resources-remember-this-keyword">From the output, you get to know that there is some issue with CPU or Memory. Both are part of <code>resources</code>. Remember this keyword.</h2>
+<h3 id="check-the-deployment">Check the deployment.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get deployment/webserver-app5 -o yaml | grep -iA 5 resources</code></pre></div>
+<h3 id="edite-the-deployment-and-modify-the-memory-to-300mi">Edite the Deployment and modify the memory to 300Mi</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc edit deployment/webserver-app5</code></pre></div>
+<h3 id="execute-the-below-command-again">Execute the below command again.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get deployment/webserver-app5 -o yaml | grep -iA 5 resources</code></pre></div>
+<h3 id="check-the-pods">Check the pods.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="expose-the-service">Expose the service.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc expose  service webserver-app5</code></pre></div>
+<h3 id="check-the-route-1">Check the route.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<h3 id="finally-post-checks">Finally, Post checks&hellip;..</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>curl webserver-app5-chapter5.apps.ocp4.example.com | head</code></pre></div>
+<h2 id="how-to-clear-the-lab">How to clear the Lab?</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc delete project chapter1
+oc delete project chapter2
+oc delete project chapter3
+oc delete project chapter4
+oc delete project chapter5</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question">Prepare the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>lab start appsec-scc
+oc new-project alpha
+oc login -u admin -p redhatocp https://api.ocp4.example.com:6443
+oc new-app --name gitlab --image registry.ocp4.example.com:8443/redhattraining/gitlab-ce:8.4.3-ce.0</code></pre></div>
+<h1 id="question-1">Question 1:</h1>
+<h2 id="create-a-service-account-called-ex280-sa-in-a-alpha-project-this-project-is-already-created-for-you">Create a Service Account called <code>ex280-sa</code> in a <code>alpha</code> project. This project is already created for you.</h2>
+<ul>
+<li>There is an application already running.</li>
+<li>ServiceAccoun should be associated with anyuid SCC</li>
+</ul>
+<hr>
+<h2 id="solution-7">Solution:</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project alpha</code></pre></div>
+<h3 id="create-a-service-account-called-ex280-sa-in-a-alpha-project">Create a Service Account called ex280-sa in a alpha project.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create serviceaccount --help | less</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create serviceaccount ex280-sa -n alpha</code></pre></div>
+<h3 id="oc-adm-policy-add-scc-to-user-scc_name--systemserviceaccountserviceaccount_namespaceserviceaccount_name">oc adm policy add-scc-to-user &lt;scc_name&gt;  system:serviceaccount:&lt;serviceaccount_namespace&gt;:&lt;serviceaccount_name&gt;</h3>
+<h3 id="if-you-are-currently-in-the-project-to-which-the-service-account-belongs-you-can-use-the--z-flag-and-just-specify-the-serviceaccount_name">If you are currently in the project to which the service account belongs, you can use the -z flag and just specify the &lt;serviceaccount_name&gt;.</h3>
+<h3 id="security-context-constraints-sccs">Security Context Constraints (SCCs)</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy --help | less</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy add-scc-to-user anyuid -z ex280-sa</code></pre></div>
+<hr>
+<h1 id="question-2">Question 2:</h1>
+<h2 id="deploy-application-in-the-project-alpha">Deploy application in the project <code>alpha</code>:</h2>
+<ul>
+<li>There is one pod already running</li>
+<li>Modify the application as is should run with any user as provided by application</li>
+<li>Application should produce output</li>
+</ul>
+<hr>
+<h3 id="solution-8">Solution</h3>
+<h3 id="go-to-the-project-first-1">Go to the project first.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project alpha</code></pre></div>
+<h3 id="check-the-application">Check the application.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="check-the-pod-status">Check the Pod status.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc logs POD_NAME
+oc get events</code></pre></div>
+<h3 id="due-to-the-permission-issue-our-application-is-not-running-it-means-you-need-to-set-the-serviceaccount-so-that-container-can-run-with-any-user">Due to the permission issue, our application is not running. It means you need to set the serviceaccount so that container can run with any user.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc set serviceaccount --help | less</code></pre></div>
+<h3 id="please-bear-in-mind-that-you-need-to-check-if-deployment-or-dc-is-runing">Please bear in mind that, you need to check if deployment or dc is runing.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc set serviceaccount deployment/deployment_name ex280-sa</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get pods</code></pre></div>
+<h3 id="how-to-do-post-check-">How to do post check ?</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get deployment gitlab -o yaml | grep -i service</code></pre></div>
+<h3 id="you-must-obseve-output-like-below">You must obseve output like below:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>[student@workstation ~]$ oc get deployment gitlab -o yaml | grep -i service
+      serviceAccount: ex280-sa
+      serviceAccountName: ex280-sa
+[student@workstation ~]$ </code></pre></div>
+<h3 id="expose-the-service-1">Expose the service</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc expose service/gitlab</code></pre></div>
+<h3 id="post-check-2">Post check</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get route</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>ssh gitlab-alpha.apps.ocp4.example.com</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question-4">Prepare the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project cloud
+oc create deployment mysql-app --image registry.ocp4.example.com:8443/redhattraining/mysql-app:v1
+oc create secret generic ex280-root --from-literal=MYSQL_USER=redhat --from-literal=MYSQL_DATABASE=world_x
+oc set env --from=secret/ex280-root deployment mysql-app</code></pre></div>
+<h1 id="question-create-secret-with-named-ex280-secret-in-cloud-project-the-key-name-should-be-mysql_password-and-the-value-of-key-should-be-redhat123">Question: Create secret with named <code>ex280-secret</code> in <code>cloud</code> project. The key name should be <code>MYSQL_PASSWORD</code> and the value of key should be <code>redhat123</code></h1>
+<h3 id="solution-9">Solution</h3>
+<h3 id="go-to-the-project-first-2">Go to the project first.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project cloud</code></pre></div>
+<h3 id="create-a-generic-secret-with-name-ex280-secret-with-option---from-literalmysql_passwordredhat123">Create a generic secret with name <code>ex280-secret</code> with option <code>--from-literal=MYSQL_PASSWORD=redhat123</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create  secret generic ex280-secret --from-literal=MYSQL_PASSWORD=redhat123</code></pre></div>
+<h3 id="once-secret-created-you-can-verify-it">Once secret created, you can verify it.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc describe secret ex280-secret</code></pre></div>
+<hr>
+<h1 id="question-use-the-secret-ex280-secret-in-project-cloud">Question: Use the secret <code>ex280-secret</code> in project <code>cloud</code></h1>
+<ul>
+<li>There is one pod already exist</li>
+<li>It should use ex280-secret secret previously created.</li>
+<li>Application should produce output.</li>
+</ul>
+<hr>
+<h3 id="solution-10">Solution:</h3>
+<h3 id="go-to-the-project-first-3">Go to the project first.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project cloud</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="due-to-env-variable-the-application-is-not-running">Due to env variable the application is not running.</h3>
+<h3 id="verify-that-the-subjective-pod-is-a-part-of-deployment-or-statefulset-or-deploymentconfig-dc-if-it-is-belongs-to-deploymentconfig-then-run">Verify that the subjective pod is a part of Deployment or StatefulSet or DeploymentConfig (dc). If it is belongs to deploymentConfig then run</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc set env dc/mysql --prefix MYSQL_PASSWORD --from secret/ex280-secret</code></pre></div>
+<h3 id="if-it-is-deployment-then-run-the-below-commmand">If it is deployment, then run the below commmand.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc set env --from=secret/ex280-secret deployment mysql-app</code></pre></div>
+<h3 id="check-the-logs-or-events">check the logs or events.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc logs POD_NAME
+oc get events</code></pre></div>
+<h3 id="once-you-set-the-environment-variable-and-after-that-application-is-not-working-than-you-can-see-the-logs-and-events-for-further-reasons-may-be-on-worker-node-taint-is-applied-if-it-is-than-remove-the-taint-from-worker-node-only">Once you set the environment variable and after that application is not working than you can see the logs and events for further reasons. May be on worker node taint is applied. if it is than remove the taint from worker node only.</h3>
+<h3 id="if-this-is-an-issue-with-taint-then-go-to-this-page">If this is an issue with taint then, go to this page</h3>
+<p><a href="https://github.com/anishrana2001/Openshift/blob/main/DO280/05.%20taint%20and%20toleration.md" rel="external" target="_blank">https://github.com/anishrana2001/Openshift/blob/main/DO280/05.%20taint%20and%20toleration.md</a></p>
+<h2 id="note">Note:</h2>
+<h4 id="each-container-running-on-a-node-consumes-compute-resources-which-are-measurable-quantities-that-can-be-requested-allocated-and-consumed">Each container running on a node <strong>consumes compute resources</strong>, which are measurable quantities that can be requested, allocated, and consumed.</h4>
+<h4 id="when-creating-a-pod-configuration-file-you-can-optionally-specify-how-much-cpu-memory-ram-and-local-ephemeral-storage-each-container-needs-in-order-to-better-schedule-pods-in-the-cluster-and-ensure-satisfactory-performance">When creating a pod configuration file, you can <code>optionally</code> specify how much CPU, memory (RAM), and local ephemeral storage each container needs in order to better schedule pods in the cluster and ensure satisfactory performance.</h4>
+<h4 id="cpu-is-measured-in-units-called-millicores-each-node-in-a-cluster-inspects-the-operating-system-to-determine-the-amount-of-cpu-cores-on-the-node-then-multiplies-that-value-by-1000-to-express-its-total-capacity-for-example-if-a-node-has-2-cores-the-nodes-cpu-capacity-would-be-represented-as-2000m-if-you-wanted-to-use-110-of-a-single-core-it-would-be-represented-as-100m">CPU is measured in units called millicores. Each node in a cluster inspects the operating system to determine the amount of CPU cores on the node, then multiplies that value by 1000 to express its total capacity. For example, if a node has 2 cores, the node’s CPU capacity would be represented as 2000m. If you wanted to use 1/10 of a single core, it would be represented as 100m.</h4>
+<h4 id="memory-and-ephemeral-storage-are-measured-in-bytes-in-addition-it-may-be-used-with-si-suffixes-e-p-t-g-m-k-or-their-power-of-two-equivalents-ei-pi-ti-gi-mi-ki">Memory and ephemeral storage are measured in bytes. In addition, it may be used with SI suffixes (E, P, T, G, M, K) or their power-of-two-equivalents (Ei, Pi, Ti, Gi, Mi, Ki).</h4>
+<h1 id="question-create-resources-quota-with-below-information-for-project-beta">Question: Create Resources Quota with below information for project <code>beta</code></h1>
+<ul>
+<li>Quota Name is <code>ex280-quota</code></li>
+<li>Maximum  Pods <code>7</code> and Service ip <code>6</code> and Replication Controller <code>5</code></li>
+<li>Memory <code>1G</code> and cpu core is <code>1</code></li>
+</ul>
+<hr>
+<h2 id="solution-11">Solution:</h2>
+<h3 id="createa--project-first">Createa  project first.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project beta</code></pre></div>
+<h3 id="check-the-quota">Check the quota.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get quota</code></pre></div>
+<h2 id="not-sure-the-command-">Not sure the command ?</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create quota --help | head</code></pre></div>
+<h3 id="now-create-the-quota">Now, create the quota.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create quota ex280-quota  --hard=memory=1Gi,cpu=1,pods=7,services=6,replicationcontrollers=5</code></pre></div>
+<h3 id="post-check-for-quota">Post Check for quota.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get quota</code></pre></div>
+<h3 id="question-2---create-a-quota-with-below-details">Question 2:   Create a quota with below details.</h3>
+<ul>
+<li>cpu=1</li>
+<li>memory=1G</li>
+<li>pods=2</li>
+<li>services=3</li>
+<li>replicationcontrollers=2</li>
+<li>resourcequotas=1</li>
+<li>secrets=5</li>
+<li>persistentvolumeclaims=10</li>
+</ul>
+<hr>
+<h3 id="solution-">Solution :</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create quota my-quota --hard=cpu=1,memory=1G,pods=2,services=3,replicationcontrollers=2,resourcequotas=1,secrets=5,persistentvolumeclaims=10</code></pre></div>
+<h1 id="question-create-limitrange-for-project-orange">Question: Create LimitRange for project <code>orange</code>:</h1>
+<ul>
+<li>Set the <code>pod memory limit</code> between <code>5Mi and 300Mi</code></li>
+<li>Set the <code>container memory limit</code> between <code>5Mi and 300Mi</code> and container <code>default request limnit </code> for memory is <code>100Mi</code></li>
+<li>Set the <code>pod cpu limit</code> between <code>5m and 300m</code></li>
+<li>Set the <code>container cpu limit</code> between <code>5m and 300m</code> and container <code>default request limit</code> for cpu is <code>100m</code></li>
+</ul>
+<hr>
+<h3 id="solution-12">Solution.</h3>
+<h3 id="in-this-question-we-need-to-set-the-limit-range-at-pod-and-container-level">In this question, we need to set the limit range at pod and container level.</h3>
+<h3 id="set-the-pod-memory-limit-between-5mi-and-300mi">Set the <code>pod memory limit</code> between <code>5Mi and 300Mi</code>.</h3>
+<ul>
+<li>It means that POD memory limit:
+<ul>
+<li>Minimum: 5Mi</li>
+<li>Maximum: 300Mi</li>
+</ul>
+</li>
+</ul>
+<h3 id="set-the-container-memory-limit-between-5mi-and-300mi-and-container-default-memory-request-is-100mi">Set the <code>container memory limit</code> between <code>5Mi and 300Mi</code> and container <code>default memory request</code> is <code>100Mi</code></h3>
+<ul>
+<li>Set the <code>container memory limit</code> between <code>5Mi and 300Mi</code>. It means, container Memory Limit :
+<ul>
+<li>Minimum: 5Mi</li>
+<li>Maximum: 300Mi</li>
+</ul>
+</li>
+<li>container <code>Default Memory Request</code> is <code>100Mi</code>
+<ul>
+<li>defaul: 100Mi</li>
+</ul>
+</li>
+</ul>
+<h3 id="create-a-file">Create a file.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>vi limitrange.yaml</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>apiVersion: &#34;v1&#34;
+kind: &#34;LimitRange&#34;
+metadata:
+  name: &#34;ex280-limitrange&#34; 
+spec:
+  limits:
+    - type: &#34;Pod&#34;
+      max:
+        cpu: &#34;300m&#34;
+        memory:  &#34;300Mi&#34;
+      min:
+        cpu: &#34;5m&#34;
+        memory: &#34;5Mi&#34;
+    - type: &#34;Container&#34;
+      max:
+        cpu:  &#34;300m&#34;
+        memory: &#34;300Mi&#34;
+      min:
+        cpu: &#34;5m&#34;
+        memory: &#34;5Mi&#34;
+      default:
+        cpu: &#34;100m&#34;
+        memory: &#34;100Mi&#34;</code></pre></div>
+<h3 id="create-the-limitrange">Create the limitRange.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc apply -f limitrange.yaml</code></pre></div>
+<h3 id="post-checks-2">Post Checks.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get limitrange</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question-5">Prepare the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u harry -p review
+oc new-project tiger
+oc new-app --name hello --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></pre></div>
+<h1 id="scale-application-manually">Scale Application Manually:</h1>
+<h2 id="question-scale-the-single-pod-replicas-to-5-under-the-project-tiger-and-all-pods-should-run">Question: Scale the single-pod replicas to <code>5</code> under the project <code>tiger</code> and all pods should run.</h2>
+<hr>
+<h3 id="solution-13">Solution:</h3>
+<h3 id="go-to-the-project-first-4">Go to the project, first.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project tiger</code></pre></div>
+<h3 id="lets-check-all-the-resources-in-this-project-tiger-you-must-see-one-deployment">Let&rsquo;s check all the resources in this project <code>tiger</code>. You must see one deployment.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc scale deployment/deployment_name --replicas=5</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question-6">Prepare the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc login -u harry -p review
+oc new-project scalling
+oc new-app --name hello --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></pre></div>
+<h1 id="configure-resource-request--limits-into-deployment-and-apply-autoscale-rule-in-the-project-scalling">Configure <code>Resource Request</code> &amp; <code>limits</code> into deployment and Apply <code>AutoScale Rule</code> in the project <code>scalling</code>.</h1>
+<ul>
+<li>Minimum replicas = 2 , Maximum replicas = 5 and cpu percentage = 50%</li>
+<li>Default request for containers memory should 100Mi and CPU 50m</li>
+</ul>
+<hr>
+<h3 id="solution-14">Solution:</h3>
+<h2 id="firt-go-to-project">Firt go to project.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project scalling</code></pre></div>
+<h3 id="check-the-resources-2">Check the resources</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get all</code></pre></div>
+<h3 id="task-1-minimum-replicas--2--maximum-replicas--5-and-cpu-percentage--50">Task 1. Minimum replicas = 2 , Maximum replicas = 5 and cpu percentage = 50%</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc autoscale deployment hello --min=2 --max=5 --cpu-percent=50</code></pre></div>
+<h3 id="post-check-3">Post check</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get hpa</code></pre></div>
+<h3 id="task-2-default-request-for-containers-memory-should-100mi-and-cpu-50m">Task 2: Default request for containers memory should 100Mi and CPU 50m</h3>
+<h3 id="we-can-directly-edit-the-deployment-oc-edit-deploymenthello-or-we-can-use-oc-set-resources-command-is-more-easy">We can directly <code>edit</code> the deployment &ldquo;oc edit deployment/hello&rdquo;. Or we can use &ldquo;oc set resources&rdquo;. Command is more easy.</h3>
+<h3 id="syntax-would-be-oc-set-resources-deploymenthello---requests-cpu200mmemory256mi---limits-cpu500mmemory512mi">Syntax would be &ldquo;oc set resources deployment/hello <code>--requests</code> cpu=200m,memory=256Mi <code>--limits</code> cpu=500m,memory=512Mi</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc set resources deployment/hello --requests=cpu=50m,memory=100Mi </code></pre></div>
+<h3 id="or-if-you-want-to-edit-then-make-the-entry-like-this--need-to-check">Or if you want to edit then make the entry like this. ### Need to check.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>Spec: 
+    Containers:
+resources:
+Add below lines
+        limits:
+           cpu: “400m”
+       requests:
+           cpu: “200m”</code></pre></div>
+<h1 id="install-an-helm-chart-etherpad-from-repository-httphelmocp4examplecomcharts-in-the-mass-project">Install an helm chart <code>etherpad</code> from repository <code>http://helm.ocp4.example.com/charts</code> in the <code>mass</code> project</h1>
+<h2 id="solution-15">Solution:</h2>
+<h3 id="first-create-a-project-mass">First, create a project <code>mass</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project mass</code></pre></div>
+<h3 id="use-the-helm-repo-list-command-to-list-the-repositories-that-are-configured-for-the-student-user">Use the helm repo list command to list the repositories that are configured for the student user.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>helm repo list</code></pre></div>
+<h3 id="first-add-the-repository-with-one-fancy-name-do280-repo">First, add the repository with one fancy name &ldquo;do280-repo&rdquo;</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>helm repo add do280-repo http://helm.ocp4.example.com/charts</code></pre></div>
+<h2 id="lets-check-the-versions-of-this-repo">Let&rsquo;s check the versions of this repo.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>helm search repo --versions</code></pre></div>
+<h3 id="see-the-below-output-just-as-an-references">See the below output, just as an references.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>[student@workstation ~]$ helm search repo --versions
+NAME                     CHART VERSION  APP VERSION  ...
+do280-repo/etherpad      0.0.7          latest       ...
+do280-repo/etherpad      0.0.6          latest       ...
+...output omitted...</code></pre></div>
+<h3 id="the-etherpad-chart-has-the-007-and-006-versions-this-chart-is-a-copy-of-a-chart-from-the--repository">The <code>etherpad</code> chart has the 0.0.7 and 0.0.6 versions. This chart is a copy of a chart from the <a href="https://github.com/redhat-cop/helm-charts" rel="external" target="_blank">https://github.com/redhat-cop/helm-charts</a> repository.</h3>
+<h2 id="now-we-can-install-the-application-etherpad-with-version-please-note-that-if-in-the-exam-it-is-not-asked-for-any-version-then-you-can-use-the-latest-one">Now, we can install the application &ldquo;etherpad&rdquo; with version. Please note that, if in the exam it is not asked for any version then you can use the latest one.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>helm install etherpad do280-repo/etherpad --version 0.0.7</code></pre></div>
+<h3 id="for-more-details-follow-the-lab-">For more details, follow the lab : <a href="https://rol.redhat.com/rol/app/courses/do280-4.14/pages/ch02s04" rel="external" target="_blank">https://rol.redhat.com/rol/app/courses/do280-4.14/pages/ch02s04</a></h3>
+<h3 id="practice-purpose-only">Practice Purpose only&hellip;..</h3>
+<h3 id="create-a-cronjob-test-cron1-in-the-tiger-project">Create a cronjob <code>test-cron1</code> in the `tiger&rsquo; project</h3>
+<ul>
+<li><code>15:07</code> time</li>
+<li>It should execute every january</li>
+<li>Use image <code>registry.io/nginx</code></li>
+<li>Use service account and service account name is <code>ex280-sa1</code></li>
+<li>Successful job history limit <code>10</code></li>
+<li>Project name should be <code>tiger</code></li>
+<li>Create a cronjob using webconsole or take yaml from documentation</li>
+</ul>
+<hr>
+<h2 id="qeustion-with-solution">Qeustion with Solution.</h2>
+<h1 id="create-a-cronjob-test-cron-in-the-tiger-project">Create a cronjob <code>test-cron</code> in the `tiger&rsquo; project</h1>
+<ul>
+<li><code>04:05</code> time</li>
+<li>Every 2 day and every month</li>
+<li>Use image <code>registry.io/nginx</code></li>
+<li>Use service account and service account name is <code>ex280-sa</code></li>
+<li>Successful job history limit <code>14</code></li>
+<li>Project name should be <code>tiger</code></li>
+<li>Create a cronjob using webconsole or take yaml from documentation</li>
+</ul>
+<hr>
+<h3 id="lets-use-the-help-command">Let&rsquo;s use the help command.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create cronjob -h</code></pre></div>
+<h3 id="cat-etccrontab-fron-this-file-we-get-to-know-the-sytax-of-05-04-2--">cat /etc/crontab, fron this file, we get to know the sytax of &ldquo;05 04 */2 * *&rdquo;</h3>
+<!-- raw HTML omitted -->
+<h3 id="use---dry-runserver-instead-of---dry-runclient-you-will-get-the-syntax-of-successful-job-history-limit">Use <code>--dry-run=server</code> instead of <code>--dry-run=client</code>. You will get the syntax of &ldquo;Successful job history limit&rdquo;</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create cronjob test-cron --image=registry. io/nginx --schedule=&#34;05 04 */2 * *&#34; --dry-run=server -o yaml &gt; /tmp/cronjob.yaml</code></pre></div>
+<h3 id="explanation-of-the-command">Explanation of the Command:</h3>
+<ul>
+<li><strong>oc create cronjob</strong>: Command to create a CronJob.</li>
+<li><strong>test-cron</strong>: Name of the CronJob.</li>
+<li><strong>&ndash;image=registry.io/nginx</strong>: Specifies the container image to use.</li>
+<li><strong>&ndash;schedule=&ldquo;05 04 */2 * *&rdquo;</strong>: Sets the schedule for the CronJob (06:07 every 2 days).</li>
+<li><strong>&ndash;service-account=ex280-sa</strong>: Associates the CronJob with the specified service account.</li>
+<li><strong>&ndash;successful-jobs-history-limit=14</strong>: Limits the number of successful job history.</li>
+<li><strong>-n tiger</strong>: Specifies the namespace (project) where the CronJob will be created.</li>
+</ul>
+<h3 id="lets-open-the-file-and-update-the-value-successful-job-history-limit--14">Let&rsquo;s open the file and update the value &ldquo;Successful job history limit = 14&rdquo;</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>vi /tmp/cronjob.yaml</code></pre></div>
+<p><a href="#R-image-6642467e6ab3190b8e9ae069171605ca" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/3710c958-69a6-4e7d-bdb8-3dfb3130f8e3" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-6642467e6ab3190b8e9ae069171605ca"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/3710c958-69a6-4e7d-bdb8-3dfb3130f8e3"></a></p>
+<h3 id="its-time-to-create-the-cronjob-from-our-yaml-file">Its time to create the cronjob from our yaml file.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc apply -f /tmp/cronjob.yaml</code></pre></div>
+<h3 id="use-service-account-and-service-account-name-is"><strong>Use service account and service account name is <code>ex280-sa</code>.</strong></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc create sa ex280-sa</code></pre></div>
+<h3 id="give-the-privileges-to-service-account-ex280-sa">Give the privileges to service account &ldquo;ex280-sa&rdquo;.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy add-scc-to-user anyuid -z ex280-sa</code></pre></div>
+<h3 id="pre-check-before-adding-the-service-account-in-the-cronjob">Pre-check before adding the Service Account in the cronjob.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get cronjobs.batch test-cron -o yaml | grep service</code></pre></div>
+<h3 id="add-the-serviceaccount-ex280-sa">Add the serviceAccount &ldquo;ex280-sa&rdquo;</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc set sa cronjob/test-cron ex280-sa</code></pre></div>
+<h3 id="post-check-4">Post check</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get cronjobs.batch test-cron -o yaml | grep service
+----------------------------------
+serviceAccount: ex280-sa
+serviceAccountName: ex280-sa
+-----------------------------</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question-7">Prepare the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project network-policy
+oc new-app --name hello  --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0
+cat &lt;&lt;EOF | kubectl apply -f -
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: deny-all
+spec:
+  podSelector: {}
+EOF
+oc expose service/hello
+oc new-project different-namespace
+oc new-app --name sample-app  --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></pre></div>
+<h1 id="question-create-an-network-policy-to-connect-two-pod-which-are-resides-in-different-projects">Question: create an network policy to connect two pod which are resides in different projects</h1>
+<ul>
+<li>First pod is in <code>network-policy</code> namespace and second is in <code>different-namespace</code> project</li>
+<li>Pod in project <code>different-namespace</code> should communicate with <code>network-policy pod</code></li>
+<li>Create an network policy with name <code>allow-specific</code></li>
+<li>Policy uses labels to specify namespace with <code>network: different-namespace</code> and</li>
+<li>For pods selector uses label <code>env=production</code></li>
+<li>Use port <code>8080/tcp</code></li>
+<li>Check the logs of <code>different-namespace pod</code> for verification</li>
+</ul>
+<hr>
+<h3 id="solution-16">Solution:</h3>
+<h3 id="there-are-2-projects-running-network-policy--different-namespace">There are 2 projects running, <code>network-policy</code> &amp; <code>different-namespace</code></h3>
+<h3 id="we-will-create-the-network-policy-at-the-end-first-lets-add-the-desired-labels">We will create the network policy at the end, first let&rsquo;s add the desired labels.</h3>
+<h3 id="policy-uses-labels-to-specify-namespace-with-network-different-namespace">Policy uses labels to specify namespace with <code>network: different-namespace</code></h3>
+<h3 id="if-we-create-a-netpol-networkpolicy-in-the-network-policy-namespace-then-we-have-to-add-the-label-network-different-namespace-on-namespace-different-namespace">If we create a netpol (networkpolicy) in the &ldquo;network-policy&rdquo; namespace then we have to add the label &ldquo;network: different-namespace&rdquo; on namespace <code>different-namespace</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project different-namespace</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc label namespace different-namespace network=different-namespace</code></pre></div>
+<h3 id="uses-label-envproduction">Uses label env=production</h3>
+<h3 id="modify-the-deployment-with-label-env-production">Modify the deployment with label &ldquo;env: production&rdquo;</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code> oc project network-policy</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc edit deployment hello</code></pre></div>
+<p><a href="#R-image-5e6e0e2d87fe1a05243a326ffe5025a1" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/862876ac-be83-4bc9-af1f-b537e8845152" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-5e6e0e2d87fe1a05243a326ffe5025a1"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/862876ac-be83-4bc9-af1f-b537e8845152"></a></p>
+<h3 id="create-a-network-policy-to-allow-traffic-to-the-hello-pod-in-the-network-policy-project-from-the-sample-app-pod-in-the-different-namespace-project-via-tcp-on-port-8080">Create a network policy to allow traffic to the hello pod in the network-policy project from the sample-app pod in the different-namespace project via TCP on port 8080.</h3>
+<h3 id="it-would-be-easy-to-create-the-networkpolicy-from-web-portal">It would be easy to create the networkpolicy from web portal.</h3>
+<h3 id="from-cli-first-go-to-network-pollicy-project-so-that-netpol-will-be-created-on-network-policy-namespace">From CLI, first go to <code>network-pollicy</code> project, so that <code>netpol</code> will be created on &ldquo;network-policy&rdquo; namespace.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project network-policy</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>cat &lt;&lt;EOF | kubectl apply -f -
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: allow-specific
+spec:
+  podSelector:
+    matchLabels:
+      env: production
+  ingress:
+    - from:
+      - namespaceSelector:
+          matchLabels:
+            network: different-namespace
+      ports:
+      - port: 8080
+        protocol: TCP
+EOF</code></pre></div>
+<h2 id="from-web-portal">From WEB Portal.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc whoami --show-console</code></pre></div>
+<h3 id="copy-the-link-from-the-above-command-output-and-then-open-the-web-browser-and-past-the-link--administrator--networking-networkpolicies-">Copy the link from the above command output and then Open the web browser and past the link, &ndash;&gt; Administrator &ndash;&gt; Networking&ndash;&gt; NetworkPolicies &ndash;&gt;</h3>
+<h3 id="post-checks-3">Post checks</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code> oc project network-policy</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get pods -o wide
+oc get all </code></pre></div>
+<h2 id="change-the-project">Change the project.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project different-namespace</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc rsh sameple_pod_name   curl hello_POD_IP:8080</code></pre></div>
+<h3 id="if-it-work-then-congratulation">If it work then, congratulation</h3>
+<h3 id="how-to-clear-the-lab-">How to clear the lab ?</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc delete project network-policy
+oc delete project different-namespace</code></pre></div>
+<h1 id="create-pv-pvc-and-then-deployment">Create PV, PVC and then deployment.</h1>
+<ul>
+<li><strong>Create a pv</strong>
+<ul>
+<li>Name is <code>tiger-pv</code></li>
+<li>Size: <code>1Gi</code></li>
+<li>Policy: <code>retain</code></li>
+<li>Mode: <code>ReadOnlyMany</code></li>
+</ul>
+</li>
+<li><strong>Create a pvc</strong>
+<ul>
+<li>Name is <code>tiger-pvc</code></li>
+<li>Size same as pv</li>
+<li>Project name is <code>page</code></li>
+<li>Mode same as pv</li>
+</ul>
+</li>
+<li><strong>Create an Deployment with</strong>
+<ul>
+<li>Name of deployment is <code>tiger</code>
+<ul>
+<li>consume the pvc <code>tiger-pvc</code>
+- Mount pvc to <code>/usr/share/nginx/html</code></li>
+</ul>
+</li>
+<li>Image is  <code>registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></li>
+<li>Application uses this link to show output <a href="http://test-anishrana2001.apps.ocp4.example.com" rel="external" target="_blank">http://test-anishrana2001.apps.ocp4.example.com</a></li>
+<li>After attaching storage it shows desired output</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="open-the-web-console">Open the web console</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc whoami --show-console</code></pre></div>
+<h1 id="install--manage-operators">Install / Manage Operators</h1>
+<h3 id="question-create-an-project-template-with-limitrange-with-container">Question: Create an project template with limitrange with container</h3>
+<ul>
+<li>minimum memory is 5Mi, max is 1Gi. <code>defaultrequest</code> 254 Mi <code>defaultlimit</code> is 512 Mi .</li>
+<li>make sure this template available as default request <code>new-project</code> template for users.</li>
+</ul>
+<hr>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm --help</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm create-bootstrap-project-template -o yaml &gt; /tmp/bootstrap.yaml</code></pre></div>
+<h3 id="open-the-web-console-1">Open the web console</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc whoami --show-console</code></pre></div>
+<h3 id="go-to-administrator---limitrange-then-copy-the-yaml-file-and-then-paste-in-one-file">Go to &ldquo;Administrator -&gt; LimitRange&rdquo;, then copy the yaml file and then paste in one file.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>vi /tmp/limitrange.yaml</code></pre></div>
+<h3 id="modify-the-values-as-per-the-question">Modify the values as per the question.</h3>
+<h3 id="--minimum-memory-is-5mi-max-is-1gi-defaultrequest-254-mi-defaultlimit-is-512-mi-">- minimum memory is 5Mi, max is 1Gi. <code>defaultrequest</code> 254 Mi <code>defaultlimit</code> is 512 Mi .</h3>
+<p><a href="#R-image-c5de8c3878e98f3891102d639eb56c4d" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/da703c9e-20c1-4805-993b-ae4c12888d3f" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-c5de8c3878e98f3891102d639eb56c4d"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/da703c9e-20c1-4805-993b-ae4c12888d3f"></a></p>
+<h3 id="copy-the-values-from-the-above-file-tmplimitrangeyaml-and-paste-it-on-file-tmpbootstrapyaml">Copy the values from the above file &ldquo;/tmp/limitrange.yaml&rdquo; and paste it on file &ldquo;/tmp/bootstrap.yaml&rdquo;.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>vi /tmp/bootstrap.yaml</code></pre></div>
+<p><a href="#R-image-bf3c9c9e3714f410f1c58adb45f2d4bf" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/36f05d2d-afd8-4893-a747-5be2f68de60f" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-bf3c9c9e3714f410f1c58adb45f2d4bf"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/36f05d2d-afd8-4893-a747-5be2f68de60f"></a></p>
+<h3 id="create-the-bootstrap-template">Create the bootstrap template.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc apply -f /tmp/bootstrap.yaml -n openshift-config</code></pre></div>
+<h3 id="we-can-check-the-template">We can check the template.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get template -n openshift-config</code></pre></div>
+<h3 id="you-must-see-like-this-output">You must see like this output.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>NAME               DESCRIPTION    PARAMETERS    OBJECTS
+project-request                   5 (5 blank)    3</code></pre></div>
+<h3 id="--make-sure-this-template-available-as-default-request-new-project-template-for-users">- make sure this template available as default request <code>new-project</code> template for users.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get project.config</code></pre></div>
+<h3 id="you-must-see-like-this-output-1">You must see like this output.</h3>
+<p><a href="#R-image-137a80f01fd9868082f6a8ffc365198d" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/52509e7c-8897-4b7a-aa17-3415be4b46b0" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-137a80f01fd9868082f6a8ffc365198d"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/52509e7c-8897-4b7a-aa17-3415be4b46b0"></a></p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc edit project.config cluster</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>apiVersion: config.openshift.io/v1
+kind: Project
+metadata:
+  annotations :
+    include. release. openshift. io/ibm-cloud-managed: &#34;true&#34;
+    include. release. openshift. io/self-managed-high-availability: &#34;true&#34;
+    include.release. openshift. io/single-node-developer: &#34;true&#34;
+    release. openshift. io/create-only: &#34;true&#34;
+    creationTimestamp: &#34;2024-01-23T12:00:53Z&#34;
+  generation: 1
+  name: cluster
+  ownerReferences:
+  - apiVersion: config.openshift.io/v1
+    kind: ClusterVersion
+    name: version
+    uid: c1595d31-17e8-4a05-9002-d7399f1ed9c3
+    resourceVersion: &#34;1633&#34;
+    uid: 1c658959-11a4-4ec5-8532-e6e5dc9a8de7
+spec: 
+  projectRequestTemplate:          ## Added line
+    name: project-request          ## Added line</code></pre></div>
+<h3 id="check-the-pods-in-the-namespace-openshift-apiserver">Check the pods in the namespace &ldquo;openshift-apiserver&rdquo;.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get pods -n openshift-apiserver -w</code></pre></div>
+<h3 id="once-the-new-pods-started-running-then-create-a-new-project-and-our-limitrange-should-be-there">Once the new pod/s started running then, create a new project and our limitrange should be there.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project anish</code></pre></div>
+<h4 id="check-the-limitrange">Check the limitrange</h4>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc get limitranges </code></pre></div>
+<h4 id="you-can-also-create-a-new-application">You can also create a new application.</h4>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-app --name hello  --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></pre></div>
+<h2 id="prepare-the-lab-for-this-question-8">Prepare the lab for this question.</h2>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc new-project tuesday
+oc new-app --name liveness-deployment  --image registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></pre></div>
+<h1 id="start-a-probe">Start a Probe</h1>
+<ul>
+<li>Create a <code>Liveliness</code> Health Probe in project <code>tuesday</code> which has 1 pod running</li>
+<li>With port <code>8443</code></li>
+<li>Initial delay of <code>3 sec</code></li>
+<li>Time out for the probe is <code>10 sec</code></li>
+<li>Probe must survive atleast <code>3</code> crash</li>
+</ul>
+<hr>
+<h3 id="solution-17">Solution</h3>
+<h3 id="go-to-the-project-tuesday">Go to the project <code>tuesday</code></h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc project tuesday</code></pre></div>
+<h3 id="open-the-web-console-2">Open the web console.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc whoami --show=console</code></pre></div>
+<h3 id="select-the-project-follow-the-steps-in-the-below-print-screen">Select the project, follow the steps in the below print screen.</h3>
+<ul>
+<li>
+<p>Step 1. Identify the correct deployment in the give project.
+<a href="#R-image-7bc6a6cafe206576f25919615bd5af99" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/9243004d-e41b-4be3-93ad-a8523fc9d6e2" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-7bc6a6cafe206576f25919615bd5af99"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/9243004d-e41b-4be3-93ad-a8523fc9d6e2"></a></p>
+</li>
+<li>
+<p>Step 2. Select the &ldquo;Add Health Checks&rdquo;.</p>
+</li>
+</ul>
+<p><a href="#R-image-06fad7af09a9918c2913424c1a67bce1" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/d64b97f6-cb3c-4732-b9ce-f50a02bd0c8a" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-06fad7af09a9918c2913424c1a67bce1"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/d64b97f6-cb3c-4732-b9ce-f50a02bd0c8a"></a></p>
+<p>Step 3. Click on &ldquo;Add Liveness probe&rdquo;.</p>
+<p><a href="#R-image-4d40db1467b0602ade10b2e2ecceca54" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/dd5c286f-166a-439e-a7d0-324eeb72b59e" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-4d40db1467b0602ade10b2e2ecceca54"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/dd5c286f-166a-439e-a7d0-324eeb72b59e"></a></p>
+<p>Step 4. Update the vaules as per question.</p>
+<p><a href="#R-image-9e2cd495718aca14799bb55d8ec459e5" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/a924ec6f-2e96-4aa7-9cd0-8270cfc4eac6" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-9e2cd495718aca14799bb55d8ec459e5"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/a924ec6f-2e96-4aa7-9cd0-8270cfc4eac6"></a></p>
+<h1 id="collect-cluster-information-and-create-a-tar-file-with-name-student101clusteridtargz-and-send-it-to-redhat-support">Collect Cluster information and create a tar file with name student101&lt;cluster.id&gt;.tar.gz and send it to redhat support.</h1>
+<ul>
+<li>Use command tar cvaf</li>
+<li>One script has been provided to upload tar in redhat support</li>
+<li>/usr/bin/script student101-&lt;cluster.id&gt;.tar.gz</li>
+<li>This script can be performed multiple times and it will overwrite the tar file every time</li>
+</ul>
+<hr>
+<h3 id="solution-18">Solution</h3>
+<h3 id="execute-the-below-command-to-get-gather-all-the-system-details">Execute the below command to get gather all the system details.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm must-gather</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>ls -ltr</code></pre></div>
+<h2 id="how-to-get-the-cluster-id">How to get the cluster ID?</h2>
+<p><a href="#R-image-ae88fd637fcbb02b5588bc73a492f30f" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/d7428ca7-7c1e-4d32-a994-294abb857c9c" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-ae88fd637fcbb02b5588bc73a492f30f"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/d7428ca7-7c1e-4d32-a994-294abb857c9c"></a></p>
+<h3 id="--use-command-tar-cvaf">- Use command tar cvaf</h3>
+<h3 id="create-a-tar-file-with-name-student101clusteridtargz">Create a tar file with name student101&lt;cluster.id&gt;.tar.gz</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>tar cvaf student101-bld661ca-7fb3-42e2-a62a-968b80672189.tar.gz must-gather.local.6430794611058249749/</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>ls -ltr</code></pre></div>
+<p><a href="#R-image-a62b18164f2998f962d847131c65de6e" class="lightbox-link"><img alt="image" class="lazy lightbox figure-image" loading="lazy" src="https://github.com/user-attachments/assets/9549a333-cfe9-459b-9031-08b319338a19" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-a62b18164f2998f962d847131c65de6e"><img alt="image" class="lazy lightbox lightbox-image" loading="lazy" src="https://github.com/user-attachments/assets/9549a333-cfe9-459b-9031-08b319338a19"></a></p>
+<h3 id="usrbinscript-student101clusteridtargz">/usr/bin/script student101&lt;cluster.id&gt;.tar.gz</h3>
+<h3 id="now-send-the-report-to-redhat">Now, send the report to Redhat.</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>/usr/bin/script student101-bld661ca-7fb3-42e2-a62a-968b80672189.tar.gz</code></pre></div>
+<h1 id="for-practice-purpose-deploy-openshift-virtualization-operator-in-the-openshift-cnv-project-install-and-configure-operator-with-the-name-kubevirt-hyperconverged-in-same-project">For practice purpose: Deploy Openshift Virtualization operator in the <code>openshift-cnv</code> Project. Install and Configure Operator with the name <code>kubevirt-hyperconverged</code> in same Project.</h1>
+<hr>
+<h1 id="your-task-is-to-install-the-operator-file-integrity-operator-in-the-namespace-openshift-file-integrity-should-enable-the-monitoring-and-update-should-be-automatic-in-the-mass-project">Your task is to install the Operator <code>File Integrity Operator</code> in the namespace <code>openshift-file-integrity</code>, should enable the monitoring and update should be Automatic in the <code>mass</code> project.</h1>
+<hr>
+<h3 id="solution-19">Solution</h3>
+<h3 id="open-the-console-gui">Open the Console GUI</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="how-to-remove-the-serviceaccount-from-security-context-constraint-scc-group--lab-mo-06">How to remove the serviceaccount from Security Context Constraint (SCC) group : Lab mo. 06</h2>
+<h3 id="syntax">Syntax</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy remove-scc-from-group &lt;scc-name&gt; system:serviceaccount:&lt;namespace&gt;:&lt;service-account&gt;</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>oc adm policy remove-scc-from-user anyuid system:serviceaccount:alpha:ex280-sa</code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0"><code>for i in alpha anish-test1 app-db back-end beta chapter1 chapter2 chapter3 cloud different-namespace front-end network-policy orange page quart scalling tiger tuesday  ; do oc delete project $i ;done
+oc delete pv tiger-pv
+oc delete groups.user.openshift.io qa
+oc delete groups.user.openshift.io developers
+oc delete groups.user.openshift.io leaders
+oc delete user leader qa-engineer raja
+rm -rf /tmp/htpasswd
+
+
+cd /tmp
+rm -rf server.key  server.csr server.crt limitrange.yaml cronjob.yaml allow-specfic.yaml bootstrap.yaml cronjob.yaml
+
+
+oc delete template/project-request -n openshift-config
+oc patch project.config cluster --type=json -p=&#39;[{&#34;op&#34;: &#34;remove&#34;, &#34;path&#34;: &#34;/spec/projectRequestTemplate&#34;, &#34;value&#34;: &#34;&#34;}]&#39;
+
+oc label nodes master01 disktype-</code></pre></div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            <div class="logo-title">My Doc</div>
+          </a>
+        </div>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/docs/index.html"><a class="padding" href="../../docs/index.html">My Docs</a><ul id="R-subsections-b5fa667da3c6d162416dac7e8c63bf8a" class="collapsible-menu">
+            <li class="" data-nav-id="/docs/env-details/index.html"><a class="padding" href="../../docs/env-details/index.html">All App Urls</a></li>
+            <li class="" data-nav-id="/docs/aviprd/index.html"><a class="padding" href="../../docs/aviprd/index.html">AvI PRD</a></li>
+            <li class="" data-nav-id="/docs/avistg/index.html"><a class="padding" href="../../docs/avistg/index.html">AvI Stg</a></li>
+            <li class="" data-nav-id="/docs/docker/container01/index.html"><a class="padding" href="../../docs/docker/container01/index.html">Conatiner 01</a></li>
+            <li class="" data-nav-id="/docs/frequentissues/index.html"><a class="padding" href="../../docs/frequentissues/index.html">Frequent issues</a></li>
+            <li class="" data-nav-id="/docs/innersource-onprem/index.html"><a class="padding" href="../../docs/innersource-onprem/index.html">Innersource onpPrem </a></li>
+            <li class="" data-nav-id="/docs/docker/conatiner02/index.html"><a class="padding" href="../../docs/docker/conatiner02/index.html">OCI</a></li>
+            <li class="" data-nav-id="/docs/ex280/index.html"><a class="padding" href="../../docs/ex280/index.html">OpenShift EX280 Practice </a></li>
+            <li class="active " data-nav-id="/docs/ex280-01/index.html"><a class="padding" href="../../docs/ex280-01/index.html">OpenShift EX280 Practice with Solution</a></li>
+            <li class="" data-nav-id="/docs/docker/container03/index.html"><a class="padding" href="../../docs/docker/container03/index.html">Security</a></li>
+            <li class="" data-nav-id="/docs/tasks/index.html"><a class="padding" href="../../docs/tasks/index.html">Tasks to do </a></li>
+            <li class="" data-nav-id="/docs/vmware-tanzu/index.html"><a class="padding" href="../../docs/vmware-tanzu/index.html">VMware Tanzu Terms</a></li>
+            <li class="" data-nav-id="/docs/vmware/index.html"><a class="padding" href="../../docs/vmware/index.html">VMware Upgrade Cheat Sheet</a></li>
+            <li class="" data-nav-id="/docs/aws-gitlab-stg/index.html"><a class="padding" href="../../docs/aws-gitlab-stg/index.html">Gitlab on AWS Using Gitlab Environment Toolkit</a></li>
+            <li class="" data-nav-id="/docs/kube-virt/index.html"><a class="padding" href="../../docs/kube-virt/index.html">Openshift Virtualization</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/clipboard/clipboard.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/theme.js?1757062749" defer></script>
+  </body>
+</html>

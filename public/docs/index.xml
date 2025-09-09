@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Docs :: My Doc</title>
+    <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/index.html</link>
+    <description>Innersource repo Link</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>All App Urls</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/env-details/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/env-details/index.html</guid>
+      <description>Innersource onPrem Prd Vcenter Url Avi Controller url Minio Innersource onPrem Innersource onPrm Registry Argocd Argocd Minio Haproxy metric url Prometheus Gitlab Grafana Gitlab Grafana Minio Grafana Runner Gitlab Orange Bastion host Innersource prd :nirkumar@10.252.240.19 Innersource DR: dummy@10.252.240.64 Innersource Dev: dummy@10.252.240.73 Innersource onPrem Stg Vcenter Url Avi Controller url Minio Innersource onPrem stg Innersource onPrm Registry Argocd Argocd Minio Haproxy metric url Prometheus Gitlab Grafana Gitlab Grafana Minio Grafana Runner Bastion host Innersource onPrem DR Vcenter Url Avi Controller url Minio Minio Argocd Innersource onPrem Innersource onPrm Registry Argocd Haproxy metric url Prometheus Gitab Grafana Gitlab Grafana Minio Bastion host Innersource Prd Cloud Innersource.soprasteria.com bastion host: dummy@spk04-jumpbox.francecentral.cloudapp.azure.com Innershift onPrem PRD Vcenter Url User: emeaad\nirkumar.ADM Innershift onPrem Bastion host: innershift onPrem: ocpadmin@10.6.32.30 Innershift on Cloud Innershift on Cloud Bastion host: Openshift Arcus Bastion host: Innershift onPrem Stg Vcenter Url User: emeaad\nirkumar.ADM Innershift onPrem Stg Bastion host: ocpadmin@10.6.36.129 Openshift Stratus Openshift Stratus Bastion host: Support Link Broadcom Support Minio Support Kasten Support Gitlab Support Redhat Support user: nirpendra.kumar.ccsp AWS Portal AWS Portal user: nirkumar-ADM@steria.onmicrosoft.com Supervisor Details Stg: Supervisor Details Supervisor cluster details for DR IP: 10.252.240.247 IP: 10.252.240.249 PWD: h6GnJ4wZefCf&gt;2ar&#xD;Imp Links Dep Docs confluence Timesheet Eventage Link Innersource Maintennce windows Innersource stg on AWS cloud Gitlab Repo doc link</description>
+    </item>
+    <item>
+      <title>AvI PRD</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/aviprd/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/aviprd/index.html</guid>
+      <description>How to Login to Service Engine in Tanzu Steps: Login to the bastion host.&#xA;Login to the Avi Controller (Use the IP address of one of the Avi Controllers):&#xA;ssh admin@10.252.240.50&#xA;Use the same username and password as the Avi Controller login.&#xA;Enter the Avi CLI shell: admin@avi-controller-dr-1-marc-fr-ssg:~$ shell&#xA;If prompted, provide credentials:&#xA;Login: admin Password: Attach to the Service Engine: List available service engines: attach serviceengine Avi-se- Avi-se-himsz Avi-se-tgkld</description>
+    </item>
+    <item>
+      <title>AvI Stg</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/avistg/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/avistg/index.html</guid>
+      <description>How to Login to Service Engine in Tanzu Steps: Login to the bastion host.&#xA;Login to the Avi Controller (Use the IP address of one of the Avi Controllers):&#xA;ssh admin@10.252.240.50&#xA;Use the same username and password as the Avi Controller login.&#xA;Enter the Avi CLI shell: admin@avi-controller-dr-1-marc-fr-ssg:~$ shell&#xA;If prompted, provide credentials:&#xA;Login: admin Password: Attach to the Service Engine: List available service engines: attach serviceengine Avi-se- Avi-se-himsz Avi-se-tgkld</description>
+    </item>
+    <item>
+      <title>Conatiner 01</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/docker/container01/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/docker/container01/index.html</guid>
+      <description>Topics&#xA;Linux Namespaces Linux Cgroups Unshare chroot Introduction: What Are Linux Namespaces? By default, all processes on a Linux system share the same namespaces for things like process IDs, network, mounts, etc. This means:&#xA;All processes see the same list of processes. All processes share the same network interfaces and IP addresses. All processes see the same filesystem mount points. All processes share the same hostname. Why Do We Need Namespaces? Namespaces allow the Linux kernel to isolate and virtualize system resources so that a group of processes can have their own view of the system. This is key for:</description>
+    </item>
+    <item>
+      <title>Frequent issues</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/frequentissues/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/frequentissues/index.html</guid>
+      <description>If you get below error in teams Monitoring&#xA;[FIRING:1] (NodeFilesystemSpaceFillingUp /dev/mapper/vstorage-gitlablog ext4 10.6.39.25:9100 node /var/log/gitlab monitoring/k8s warning)&#xA;Solution sudo /opt/gitlab/embedded/sbin/logrotate -fv /var/opt/gitlab/logrotate/logrotate.d -s /var/opt/gitlab/logrotate/logrotate.conf&#xD;2 [FIRING:1] (NodeFilesystemSpaceFillingUp /dev/mapper/rhel-var ext4 10.6.39.25:9100 node /var sudo find /var/opt/gitlab/gitlab-rails/shared/cache/archive -type f -delete&#xD;Find out the files find /var -type f -exec du -h {} + | sort -rh | head -n 10&#xD;Delete files which are older than 30 days find /var/log -type f -name &#34;*.gz&#34; -mtime +30 -exec rm {} \;</description>
+    </item>
+    <item>
+      <title>Innersource onpPrem </title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/innersource-onprem/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/innersource-onprem/index.html</guid>
+      <description>supervisor_tkr_upgrade Gitlab Authentication Configuration</description>
+    </item>
+    <item>
+      <title>OCI</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/docker/conatiner02/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/docker/conatiner02/index.html</guid>
+      <description>Open Container Initiative (OCI) and Container Standards What is OCI? The Open Container Initiative (OCI) is an open governance project under the Linux Foundation started in 2015. It creates open standards for container formats and runtimes to ensure interoperability and portability across container platforms.&#xA;Key OCI Specifications OCI Image Format Specification&#xA;Defines a standard image format including layers, manifests, and metadata so images are portable across tools.&#xA;OCI Runtime Specification&#xA;Defines how to run containers using namespaces, cgroups, hooks, and other OS features.</description>
+    </item>
+    <item>
+      <title>OpenShift EX280 Practice </title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/ex280/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/ex280/index.html</guid>
+      <description>OpenShift EX280 Practice Q1. Manage Identity Providers Configure OAuth to use HTPasswd as the identity provider. Identity Provider name: ex280-provider Create 4 users: harry, leader, raja, qa-engineer All users should have the password: review Create a secret named: super-secret Configure OAuth with the HTPasswd identity provider. Ensure that user accounts exist and passwords are applied. Q2. Manage Cluster Project and Permissions Create 3 projects: front-end, back-end, app-db harry: Cluster administrator rights. leader: Can create projects, but not admin tasks. raja: View-only access to front-end and back-end qa-engineer: Admin access to front-end Note: Do NOT delete kubeadmin until admin user is fully configured. Q3. Create Project and Assign Roles to Groups harry creates 3 groups: leaders, developers, qa Add users to groups: leader → leaders raja → developers qa-engineer → qa Assign group roles: leaders: edit on back-end, app-db qa: view on front-end Q4. Protect External Traffic with TLS Create a secure route in the quart project. Expose application: https://anishrana2001.apps.ocp4.example.com Generate self-signed certificate with subject: Q5. Application Output in red Project Ensure the running pod in the red project produces expected output. Q6. Create a Service Account in alpha Name: ex280-sa Associate with anyuid SCC Application is already running in project alpha. Q7. Modify Application in alpha Modify the existing application to run with any UID. Ensure output is produced correctly. Q8. Create a Secret in cloud Project Name: ex280-secret Key: MYSQL_PASSWORD Value: redhat123 Q9. Use the Secret in cloud Project Use ex280-secret in an existing pod. Ensure the application uses the secret and produces output. Q10. Create Resource Quota in beta Name: ex280-quota Max Pods: 7 Max Service IPs: 6 Max Replication Controllers: 5 Max Memory: 1Gi Max CPU: 1 core Q11. Create LimitRange in orange Pod Memory: 5Mi to 300Mi Container Memory: Limit: 5Mi to 300Mi Default Request: 100Mi Pod CPU: 5m to 300m Container CPU: Limit: 5m to 300m Default Request: 100m Q12. Scale Deployment in tiger Scale single-pod deployment to 5 replicas. Ensure all pods are running. Q13. AutoScale Deployment in scalling Default container resources: Memory Request: 100Mi CPU Request: 50m Autoscale configuration: Min replicas: 2 Max replicas: 5 CPU utilization target: 50% Q14. Install Helm Chart Chart: etherpad Repo: http://helm.ocp4.example.com/charts Q15. Create CronJob in tiger Name: test-cron Schedule: 04:05 every 2nd day, every month Image: registry.io/nginx Service Account: ex280-sa Successful Job History Limit: 14 Q16. Network Policy Between Projects network-policy project pod allows traffic from different-namespace project Create network policy allow-specific: Namespace selector: network: different-namespace Pod selector: env=production Port: 8080/tcp Verify using logs of different-namespace pod Q17. Create PV, PVC and Deployment in page Project PersistentVolume</description>
+    </item>
+    <item>
+      <title>OpenShift EX280 Practice with Solution</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/ex280-01/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/ex280-01/index.html</guid>
+      <description>Q1. Manage Identity Providers: configure the Oauth to use HTPasswd as the identity provider. Identity Provider name is ex280-provider. Create 4 users, harry, leader , raja, qa-engineer and all should have review password. Configure user and apply password for them. Or Ensure that four users account exist. Secret name is super-secret Solution: Check Currenty logged in user oc whoami&#xD;Generate htpasswd file and users htpasswd -c -B -b /home/student/htpasswd harry review - -c =&gt; Create a new file - -B ==&gt; encrypt the password - -b =&gt; will provide the user name &amp; password.&#xD;Check all users cat /home/student/htpasswd&#xD;Create all users now htpasswd -b /home/student/htpasswd leader review htpasswd -b /home/student/htpasswd raja review htpasswd -b /home/student/htpasswd qa-engineer review&#xD;Verify again if you want cat /home/student/htpasswd&#xD;Create a Secret for htpasswd file oc create secret generic super-secret --from-file htpasswd=/home/student/htpasswd -n openshift-config&#xD;Verify newly created Secret oc get secret compreview-users -n openshift-config&#xD;Now create the backup of existing oauth oc get oauth cluster -o yaml &gt; oauth.yaml&#xD;Check the console to login with UI oc whoami --show-console Make the changes as per given below vi oauth.yaml&#xD;spec:&#xD;identityProviders:&#xD;- htpasswd:&#xD;fileData:&#xD;name: super-secret&#xD;mappingMethod: claim&#xD;name: ex280-provider&#xD;type: HTPasswd&#xD;Replace the existing oauth now oc replace -f oauth.yaml&#xD;During the oauth updation check authentication pods watch oc get pods -n openshift-authentication&#xD;Now try to login with all users one by one oc login -u jarry If you are using REDHAT LAB then use below to create the lab for this question. lab start appsec-scc oc login -u admin -p redhatocp https://api.ocp4.example.com:6443&#xD;Question 2. Manage Cluster Project and Permissions: Create 3 projects, front-end, back-end, and app-db harry user should have cluster administrator rights. leader user should be able create project but not administrator tasks. No other user should able to create project. raja user can only view the resources of front-end and back-end projects. qa-engineer user should have admin access to front-end project. kubaadmin is not present (make sure your cluster-admin user is working fine before delete kubeadmin, otherwise ocp-cluster not recoverable) Solution: Create a 3 groups by `harry’ user. oc new-project front-end&#xD;oc new-project back-end&#xD;oc new-project app-db&#xD;Cluster administrator for harry oc adm policy add-cluster-role-to-user cluster-admin harry&#xD;or no other user should able to create project. oc describe clusterrolebindings self-provisioners You may observe that ClusterRoleBinding “self-provisioners” has some group added like “system:authenticated:oauth”</description>
+    </item>
+    <item>
+      <title>Tasks to do </title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/tasks/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/tasks/index.html</guid>
+      <description>Completed Vcenters for Innersource onPrem Stg and DR have been upgraded to v8 successfully. Document is prepared Vmware Tanzu supervisor cluster has been upgraded to v1.30.10+vmware.1-fips-vsc0.1.12-24799161 and tkc to v1.31.7—vmware.1-fips-vkr.2 Vcenter of Innershift staging has been upgraded to v8. Document is prepared. Gitlab Orange secret used for Authentication has been updated New Issue is created for next year. https://innersource.soprasteria.com/ops/gitlab/common/misc/-/issues/247&#xD;Certificates for kubernetes of innersource prd gitlab was expired. Renewed them manually after Broadcom denied to support. Got to know that all certificates are to be renewed manually every year. Verified all certificates renewew dates and issues are created as per the expiry date for each environment. Innershift and Arcus have been upgraded successfully to v4.18. Innershift onPrem upgrade is postpond due to a bug OCPBUGS-57179 linked to egressIP Innersource staging on AWS is done (but it needs to be redeployed as firewall has to be used) Network is created with CIDR 10.10.0.0/16 (But as per Abhijit kumar it is already is used in Firwall so I will need to create another one ) LoadBalancers are created DNS has been used dep.soprasteria.com (old certiifcates are utilized ) Gitlab deployment is done without firewall configuration Innersource DR on AWS is in progress . Innersource on Cloud Upgrade to v18.1.X Release notes are pending Staging environment is upgraded . Gitlab Orange staging environment is upgraded to v18.0.6 Doc id ready in onenote. Innersource onPrem stgaing upgrade to v18.0.X Document is pending. (need to check the Geo part first)</description>
+    </item>
+    <item>
+      <title>VMware Tanzu Terms</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/vmware-tanzu/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/vmware-tanzu/index.html</guid>
+      <description>Tanzu Kubernetes Concepts: TKG, TKR, TKC, and Cluster Types This document provides a complete overview of the key concepts and cluster types in the VMware Tanzu Kubernetes Grid (TKG) ecosystem.&#xA;🔹 TKG – Tanzu Kubernetes Grid Definition:&#xA;VMware’s enterprise Kubernetes platform to deploy, operate, and manage Kubernetes clusters across vSphere, AWS, Azure, and other infrastructures.&#xA;✅ Key Features: Unified CLI (tanzu) Declarative cluster management using Cluster API Multi-cloud support Secure, tested Kubernetes releases (TKRs) Supports both Standalone and vSphere with Tanzu (TKGS) modes 🧱 TKG Deployment Modes: Mode Description TKG Standalone Uses a Management Cluster to manage lifecycle of Workload Clusters TKGS (vSphere with Tanzu) Uses a Supervisor Cluster embedded in vSphere to manage TKCs (Guest Clusters) 🔹 TKR – Tanzu Kubernetes Release Definition:&#xA;A VMware-curated Kubernetes distribution that includes:</description>
+    </item>
+    <item>
+      <title>VMware Upgrade Cheat Sheet</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/vmware/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/vmware/index.html</guid>
+      <description>🚀 Tanzu Kubernetes Grid (TKGs) Cluster Upgrade Guide This guide outlines the steps to upgrade a Tanzu Kubernetes Cluster (TKC) running in a vSphere with Tanzu environment using kubectl.&#xA;1. Log in to the Supervisor Cluster: kubectl vsphere login –server=api-stg.tanzu.cloudonprem2.soprasteria.com –insecure-skip-tls-verify=true –vsphere-username nirkumar.ADM@emea.msad.sopra –tanzu-kubernetes-cluster-namespace minio-stg –tanzu-kubernetes-cluster-name minio-tkc&#xA;kubectl config use-context minio-stg&#xA;2. Update the TKC to a New Kubernetes Version: kubectl edit tanzukubernetescluster minio-tkc -n minio-stg&#xA;Within the editor, modify the Kubernetes version as shown:</description>
+    </item>
+    <item>
+      <title>Gitlab on AWS Using Gitlab Environment Toolkit</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/aws-gitlab-stg/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/aws-gitlab-stg/index.html</guid>
+      <description>Public Innersource Staging Environment Raise a new request to DISI team for route 53 namesaerver update https://soprasteriacorp.service-now.com/sp?id=ticket&amp;table=sc_req_item&amp;sys_id=0a3745ca478b6ed0254ce471026d4305&amp;view=sp&#xD;Create a bastion host in the same network where you want to create your VMS so that there is communication to all the vms from bastion host create a dir on vm mkdir src cd src&#xD;Clone the repo git clone https://innersource.soprasteria.com/ops/gitlab/aws/instances/public-innersource-stg.git&#xD;Check the terraform &amp; Ansible dirs&#xA;Set the environemt variable for AWS credentials or you can use IAM role to attach to a bastion host.</description>
+    </item>
+    <item>
+      <title>Openshift Virtualization</title>
+      <link>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/kube-virt/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/kube-virt/index.html</guid>
+      <description>DO316 Book OpenShift Virtualization OpenShift Virtualization (formerly Container-native Virtualization or CNV) is a feature of Red Hat OpenShift that allows users to run and manage virtual machines (VMs) alongside container workloads on the same platform. It integrates KubeVirt into OpenShift to provide a unified platform for both VMs and containers.&#xA;🧠 Core Concepts &amp; Terminologies 1. KubeVirt An open-source project that extends Kubernetes by adding support for managing virtual machines as first-class citizens.</description>
+    </item>
+  </channel>
+</rss>

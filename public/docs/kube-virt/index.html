@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/nirpendra.kumar/mypersonal-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra.kumar/mypersonal-doc.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="DO316 Book OpenShift Virtualization OpenShift Virtualization (formerly Container-native Virtualization or CNV) is a feature of Red Hat OpenShift that allows users to run and manage virtual machines (VMs) alongside container workloads on the same platform. It integrates KubeVirt into OpenShift to provide a unified platform for both VMs and containers.
+🧠 Core Concepts &amp; Terminologies 1. KubeVirt An open-source project that extends Kubernetes by adding support for managing virtual machines as first-class citizens.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Openshift Virtualization :: My Doc">
+    <meta name="twitter:description" content="DO316 Book OpenShift Virtualization OpenShift Virtualization (formerly Container-native Virtualization or CNV) is a feature of Red Hat OpenShift that allows users to run and manage virtual machines (VMs) alongside container workloads on the same platform. It integrates KubeVirt into OpenShift to provide a unified platform for both VMs and containers.
+🧠 Core Concepts &amp; Terminologies 1. KubeVirt An open-source project that extends Kubernetes by adding support for managing virtual machines as first-class citizens.">
+    <meta property="og:url" content="http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/kube-virt/index.html">
+    <meta property="og:site_name" content="My Doc">
+    <meta property="og:title" content="Openshift Virtualization :: My Doc">
+    <meta property="og:description" content="DO316 Book OpenShift Virtualization OpenShift Virtualization (formerly Container-native Virtualization or CNV) is a feature of Red Hat OpenShift that allows users to run and manage virtual machines (VMs) alongside container workloads on the same platform. It integrates KubeVirt into OpenShift to provide a unified platform for both VMs and containers.
+🧠 Core Concepts &amp; Terminologies 1. KubeVirt An open-source project that extends Kubernetes by adding support for managing virtual machines as first-class citizens.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Docs">
+    <meta itemprop="name" content="Openshift Virtualization :: My Doc">
+    <meta itemprop="description" content="DO316 Book OpenShift Virtualization OpenShift Virtualization (formerly Container-native Virtualization or CNV) is a feature of Red Hat OpenShift that allows users to run and manage virtual machines (VMs) alongside container workloads on the same platform. It integrates KubeVirt into OpenShift to provide a unified platform for both VMs and containers.
+🧠 Core Concepts &amp; Terminologies 1. KubeVirt An open-source project that extends Kubernetes by adding support for managing virtual machines as first-class citizens.">
+    <meta itemprop="wordCount" content="486">
+    <title>Openshift Virtualization :: My Doc</title>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/auto-complete/auto-complete.min.css?1757062749" rel="stylesheet">
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/auto-complete/auto-complete.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search-lunr.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search.js?1757062749" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../../searchindex.en.js?1757062749";
+    </script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.stemmer.support.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.multi.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.en.min.js?1757062749" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757062749" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757062749" rel="stylesheet"></noscript>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757062749" rel="stylesheet">
+    <link href="../../css/theme.css?1757062749" rel="stylesheet">
+    <link href="../../css/format-html.css?1757062749" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/docs\/kube-virt\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra.kumar\/mypersonal-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../docs/kube-virt/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#do316-book"><a href="">DO316 Book</a></a></li>
+    <li><a href="#openshift-virtualization">OpenShift Virtualization</a></li>
+    <li><a href="#-core-concepts--terminologies">🧠 Core Concepts &amp; Terminologies</a>
+      <ul>
+        <li><a href="#1-kubevirt">1. <strong>KubeVirt</strong></a></li>
+        <li><a href="#2-virtual-machine-vm">2. <strong>Virtual Machine (VM)</strong></a></li>
+        <li><a href="#3-virtualmachine-vm-crd">3. <strong>VirtualMachine (VM) CRD</strong></a></li>
+        <li><a href="#4-virtualmachineinstance-vmi">4. <strong>VirtualMachineInstance (VMI)</strong></a></li>
+        <li><a href="#5-datavolume-dv">5. <strong>DataVolume (DV)</strong></a></li>
+        <li><a href="#6-containerized-data-importer-cdi">6. <strong>Containerized Data Importer (CDI)</strong></a></li>
+        <li><a href="#7-persistentvolumeclaim-pvc">7. <strong>PersistentVolumeClaim (PVC)</strong></a></li>
+        <li><a href="#8-template">8. <strong>Template</strong></a></li>
+        <li><a href="#9-virtctl">9. <strong>virtctl</strong></a></li>
+        <li><a href="#10-cloud-init">10. <strong>Cloud-Init</strong></a></li>
+        <li><a href="#11-node-placement">11. <strong>Node Placement</strong></a></li>
+        <li><a href="#12-live-migration">12. <strong>Live Migration</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#-benefits">✅ Benefits</a></li>
+    <li><a href="#-kubevirt-hyperconverged-what-is-it">🔧 kubevirt-hyperconverged: What Is It?</a></li>
+    <li><a href="#-purpose">📦 Purpose</a></li>
+    <li><a href="#-custom-resource-hco-cr">📁 Custom Resource (HCO CR)</a></li>
+    <li><a href="#-references">📚 References</a>
+      <ul>
+        <li><a href="#openshift-virtualization-1">Openshift Virtualization.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../index.html"><span itemprop="name">My docs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../docs/index.html"><span itemprop="name">My Docs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Openshift Virtualization</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/aws-gitlab-stg/index.html" title="Gitlab on AWS Using Gitlab Environment Toolkit (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable docs" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="openshift-virtualization">Openshift Virtualization</h1>
+
+<h2 id="do316-book"><a href="file:///C:/Users/nirkumar/OneDrive%20-%20Sopra%20Steria/Downloads/do316-4.16-student-guide%20(1).pdf" rel="external" target="_blank">DO316 Book</a></h2>
+<h2 id="openshift-virtualization">OpenShift Virtualization</h2>
+<p>OpenShift Virtualization (formerly Container-native Virtualization or CNV) is a feature of Red Hat OpenShift that allows users to run and manage virtual machines (VMs) alongside container workloads on the same platform. It integrates KubeVirt into OpenShift to provide a unified platform for both VMs and containers.</p>
+<hr>
+<h2 id="-core-concepts--terminologies">🧠 Core Concepts &amp; Terminologies</h2>
+<h3 id="1-kubevirt">1. <strong>KubeVirt</strong></h3>
+<p>An open-source project that extends Kubernetes by adding support for managing virtual machines as first-class citizens.</p>
+<h3 id="2-virtual-machine-vm">2. <strong>Virtual Machine (VM)</strong></h3>
+<p>A software emulation of a physical computer that runs an operating system and applications. In OpenShift Virtualization, VMs are treated like Kubernetes objects.</p>
+<h3 id="3-virtualmachine-vm-crd">3. <strong>VirtualMachine (VM) CRD</strong></h3>
+<p>A Custom Resource Definition used to define VM objects within Kubernetes/OpenShift. You use this to declare VM specifications such as CPU, memory, disks, and more.</p>
+<h3 id="4-virtualmachineinstance-vmi">4. <strong>VirtualMachineInstance (VMI)</strong></h3>
+<p>The runtime representation of a VM. When a <code>VirtualMachine</code> is started, a <code>VirtualMachineInstance</code> is created.</p>
+<h3 id="5-datavolume-dv">5. <strong>DataVolume (DV)</strong></h3>
+<p>A Kubernetes custom resource used with Containerized Data Importer (CDI) to manage VM disk images. It simplifies provisioning persistent storage for VMs.</p>
+<h3 id="6-containerized-data-importer-cdi">6. <strong>Containerized Data Importer (CDI)</strong></h3>
+<p>A tool that facilitates importing, uploading, or cloning VM disk images into OpenShift Persistent Volume Claims (PVCs).</p>
+<h3 id="7-persistentvolumeclaim-pvc">7. <strong>PersistentVolumeClaim (PVC)</strong></h3>
+<p>Storage resource used by a VM&rsquo;s disk. PVCs are dynamically provisioned and backed by supported storage classes.</p>
+<h3 id="8-template">8. <strong>Template</strong></h3>
+<p>A reusable configuration that defines one or more OpenShift objects, such as a pre-configured VM, which can be instantiated multiple times.</p>
+<h3 id="9-virtctl">9. <strong>virtctl</strong></h3>
+<p>A CLI tool that provides convenience commands for managing virtual machines (e.g., start/stop/restart console access).</p>
+<h3 id="10-cloud-init">10. <strong>Cloud-Init</strong></h3>
+<p>A widely used tool for customizing VM initialization (e.g., setting up users, SSH keys, packages) during boot time, often used with Linux VMs.</p>
+<h3 id="11-node-placement">11. <strong>Node Placement</strong></h3>
+<p>Defines scheduling rules for where VMs can be placed on nodes, often based on labels, affinities, or taints.</p>
+<h3 id="12-live-migration">12. <strong>Live Migration</strong></h3>
+<p>The ability to move a running VM from one node to another without downtime.</p>
+<hr>
+<h2 id="-benefits">✅ Benefits</h2>
+<ul>
+<li>Unified platform for containers and VMs</li>
+<li>Simplified management with OpenShift UI and CLI</li>
+<li>Seamless VM lifecycle integration into Kubernetes</li>
+<li>Migration path from legacy hypervisors (e.g., VMware, Hyper-V)</li>
+<li>Developer self-service for VMs</li>
+</ul>
+<hr>
+<h2 id="-kubevirt-hyperconverged-what-is-it">🔧 kubevirt-hyperconverged: What Is It?</h2>
+<p><code>kubevirt-hyperconverged</code> is the <strong>main operator</strong> used to deploy and manage <strong>OpenShift Virtualization</strong> on OpenShift clusters. It bundles all the required components to enable virtualization capabilities and simplifies the lifecycle management of the virtualization stack.</p>
+<hr>
+<h2 id="-purpose">📦 Purpose</h2>
+<p>The <code>kubevirt-hyperconverged</code> operator acts as a <strong>meta-operator</strong> that installs and manages a set of other Kubernetes Operators and components necessary to support VMs in OpenShift, including:</p>
+<ul>
+<li><strong>KubeVirt</strong> (VM runtime)</li>
+<li><strong>CDI (Containerized Data Importer)</strong> (disk image management)</li>
+<li><strong>SSP (Scheduling, Scale and Performance)</strong></li>
+<li><strong>Network Addons</strong> (e.g., multus, sriov)</li>
+<li><strong>Node Labeller</strong></li>
+<li><strong>Template Validator</strong></li>
+<li><strong>VM Templates</strong></li>
+</ul>
+<hr>
+<h2 id="-custom-resource-hco-cr">📁 Custom Resource (HCO CR)</h2>
+<p>The main Custom Resource managed by this operator is:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">hco.kubevirt.io/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">HyperConverged</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">kubevirt-hyperconverged</span></span></span></code></pre></div>
+<h2 id="-references">📚 References</h2>
+<ul>
+<li><a href="https://docs.openshift.com/container-platform/latest/virt/" rel="external" target="_blank">OpenShift Virtualization Documentation</a></li>
+<li><a href="https://kubevirt.io/" rel="external" target="_blank">KubeVirt Project</a></li>
+</ul>
+<h3 id="openshift-virtualization-1">Openshift Virtualization.</h3>
+<ul>
+<li>Installation of Kube virt operator .
+<ul>
+<li>It will be created in Namespace <strong>openshift-cnv</strong></li>
+</ul>
+</li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            <div class="logo-title">My Doc</div>
+          </a>
+        </div>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/docs/index.html"><a class="padding" href="../../docs/index.html">My Docs</a><ul id="R-subsections-b5fa667da3c6d162416dac7e8c63bf8a" class="collapsible-menu">
+            <li class="" data-nav-id="/docs/env-details/index.html"><a class="padding" href="../../docs/env-details/index.html">All App Urls</a></li>
+            <li class="" data-nav-id="/docs/aviprd/index.html"><a class="padding" href="../../docs/aviprd/index.html">AvI PRD</a></li>
+            <li class="" data-nav-id="/docs/avistg/index.html"><a class="padding" href="../../docs/avistg/index.html">AvI Stg</a></li>
+            <li class="" data-nav-id="/docs/docker/container01/index.html"><a class="padding" href="../../docs/docker/container01/index.html">Conatiner 01</a></li>
+            <li class="" data-nav-id="/docs/frequentissues/index.html"><a class="padding" href="../../docs/frequentissues/index.html">Frequent issues</a></li>
+            <li class="" data-nav-id="/docs/innersource-onprem/index.html"><a class="padding" href="../../docs/innersource-onprem/index.html">Innersource onpPrem </a></li>
+            <li class="" data-nav-id="/docs/docker/conatiner02/index.html"><a class="padding" href="../../docs/docker/conatiner02/index.html">OCI</a></li>
+            <li class="" data-nav-id="/docs/ex280/index.html"><a class="padding" href="../../docs/ex280/index.html">OpenShift EX280 Practice </a></li>
+            <li class="" data-nav-id="/docs/ex280-01/index.html"><a class="padding" href="../../docs/ex280-01/index.html">OpenShift EX280 Practice with Solution</a></li>
+            <li class="" data-nav-id="/docs/docker/container03/index.html"><a class="padding" href="../../docs/docker/container03/index.html">Security</a></li>
+            <li class="" data-nav-id="/docs/tasks/index.html"><a class="padding" href="../../docs/tasks/index.html">Tasks to do </a></li>
+            <li class="" data-nav-id="/docs/vmware-tanzu/index.html"><a class="padding" href="../../docs/vmware-tanzu/index.html">VMware Tanzu Terms</a></li>
+            <li class="" data-nav-id="/docs/vmware/index.html"><a class="padding" href="../../docs/vmware/index.html">VMware Upgrade Cheat Sheet</a></li>
+            <li class="" data-nav-id="/docs/aws-gitlab-stg/index.html"><a class="padding" href="../../docs/aws-gitlab-stg/index.html">Gitlab on AWS Using Gitlab Environment Toolkit</a></li>
+            <li class="active " data-nav-id="/docs/kube-virt/index.html"><a class="padding" href="../../docs/kube-virt/index.html">Openshift Virtualization</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/clipboard/clipboard.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/theme.js?1757062749" defer></script>
+  </body>
+</html>

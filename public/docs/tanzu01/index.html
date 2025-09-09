@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/nirpendra.kumar/mypersonal-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra.kumar/mypersonal-doc.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+    <meta name="description" content="VMware Tanzu Beginner’s Guide: Learn Tanzu from Scratch A structured walkthrough to understand VMware Tanzu, its architecture, components, and basic usage.
+1️⃣ What is VMware Tanzu? Tanzu is VMware’s Kubernetes platform designed to help you build, run, and manage modern applications across multiple clouds and on-prem VMware infrastructure.
+Why Tanzu? Seamless integration with vSphere (great for VMware environments) Provides curated, secure Kubernetes releases called TKRs Supports declarative cluster lifecycle management via Cluster API Works on vSphere, AWS, Azure for hybrid-cloud flexibility Empowers developers, platform engineers, and operators 2️⃣ Tanzu Core Architecture &amp; Concepts Component Description TKG (Tanzu Kubernetes Grid) The core platform offering Kubernetes lifecycle management TKR (Tanzu Kubernetes Release) VMware-curated Kubernetes versions with tested components TKC (Tanzu Kubernetes Cluster) Kubernetes custom resource definition (CRD) used in TKGS Supervisor Cluster Kubernetes control plane embedded inside vSphere ESXi hosts Management Cluster Kubernetes cluster that manages other clusters (TKG Standalone) Workload Cluster Kubernetes cluster where your applications run Tanzu CLI Command-line interface for managing Tanzu clusters Tanzu Deployment Modes Mode Description TKG Standalone Uses Management Cluster to manage Workload Clusters on vSphere/AWS/Azure TKGS (vSphere with Tanzu) Runs Kubernetes natively inside vSphere via Supervisor Cluster and TKCs 3️⃣ Setting Up Tanzu: Basic Flow Choose your deployment mode TKG Standalone for multi-cloud or on-prem Kubernetes clusters TKGS to run Kubernetes natively on vSphere ESXi Tools you will use tanzu CLI — primary tool to create/manage clusters kubectl — Kubernetes command-line tool vSphere Client — to enable workload management (TKGS) Installation Steps TKG Standalone Create a Management Cluster (bootstrap cluster):">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="VMware Tanzu Beginner’s Guide: Learn Tanzu from Scratch A structured walkthrough to understand VMware Tanzu, its architecture, components, and basic usage.
+1️⃣ What is VMware Tanzu? Tanzu is VMware’s Kubernetes platform designed to help you build, run, and manage modern applications across multiple clouds and on-prem VMware infrastructure.
+Why Tanzu? Seamless integration with vSphere (great for VMware environments) Provides curated, secure Kubernetes releases called TKRs Supports declarative cluster lifecycle management via Cluster API Works on vSphere, AWS, Azure for hybrid-cloud flexibility Empowers developers, platform engineers, and operators 2️⃣ Tanzu Core Architecture &amp; Concepts Component Description TKG (Tanzu Kubernetes Grid) The core platform offering Kubernetes lifecycle management TKR (Tanzu Kubernetes Release) VMware-curated Kubernetes versions with tested components TKC (Tanzu Kubernetes Cluster) Kubernetes custom resource definition (CRD) used in TKGS Supervisor Cluster Kubernetes control plane embedded inside vSphere ESXi hosts Management Cluster Kubernetes cluster that manages other clusters (TKG Standalone) Workload Cluster Kubernetes cluster where your applications run Tanzu CLI Command-line interface for managing Tanzu clusters Tanzu Deployment Modes Mode Description TKG Standalone Uses Management Cluster to manage Workload Clusters on vSphere/AWS/Azure TKGS (vSphere with Tanzu) Runs Kubernetes natively inside vSphere via Supervisor Cluster and TKCs 3️⃣ Setting Up Tanzu: Basic Flow Choose your deployment mode TKG Standalone for multi-cloud or on-prem Kubernetes clusters TKGS to run Kubernetes natively on vSphere ESXi Tools you will use tanzu CLI — primary tool to create/manage clusters kubectl — Kubernetes command-line tool vSphere Client — to enable workload management (TKGS) Installation Steps TKG Standalone Create a Management Cluster (bootstrap cluster):">
+    <meta property="og:url" content="http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/tanzu01/index.html">
+    <meta property="og:site_name" content="My Doc">
+    <meta property="og:description" content="VMware Tanzu Beginner’s Guide: Learn Tanzu from Scratch A structured walkthrough to understand VMware Tanzu, its architecture, components, and basic usage.
+1️⃣ What is VMware Tanzu? Tanzu is VMware’s Kubernetes platform designed to help you build, run, and manage modern applications across multiple clouds and on-prem VMware infrastructure.
+Why Tanzu? Seamless integration with vSphere (great for VMware environments) Provides curated, secure Kubernetes releases called TKRs Supports declarative cluster lifecycle management via Cluster API Works on vSphere, AWS, Azure for hybrid-cloud flexibility Empowers developers, platform engineers, and operators 2️⃣ Tanzu Core Architecture &amp; Concepts Component Description TKG (Tanzu Kubernetes Grid) The core platform offering Kubernetes lifecycle management TKR (Tanzu Kubernetes Release) VMware-curated Kubernetes versions with tested components TKC (Tanzu Kubernetes Cluster) Kubernetes custom resource definition (CRD) used in TKGS Supervisor Cluster Kubernetes control plane embedded inside vSphere ESXi hosts Management Cluster Kubernetes cluster that manages other clusters (TKG Standalone) Workload Cluster Kubernetes cluster where your applications run Tanzu CLI Command-line interface for managing Tanzu clusters Tanzu Deployment Modes Mode Description TKG Standalone Uses Management Cluster to manage Workload Clusters on vSphere/AWS/Azure TKGS (vSphere with Tanzu) Runs Kubernetes natively inside vSphere via Supervisor Cluster and TKCs 3️⃣ Setting Up Tanzu: Basic Flow Choose your deployment mode TKG Standalone for multi-cloud or on-prem Kubernetes clusters TKGS to run Kubernetes natively on vSphere ESXi Tools you will use tanzu CLI — primary tool to create/manage clusters kubectl — Kubernetes command-line tool vSphere Client — to enable workload management (TKGS) Installation Steps TKG Standalone Create a Management Cluster (bootstrap cluster):">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Docs">
+    <meta itemprop="description" content="VMware Tanzu Beginner’s Guide: Learn Tanzu from Scratch A structured walkthrough to understand VMware Tanzu, its architecture, components, and basic usage.
+1️⃣ What is VMware Tanzu? Tanzu is VMware’s Kubernetes platform designed to help you build, run, and manage modern applications across multiple clouds and on-prem VMware infrastructure.
+Why Tanzu? Seamless integration with vSphere (great for VMware environments) Provides curated, secure Kubernetes releases called TKRs Supports declarative cluster lifecycle management via Cluster API Works on vSphere, AWS, Azure for hybrid-cloud flexibility Empowers developers, platform engineers, and operators 2️⃣ Tanzu Core Architecture &amp; Concepts Component Description TKG (Tanzu Kubernetes Grid) The core platform offering Kubernetes lifecycle management TKR (Tanzu Kubernetes Release) VMware-curated Kubernetes versions with tested components TKC (Tanzu Kubernetes Cluster) Kubernetes custom resource definition (CRD) used in TKGS Supervisor Cluster Kubernetes control plane embedded inside vSphere ESXi hosts Management Cluster Kubernetes cluster that manages other clusters (TKG Standalone) Workload Cluster Kubernetes cluster where your applications run Tanzu CLI Command-line interface for managing Tanzu clusters Tanzu Deployment Modes Mode Description TKG Standalone Uses Management Cluster to manage Workload Clusters on vSphere/AWS/Azure TKGS (vSphere with Tanzu) Runs Kubernetes natively inside vSphere via Supervisor Cluster and TKCs 3️⃣ Setting Up Tanzu: Basic Flow Choose your deployment mode TKG Standalone for multi-cloud or on-prem Kubernetes clusters TKGS to run Kubernetes natively on vSphere ESXi Tools you will use tanzu CLI — primary tool to create/manage clusters kubectl — Kubernetes command-line tool vSphere Client — to enable workload management (TKGS) Installation Steps TKG Standalone Create a Management Cluster (bootstrap cluster):">
+    <meta itemprop="wordCount" content="1413">
+    <title></title>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/auto-complete/auto-complete.min.css?1757062749" rel="stylesheet">
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/auto-complete/auto-complete.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search-lunr.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search.js?1757062749" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../../searchindex.en.js?1757062749";
+    </script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.stemmer.support.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.multi.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.en.min.js?1757062749" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757062749" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757062749" rel="stylesheet"></noscript>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757062749" rel="stylesheet">
+    <link href="../../css/theme.css?1757062749" rel="stylesheet">
+    <link href="../../css/format-html.css?1757062749" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/docs\/tanzu01\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra.kumar\/mypersonal-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../docs/tanzu01/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#1-what-is-vmware-tanzu">1️⃣ What is VMware Tanzu?</a>
+      <ul>
+        <li><a href="#why-tanzu">Why Tanzu?</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-tanzu-core-architecture--concepts">2️⃣ Tanzu Core Architecture &amp; Concepts</a>
+      <ul>
+        <li><a href="#tanzu-deployment-modes">Tanzu Deployment Modes</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-setting-up-tanzu-basic-flow">3️⃣ Setting Up Tanzu: Basic Flow</a>
+      <ul>
+        <li><a href="#choose-your-deployment-mode">Choose your deployment mode</a></li>
+        <li><a href="#tools-you-will-use">Tools you will use</a></li>
+        <li><a href="#installation-steps">Installation Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-networking-storage-and-observability-in-tanzu">4️⃣ Networking, Storage, and Observability in Tanzu</a>
+      <ul>
+        <li><a href="#networking">Networking</a></li>
+        <li><a href="#storage">Storage</a></li>
+        <li><a href="#observability">Observability</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-deploying-applications-on-tanzu">5️⃣ Deploying Applications on Tanzu</a></li>
+    <li><a href="#6-advanced-cicd-and-gitops-with-tanzu">6️⃣ Advanced: CI/CD and GitOps with Tanzu</a></li>
+    <li><a href="#summary-table-tanzu-key-terms">Summary Table: Tanzu Key Terms</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#step-1-prepare-azure-environment">Step 1: Prepare Azure Environment</a></li>
+    <li><a href="#step-2-install-tkg-cli-and-azure-components">Step 2: Install TKG CLI and Azure Components</a></li>
+    <li><a href="#step-3-configure-tkg-azure-management-cluster">Step 3: Configure TKG Azure Management Cluster</a></li>
+    <li><a href="#step-4-create-the-management-cluster-on-azure">Step 4: Create the Management Cluster on Azure</a></li>
+    <li><a href="#step-5-validate-the-management-cluster">Step 5: Validate the Management Cluster</a></li>
+    <li><a href="#step-6-create-a-workload-cluster">Step 6: Create a Workload Cluster</a></li>
+    <li><a href="#step-7-access-workload-cluster">Step 7: Access Workload Cluster</a></li>
+    <li><a href="#additional-resources">Additional Resources</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-multi-cloud-and-hybrid-cloud-consistency">1️⃣ Multi-Cloud and Hybrid Cloud Consistency</a></li>
+    <li><a href="#2-integration-with-vmware-ecosystem">2️⃣ Integration with VMware Ecosystem</a></li>
+    <li><a href="#3-control-and-customization">3️⃣ Control and Customization</a></li>
+    <li><a href="#4-enterprise-features--security">4️⃣ Enterprise Features &amp; Security</a></li>
+    <li><a href="#5-developer-and-platform-team-experience">5️⃣ Developer and Platform Team Experience</a></li>
+    <li><a href="#6-pricing--support">6️⃣ Pricing &amp; Support</a></li>
+    <li><a href="#summary-table">Summary Table</a></li>
+    <li><a href="#when-to-use-tanzu-over-aks">When to Use Tanzu over AKS?</a></li>
+    <li><a href="#when-to-prefer-aks">When to Prefer AKS?</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../index.html"><span itemprop="name">My docs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../docs/index.html"><span itemprop="name">My Docs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/kube-virt/index.html" title="Openshift Virtualization (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable docs" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id=""></h1>
+
+<h1 id="vmware-tanzu-beginners-guide-learn-tanzu-from-scratch">VMware Tanzu Beginner’s Guide: Learn Tanzu from Scratch</h1>
+<p>A structured walkthrough to understand VMware Tanzu, its architecture, components, and basic usage.</p>
+<hr>
+<h2 id="1-what-is-vmware-tanzu">1️⃣ What is VMware Tanzu?</h2>
+<p><strong>Tanzu</strong> is VMware&rsquo;s Kubernetes platform designed to help you <strong>build, run, and manage modern applications</strong> across multiple clouds and on-prem VMware infrastructure.</p>
+<h3 id="why-tanzu">Why Tanzu?</h3>
+<ul>
+<li>Seamless <strong>integration with vSphere</strong> (great for VMware environments)</li>
+<li>Provides <strong>curated, secure Kubernetes releases</strong> called TKRs</li>
+<li>Supports <strong>declarative cluster lifecycle management</strong> via Cluster API</li>
+<li>Works on <strong>vSphere, AWS, Azure</strong> for hybrid-cloud flexibility</li>
+<li>Empowers developers, platform engineers, and operators</li>
+</ul>
+<hr>
+<h2 id="2-tanzu-core-architecture--concepts">2️⃣ Tanzu Core Architecture &amp; Concepts</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Component</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TKG</strong> (Tanzu Kubernetes Grid)</td>
+          <td>The core platform offering Kubernetes lifecycle management</td>
+      </tr>
+      <tr>
+          <td><strong>TKR</strong> (Tanzu Kubernetes Release)</td>
+          <td>VMware-curated Kubernetes versions with tested components</td>
+      </tr>
+      <tr>
+          <td><strong>TKC</strong> (Tanzu Kubernetes Cluster)</td>
+          <td>Kubernetes custom resource definition (CRD) used in TKGS</td>
+      </tr>
+      <tr>
+          <td><strong>Supervisor Cluster</strong></td>
+          <td>Kubernetes control plane embedded inside vSphere ESXi hosts</td>
+      </tr>
+      <tr>
+          <td><strong>Management Cluster</strong></td>
+          <td>Kubernetes cluster that manages other clusters (TKG Standalone)</td>
+      </tr>
+      <tr>
+          <td><strong>Workload Cluster</strong></td>
+          <td>Kubernetes cluster where your applications run</td>
+      </tr>
+      <tr>
+          <td><strong>Tanzu CLI</strong></td>
+          <td>Command-line interface for managing Tanzu clusters</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="tanzu-deployment-modes">Tanzu Deployment Modes</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Mode</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TKG Standalone</strong></td>
+          <td>Uses Management Cluster to manage Workload Clusters on vSphere/AWS/Azure</td>
+      </tr>
+      <tr>
+          <td><strong>TKGS (vSphere with Tanzu)</strong></td>
+          <td>Runs Kubernetes natively inside vSphere via Supervisor Cluster and TKCs</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="3-setting-up-tanzu-basic-flow">3️⃣ Setting Up Tanzu: Basic Flow</h2>
+<h3 id="choose-your-deployment-mode">Choose your deployment mode</h3>
+<ul>
+<li><strong>TKG Standalone</strong> for multi-cloud or on-prem Kubernetes clusters</li>
+<li><strong>TKGS</strong> to run Kubernetes natively on vSphere ESXi</li>
+</ul>
+<h3 id="tools-you-will-use">Tools you will use</h3>
+<ul>
+<li><code>tanzu</code> CLI — primary tool to create/manage clusters</li>
+<li><code>kubectl</code> — Kubernetes command-line tool</li>
+<li>vSphere Client — to enable workload management (TKGS)</li>
+</ul>
+<h3 id="installation-steps">Installation Steps</h3>
+<h4 id="tkg-standalone">TKG Standalone</h4>
+<p>Create a Management Cluster (bootstrap cluster):</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu management-cluster create --ui</span></span></code></pre></div>
+<p>Create a Workload Cluster:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu cluster create my-cluster --tkr &lt;TKR-version&gt;</span></span></code></pre></div>
+<h4 id="tkgs-vsphere-with-tanzu">TKGS (vSphere with Tanzu)</h4>
+<ol>
+<li>Enable <strong>Workload Management</strong> in vCenter (creates Supervisor Cluster)</li>
+<li>Create <strong>vSphere Namespaces</strong> for tenant clusters</li>
+<li>Deploy Tanzu Kubernetes Clusters (TKCs) using YAML manifests:</li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">run.tanzu.vmware.com/v1alpha1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">TanzuKubernetesCluster</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">my-tkc</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">my-namespace</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">distribution</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">version</span>: <span style="color:#ae81ff">v1.26.8---vmware.1-tkg.1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">topology</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">controlPlane</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">count</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">class</span>: <span style="color:#ae81ff">best-effort-small</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">workers</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">count</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">class</span>: <span style="color:#ae81ff">best-effort-small</span></span></span></code></pre></div>
+<hr>
+<h2 id="4-networking-storage-and-observability-in-tanzu">4️⃣ Networking, Storage, and Observability in Tanzu</h2>
+<h3 id="networking">Networking</h3>
+<ul>
+<li><strong>Default CNI:</strong> Antrea</li>
+<li>Optional integrations with <strong>NSX-T</strong> or <strong>AVI/HAProxy</strong> for load balancing and advanced networking</li>
+</ul>
+<h3 id="storage">Storage</h3>
+<ul>
+<li>Use <strong>vSphere CSI driver</strong> for persistent volumes on vSphere datastores</li>
+<li>Cloud CSI drivers (e.g., AWS EBS) for cloud environments</li>
+<li>StorageClasses define storage backend for Kubernetes volumes</li>
+</ul>
+<h3 id="observability">Observability</h3>
+<ul>
+<li>Logging: Fluent Bit collects logs from clusters</li>
+<li>Monitoring: Prometheus and Grafana (can be integrated)</li>
+<li>Metrics Server for resource utilization metrics</li>
+</ul>
+<hr>
+<h2 id="5-deploying-applications-on-tanzu">5️⃣ Deploying Applications on Tanzu</h2>
+<ul>
+<li>Use <code>kubectl</code> or Tanzu CLI to deploy containerized workloads</li>
+<li>Utilize standard Kubernetes manifests (Deployments, Services, Ingress)</li>
+<li>Use Tanzu Application Catalog for pre-built, secure open-source software</li>
+</ul>
+<p>Example of deploying an Nginx app:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create deployment nginx --image<span style="color:#f92672">=</span>nginx
+</span></span><span style="display:flex;"><span>kubectl expose deployment nginx --port<span style="color:#f92672">=</span><span style="color:#ae81ff">80</span> --type<span style="color:#f92672">=</span>LoadBalancer</span></span></code></pre></div>
+<hr>
+<h2 id="6-advanced-cicd-and-gitops-with-tanzu">6️⃣ Advanced: CI/CD and GitOps with Tanzu</h2>
+<ul>
+<li>Integrate Tanzu clusters with CI/CD pipelines (Jenkins, GitLab, etc.)</li>
+<li>Use <strong>Flux</strong> or <strong>ArgoCD</strong> for GitOps-driven deployments</li>
+<li>Automate cluster upgrades with TKRs and Cluster API</li>
+</ul>
+<hr>
+<h2 id="summary-table-tanzu-key-terms">Summary Table: Tanzu Key Terms</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Term</th>
+          <th>Meaning</th>
+          <th>Used In</th>
+          <th>Example/Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TKG</strong></td>
+          <td>Tanzu Kubernetes Grid platform</td>
+          <td>All Tanzu deployments</td>
+          <td><code>tanzu cluster create</code></td>
+      </tr>
+      <tr>
+          <td><strong>TKR</strong></td>
+          <td>Kubernetes version + components</td>
+          <td>Specified in cluster creation</td>
+          <td><code>v1.26.8---vmware.1-tkg.1</code></td>
+      </tr>
+      <tr>
+          <td><strong>TKC</strong></td>
+          <td>Kubernetes Cluster CRD in TKGS</td>
+          <td>Only in TKGS</td>
+          <td>YAML manifests for clusters</td>
+      </tr>
+      <tr>
+          <td><strong>Supervisor Cluster</strong></td>
+          <td>Embedded Kubernetes in vSphere</td>
+          <td>TKGS</td>
+          <td>Runs on ESXi hosts</td>
+      </tr>
+      <tr>
+          <td><strong>Management Cluster</strong></td>
+          <td>Bootstrap cluster managing others</td>
+          <td>TKG Standalone</td>
+          <td>Created by <code>tanzu management-cluster create</code></td>
+      </tr>
+      <tr>
+          <td><strong>Workload Cluster</strong></td>
+          <td>Kubernetes cluster for apps</td>
+          <td>Both TKG and TKGS</td>
+          <td>Where your applications run</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<p>Feel free to ask if you want me to create a step-by-step lab guide next or deeper details on any topic!</p>
+<h1 id="deploying-vmware-tanzu-kubernetes-grid-tkg-on-microsoft-azure">Deploying VMware Tanzu Kubernetes Grid (TKG) on Microsoft Azure</h1>
+<p>This guide walks you through deploying <strong>TKG Standalone</strong> on Azure infrastructure.</p>
+<hr>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Azure subscription with sufficient permissions</li>
+<li>Azure CLI installed and configured (<code>az login</code>)</li>
+<li>Tanzu CLI installed (<code>tanzu</code>) on your local machine</li>
+<li><code>kubectl</code> installed</li>
+<li>Terraform installed (used by Tanzu installer)</li>
+<li>Docker installed (for some local operations)</li>
+</ul>
+<hr>
+<h2 id="step-1-prepare-azure-environment">Step 1: Prepare Azure Environment</h2>
+<ol>
+<li><strong>Login to Azure</strong></li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az login</span></span></code></pre></div>
+<ol start="2">
+<li><strong>Create a resource group</strong></li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az group create --name tkg-rg --location eastus</span></span></code></pre></div>
+<ol start="3">
+<li><strong>Create a service principal for Tanzu</strong></li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>az ad sp create-for-rbac --name tkg-sp --role Contributor --scopes /subscriptions/&lt;subscription-id&gt;/resourceGroups/tkg-rg</span></span></code></pre></div>
+<p>Note the output:</p>
+<ul>
+<li><code>appId</code> → Client ID</li>
+<li><code>password</code> → Client secret</li>
+<li><code>tenant</code> → Tenant ID</li>
+</ul>
+<hr>
+<h2 id="step-2-install-tkg-cli-and-azure-components">Step 2: Install TKG CLI and Azure Components</h2>
+<ul>
+<li>Download and install the Tanzu CLI from VMware Tanzu Network.</li>
+<li>Verify with:</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu version</span></span></code></pre></div>
+<ul>
+<li>Install Azure CLI plugin for Tanzu (if required):</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu plugin install --local &lt;path-to-azure-plugin&gt;</span></span></code></pre></div>
+<hr>
+<h2 id="step-3-configure-tkg-azure-management-cluster">Step 3: Configure TKG Azure Management Cluster</h2>
+<p>Create a <code>config.yaml</code> file for your Azure management cluster configuration, e.g.,</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">CLUSTER_PLAN</span>: <span style="color:#ae81ff">dev</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_SUBSCRIPTION_ID</span>: <span style="color:#ae81ff">&lt;your-subscription-id&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_TENANT_ID</span>: <span style="color:#ae81ff">&lt;your-tenant-id&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_CLIENT_ID</span>: <span style="color:#ae81ff">&lt;your-appId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_CLIENT_SECRET</span>: <span style="color:#ae81ff">&lt;your-password&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_LOCATION</span>: <span style="color:#ae81ff">eastus</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_RESOURCE_GROUP</span>: <span style="color:#ae81ff">tkg-rg</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_VNET_NAME</span>: <span style="color:#ae81ff">tkg-vnet</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_CONTROL_PLANE_MACHINE_TYPE</span>: <span style="color:#ae81ff">Standard_D4s_v3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_NODE_MACHINE_TYPE</span>: <span style="color:#ae81ff">Standard_D2s_v3</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">AZURE_NODE_MACHINE_COUNT</span>: <span style="color:#ae81ff">3</span></span></span></code></pre></div>
+<hr>
+<h2 id="step-4-create-the-management-cluster-on-azure">Step 4: Create the Management Cluster on Azure</h2>
+<p>Run the management cluster creation command:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu management-cluster create --file config.yaml --verbose</span></span></code></pre></div>
+<p>This will:</p>
+<ul>
+<li>Provision VMs in Azure as control plane and worker nodes</li>
+<li>Deploy a management cluster to bootstrap workload clusters</li>
+</ul>
+<hr>
+<h2 id="step-5-validate-the-management-cluster">Step 5: Validate the Management Cluster</h2>
+<p>After creation completes, configure your local kubectl context:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu management-cluster kubeconfig get --admin
+</span></span><span style="display:flex;"><span>kubectl config use-context &lt;management-cluster-context-name&gt;
+</span></span><span style="display:flex;"><span>kubectl get nodes</span></span></code></pre></div>
+<p>You should see your Azure VMs registered as Kubernetes nodes.</p>
+<hr>
+<h2 id="step-6-create-a-workload-cluster">Step 6: Create a Workload Cluster</h2>
+<p>Example command:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu cluster create my-azure-cluster --file config.yaml --kubernetes-version v1.26.8 --plan dev</span></span></code></pre></div>
+<p>This deploys a workload cluster inside your management cluster on Azure.</p>
+<hr>
+<h2 id="step-7-access-workload-cluster">Step 7: Access Workload Cluster</h2>
+<p>Configure your kubeconfig for the new workload cluster:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tanzu cluster kubeconfig get my-azure-cluster --admin
+</span></span><span style="display:flex;"><span>kubectl config use-context my-azure-cluster-admin@my-azure-cluster
+</span></span><span style="display:flex;"><span>kubectl get nodes</span></span></code></pre></div>
+<p>You can now deploy apps as you would with any Kubernetes cluster.</p>
+<hr>
+<h2 id="additional-resources">Additional Resources</h2>
+<ul>
+<li><a href="https://docs.vmware.com/en/VMware-Tanzu-Kubernetes-Grid/index.html" rel="external" target="_blank">VMware Tanzu Kubernetes Grid Documentation</a></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/virtual-machines/sizes" rel="external" target="_blank">Azure VM Sizes</a></li>
+<li><a href="https://docs.microsoft.com/en-us/cli/azure/" rel="external" target="_blank">Azure CLI Reference</a></li>
+</ul>
+<hr>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>Ensure your Azure subscription quota supports the VM sizes and number you request.</li>
+<li>Network and firewall settings must allow Kubernetes components to communicate.</li>
+<li>Use the Tanzu CLI&rsquo;s <code>--verbose</code> flag to troubleshoot issues.</li>
+</ul>
+<hr>
+<p>Happy Tanzu-ing on Azure! 🚀</p>
+<h1 id="why-use-vmware-tanzu-instead-of-aks-on-azure">Why Use VMware Tanzu Instead of AKS on Azure?</h1>
+<p>When deciding between <strong>VMware Tanzu Kubernetes Grid (TKG)</strong> and <strong>Azure Kubernetes Service (AKS)</strong> on Azure cloud, consider the following factors:</p>
+<hr>
+<h2 id="1-multi-cloud-and-hybrid-cloud-consistency">1️⃣ Multi-Cloud and Hybrid Cloud Consistency</h2>
+<ul>
+<li>
+<p><strong>Tanzu:</strong><br>
+Designed to provide a <strong>consistent Kubernetes experience across multiple environments</strong> — on-premises vSphere, public clouds (Azure, AWS, GCP), and edge.<br>
+Ideal if you want <strong>hybrid or multi-cloud deployments</strong> with unified tooling and lifecycle management.</p>
+</li>
+<li>
+<p><strong>AKS:</strong><br>
+Managed Kubernetes service <strong>specific to Azure cloud only</strong>.</p>
+</li>
+</ul>
+<hr>
+<h2 id="2-integration-with-vmware-ecosystem">2️⃣ Integration with VMware Ecosystem</h2>
+<ul>
+<li>
+<p><strong>Tanzu:</strong><br>
+Deeply integrated with <strong>VMware vSphere and NSX-T</strong> networking.<br>
+Great choice if you already use VMware infrastructure and want to modernize with Kubernetes without migrating workloads off your data center.</p>
+</li>
+<li>
+<p><strong>AKS:</strong><br>
+Integrates with Azure networking, storage, and identity services, but no VMware integration.</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-control-and-customization">3️⃣ Control and Customization</h2>
+<ul>
+<li>
+<p><strong>Tanzu:</strong><br>
+Provides <strong>full control over Kubernetes clusters</strong>, including versioning (via TKRs), add-ons, and cluster lifecycle via Cluster API.<br>
+You control upgrade timing, cluster topology, and can extend with custom components.</p>
+</li>
+<li>
+<p><strong>AKS:</strong><br>
+A <strong>managed service</strong>, so Microsoft handles control plane and upgrades, which reduces operational burden but limits control.</p>
+</li>
+</ul>
+<hr>
+<h2 id="4-enterprise-features--security">4️⃣ Enterprise Features &amp; Security</h2>
+<ul>
+<li>
+<p><strong>Tanzu:</strong><br>
+Curated Kubernetes releases (TKRs) with VMware tested and secured components.<br>
+Integrates with VMware Carbon Black, Harbor container registry, and advanced security tools.</p>
+</li>
+<li>
+<p><strong>AKS:</strong><br>
+Microsoft-managed security and updates with Azure-native tooling, Azure AD integration, and Azure Security Center.</p>
+</li>
+</ul>
+<hr>
+<h2 id="5-developer-and-platform-team-experience">5️⃣ Developer and Platform Team Experience</h2>
+<ul>
+<li>
+<p><strong>Tanzu:</strong><br>
+Includes tools for platform engineering — <code>tanzu</code> CLI, declarative cluster management, application catalog, and GitOps support.<br>
+Suited for teams building internal Kubernetes platforms.</p>
+</li>
+<li>
+<p><strong>AKS:</strong><br>
+Provides simplicity and deep Azure DevOps and GitHub Actions integration out-of-the-box.</p>
+</li>
+</ul>
+<hr>
+<h2 id="6-pricing--support">6️⃣ Pricing &amp; Support</h2>
+<ul>
+<li>
+<p><strong>Tanzu:</strong><br>
+Licensed via VMware subscriptions, may incur additional costs depending on VMware stack usage.</p>
+</li>
+<li>
+<p><strong>AKS:</strong><br>
+Free control plane, pay only for node VMs. Azure support plans apply.</p>
+</li>
+</ul>
+<hr>
+<h2 id="summary-table">Summary Table</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Criteria</th>
+          <th>VMware Tanzu</th>
+          <th>Azure AKS</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Cloud Support</td>
+          <td>Multi-cloud + on-premises</td>
+          <td>Azure only</td>
+      </tr>
+      <tr>
+          <td>Infrastructure</td>
+          <td>VMware vSphere, Azure, AWS, etc.</td>
+          <td>Azure cloud</td>
+      </tr>
+      <tr>
+          <td>Control Plane Management</td>
+          <td>Self-managed via Tanzu CLI</td>
+          <td>Fully managed by Azure</td>
+      </tr>
+      <tr>
+          <td>Integration</td>
+          <td>VMware ecosystem (NSX, Carbon Black)</td>
+          <td>Azure ecosystem (Azure AD, Security Center)</td>
+      </tr>
+      <tr>
+          <td>Customization</td>
+          <td>High</td>
+          <td>Limited</td>
+      </tr>
+      <tr>
+          <td>Pricing</td>
+          <td>VMware licensing</td>
+          <td>Azure VM-based</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="when-to-use-tanzu-over-aks">When to Use Tanzu over AKS?</h2>
+<ul>
+<li>You have a <strong>hybrid cloud strategy</strong> involving on-prem VMware and public clouds.</li>
+<li>You want <strong>consistent Kubernetes management</strong> across multiple environments.</li>
+<li>You rely heavily on <strong>VMware infrastructure</strong> and want tight integration.</li>
+<li>Your teams need <strong>advanced customization and control</strong> over Kubernetes clusters.</li>
+<li>You plan to build a <strong>platform engineering team</strong> managing clusters declaratively.</li>
+</ul>
+<hr>
+<h2 id="when-to-prefer-aks">When to Prefer AKS?</h2>
+<ul>
+<li>You want a <strong>simple, fully-managed Kubernetes service</strong> in Azure.</li>
+<li>Your workloads are <strong>cloud-native and Azure-centric</strong>.</li>
+<li>You prefer to offload cluster control plane management to the cloud provider.</li>
+<li>You want tight integration with <strong>Azure DevOps and Microsoft services</strong>.</li>
+</ul>
+<hr>
+<p><strong>Bottom Line:</strong><br>
+Choose <strong>Tanzu</strong> for multi-cloud flexibility and VMware integration. Choose <strong>AKS</strong> for native Azure simplicity and managed service experience.</p>
+<hr>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            <div class="logo-title">My Doc</div>
+          </a>
+        </div>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/docs/index.html"><a class="padding" href="../../docs/index.html">My Docs</a><ul id="R-subsections-b5fa667da3c6d162416dac7e8c63bf8a" class="collapsible-menu">
+            <li class="" data-nav-id="/docs/env-details/index.html"><a class="padding" href="../../docs/env-details/index.html">All App Urls</a></li>
+            <li class="" data-nav-id="/docs/aviprd/index.html"><a class="padding" href="../../docs/aviprd/index.html">AvI PRD</a></li>
+            <li class="" data-nav-id="/docs/avistg/index.html"><a class="padding" href="../../docs/avistg/index.html">AvI Stg</a></li>
+            <li class="" data-nav-id="/docs/docker/container01/index.html"><a class="padding" href="../../docs/docker/container01/index.html">Conatiner 01</a></li>
+            <li class="" data-nav-id="/docs/frequentissues/index.html"><a class="padding" href="../../docs/frequentissues/index.html">Frequent issues</a></li>
+            <li class="" data-nav-id="/docs/innersource-onprem/index.html"><a class="padding" href="../../docs/innersource-onprem/index.html">Innersource onpPrem </a></li>
+            <li class="" data-nav-id="/docs/docker/conatiner02/index.html"><a class="padding" href="../../docs/docker/conatiner02/index.html">OCI</a></li>
+            <li class="" data-nav-id="/docs/ex280/index.html"><a class="padding" href="../../docs/ex280/index.html">OpenShift EX280 Practice </a></li>
+            <li class="" data-nav-id="/docs/ex280-01/index.html"><a class="padding" href="../../docs/ex280-01/index.html">OpenShift EX280 Practice with Solution</a></li>
+            <li class="" data-nav-id="/docs/docker/container03/index.html"><a class="padding" href="../../docs/docker/container03/index.html">Security</a></li>
+            <li class="" data-nav-id="/docs/tasks/index.html"><a class="padding" href="../../docs/tasks/index.html">Tasks to do </a></li>
+            <li class="" data-nav-id="/docs/vmware-tanzu/index.html"><a class="padding" href="../../docs/vmware-tanzu/index.html">VMware Tanzu Terms</a></li>
+            <li class="" data-nav-id="/docs/vmware/index.html"><a class="padding" href="../../docs/vmware/index.html">VMware Upgrade Cheat Sheet</a></li>
+            <li class="" data-nav-id="/docs/aws-gitlab-stg/index.html"><a class="padding" href="../../docs/aws-gitlab-stg/index.html">Gitlab on AWS Using Gitlab Environment Toolkit</a></li>
+            <li class="" data-nav-id="/docs/kube-virt/index.html"><a class="padding" href="../../docs/kube-virt/index.html">Openshift Virtualization</a></li>
+            <li class="active hidden " data-nav-id="/docs/tanzu01/index.html"><a class="padding" href="../../docs/tanzu01/index.html"></a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/clipboard/clipboard.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757062749" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/theme.js?1757062749" defer></script>
+  </body>
+</html>

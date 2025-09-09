@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head><script src="/nirpendra.kumar/mypersonal-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra.kumar/mypersonal-doc.git/livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="OpenShift EX280 Practice Q1. Manage Identity Providers Configure OAuth to use HTPasswd as the identity provider. Identity Provider name: ex280-provider Create 4 users: harry, leader, raja, qa-engineer All users should have the password: review Create a secret named: super-secret Configure OAuth with the HTPasswd identity provider. Ensure that user accounts exist and passwords are applied. Q2. Manage Cluster Project and Permissions Create 3 projects: front-end, back-end, app-db harry: Cluster administrator rights. leader: Can create projects, but not admin tasks. raja: View-only access to front-end and back-end qa-engineer: Admin access to front-end Note: Do NOT delete kubeadmin until admin user is fully configured. Q3. Create Project and Assign Roles to Groups harry creates 3 groups: leaders, developers, qa Add users to groups: leader → leaders raja → developers qa-engineer → qa Assign group roles: leaders: edit on back-end, app-db qa: view on front-end Q4. Protect External Traffic with TLS Create a secure route in the quart project. Expose application: https://anishrana2001.apps.ocp4.example.com Generate self-signed certificate with subject: Q5. Application Output in red Project Ensure the running pod in the red project produces expected output. Q6. Create a Service Account in alpha Name: ex280-sa Associate with anyuid SCC Application is already running in project alpha. Q7. Modify Application in alpha Modify the existing application to run with any UID. Ensure output is produced correctly. Q8. Create a Secret in cloud Project Name: ex280-secret Key: MYSQL_PASSWORD Value: redhat123 Q9. Use the Secret in cloud Project Use ex280-secret in an existing pod. Ensure the application uses the secret and produces output. Q10. Create Resource Quota in beta Name: ex280-quota Max Pods: 7 Max Service IPs: 6 Max Replication Controllers: 5 Max Memory: 1Gi Max CPU: 1 core Q11. Create LimitRange in orange Pod Memory: 5Mi to 300Mi Container Memory: Limit: 5Mi to 300Mi Default Request: 100Mi Pod CPU: 5m to 300m Container CPU: Limit: 5m to 300m Default Request: 100m Q12. Scale Deployment in tiger Scale single-pod deployment to 5 replicas. Ensure all pods are running. Q13. AutoScale Deployment in scalling Default container resources: Memory Request: 100Mi CPU Request: 50m Autoscale configuration: Min replicas: 2 Max replicas: 5 CPU utilization target: 50% Q14. Install Helm Chart Chart: etherpad Repo: http://helm.ocp4.example.com/charts Q15. Create CronJob in tiger Name: test-cron Schedule: 04:05 every 2nd day, every month Image: registry.io/nginx Service Account: ex280-sa Successful Job History Limit: 14 Q16. Network Policy Between Projects network-policy project pod allows traffic from different-namespace project Create network policy allow-specific: Namespace selector: network: different-namespace Pod selector: env=production Port: 8080/tcp Verify using logs of different-namespace pod Q17. Create PV, PVC and Deployment in page Project PersistentVolume">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OpenShift EX280 Practice  :: My Doc">
+    <meta name="twitter:description" content="OpenShift EX280 Practice Q1. Manage Identity Providers Configure OAuth to use HTPasswd as the identity provider. Identity Provider name: ex280-provider Create 4 users: harry, leader, raja, qa-engineer All users should have the password: review Create a secret named: super-secret Configure OAuth with the HTPasswd identity provider. Ensure that user accounts exist and passwords are applied. Q2. Manage Cluster Project and Permissions Create 3 projects: front-end, back-end, app-db harry: Cluster administrator rights. leader: Can create projects, but not admin tasks. raja: View-only access to front-end and back-end qa-engineer: Admin access to front-end Note: Do NOT delete kubeadmin until admin user is fully configured. Q3. Create Project and Assign Roles to Groups harry creates 3 groups: leaders, developers, qa Add users to groups: leader → leaders raja → developers qa-engineer → qa Assign group roles: leaders: edit on back-end, app-db qa: view on front-end Q4. Protect External Traffic with TLS Create a secure route in the quart project. Expose application: https://anishrana2001.apps.ocp4.example.com Generate self-signed certificate with subject: Q5. Application Output in red Project Ensure the running pod in the red project produces expected output. Q6. Create a Service Account in alpha Name: ex280-sa Associate with anyuid SCC Application is already running in project alpha. Q7. Modify Application in alpha Modify the existing application to run with any UID. Ensure output is produced correctly. Q8. Create a Secret in cloud Project Name: ex280-secret Key: MYSQL_PASSWORD Value: redhat123 Q9. Use the Secret in cloud Project Use ex280-secret in an existing pod. Ensure the application uses the secret and produces output. Q10. Create Resource Quota in beta Name: ex280-quota Max Pods: 7 Max Service IPs: 6 Max Replication Controllers: 5 Max Memory: 1Gi Max CPU: 1 core Q11. Create LimitRange in orange Pod Memory: 5Mi to 300Mi Container Memory: Limit: 5Mi to 300Mi Default Request: 100Mi Pod CPU: 5m to 300m Container CPU: Limit: 5m to 300m Default Request: 100m Q12. Scale Deployment in tiger Scale single-pod deployment to 5 replicas. Ensure all pods are running. Q13. AutoScale Deployment in scalling Default container resources: Memory Request: 100Mi CPU Request: 50m Autoscale configuration: Min replicas: 2 Max replicas: 5 CPU utilization target: 50% Q14. Install Helm Chart Chart: etherpad Repo: http://helm.ocp4.example.com/charts Q15. Create CronJob in tiger Name: test-cron Schedule: 04:05 every 2nd day, every month Image: registry.io/nginx Service Account: ex280-sa Successful Job History Limit: 14 Q16. Network Policy Between Projects network-policy project pod allows traffic from different-namespace project Create network policy allow-specific: Namespace selector: network: different-namespace Pod selector: env=production Port: 8080/tcp Verify using logs of different-namespace pod Q17. Create PV, PVC and Deployment in page Project PersistentVolume">
+    <meta property="og:url" content="http://localhost:1313/nirpendra.kumar/mypersonal-doc.git/docs/ex280/index.html">
+    <meta property="og:site_name" content="My Doc">
+    <meta property="og:title" content="OpenShift EX280 Practice  :: My Doc">
+    <meta property="og:description" content="OpenShift EX280 Practice Q1. Manage Identity Providers Configure OAuth to use HTPasswd as the identity provider. Identity Provider name: ex280-provider Create 4 users: harry, leader, raja, qa-engineer All users should have the password: review Create a secret named: super-secret Configure OAuth with the HTPasswd identity provider. Ensure that user accounts exist and passwords are applied. Q2. Manage Cluster Project and Permissions Create 3 projects: front-end, back-end, app-db harry: Cluster administrator rights. leader: Can create projects, but not admin tasks. raja: View-only access to front-end and back-end qa-engineer: Admin access to front-end Note: Do NOT delete kubeadmin until admin user is fully configured. Q3. Create Project and Assign Roles to Groups harry creates 3 groups: leaders, developers, qa Add users to groups: leader → leaders raja → developers qa-engineer → qa Assign group roles: leaders: edit on back-end, app-db qa: view on front-end Q4. Protect External Traffic with TLS Create a secure route in the quart project. Expose application: https://anishrana2001.apps.ocp4.example.com Generate self-signed certificate with subject: Q5. Application Output in red Project Ensure the running pod in the red project produces expected output. Q6. Create a Service Account in alpha Name: ex280-sa Associate with anyuid SCC Application is already running in project alpha. Q7. Modify Application in alpha Modify the existing application to run with any UID. Ensure output is produced correctly. Q8. Create a Secret in cloud Project Name: ex280-secret Key: MYSQL_PASSWORD Value: redhat123 Q9. Use the Secret in cloud Project Use ex280-secret in an existing pod. Ensure the application uses the secret and produces output. Q10. Create Resource Quota in beta Name: ex280-quota Max Pods: 7 Max Service IPs: 6 Max Replication Controllers: 5 Max Memory: 1Gi Max CPU: 1 core Q11. Create LimitRange in orange Pod Memory: 5Mi to 300Mi Container Memory: Limit: 5Mi to 300Mi Default Request: 100Mi Pod CPU: 5m to 300m Container CPU: Limit: 5m to 300m Default Request: 100m Q12. Scale Deployment in tiger Scale single-pod deployment to 5 replicas. Ensure all pods are running. Q13. AutoScale Deployment in scalling Default container resources: Memory Request: 100Mi CPU Request: 50m Autoscale configuration: Min replicas: 2 Max replicas: 5 CPU utilization target: 50% Q14. Install Helm Chart Chart: etherpad Repo: http://helm.ocp4.example.com/charts Q15. Create CronJob in tiger Name: test-cron Schedule: 04:05 every 2nd day, every month Image: registry.io/nginx Service Account: ex280-sa Successful Job History Limit: 14 Q16. Network Policy Between Projects network-policy project pod allows traffic from different-namespace project Create network policy allow-specific: Namespace selector: network: different-namespace Pod selector: env=production Port: 8080/tcp Verify using logs of different-namespace pod Q17. Create PV, PVC and Deployment in page Project PersistentVolume">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Docs">
+    <meta itemprop="name" content="OpenShift EX280 Practice  :: My Doc">
+    <meta itemprop="description" content="OpenShift EX280 Practice Q1. Manage Identity Providers Configure OAuth to use HTPasswd as the identity provider. Identity Provider name: ex280-provider Create 4 users: harry, leader, raja, qa-engineer All users should have the password: review Create a secret named: super-secret Configure OAuth with the HTPasswd identity provider. Ensure that user accounts exist and passwords are applied. Q2. Manage Cluster Project and Permissions Create 3 projects: front-end, back-end, app-db harry: Cluster administrator rights. leader: Can create projects, but not admin tasks. raja: View-only access to front-end and back-end qa-engineer: Admin access to front-end Note: Do NOT delete kubeadmin until admin user is fully configured. Q3. Create Project and Assign Roles to Groups harry creates 3 groups: leaders, developers, qa Add users to groups: leader → leaders raja → developers qa-engineer → qa Assign group roles: leaders: edit on back-end, app-db qa: view on front-end Q4. Protect External Traffic with TLS Create a secure route in the quart project. Expose application: https://anishrana2001.apps.ocp4.example.com Generate self-signed certificate with subject: Q5. Application Output in red Project Ensure the running pod in the red project produces expected output. Q6. Create a Service Account in alpha Name: ex280-sa Associate with anyuid SCC Application is already running in project alpha. Q7. Modify Application in alpha Modify the existing application to run with any UID. Ensure output is produced correctly. Q8. Create a Secret in cloud Project Name: ex280-secret Key: MYSQL_PASSWORD Value: redhat123 Q9. Use the Secret in cloud Project Use ex280-secret in an existing pod. Ensure the application uses the secret and produces output. Q10. Create Resource Quota in beta Name: ex280-quota Max Pods: 7 Max Service IPs: 6 Max Replication Controllers: 5 Max Memory: 1Gi Max CPU: 1 core Q11. Create LimitRange in orange Pod Memory: 5Mi to 300Mi Container Memory: Limit: 5Mi to 300Mi Default Request: 100Mi Pod CPU: 5m to 300m Container CPU: Limit: 5m to 300m Default Request: 100m Q12. Scale Deployment in tiger Scale single-pod deployment to 5 replicas. Ensure all pods are running. Q13. AutoScale Deployment in scalling Default container resources: Memory Request: 100Mi CPU Request: 50m Autoscale configuration: Min replicas: 2 Max replicas: 5 CPU utilization target: 50% Q14. Install Helm Chart Chart: etherpad Repo: http://helm.ocp4.example.com/charts Q15. Create CronJob in tiger Name: test-cron Schedule: 04:05 every 2nd day, every month Image: registry.io/nginx Service Account: ex280-sa Successful Job History Limit: 14 Q16. Network Policy Between Projects network-policy project pod allows traffic from different-namespace project Create network policy allow-specific: Namespace selector: network: different-namespace Pod selector: env=production Port: 8080/tcp Verify using logs of different-namespace pod Q17. Create PV, PVC and Deployment in page Project PersistentVolume">
+    <meta itemprop="wordCount" content="687">
+    <title>OpenShift EX280 Practice  :: My Doc</title>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/auto-complete/auto-complete.min.css?1755065737" rel="stylesheet">
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/auto-complete/auto-complete.min.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search-lunr.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/search.js?1755065737" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../../searchindex.en.js?1755065737";
+    </script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.min.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.stemmer.support.min.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.multi.min.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/lunr/lunr.en.min.js?1755065737" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1755065737" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../nirpendra.kumar/mypersonal-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1755065737" rel="stylesheet"></noscript>
+    <link href="../../nirpendra.kumar/mypersonal-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1755065737" rel="stylesheet">
+    <link href="../../css/theme.css?1755065737" rel="stylesheet">
+    <link href="../../css/format-html.css?1755065737" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/docs\/ex280\/index.html';
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra.kumar\/mypersonal-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../../docs/ex280/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#openshift-ex280-practice">OpenShift EX280 Practice</a></li>
+    <li><a href="#q1-manage-identity-providers">Q1. Manage Identity Providers</a></li>
+    <li><a href="#q2-manage-cluster-project-and-permissions">Q2. Manage Cluster Project and Permissions</a></li>
+    <li><a href="#q3-create-project-and-assign-roles-to-groups">Q3. Create Project and Assign Roles to Groups</a></li>
+    <li><a href="#q4-protect-external-traffic-with-tls">Q4. Protect External Traffic with TLS</a></li>
+    <li><a href="#q5-application-output-in-red-project">Q5. Application Output in <code>red</code> Project</a></li>
+    <li><a href="#q6-create-a-service-account-in-alpha">Q6. Create a Service Account in <code>alpha</code></a></li>
+    <li><a href="#q7-modify-application-in-alpha">Q7. Modify Application in <code>alpha</code></a></li>
+    <li><a href="#q8-create-a-secret-in-cloud-project">Q8. Create a Secret in <code>cloud</code> Project</a></li>
+    <li><a href="#q9-use-the-secret-in-cloud-project">Q9. Use the Secret in <code>cloud</code> Project</a></li>
+    <li><a href="#q10-create-resource-quota-in-beta">Q10. Create Resource Quota in <code>beta</code></a></li>
+    <li><a href="#q11-create-limitrange-in-orange">Q11. Create LimitRange in <code>orange</code></a></li>
+    <li><a href="#q12-scale-deployment-in-tiger">Q12. Scale Deployment in <code>tiger</code></a></li>
+    <li><a href="#q13-autoscale-deployment-in-scalling">Q13. AutoScale Deployment in <code>scalling</code></a></li>
+    <li><a href="#q14-install-helm-chart">Q14. Install Helm Chart</a></li>
+    <li><a href="#q15-create-cronjob-in-tiger">Q15. Create CronJob in <code>tiger</code></a></li>
+    <li><a href="#q16-network-policy-between-projects">Q16. Network Policy Between Projects</a></li>
+    <li><a href="#q17-create-pv-pvc-and-deployment-in-page-project">Q17. Create PV, PVC and Deployment in <code>page</code> Project</a></li>
+    <li><a href="#q18-create-project-template-with-limitrange">Q18. Create Project Template with LimitRange</a></li>
+    <li><a href="#q19-liveness-probe-in-tuesday">Q19. Liveness Probe in <code>tuesday</code></a></li>
+    <li><a href="#q20-collect-cluster-information">Q20. Collect Cluster Information</a>
+      <ul>
+        <li><a href="#q1-manage-identity-providers-1">Q1. Manage Identity Providers</a></li>
+        <li><a href="#solution">Solution:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../index.html"><span itemprop="name">My docs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../../docs/index.html"><span itemprop="name">My Docs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">OpenShift EX280 Practice </span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/frequentissues/index.html" title="Frequent issues (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../../docs/ex280-01/index.html" title="OpenShift EX280 Practice with Solution (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable docs" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="openshift-ex280-practice">OpenShift EX280 Practice </h1>
+
+<h2 id="openshift-ex280-practice">OpenShift EX280 Practice</h2>
+<hr>
+<h2 id="q1-manage-identity-providers">Q1. Manage Identity Providers</h2>
+<ul>
+<li>Configure OAuth to use <code>HTPasswd</code> as the identity provider.</li>
+<li>Identity Provider name: <code>ex280-provider</code></li>
+<li>Create 4 users: <code>harry</code>, <code>leader</code>, <code>raja</code>, <code>qa-engineer</code></li>
+<li>All users should have the password: <code>review</code></li>
+<li>Create a secret named: <code>super-secret</code></li>
+<li>Configure OAuth with the HTPasswd identity provider.</li>
+<li>Ensure that user accounts exist and passwords are applied.</li>
+</ul>
+<hr>
+<h2 id="q2-manage-cluster-project-and-permissions">Q2. Manage Cluster Project and Permissions</h2>
+<ul>
+<li>Create 3 projects: <code>front-end</code>, <code>back-end</code>, <code>app-db</code></li>
+<li><code>harry</code>: Cluster administrator rights.</li>
+<li><code>leader</code>: Can create projects, but not admin tasks.</li>
+<li><code>raja</code>: View-only access to <code>front-end</code> and <code>back-end</code></li>
+<li><code>qa-engineer</code>: Admin access to <code>front-end</code></li>
+<li><strong>Note</strong>: Do NOT delete <code>kubeadmin</code> until <code>admin</code> user is fully configured.</li>
+</ul>
+<hr>
+<h2 id="q3-create-project-and-assign-roles-to-groups">Q3. Create Project and Assign Roles to Groups</h2>
+<ul>
+<li><code>harry</code> creates 3 groups: <code>leaders</code>, <code>developers</code>, <code>qa</code></li>
+<li>Add users to groups:
+<ul>
+<li><code>leader</code> → <code>leaders</code></li>
+<li><code>raja</code> → <code>developers</code></li>
+<li><code>qa-engineer</code> → <code>qa</code></li>
+</ul>
+</li>
+<li>Assign group roles:
+<ul>
+<li><code>leaders</code>: <code>edit</code> on <code>back-end</code>, <code>app-db</code></li>
+<li><code>qa</code>: <code>view</code> on <code>front-end</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="q4-protect-external-traffic-with-tls">Q4. Protect External Traffic with TLS</h2>
+<ul>
+<li>Create a secure route in the <code>quart</code> project.</li>
+<li>Expose application: <code>https://anishrana2001.apps.ocp4.example.com</code></li>
+<li>Generate self-signed certificate with subject:</li>
+</ul>
+<h2 id="q5-application-output-in-red-project">Q5. Application Output in <code>red</code> Project</h2>
+<ul>
+<li>Ensure the running pod in the <code>red</code> project produces expected output.</li>
+</ul>
+<hr>
+<h2 id="q6-create-a-service-account-in-alpha">Q6. Create a Service Account in <code>alpha</code></h2>
+<ul>
+<li>Name: <code>ex280-sa</code></li>
+<li>Associate with <code>anyuid</code> SCC</li>
+<li>Application is already running in project <code>alpha</code>.</li>
+</ul>
+<hr>
+<h2 id="q7-modify-application-in-alpha">Q7. Modify Application in <code>alpha</code></h2>
+<ul>
+<li>Modify the existing application to run with any UID.</li>
+<li>Ensure output is produced correctly.</li>
+</ul>
+<hr>
+<h2 id="q8-create-a-secret-in-cloud-project">Q8. Create a Secret in <code>cloud</code> Project</h2>
+<ul>
+<li>Name: <code>ex280-secret</code></li>
+<li>Key: <code>MYSQL_PASSWORD</code></li>
+<li>Value: <code>redhat123</code></li>
+</ul>
+<hr>
+<h2 id="q9-use-the-secret-in-cloud-project">Q9. Use the Secret in <code>cloud</code> Project</h2>
+<ul>
+<li>Use <code>ex280-secret</code> in an existing pod.</li>
+<li>Ensure the application uses the secret and produces output.</li>
+</ul>
+<hr>
+<h2 id="q10-create-resource-quota-in-beta">Q10. Create Resource Quota in <code>beta</code></h2>
+<ul>
+<li>Name: <code>ex280-quota</code></li>
+<li>Max Pods: <code>7</code></li>
+<li>Max Service IPs: <code>6</code></li>
+<li>Max Replication Controllers: <code>5</code></li>
+<li>Max Memory: <code>1Gi</code></li>
+<li>Max CPU: <code>1 core</code></li>
+</ul>
+<hr>
+<h2 id="q11-create-limitrange-in-orange">Q11. Create LimitRange in <code>orange</code></h2>
+<ul>
+<li>Pod Memory: <code>5Mi</code> to <code>300Mi</code></li>
+<li>Container Memory:</li>
+<li>Limit: <code>5Mi</code> to <code>300Mi</code></li>
+<li>Default Request: <code>100Mi</code></li>
+<li>Pod CPU: <code>5m</code> to <code>300m</code></li>
+<li>Container CPU:</li>
+<li>Limit: <code>5m</code> to <code>300m</code></li>
+<li>Default Request: <code>100m</code></li>
+</ul>
+<hr>
+<h2 id="q12-scale-deployment-in-tiger">Q12. Scale Deployment in <code>tiger</code></h2>
+<ul>
+<li>Scale single-pod deployment to <code>5</code> replicas.</li>
+<li>Ensure all pods are running.</li>
+</ul>
+<hr>
+<h2 id="q13-autoscale-deployment-in-scalling">Q13. AutoScale Deployment in <code>scalling</code></h2>
+<ul>
+<li>Default container resources:</li>
+<li>Memory Request: <code>100Mi</code></li>
+<li>CPU Request: <code>50m</code></li>
+<li>Autoscale configuration:</li>
+<li>Min replicas: <code>2</code></li>
+<li>Max replicas: <code>5</code></li>
+<li>CPU utilization target: <code>50%</code></li>
+</ul>
+<hr>
+<h2 id="q14-install-helm-chart">Q14. Install Helm Chart</h2>
+<ul>
+<li>Chart: <code>etherpad</code></li>
+<li>Repo: <code>http://helm.ocp4.example.com/charts</code></li>
+</ul>
+<hr>
+<h2 id="q15-create-cronjob-in-tiger">Q15. Create CronJob in <code>tiger</code></h2>
+<ul>
+<li>Name: <code>test-cron</code></li>
+<li>Schedule: <code>04:05</code> every 2nd day, every month</li>
+<li>Image: <code>registry.io/nginx</code></li>
+<li>Service Account: <code>ex280-sa</code></li>
+<li>Successful Job History Limit: <code>14</code></li>
+</ul>
+<hr>
+<h2 id="q16-network-policy-between-projects">Q16. Network Policy Between Projects</h2>
+<ul>
+<li><code>network-policy</code> project pod allows traffic from <code>different-namespace</code> project</li>
+<li>Create network policy <code>allow-specific</code>:</li>
+<li>Namespace selector: <code>network: different-namespace</code></li>
+<li>Pod selector: <code>env=production</code></li>
+<li>Port: <code>8080/tcp</code></li>
+<li>Verify using logs of <code>different-namespace</code> pod</li>
+</ul>
+<hr>
+<h2 id="q17-create-pv-pvc-and-deployment-in-page-project">Q17. Create PV, PVC and Deployment in <code>page</code> Project</h2>
+<ul>
+<li>
+<p><strong>PersistentVolume</strong></p>
+</li>
+<li>
+<p>Name: <code>tiger-pv</code></p>
+</li>
+<li>
+<p>Size: <code>1Gi</code></p>
+</li>
+<li>
+<p>Access Mode: <code>ReadOnlyMany</code></p>
+</li>
+<li>
+<p>Reclaim Policy: <code>Retain</code></p>
+</li>
+<li>
+<p><strong>PersistentVolumeClaim</strong></p>
+</li>
+<li>
+<p>Name: <code>tiger-pvc</code></p>
+</li>
+<li>
+<p>Size: <code>1Gi</code></p>
+</li>
+<li>
+<p>Access Mode: <code>ReadOnlyMany</code></p>
+</li>
+<li>
+<p>Mount Path: <code>/usr/share/nginx/html</code></p>
+</li>
+<li>
+<p><strong>Deployment</strong></p>
+</li>
+<li>
+<p>Name: <code>tiger</code></p>
+</li>
+<li>
+<p>Image: <code>registry.ocp4.example.com:8443/redhattraining/hello-world-nginx:v1.0</code></p>
+</li>
+<li>
+<p>PVC attached</p>
+</li>
+<li>
+<p>URL: <code>http://test-anishrana2001.apps.ocp4.example.com</code></p>
+</li>
+</ul>
+<hr>
+<h2 id="q18-create-project-template-with-limitrange">Q18. Create Project Template with LimitRange</h2>
+<ul>
+<li>Create template:</li>
+<li>Min memory: <code>5Mi</code></li>
+<li>Max memory: <code>1Gi</code></li>
+<li>Default Request: <code>254Mi</code></li>
+<li>Default Limit: <code>512Mi</code></li>
+<li>Set this template as default for new projects.</li>
+</ul>
+<hr>
+<h2 id="q19-liveness-probe-in-tuesday">Q19. Liveness Probe in <code>tuesday</code></h2>
+<ul>
+<li>Port: <code>8443</code></li>
+<li>Initial Delay: <code>3s</code></li>
+<li>Timeout: <code>10s</code></li>
+<li>Should survive 3 crashes</li>
+</ul>
+<hr>
+<h2 id="q20-collect-cluster-information">Q20. Collect Cluster Information</h2>
+<ul>
+<li>Create a tarball: <code>student101-&lt;cluster.id&gt;.tar.gz</code></li>
+<li>Use:</li>
+</ul>
+<h3 id="q1-manage-identity-providers-1">Q1. Manage Identity Providers</h3>
+<ul>
+<li>Configure OAuth to use HTPasswd as the identity provider.</li>
+<li>Identity Provider name: <code>ex280-provider</code></li>
+<li>Create users: <code>harry</code>, <code>leader</code>, <code>raja</code>, <code>qa-engineer</code> with password <code>review</code></li>
+<li>Create secret named <code>super-secret</code> to store credentials</li>
+</ul>
+<hr>
+<h3 id="solution">Solution:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Create HTPasswd file with first user (creates file)</span>
+</span></span><span style="display:flex;"><span>htpasswd -c -B -b /home/student/htpasswd harry review
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add other users to the same file</span>
+</span></span><span style="display:flex;"><span>htpasswd -b /home/student/htpasswd leader review
+</span></span><span style="display:flex;"><span>htpasswd -b /home/student/htpasswd raja review
+</span></span><span style="display:flex;"><span>htpasswd -b /home/student/htpasswd qa-engineer review
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Verify htpasswd contents</span>
+</span></span><span style="display:flex;"><span>cat /home/student/htpasswd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create secret in openshift-config namespace with htpasswd file</span>
+</span></span><span style="display:flex;"><span>oc create secret generic super-secret --from-file<span style="color:#f92672">=</span>htpasswd<span style="color:#f92672">=</span>/home/student/htpasswd -n openshift-config
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Export current OAuth config to yaml</span>
+</span></span><span style="display:flex;"><span>oc get oauth cluster -o yaml &gt; oauth.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Edit oauth.yaml and add the following under spec.identityProviders:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># - name: ex280-provider</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   mappingMethod: claim</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   type: HTPasswd</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#   htpasswd:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     fileData:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#       name: super-secret</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Replace OAuth configuration with updated file</span>
+</span></span><span style="display:flex;"><span>oc replace -f oauth.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Watch authentication pods to confirm reload</span>
+</span></span><span style="display:flex;"><span>watch oc get pods -n openshift-authentication
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># (Optional) Get OpenShift Web Console URL for login testing</span>
+</span></span><span style="display:flex;"><span>oc whoami --show-console</span></span></code></pre></div>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../../index.html">
+            <div class="logo-title">My Doc</div>
+          </a>
+        </div>
+        <search><form action="../../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/docs---copy/index.html"><a class="padding" href="../../docs---copy/index.html">My Docs</a><ul id="R-subsections-88c618213e4d38d7188d70f402d9d4f6" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/docs/index.html"><a class="padding" href="../../docs/index.html">My Docs</a><ul id="R-subsections-b5fa667da3c6d162416dac7e8c63bf8a" class="collapsible-menu">
+            <li class="" data-nav-id="/docs/env-details/index.html"><a class="padding" href="../../docs/env-details/index.html">All App Urls</a></li>
+            <li class="" data-nav-id="/docs/avidr/index.html"><a class="padding" href="../../docs/avidr/index.html">AvI DR</a></li>
+            <li class="" data-nav-id="/docs/aviprd/index.html"><a class="padding" href="../../docs/aviprd/index.html">AvI PRD</a></li>
+            <li class="" data-nav-id="/docs/avistg/index.html"><a class="padding" href="../../docs/avistg/index.html">AvI Stg</a></li>
+            <li class="" data-nav-id="/docs/frequentissues/index.html"><a class="padding" href="../../docs/frequentissues/index.html">Frequent issues</a></li>
+            <li class="active " data-nav-id="/docs/ex280/index.html"><a class="padding" href="../../docs/ex280/index.html">OpenShift EX280 Practice </a></li>
+            <li class="" data-nav-id="/docs/ex280-01/index.html"><a class="padding" href="../../docs/ex280-01/index.html">OpenShift EX280 Practice with Solution</a></li>
+            <li class="" data-nav-id="/docs/vmware-tanzu/index.html"><a class="padding" href="../../docs/vmware-tanzu/index.html">VMware Tanzu Terms</a></li>
+            <li class="" data-nav-id="/docs/vmware/index.html"><a class="padding" href="../../docs/vmware/index.html">VMware Upgrade Cheat Sheet</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/clipboard/clipboard.min.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1755065737" defer></script>
+    <script src="../../nirpendra.kumar/mypersonal-doc.git/js/theme.js?1755065737" defer></script>
+  </body>
+</html>
