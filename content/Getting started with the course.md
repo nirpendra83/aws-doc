@@ -67,7 +67,7 @@ Choose a plan based on your business needs and technical requirements.
 
 ## Visual Overview
 
-```mermaid
+```sh
 graph TD;
     AWS_Account["AWS Account"]
     AWS_Account --> IAM["IAM Users & Roles"]
@@ -175,3 +175,20 @@ The AWS Well-Architected Framework provides a consistent approach to evaluate ar
 ---
 
 For more details, visit the [AWS Well-Architected Framework official page](https://aws.amazon.com/architecture/well-architected/).
+
+
+
+## Assignments:
+-  Create your AWS Account 
+- Walkthrough AWS console
+- Revist Ec2 instances 
+   - Create an instance 
+   - perform various actions on AWS Ec2 Instances.
+   - Start and stop ec2 instances
+   - Login to AWS Ec2 instance using ssh key 
+   - Change ssh key if needed.
+   - Know about default  users of various AWS Ami
+   - Know AWS cloud shell
+   - Install AWS cli and configfure credentials.
+       - Test if this works.
+   - Test security group by opening or blocking some ports .

@@ -3,64 +3,79 @@ title = "AWS Certified Solutions Architect - Professional"
 +++
 ---
 
-## Table of Contents
+## Table of Contents (30 Hrs)
 
-1. [Getting started with the course](#section-1-getting-started-with-the-course)  
-2. [Multi-Account Based Architectures](#section-2-multi-account-based-architectures)  
-3. [VPC Endpoints](#section-3-vpc-endpoints)  
-4. [Load Balancing Solutions](#section-4-load-balancing-solutions)  
-5. [Database Primer](#section-5-database-primer)  
-6. [Application Integration](#section-6-application-integration)  
-7. [Networking Primer](#section-7-networking-primer)  
-8. [Security Services](#section-8-security-services)  
-9. [Deployment Services](#section-9-deployment-services)  
-10. [Logs and Analytics](#section-10-logs-and-analytics)  
-11. [Route53 and Hybrid DNS](#section-11-route53-and-hybrid-dns)  
-12. [Container Services](#section-12-container-services)  
-13. [Migration Planning](#section-13-migration-planning)  
-14. [Cost Optimizations](#section-14-cost-optimizations)  
-15. [Storage Services](#section-15-storage-services)  
-16. [Systems Manager & Integration Services](#section-16-systems-manager--integration-services)  
-17. [CDN, API Gateways and Lambda](#section-17-cdn-api-gateways-and-lambda)  
-18. [Machine Learning Services](#section-18-machine-learning-services)  
-19. [Practice Tests](#section-19-practice-tests)  
+### 1. Introduction
+- Overview of AWS Certified Solutions Architect – Professional
+- Exam structure and objectives
+- Prerequisites and recommended knowledge
 
----
+### 2. AWS Well-Architected Framework
+- Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization
+- Design principles and best practices
 
-## Section 1: Getting started with the course
+### 3. Advanced Networking
+- VPC peering and Transit Gateway
+- PrivateLink and Direct Connect
+- Route tables and NAT gateways
+- Hybrid connectivity patterns
 
-## Section 2: Multi-Account Based Architectures
+### 4. Compute Services
+- EC2 instances and placement groups
+- Auto Scaling strategies
+- Lambda architecture patterns
+- Container services: ECS, EKS, Fargate
 
-## Section 3: VPC Endpoints
+### 5. Storage and Databases
+- S3 advanced features: lifecycle, replication, cross-region access
+- Glacier, EBS optimizations, FSx
+- RDS, Aurora, DynamoDB, Redshift configurations
+- Caching strategies with ElastiCache
 
-## Section 4: Load Balancing Solutions
+### 6. Security and Compliance
+- IAM advanced configurations
+- Security groups, NACLs, and KMS
+- AWS Organizations, SCPs, and resource policies
+- Audit and compliance services: CloudTrail, Config
 
-## Section 5: Database Primer
+### 7. Monitoring and Management
+- CloudWatch, CloudTrail, and AWS Config
+- Health dashboards and reporting
+- Automated alerts and runbooks
+- Resource tagging strategies
 
-## Section 6: Application Integration
+### 8. High Availability and Fault Tolerance
+- Multi-AZ and multi-region deployments
+- Failover strategies
+- Disaster Recovery Planning (RPO, RTO)
 
-## Section 7: Networking Primer
+### 9. Performance Optimization
+- Load balancing with ALB, NLB, and Gateway
+- Caching, replication, and compression techniques
+- Architecture patterns for high throughput and low latency
 
-## Section 8: Security Services
+### 10. Cost Optimization
+- Reserved instances and spot instances
+- Cost Explorer and budgets
+- Resource scaling and right-sizing
+- Cost-effective design patterns
 
-## Section 9: Deployment Services
+### 11. Migration and Hybrid Architectures
+- Lift-and-shift and refactoring strategies
+- Data migration tools: DMS, Snowball, Transfer Family
+- Integrating on-premises and cloud workloads
 
-## Section 10: Logs and Analytics
+### 12. Disaster Recovery and Backup Strategies
+- RTO/RPO planning
+- Backup mechanisms across AWS services
+- Cross-region failover architectures
 
-## Section 11: Route53 and Hybrid DNS
+### 13. Advanced Application Architectures
+- Event-driven architectures
+- Microservices and API Gateways
+- Serverless workflows and best practices
 
-## Section 12: Container Services
+### 14. Exam Practice
+- Sample questions
+- Scenario-based problems
 
-## Section 13: Migration Planning
-
-## Section 14: Cost Optimizations
-
-## Section 15: Storage Services
-
-## Section 16: Systems Manager & Integration Services
-
-## Section 17: CDN, API Gateways and Lambda
-
-## Section 18: Machine Learning Services
-
-## Section 19: Practice Tests

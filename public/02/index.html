@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
-  <head><script src="/nirpendra83/aws-doc.git/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=nirpendra83/aws-doc.git/livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.148.2">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
-Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
-Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
+    <meta name="description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
+Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
-    <meta name="twitter:description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
-Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
-Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
-    <meta property="og:url" content="http://localhost:1313/nirpendra83/aws-doc.git/02/index.html">
+    <meta name="twitter:description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
+Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
+    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/02/index.html">
     <meta property="og:site_name" content="AWS Solution Architect">
     <meta property="og:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
-    <meta property="og:description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
-Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
-Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
+    <meta property="og:description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
+Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
     <meta itemprop="name" content="AWS Multi-Account Strategy :: AWS Solution Architect">
-    <meta itemprop="description" content="Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The AWS Multi-Account Strategy helps you organize your cloud environment efficiently.
-Legacy Approach: Single AWS Account Before multi-account strategies became popular, many organizations used a single AWS account for all workloads, environments, and teams.
-Challenges of the Legacy Approach: Security risks: Lack of isolation increases blast radius if credentials are compromised. Billing confusion: Difficult to track costs per project, environment, or team. Resource limits: AWS service quotas apply per account, limiting scalability. Complex permissions: Managing IAM policies for diverse teams and environments becomes complicated. Operational risks: Accidental resource changes can impact production workloads. Why Use Multiple AWS Accounts? Isolation of workloads: Separate development, testing, and production environments. Security boundaries: Limit blast radius if one account is compromised. Billing clarity: Track costs by team, project, or environment. Simplified compliance: Enforce policies and audits more easily. Resource limits: Avoid hitting AWS service limits by distributing resources across accounts. Key Components of a Multi-Account Strategy AWS Organizations Centralized management of multiple AWS accounts. Use Service Control Policies (SCPs) to set permission guardrails. Consolidated billing for all linked accounts. Automated account creation and lifecycle management. Account Structure Models 1. Environment-Based Account Name Purpose Prod Production workloads Dev Development environment Test Testing and QA 2. Business Unit-Based Account Name Purpose Marketing Marketing projects Finance Financial systems Engineering Engineering projects 3. Application-Based Account Name Purpose App-A Application A workloads App-B Application B workloads Best Practices Centralize logging and monitoring: Use AWS CloudTrail and AWS Config aggregated in a dedicated account. Use cross-account roles: Enable secure access between accounts. Automate account provisioning: Use AWS Control Tower or custom automation. Implement guardrails: Apply SCPs to enforce security policies. Tag consistently: Use tags for cost allocation and resource management. Visual Overview AWS Organizations │ ├── Security Account (centralized logging, monitoring) ├── Shared Services Account (DNS, directory services) ├── Prod Account(s) ├── Dev Account(s) └── Test Account(s)Summary A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.">
-    <meta itemprop="wordCount" content="362">
+    <meta itemprop="description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
+Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
+    <meta itemprop="wordCount" content="751">
     <title>AWS Multi-Account Strategy :: AWS Solution Architect</title>
-    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757399925" rel="stylesheet">
-    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search-lunr.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search.js?1757399925" defer></script>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757498499" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757498499" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../searchindex.en.js?1757399925";
+      window.relearn.index_js_url="../searchindex.en.js?1757498499";
     </script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757498499" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399925" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757399925" rel="stylesheet"></noscript>
-    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757399925" rel="stylesheet">
-    <link href="../css/theme.css?1757399925" rel="stylesheet">
-    <link href="../css/format-html.css?1757399925" rel="stylesheet" id="R-format-style">
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757498499" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757498499" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757498499" rel="stylesheet">
+    <link href="../css/theme.min.css?1757498499" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757498499" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
-      window.relearn.min = ``;
+      window.relearn.min = `.min`;
       window.relearn.path='\/02\/index.html';
       window.relearn.relBasePath='..';
       window.relearn.relBaseUri='..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313\/nirpendra83\/aws-doc.git';
+      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       window.relearn.disableInlineCopyToClipboard=false;
@@ -117,6 +117,41 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
+    <li>
+      <ul>
+        <li><a href="#-aws-iam-identity-and-access-management">📚 AWS IAM (Identity and Access Management)</a></li>
+      </ul>
+    </li>
+    <li><a href="#-what-is-aws-iam">✅ <strong>What is AWS IAM?</strong></a></li>
+    <li><a href="#-key-components-of-iam">✅ <strong>Key Components of IAM</strong></a>
+      <ul>
+        <li><a href="#1-users">1. <strong>Users</strong></a></li>
+        <li><a href="#2-groups">2. <strong>Groups</strong></a></li>
+        <li><a href="#3-roles">3. <strong>Roles</strong></a></li>
+        <li><a href="#4-policies">4. <strong>Policies</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#-iam-policies">✅ <strong>IAM Policies</strong></a>
+      <ul>
+        <li><a href="#example-of-a-simple-policy">Example of a simple policy:</a></li>
+      </ul>
+    </li>
+    <li><a href="#assignmnets">Assignmnets:</a>
+      <ul>
+        <li><a href="#-10-tasks-related-to-aws-iam-users">✅ 10 Tasks Related to AWS IAM Users</a></li>
+        <li><a href="#1-create-a-new-iam-user">1. <strong>Create a new IAM user</strong></a></li>
+        <li><a href="#2-assign-permissions-to-a-user">2. <strong>Assign permissions to a user</strong></a></li>
+        <li><a href="#3-add-a-user-to-a-group">3. <strong>Add a user to a group</strong></a></li>
+        <li><a href="#4-enable-multi-factor-authentication-mfa">4. <strong>Enable Multi-Factor Authentication (MFA)</strong></a></li>
+        <li><a href="#5-generate-access-keys-for-the-user">5. <strong>Generate access keys for the user</strong></a></li>
+        <li><a href="#6-rotate-the-users-access-keys">6. <strong>Rotate the user’s access keys</strong></a></li>
+        <li><a href="#7-set-password-policies">7. <strong>Set password policies</strong></a></li>
+        <li><a href="#8-attach-policies-using-least-privilege-principle">8. <strong>Attach policies using least privilege principle</strong></a></li>
+        <li><a href="#9-monitor-user-activity">9. <strong>Monitor user activity</strong></a></li>
+        <li><a href="#10-remove-unused-or-inactive-users">10. <strong>Remove unused or inactive users</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#aws-multi-account-strategy">AWS Multi-Account Strategy</a></li>
     <li><a href="#legacy-approach-single-aws-account">Legacy Approach: Single AWS Account</a>
       <ul>
         <li><a href="#challenges-of-the-legacy-approach">Challenges of the Legacy Approach:</a></li>
@@ -131,7 +166,7 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
     </li>
     <li><a href="#best-practices">Best Practices</a></li>
     <li><a href="#visual-overview">Visual Overview</a></li>
-    <li><a href="#summary">Summary</a></li>
+    <li><a href="#key-points-to-remember-aws-multi-account-architectures">Key Points to Remember: AWS Multi-Account Architectures</a></li>
   </ul>
 </nav>
                 </div>
@@ -143,7 +178,7 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../getting-started-with-the-course/index.html" title="Getting Started with AWS (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-right"></i></span>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../projects-tasks/index.html" title="AWS Imp Link (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -165,6 +200,97 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
 
 <h1 id="aws-multi-account-strategy">AWS Multi-Account Strategy</h1>
 
+<h3 id="-aws-iam-identity-and-access-management">📚 AWS IAM (Identity and Access Management)</h3>
+<p>AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.</p>
+<hr>
+<h2 id="-what-is-aws-iam">✅ <strong>What is AWS IAM?</strong></h2>
+<p>AWS Identity and Access Management (IAM) enables you to:</p>
+<ul>
+<li><strong>Manage users and their permissions</strong> to access AWS resources.</li>
+<li><strong>Grant fine-grained access</strong> using policies.</li>
+<li><strong>Enhance security</strong> by applying best practices like least privilege and multi-factor authentication (MFA).</li>
+<li><strong>Control authentication and authorization</strong> across accounts and services.</li>
+</ul>
+<hr>
+<h2 id="-key-components-of-iam">✅ <strong>Key Components of IAM</strong></h2>
+<h3 id="1-users">1. <strong>Users</strong></h3>
+<ul>
+<li>Represents individual people or services accessing AWS.</li>
+<li>Each user can have their own credentials (password, access keys).</li>
+</ul>
+<h3 id="2-groups">2. <strong>Groups</strong></h3>
+<ul>
+<li>A collection of IAM users.</li>
+<li>Apply permissions collectively rather than individually.</li>
+</ul>
+<h3 id="3-roles">3. <strong>Roles</strong></h3>
+<ul>
+<li>Assign permissions to AWS resources without creating long-term credentials.</li>
+<li>Used by applications, services, or federated users.</li>
+</ul>
+<h3 id="4-policies">4. <strong>Policies</strong></h3>
+<ul>
+<li>JSON documents that define permissions.</li>
+<li>Specify allowed or denied actions, resources, and conditions.</li>
+</ul>
+<hr>
+<h2 id="-iam-policies">✅ <strong>IAM Policies</strong></h2>
+<h3 id="example-of-a-simple-policy">Example of a simple policy:</h3>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:ListBucket&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:s3:::example-bucket&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="assignmnets">Assignmnets:</h2>
+<h3 id="-10-tasks-related-to-aws-iam-users">✅ 10 Tasks Related to AWS IAM Users</h3>
+<p>These tasks are commonly performed when managing IAM Users in AWS.</p>
+<hr>
+<h3 id="1-create-a-new-iam-user">1. <strong>Create a new IAM user</strong></h3>
+<ul>
+<li>Add a user with a name and specify programmatic or console access.</li>
+</ul>
+<h3 id="2-assign-permissions-to-a-user">2. <strong>Assign permissions to a user</strong></h3>
+<ul>
+<li>Attach managed or inline policies to grant necessary permissions.</li>
+</ul>
+<h3 id="3-add-a-user-to-a-group">3. <strong>Add a user to a group</strong></h3>
+<ul>
+<li>Place users into groups to inherit shared permissions.</li>
+</ul>
+<h3 id="4-enable-multi-factor-authentication-mfa">4. <strong>Enable Multi-Factor Authentication (MFA)</strong></h3>
+<ul>
+<li>Secure the user’s AWS account by enabling MFA.</li>
+</ul>
+<h3 id="5-generate-access-keys-for-the-user">5. <strong>Generate access keys for the user</strong></h3>
+<ul>
+<li>Create programmatic access credentials for CLI or SDK use.</li>
+</ul>
+<h3 id="6-rotate-the-users-access-keys">6. <strong>Rotate the user’s access keys</strong></h3>
+<ul>
+<li>Replace old keys with new ones to enhance security.</li>
+</ul>
+<h3 id="7-set-password-policies">7. <strong>Set password policies</strong></h3>
+<ul>
+<li>Enforce password length, complexity, and expiration rules for users.</li>
+</ul>
+<h3 id="8-attach-policies-using-least-privilege-principle">8. <strong>Attach policies using least privilege principle</strong></h3>
+<ul>
+<li>Grant only required permissions rather than full access.</li>
+</ul>
+<h3 id="9-monitor-user-activity">9. <strong>Monitor user activity</strong></h3>
+<ul>
+<li>Use AWS CloudTrail or IAM Access Analyzer to review actions performed by users.</li>
+</ul>
+<h3 id="10-remove-unused-or-inactive-users">10. <strong>Remove unused or inactive users</strong></h3>
+<ul>
+<li>Identify and delete users that are no longer required or inactive.</li>
+</ul>
+<h2 id="aws-multi-account-strategy">AWS Multi-Account Strategy</h2>
 <p>Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The <strong>AWS Multi-Account Strategy</strong> helps you organize your cloud environment efficiently.</p>
 <hr>
 <h2 id="legacy-approach-single-aws-account">Legacy Approach: Single AWS Account</h2>
@@ -279,11 +405,36 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
 </span></span><span style="display:flex;"><span>├── Prod Account(s)
 </span></span><span style="display:flex;"><span>├── Dev Account(s)
 </span></span><span style="display:flex;"><span>└── Test Account(s)</span></span></code></pre></div>
+<h2 id="key-points-to-remember-aws-multi-account-architectures">Key Points to Remember: AWS Multi-Account Architectures</h2>
+<p>For multi-AWS account architectures, you must be familiar with <strong>cross-account AWS service-specific configurations</strong> and services that enable organizations to maintain centralized access.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Services / Configurations</th>
+          <th>Descriptions</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>AWS Organizations</strong></td>
+          <td>Centralized account management, policy enforcement, consolidated billing</td>
+      </tr>
+      <tr>
+          <td><strong>IAM Identity Center</strong></td>
+          <td>Centralized user authentication and access management</td>
+      </tr>
+      <tr>
+          <td><strong>AWS Security Hub</strong></td>
+          <td>Centralized security posture management</td>
+      </tr>
+      <tr>
+          <td><strong>Cross-Account Configurations</strong></td>
+          <td>CloudTrail, Config, GuardDuty, CloudWatch</td>
+      </tr>
+  </tbody>
+</table>
 <hr>
-<h2 id="summary">Summary</h2>
-<p>A well-planned multi-account strategy enhances security, operational efficiency, and cost control in AWS environments. AWS Organizations and related tools make managing multiple accounts easier and more secure.</p>
-<hr>
-<p>For more information, see the <a href="https://aws.amazon.com/organizations/" rel="external" target="_blank">AWS Multi-Account Strategy whitepaper</a>.</p>
+<p>These services and configurations help enforce security, manage access, and centralize monitoring across multiple AWS accounts.</p>
 
   <footer class="footline">
   </footer>
@@ -333,6 +484,7 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
           <ul class="enlarge morespace collapsible-menu">
             <li class="" data-nav-id="/getting-started-with-the-course/index.html"><a class="padding" href="../getting-started-with-the-course/index.html">Getting Started with AWS</a></li>
             <li class="active " data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS Multi-Account Strategy</a></li>
+            <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="../projects-tasks/index.html">AWS Imp Link</a></li>
           </ul>
         </div>
         <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
@@ -350,8 +502,8 @@ Challenges of the Legacy Approach: Security risks: Lack of isolation increases b
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757399925" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/theme.js?1757399925" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757498499" defer></script>
   </body>
 </html>
