@@ -5,7 +5,12 @@ weight = 1
 
 
 
-This guide introduces the foundational concepts of AWS, including **AWS Account**, **Regions**, **Availability Zones (AZs)**, **Edge Locations**, and **Support**. Understanding these will help you navigate AWS’s global infrastructure confidently.
+Learn the foundational concepts of AWS. 
+- **AWS Account**
+-  **Regions**
+- **Availability Zones (AZs)**
+-  **Edge Locations**
+-   **Support**
 
 ---
 
@@ -191,4 +196,4 @@ For more details, visit the [AWS Well-Architected Framework official page](https
    - Know AWS cloud shell
    - Install AWS cli and configfure credentials.
        - Test if this works.
-   - Test security group by opening or blocking some ports .
+   - Test security group by opening or blocking some ports.

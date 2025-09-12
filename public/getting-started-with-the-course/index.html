@@ -5,50 +5,50 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.148.2">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
-AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+    <meta name="description" content="Learn the foundational concepts of AWS.
+AWS Account Regions Availability Zones (AZs) Edge Locations Support AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
 Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Getting Started with AWS :: AWS Solution Architect">
-    <meta name="twitter:description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
-AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+    <meta name="twitter:description" content="Learn the foundational concepts of AWS.
+AWS Account Regions Availability Zones (AZs) Edge Locations Support AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
 Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
     <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/getting-started-with-the-course/index.html">
     <meta property="og:site_name" content="AWS Solution Architect">
     <meta property="og:title" content="Getting Started with AWS :: AWS Solution Architect">
-    <meta property="og:description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
-AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+    <meta property="og:description" content="Learn the foundational concepts of AWS.
+AWS Account Regions Availability Zones (AZs) Edge Locations Support AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
 Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
     <meta itemprop="name" content="Getting Started with AWS :: AWS Solution Architect">
-    <meta itemprop="description" content="This guide introduces the foundational concepts of AWS, including AWS Account, Regions, Availability Zones (AZs), Edge Locations, and Support. Understanding these will help you navigate AWS’s global infrastructure confidently.
-AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
+    <meta itemprop="description" content="Learn the foundational concepts of AWS.
+AWS Account Regions Availability Zones (AZs) Edge Locations Support AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.
 Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.">
-    <meta itemprop="wordCount" content="659">
+    <meta itemprop="wordCount" content="644">
     <title>Getting Started with AWS :: AWS Solution Architect</title>
-    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757498499" rel="stylesheet">
-    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757498499" defer></script>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757682941" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757682941" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../searchindex.en.js?1757498499";
+      window.relearn.index_js_url="../searchindex.en.js?1757682941";
     </script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757682941" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757498499" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757498499" rel="stylesheet"></noscript>
-    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757498499" rel="stylesheet">
-    <link href="../css/theme.min.css?1757498499" rel="stylesheet">
-    <link href="../css/format-html.min.css?1757498499" rel="stylesheet" id="R-format-style">
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757682941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757682941" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757682941" rel="stylesheet">
+    <link href="../css/theme.min.css?1757682941" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757682941" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -142,7 +142,7 @@ Manages access to AWS services Tracks usage and billing Supports multiple users 
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../index.html" title="AWS Certified Solutions Architect - Professional (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../02/index.html" title="AWS Multi-Account Strategy (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../02/index.html" title="AWS IAM (Identity and Access Management) (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -164,7 +164,14 @@ Manages access to AWS services Tracks usage and billing Supports multiple users 
 
 <h1 id="getting-started-with-aws">Getting Started with AWS</h1>
 
-<p>This guide introduces the foundational concepts of AWS, including <strong>AWS Account</strong>, <strong>Regions</strong>, <strong>Availability Zones (AZs)</strong>, <strong>Edge Locations</strong>, and <strong>Support</strong>. Understanding these will help you navigate AWS’s global infrastructure confidently.</p>
+<p>Learn the foundational concepts of AWS.</p>
+<ul>
+<li><strong>AWS Account</strong></li>
+<li><strong>Regions</strong></li>
+<li><strong>Availability Zones (AZs)</strong></li>
+<li><strong>Edge Locations</strong></li>
+<li><strong>Support</strong></li>
+</ul>
 <hr>
 <h2 id="aws-account">AWS Account</h2>
 <p>Your <strong>AWS Account</strong> is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.</p>
@@ -331,7 +338,7 @@ Manages access to AWS services Tracks usage and billing Supports multiple users 
 <li>Test if this works.</li>
 </ul>
 </li>
-<li>Test security group by opening or blocking some ports .</li>
+<li>Test security group by opening or blocking some ports.</li>
 </ul>
 </li>
 </ul>
@@ -383,7 +390,7 @@ Manages access to AWS services Tracks usage and billing Supports multiple users 
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="active " data-nav-id="/getting-started-with-the-course/index.html"><a class="padding" href="../getting-started-with-the-course/index.html">Getting Started with AWS</a></li>
-            <li class="" data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS Multi-Account Strategy</a></li>
+            <li class="" data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS IAM (Identity and Access Management)</a></li>
             <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="../projects-tasks/index.html">AWS Imp Link</a></li>
           </ul>
         </div>
@@ -402,8 +409,8 @@ Manages access to AWS services Tracks usage and billing Supports multiple users 
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757682941" defer></script>
   </body>
 </html>

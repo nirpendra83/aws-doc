@@ -5,50 +5,46 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.148.2">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
-✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
-Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
+    <meta name="description" content="Objectives [Understand the fundamentals of AWS IAM and its components] Learn how to manage users, groups, roles, and permissions securely Implement best practices for access control and identity federation Configure permissions for services like EC2. 📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
-    <meta name="twitter:description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
-✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
-Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
+    <meta name="twitter:title" content="AWS IAM (Identity and Access Management) :: AWS Solution Architect">
+    <meta name="twitter:description" content="Objectives [Understand the fundamentals of AWS IAM and its components] Learn how to manage users, groups, roles, and permissions securely Implement best practices for access control and identity federation Configure permissions for services like EC2. 📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:">
     <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/02/index.html">
     <meta property="og:site_name" content="AWS Solution Architect">
-    <meta property="og:title" content="AWS Multi-Account Strategy :: AWS Solution Architect">
-    <meta property="og:description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
-✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
-Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
+    <meta property="og:title" content="AWS IAM (Identity and Access Management) :: AWS Solution Architect">
+    <meta property="og:description" content="Objectives [Understand the fundamentals of AWS IAM and its components] Learn how to manage users, groups, roles, and permissions securely Implement best practices for access control and identity federation Configure permissions for services like EC2. 📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
-    <meta itemprop="name" content="AWS Multi-Account Strategy :: AWS Solution Architect">
-    <meta itemprop="description" content="📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
-✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:
-Manage users and their permissions to access AWS resources. Grant fine-grained access using policies. Enhance security by applying best practices like least privilege and multi-factor authentication (MFA). Control authentication and authorization across accounts and services. ✅ Key Components of IAM 1. Users Represents individual people or services accessing AWS. Each user can have their own credentials (password, access keys). 2. Groups A collection of IAM users. Apply permissions collectively rather than individually. 3. Roles Assign permissions to AWS resources without creating long-term credentials. Used by applications, services, or federated users. 4. Policies JSON documents that define permissions. Specify allowed or denied actions, resources, and conditions. ✅ IAM Policies Example of a simple policy: { &#34;Version&#34;: &#34;2012-10-17&#34;, &#34;Statement&#34;: [ { &#34;Effect&#34;: &#34;Allow&#34;, &#34;Action&#34;: &#34;s3:ListBucket&#34;, &#34;Resource&#34;: &#34;arn:aws:s3:::example-bucket&#34; } ] }Assignmnets: ✅ 10 Tasks Related to AWS IAM Users These tasks are commonly performed when managing IAM Users in AWS.">
-    <meta itemprop="wordCount" content="751">
-    <title>AWS Multi-Account Strategy :: AWS Solution Architect</title>
-    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757498499" rel="stylesheet">
-    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757498499" defer></script>
+    <meta itemprop="name" content="AWS IAM (Identity and Access Management) :: AWS Solution Architect">
+    <meta itemprop="description" content="Objectives [Understand the fundamentals of AWS IAM and its components] Learn how to manage users, groups, roles, and permissions securely Implement best practices for access control and identity federation Configure permissions for services like EC2. 📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.
+✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:">
+    <meta itemprop="wordCount" content="1905">
+    <title>AWS IAM (Identity and Access Management) :: AWS Solution Architect</title>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757682941" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757682941" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="../searchindex.en.js?1757498499";
+      window.relearn.index_js_url="../searchindex.en.js?1757682941";
     </script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757682941" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757498499" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757498499" rel="stylesheet"></noscript>
-    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757498499" rel="stylesheet">
-    <link href="../css/theme.min.css?1757498499" rel="stylesheet">
-    <link href="../css/format-html.min.css?1757498499" rel="stylesheet" id="R-format-style">
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757682941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757682941" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757682941" rel="stylesheet">
+    <link href="../css/theme.min.css?1757682941" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757682941" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -117,7 +113,7 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
                 <div class="topbar-content-wrapper">
 <nav class="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#objectives">Objectives</a>
       <ul>
         <li><a href="#-aws-iam-identity-and-access-management">📚 AWS IAM (Identity and Access Management)</a></li>
       </ul>
@@ -136,28 +132,22 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
         <li><a href="#example-of-a-simple-policy">Example of a simple policy:</a></li>
       </ul>
     </li>
-    <li><a href="#assignmnets">Assignmnets:</a>
+    <li><a href="#managing-iam-resources">Managing IAM Resources</a>
       <ul>
-        <li><a href="#-10-tasks-related-to-aws-iam-users">✅ 10 Tasks Related to AWS IAM Users</a></li>
-        <li><a href="#1-create-a-new-iam-user">1. <strong>Create a new IAM user</strong></a></li>
-        <li><a href="#2-assign-permissions-to-a-user">2. <strong>Assign permissions to a user</strong></a></li>
-        <li><a href="#3-add-a-user-to-a-group">3. <strong>Add a user to a group</strong></a></li>
-        <li><a href="#4-enable-multi-factor-authentication-mfa">4. <strong>Enable Multi-Factor Authentication (MFA)</strong></a></li>
-        <li><a href="#5-generate-access-keys-for-the-user">5. <strong>Generate access keys for the user</strong></a></li>
-        <li><a href="#6-rotate-the-users-access-keys">6. <strong>Rotate the user’s access keys</strong></a></li>
-        <li><a href="#7-set-password-policies">7. <strong>Set password policies</strong></a></li>
-        <li><a href="#8-attach-policies-using-least-privilege-principle">8. <strong>Attach policies using least privilege principle</strong></a></li>
-        <li><a href="#9-monitor-user-activity">9. <strong>Monitor user activity</strong></a></li>
-        <li><a href="#10-remove-unused-or-inactive-users">10. <strong>Remove unused or inactive users</strong></a></li>
+        <li><a href="#-adding-a-user">✅ Adding a User</a></li>
+        <li><a href="#-adding-a-group">✅ Adding a Group</a></li>
+        <li><a href="#-attaching-policies-to-users-or-groups">✅ Attaching Policies to Users or Groups</a></li>
+        <li><a href="#-creating-and-using-roles">✅ Creating and Using Roles</a></li>
+        <li><a href="#-test-by-attaching-the-role-to-an-ec2-instance">✅ Test by Attaching the Role to an EC2 Instance</a></li>
       </ul>
     </li>
-    <li><a href="#aws-multi-account-strategy">AWS Multi-Account Strategy</a></li>
-    <li><a href="#legacy-approach-single-aws-account">Legacy Approach: Single AWS Account</a>
+    <li><a href="#aws-multi-account-strategy"><strong>AWS Multi-Account Strategy</strong></a></li>
+    <li><a href="#legacy-approach-single-aws-account"><strong>Legacy Approach: Single AWS Account</strong></a>
       <ul>
         <li><a href="#challenges-of-the-legacy-approach">Challenges of the Legacy Approach:</a></li>
+        <li><a href="#why-use-multiple-aws-accounts">Why Use Multiple AWS Accounts?</a></li>
       </ul>
     </li>
-    <li><a href="#why-use-multiple-aws-accounts">Why Use Multiple AWS Accounts?</a></li>
     <li><a href="#key-components-of-a-multi-account-strategy">Key Components of a Multi-Account Strategy</a>
       <ul>
         <li><a href="#aws-organizations">AWS Organizations</a></li>
@@ -165,15 +155,87 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
       </ul>
     </li>
     <li><a href="#best-practices">Best Practices</a></li>
-    <li><a href="#visual-overview">Visual Overview</a></li>
-    <li><a href="#key-points-to-remember-aws-multi-account-architectures">Key Points to Remember: AWS Multi-Account Architectures</a></li>
+    <li><a href="#visual-overview">Visual Overview</a>
+      <ul>
+        <li><a href="#key-points-to-remember-aws-multi-account-architectures">Key Points to Remember: AWS Multi-Account Architectures</a></li>
+      </ul>
+    </li>
+    <li><a href="#-aws-iam--assume-role">✅ AWS IAM – Assume Role</a></li>
+    <li><a href="#-what-is-assume-role">📌 What is Assume Role?</a></li>
+    <li><a href="#-key-concepts">✅ Key Concepts</a>
+      <ul>
+        <li><a href="#-role">✅ <strong>Role</strong></a></li>
+        <li><a href="#-assume-role">✅ <strong>Assume Role</strong></a></li>
+        <li><a href="#-trust-policy">✅ <strong>Trust Policy</strong></a></li>
+        <li><a href="#-session">✅ <strong>Session</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#-how-assume-role-works">✅ How Assume Role Works</a></li>
+    <li><a href="#-example-trust-policy">✅ Example Trust Policy</a>
+      <ul>
+        <li><a href="#labs">Labs:</a></li>
+        <li><a href="#-creating-and-using-roles-1">✅ Creating and Using Roles</a></li>
+        <li><a href="#-assuming-a-role">✅ Assuming a Role</a></li>
+        <li><a href="#-testing-an-assumed-role-from-aws-console">✅ Testing an Assumed Role from AWS Console</a></li>
+      </ul>
+    </li>
+    <li><a href="#-aws-organizations">✅ AWS Organizations</a>
+      <ul>
+        <li><a href="#-what-is-aws-organizations">📌 What is AWS Organizations?</a></li>
+      </ul>
+    </li>
+    <li><a href="#-key-concepts-1">✅ Key Concepts</a>
+      <ul>
+        <li><a href="#1-organization">1. <strong>Organization</strong></a></li>
+        <li><a href="#2-accounts">2. <strong>Accounts</strong></a></li>
+        <li><a href="#3-organizational-units-ous">3. <strong>Organizational Units (OUs)</strong></a></li>
+        <li><a href="#4-service-control-policies-scps">4. <strong>Service Control Policies (SCPs)</strong></a></li>
+        <li><a href="#5-master--management-account">5. <strong>Master / Management Account</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#-features">✅ Features</a></li>
+    <li><a href="#-steps-to-create-an-aws-organization">✅ Steps to Create an AWS Organization</a>
+      <ul>
+        <li><a href="#step-1-sign-in-as-the-master-account">Step 1: Sign in as the Master Account</a></li>
+        <li><a href="#step-2-create-the-organization">Step 2: Create the Organization</a></li>
+      </ul>
+    </li>
+    <li><a href="#-aws-scp-service-control-policies">✅ AWS SCP (Service Control Policies)</a>
+      <ul>
+        <li><a href="#-what-is-scp">📌 What is SCP?</a></li>
+      </ul>
+    </li>
+    <li><a href="#-key-concepts-2">✅ Key Concepts</a></li>
+    <li><a href="#-steps-to-create-and-attach-scp">✅ Steps to Create and Attach SCP</a>
+      <ul>
+        <li><a href="#step-1-enable-aws-organizations">Step 1: Enable AWS Organizations</a></li>
+        <li><a href="#step-2-create-a-service-control-policy">Step 2: Create a Service Control Policy</a></li>
+        <li><a href="#-aws-organizations-and-scp-service-control-policies">✅ AWS Organizations and SCP (Service Control Policies)</a></li>
+        <li><a href="#-using-scps">✅ Using SCPs</a></li>
+      </ul>
+    </li>
+    <li><a href="#assignmnets">Assignmnets:</a>
+      <ul>
+        <li><a href="#-10-tasks-related-to-aws-iam-users">✅ 10 Tasks Related to AWS IAM Users</a></li>
+        <li><a href="#1-create-a-new-iam-user">1. Create a new IAM user</a></li>
+        <li><a href="#2-assign-permissions-to-a-user">2. Assign permissions to a user</a></li>
+        <li><a href="#3-add-a-user-to-a-group">3. Add a user to a group</a></li>
+        <li><a href="#4-enable-multi-factor-authentication-mfa">4. Enable Multi-Factor Authentication (MFA)</a></li>
+        <li><a href="#5-generate-access-keys-for-the-user">5. Generate access keys for the user</a></li>
+        <li><a href="#6-rotate-the-users-access-keys">6. Rotate the user’s access keys</a></li>
+        <li><a href="#7-set-password-policies">7. Set password policies</a></li>
+        <li><a href="#8-attach-policies-using-least-privilege-principle">8. Attach policies using least privilege principle</a></li>
+        <li><a href="#9-monitor-user-activity">9. Monitor user activity</a></li>
+        <li><a href="#10-remove-unused-or-inactive-users">10. Remove unused or inactive users</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
                 </div>
               </div>
             </div>
           </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">AWS Multi-Account Strategy</span><meta itemprop="position" content="2"></li>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">AWS IAM (Identity and Access Management)</span><meta itemprop="position" content="2"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../getting-started-with-the-course/index.html" title="Getting Started with AWS (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
@@ -198,8 +260,15 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
   <header class="headline">
   </header>
 
-<h1 id="aws-multi-account-strategy">AWS Multi-Account Strategy</h1>
+<h1 id="aws-iam-identity-and-access-management">AWS IAM (Identity and Access Management)</h1>
 
+<h2 id="objectives">Objectives</h2>
+<ul>
+<li>[Understand the fundamentals of AWS IAM and its components]</li>
+<li>Learn how to manage users, groups, roles, and permissions securely</li>
+<li>Implement best practices for access control and identity federation</li>
+<li>Configure permissions for services like EC2.</li>
+</ul>
 <h3 id="-aws-iam-identity-and-access-management">📚 AWS IAM (Identity and Access Management)</h3>
 <p>AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.</p>
 <hr>
@@ -246,54 +315,53 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    ]
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-<h2 id="assignmnets">Assignmnets:</h2>
-<h3 id="-10-tasks-related-to-aws-iam-users">✅ 10 Tasks Related to AWS IAM Users</h3>
-<p>These tasks are commonly performed when managing IAM Users in AWS.</p>
-<hr>
-<h3 id="1-create-a-new-iam-user">1. <strong>Create a new IAM user</strong></h3>
+<h2 id="managing-iam-resources">Managing IAM Resources</h2>
+<h3 id="-adding-a-user">✅ Adding a User</h3>
+<ol>
+<li>Navigate to the IAM console</li>
+<li>Click “Users” → “Add user”</li>
+<li>Enter username, select access type (programmatic or console)</li>
+<li>Attach existing policies or create custom ones</li>
+<li>Add user to groups if needed</li>
+<li>Review and create</li>
+</ol>
+<h3 id="-adding-a-group">✅ Adding a Group</h3>
+<ol>
+<li>Navigate to the IAM console</li>
+<li>Click “Groups” → “Create group”</li>
+<li>Enter group name</li>
+<li>Attach policies (managed or custom)</li>
+<li>Add users to the group</li>
+<li>Review and create</li>
+</ol>
+<h3 id="-attaching-policies-to-users-or-groups">✅ Attaching Policies to Users or Groups</h3>
 <ul>
-<li>Add a user with a name and specify programmatic or console access.</li>
+<li>Use AWS Managed Policies or create Customer Managed Policies</li>
+<li>Assign permissions based on roles or business requirements</li>
+<li>Example: Attach <code>AmazonEC2FullAccess</code> to developers managing instances</li>
 </ul>
-<h3 id="2-assign-permissions-to-a-user">2. <strong>Assign permissions to a user</strong></h3>
-<ul>
-<li>Attach managed or inline policies to grant necessary permissions.</li>
-</ul>
-<h3 id="3-add-a-user-to-a-group">3. <strong>Add a user to a group</strong></h3>
-<ul>
-<li>Place users into groups to inherit shared permissions.</li>
-</ul>
-<h3 id="4-enable-multi-factor-authentication-mfa">4. <strong>Enable Multi-Factor Authentication (MFA)</strong></h3>
-<ul>
-<li>Secure the user’s AWS account by enabling MFA.</li>
-</ul>
-<h3 id="5-generate-access-keys-for-the-user">5. <strong>Generate access keys for the user</strong></h3>
-<ul>
-<li>Create programmatic access credentials for CLI or SDK use.</li>
-</ul>
-<h3 id="6-rotate-the-users-access-keys">6. <strong>Rotate the user’s access keys</strong></h3>
-<ul>
-<li>Replace old keys with new ones to enhance security.</li>
-</ul>
-<h3 id="7-set-password-policies">7. <strong>Set password policies</strong></h3>
-<ul>
-<li>Enforce password length, complexity, and expiration rules for users.</li>
-</ul>
-<h3 id="8-attach-policies-using-least-privilege-principle">8. <strong>Attach policies using least privilege principle</strong></h3>
-<ul>
-<li>Grant only required permissions rather than full access.</li>
-</ul>
-<h3 id="9-monitor-user-activity">9. <strong>Monitor user activity</strong></h3>
-<ul>
-<li>Use AWS CloudTrail or IAM Access Analyzer to review actions performed by users.</li>
-</ul>
-<h3 id="10-remove-unused-or-inactive-users">10. <strong>Remove unused or inactive users</strong></h3>
-<ul>
-<li>Identify and delete users that are no longer required or inactive.</li>
-</ul>
-<h2 id="aws-multi-account-strategy">AWS Multi-Account Strategy</h2>
+<h3 id="-creating-and-using-roles">✅ Creating and Using Roles</h3>
+<ol>
+<li>Navigate to “Roles” → “Create role”</li>
+<li>Select trusted entity type (AWS service, another account, or web identity)</li>
+<li>Attach permissions policies</li>
+<li>Review and create</li>
+<li>Assign role to EC2, Lambda, or external service</li>
+</ol>
+<h3 id="-test-by-attaching-the-role-to-an-ec2-instance">✅ Test by Attaching the Role to an EC2 Instance</h3>
+<ol>
+<li>Navigate to <strong>EC2</strong> → <strong>Instances</strong> → <strong>Launch Instance</strong></li>
+<li>Configure the instance by selecting an AMI and instance type</li>
+<li>In <strong>Configure Instance Details</strong>, under <strong>IAM role</strong>, select the role you created</li>
+<li>Complete the rest of the instance setup and launch it</li>
+<li>Connect to the instance using SSH and verify the role is attached by running:</li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  curl http://169.254.169.254/latest/meta-data/iam/info
+</span></span><span style="display:flex;"><span>  or 
+</span></span><span style="display:flex;"><span>  aws s3 ls</span></span></code></pre></div>
+<h2 id="aws-multi-account-strategy"><strong>AWS Multi-Account Strategy</strong></h2>
 <p>Managing multiple AWS accounts is a best practice for organizations looking to improve security, billing, and resource isolation. The <strong>AWS Multi-Account Strategy</strong> helps you organize your cloud environment efficiently.</p>
-<hr>
-<h2 id="legacy-approach-single-aws-account">Legacy Approach: Single AWS Account</h2>
+<h2 id="legacy-approach-single-aws-account"><strong>Legacy Approach: Single AWS Account</strong></h2>
 <p>Before multi-account strategies became popular, many organizations used a <strong>single AWS account</strong> for all workloads, environments, and teams.</p>
 <h3 id="challenges-of-the-legacy-approach">Challenges of the Legacy Approach:</h3>
 <ul>
@@ -304,7 +372,7 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
 <li><strong>Operational risks:</strong> Accidental resource changes can impact production workloads.</li>
 </ul>
 <hr>
-<h2 id="why-use-multiple-aws-accounts">Why Use Multiple AWS Accounts?</h2>
+<h3 id="why-use-multiple-aws-accounts">Why Use Multiple AWS Accounts?</h3>
 <ul>
 <li><strong>Isolation of workloads:</strong> Separate development, testing, and production environments.</li>
 <li><strong>Security boundaries:</strong> Limit blast radius if one account is compromised.</li>
@@ -405,7 +473,7 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
 </span></span><span style="display:flex;"><span>├── Prod Account(s)
 </span></span><span style="display:flex;"><span>├── Dev Account(s)
 </span></span><span style="display:flex;"><span>└── Test Account(s)</span></span></code></pre></div>
-<h2 id="key-points-to-remember-aws-multi-account-architectures">Key Points to Remember: AWS Multi-Account Architectures</h2>
+<h3 id="key-points-to-remember-aws-multi-account-architectures">Key Points to Remember: AWS Multi-Account Architectures</h3>
 <p>For multi-AWS account architectures, you must be familiar with <strong>cross-account AWS service-specific configurations</strong> and services that enable organizations to maintain centralized access.</p>
 <table>
   <thead>
@@ -435,6 +503,275 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
 </table>
 <hr>
 <p>These services and configurations help enforce security, manage access, and centralize monitoring across multiple AWS accounts.</p>
+<h2 id="-aws-iam--assume-role">✅ AWS IAM – Assume Role</h2>
+<hr>
+<h2 id="-what-is-assume-role">📌 What is Assume Role?</h2>
+<p><strong>Assume Role</strong> is an AWS feature that allows a user, application, or service to temporarily acquire permissions defined by a role without needing permanent credentials.</p>
+<p>This is useful for:</p>
+<p>✔ Granting limited-time access to resources<br>
+✔ Cross-account access<br>
+✔ Secure access for applications running on AWS<br>
+✔ Federation with external identities</p>
+<hr>
+<h2 id="-key-concepts">✅ Key Concepts</h2>
+<h3 id="-role">✅ <strong>Role</strong></h3>
+<ul>
+<li>An IAM entity with permissions attached.</li>
+<li>Does not have its own long-term credentials like users.</li>
+</ul>
+<h3 id="-assume-role">✅ <strong>Assume Role</strong></h3>
+<ul>
+<li>A process where an entity temporarily takes on the permissions of a role.</li>
+<li>Uses AWS Security Token Service (STS) to request temporary credentials.</li>
+</ul>
+<h3 id="-trust-policy">✅ <strong>Trust Policy</strong></h3>
+<ul>
+<li>Defines which entities are allowed to assume the role.</li>
+</ul>
+<h3 id="-session">✅ <strong>Session</strong></h3>
+<ul>
+<li>A temporary environment where permissions are valid.</li>
+<li>Credentials expire after a set time.</li>
+</ul>
+<hr>
+<h2 id="-how-assume-role-works">✅ How Assume Role Works</h2>
+<ol>
+<li>An entity (user, service, application) requests to assume a role.</li>
+<li>AWS verifies the request based on the trust policy.</li>
+<li>AWS issues temporary security credentials (access key, secret key, and session token).</li>
+<li>The entity uses these credentials to access AWS resources.</li>
+</ol>
+<hr>
+<h2 id="-example-trust-policy">✅ Example Trust Policy</h2>
+<p>This policy allows the user <code>Alice</code> to assume the role:</p>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Principal&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;AWS&#34;</span>: <span style="color:#e6db74">&#34;arn:aws:iam::123456789012:user/Alice&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="labs">Labs:</h3>
+<p><a href="#R-image-d7da7b5099ef4de940a0ad4ee2190969" class="lightbox-link"><img alt="Asume role" class="lazy lightbox figure-image" loading="lazy" src="../images/d01.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-d7da7b5099ef4de940a0ad4ee2190969"><img alt="Asume role" class="lazy lightbox lightbox-image" loading="lazy" src="../images/d01.png"></a></p>
+<h3 id="-creating-and-using-roles-1">✅ Creating and Using Roles</h3>
+<ul>
+<li>Navigate <strong>IAM → Roles → Create Role</strong></li>
+<li>Select <strong>trusted entity type</strong>: AWS service, another account, or web identity</li>
+<li>Attach <strong>permissions policies</strong> based on role requirements</li>
+<li>Review and <strong>create the role</strong></li>
+<li>Assign role to <strong>EC2, Lambda, or external service</strong></li>
+</ul>
+<h3 id="-assuming-a-role">✅ Assuming a Role</h3>
+<ul>
+<li>Use <strong>temporary credentials</strong> via STS to assume a role</li>
+<li>Example CLI command:</li>
+</ul>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws sts assume-role <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --role-arn <span style="color:#e6db74">&#34;arn:aws:iam::&lt;account-id&gt;:role/&lt;role-name&gt;&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --role-session-name <span style="color:#e6db74">&#34;SessionName&#34;</span></span></span></code></pre></div>
+<h3 id="-testing-an-assumed-role-from-aws-console">✅ Testing an Assumed Role from AWS Console</h3>
+<ol>
+<li>
+<p><strong>Sign in to the AWS Management Console</strong> using your IAM user credentials.</p>
+</li>
+<li>
+<p><strong>Switch Role</strong>:</p>
+<ul>
+<li>Click on your username (top-right corner) → <strong>Switch Role</strong></li>
+<li>Enter the <strong>Account ID</strong> and <strong>Role Name</strong> of the role you want to assume</li>
+<li>Optionally, add a <strong>Display Name</strong> and <strong>Color</strong> for easier identification</li>
+<li>Click <strong>Switch Role</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>Verify Role Permissions</strong>:</p>
+<ul>
+<li>Once switched, you’ll see the new role’s name in the console header</li>
+<li>Try accessing resources allowed by the role (e.g., list S3 buckets, launch EC2)</li>
+<li>If actions succeed, the role is working correctly</li>
+<li>If you see “Access Denied,” the role’s permissions or trust policy may need adjustment</li>
+</ul>
+</li>
+<li>
+<p><strong>Switch Back</strong>:</p>
+<ul>
+<li>Click on the role name (top-right) → <strong>Back to your original user</strong></li>
+</ul>
+</li>
+</ol>
+<h2 id="-aws-organizations">✅ AWS Organizations</h2>
+<hr>
+<h3 id="-what-is-aws-organizations">📌 What is AWS Organizations?</h3>
+<p><strong>AWS Organizations</strong> is a service that helps you centrally manage and govern multiple AWS accounts.<br>
+It allows you to <strong>group accounts, apply policies, and simplify billing</strong> across your organization.</p>
+<p>Key benefits:</p>
+<ul>
+<li>Centralized management of multiple AWS accounts</li>
+<li>Apply <strong>Service Control Policies (SCPs)</strong> for governance</li>
+<li>Consolidated billing and cost tracking</li>
+<li>Simplified account creation and organization</li>
+</ul>
+<hr>
+<h2 id="-key-concepts-1">✅ Key Concepts</h2>
+<h3 id="1-organization">1. <strong>Organization</strong></h3>
+<ul>
+<li>The top-level entity that contains all your AWS accounts and OUs.</li>
+</ul>
+<h3 id="2-accounts">2. <strong>Accounts</strong></h3>
+<ul>
+<li>Individual AWS accounts within your organization.</li>
+<li>Can be master/management account or member accounts.</li>
+</ul>
+<h3 id="3-organizational-units-ous">3. <strong>Organizational Units (OUs)</strong></h3>
+<ul>
+<li>Logical grouping of accounts within the organization.</li>
+<li>SCPs can be applied at the OU level for consistent governance.</li>
+</ul>
+<h3 id="4-service-control-policies-scps">4. <strong>Service Control Policies (SCPs)</strong></h3>
+<ul>
+<li>Policies that define <strong>what actions accounts in your organization can or cannot perform</strong>.</li>
+<li>SCPs <strong>restrict permissions</strong>, but do not grant them.</li>
+</ul>
+<h3 id="5-master--management-account">5. <strong>Master / Management Account</strong></h3>
+<ul>
+<li>The account that creates the organization and manages billing, OUs, and policies.</li>
+</ul>
+<hr>
+<h2 id="-features">✅ Features</h2>
+<ul>
+<li><strong>Account Management</strong>: Create, invite, and manage accounts from a single place.</li>
+<li><strong>Centralized Billing</strong>: Consolidate billing for all accounts into a single payment method.</li>
+<li><strong>Policy-Based Management</strong>: Apply SCPs to OUs and accounts to enforce governance.</li>
+<li><strong>Automation</strong>: Use AWS Control Tower or CLI for managing multiple accounts.</li>
+</ul>
+<hr>
+<h2 id="-steps-to-create-an-aws-organization">✅ Steps to Create an AWS Organization</h2>
+<h3 id="step-1-sign-in-as-the-master-account">Step 1: Sign in as the Master Account</h3>
+<ul>
+<li>Use the root account or IAM user with admin privileges.</li>
+</ul>
+<h3 id="step-2-create-the-organization">Step 2: Create the Organization</h3>
+<ul>
+<li>Go to <strong>AWS Organizations</strong> console → <strong>C</strong></li>
+</ul>
+<h2 id="-aws-scp-service-control-policies">✅ AWS SCP (Service Control Policies)</h2>
+<hr>
+<h3 id="-what-is-scp">📌 What is SCP?</h3>
+<p><strong>Service Control Policies (SCPs)</strong> are a feature of <strong>AWS Organizations</strong> that allow you to control <strong>what services and actions accounts in your organization can access</strong>.<br>
+SCPs do <strong>not grant permissions</strong>; they only <strong>restrict or allow actions</strong> for accounts under an Organizational Unit (OU).</p>
+<hr>
+<h2 id="-key-concepts-2">✅ Key Concepts</h2>
+<ul>
+<li><strong>Root</strong>: Top-level container in an AWS Organization. SCPs attached here apply to all accounts.</li>
+<li><strong>Organizational Unit (OU)</strong>: A container for accounts. SCPs attached to an OU apply to all member accounts.</li>
+<li><strong>Policy types</strong>:
+<ul>
+<li><strong>Allow list</strong>: Only actions listed are allowed.</li>
+<li><strong>Deny list</strong>: Actions listed are explicitly denied.</li>
+</ul>
+</li>
+<li><strong>Effect</strong>: <code>Allow</code> or <code>Deny</code>. Deny overrides any Allow permission from IAM policies.</li>
+</ul>
+<hr>
+<h2 id="-steps-to-create-and-attach-scp">✅ Steps to Create and Attach SCP</h2>
+<h3 id="step-1-enable-aws-organizations">Step 1: Enable AWS Organizations</h3>
+<ol>
+<li>Login as root user or account with permissions.</li>
+<li>Go to <strong>AWS Organizations</strong> console.</li>
+<li>Create an organization if not already done.</li>
+</ol>
+<hr>
+<h3 id="step-2-create-a-service-control-policy">Step 2: Create a Service Control Policy</h3>
+<ol>
+<li>Go to <strong>Policies</strong> → <strong>Create policy</strong>.</li>
+<li>Choose <strong>JSON</strong> or <strong>Visual editor</strong>.</li>
+<li>Example JSON for denying S3 deletion:</li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Deny&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:DeleteBucket&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<p><a href="#R-image-f541f2328a5a9bce1739b26443cb41f9" class="lightbox-link"><img alt="Or" class="lazy lightbox figure-image" loading="lazy" src="../images/d02.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-f541f2328a5a9bce1739b26443cb41f9"><img alt="Or" class="lazy lightbox lightbox-image" loading="lazy" src="../images/d02.png"></a></p>
+<h3 id="-aws-organizations-and-scp-service-control-policies">✅ AWS Organizations and SCP (Service Control Policies)</h3>
+<ul>
+<li>AWS Organizations helps you centrally manage multiple AWS accounts</li>
+<li>SCPs are used to set permission guardrails across accounts in the organization</li>
+<li>SCPs do not grant permissions, they <strong>limit</strong> permissions that IAM roles or users can have</li>
+</ul>
+<h3 id="-using-scps">✅ Using SCPs</h3>
+<ol>
+<li>Navigate <strong>AWS Organizations → Policies → Create Policy</strong></li>
+<li>Define allowed or denied actions using JSON, e.g.:</li>
+</ol>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Statement&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Deny&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;s3:DeleteBucket&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<ul>
+<li><strong>Tag Policies</strong></li>
+</ul>
+<h2 id="assignmnets">Assignmnets:</h2>
+<h3 id="-10-tasks-related-to-aws-iam-users">✅ 10 Tasks Related to AWS IAM Users</h3>
+<p>These tasks are commonly performed when managing IAM Users in AWS.</p>
+<h3 id="1-create-a-new-iam-user">1. Create a new IAM user</h3>
+<ul>
+<li>Add a user with a name and specify programmatic or console access.</li>
+</ul>
+<h3 id="2-assign-permissions-to-a-user">2. Assign permissions to a user</h3>
+<ul>
+<li>Attach managed or inline policies to grant necessary permissions.</li>
+</ul>
+<h3 id="3-add-a-user-to-a-group">3. Add a user to a group</h3>
+<ul>
+<li>Place users into groups to inherit shared permissions.</li>
+</ul>
+<h3 id="4-enable-multi-factor-authentication-mfa">4. Enable Multi-Factor Authentication (MFA)</h3>
+<ul>
+<li>Secure the user’s AWS account by enabling MFA.</li>
+</ul>
+<h3 id="5-generate-access-keys-for-the-user">5. Generate access keys for the user</h3>
+<ul>
+<li>Create programmatic access credentials for CLI or SDK use.</li>
+</ul>
+<h3 id="6-rotate-the-users-access-keys">6. Rotate the user’s access keys</h3>
+<ul>
+<li>Replace old keys with new ones to enhance security.</li>
+</ul>
+<h3 id="7-set-password-policies">7. Set password policies</h3>
+<ul>
+<li>Enforce password length, complexity, and expiration rules for users.</li>
+</ul>
+<h3 id="8-attach-policies-using-least-privilege-principle">8. Attach policies using least privilege principle</h3>
+<ul>
+<li>Grant only required permissions rather than full access.</li>
+</ul>
+<h3 id="9-monitor-user-activity">9. Monitor user activity</h3>
+<ul>
+<li>Use AWS CloudTrail or IAM Access Analyzer to review actions performed by users.</li>
+</ul>
+<h3 id="10-remove-unused-or-inactive-users">10. Remove unused or inactive users</h3>
+<ul>
+<li>Identify and delete users that are no longer required or inactive.</li>
+</ul>
 
   <footer class="footline">
   </footer>
@@ -483,7 +820,7 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
             <li class="" data-nav-id="/getting-started-with-the-course/index.html"><a class="padding" href="../getting-started-with-the-course/index.html">Getting Started with AWS</a></li>
-            <li class="active " data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS Multi-Account Strategy</a></li>
+            <li class="active " data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">AWS IAM (Identity and Access Management)</a></li>
             <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="../projects-tasks/index.html">AWS Imp Link</a></li>
           </ul>
         </div>
@@ -502,8 +839,8 @@ Manage users and their permissions to access AWS resources. Grant fine-grained a
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757498499" defer></script>
-    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757498499" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757682941" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757682941" defer></script>
   </body>
 </html>

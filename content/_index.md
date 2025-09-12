@@ -3,6 +3,9 @@ title = "AWS Certified Solutions Architect - Professional"
 +++
 ---
 
+
+## Please connect at 2pm by [clicking here](https://jiomeetpro.jio.com/shortener?meetingId=6743976981&pwd=AD8sD)
+## Recording Link
 ## Table of Contents (30 Hrs)
 
 ### 1. Introduction
