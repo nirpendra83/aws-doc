@@ -5,42 +5,42 @@
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.148.2">
     <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
-    <meta name="description" content="Please connect at 2pm by clicking here Recording Link Table of Contents (30 Hrs) 1. Introduction Overview of AWS Certified Solutions Architect – Professional Exam structure and objectives Prerequisites and recommended knowledge 2. AWS Well-Architected Framework Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization Design principles and best practices 3. Advanced Networking VPC peering and Transit Gateway PrivateLink and Direct Connect Route tables and NAT gateways Hybrid connectivity patterns 4. Compute Services EC2 instances and placement groups Auto Scaling strategies Lambda architecture patterns Container services: ECS, EKS, Fargate 5. Storage and Databases S3 advanced features: lifecycle, replication, cross-region access Glacier, EBS optimizations, FSx RDS, Aurora, DynamoDB, Redshift configurations Caching strategies with ElastiCache 6. Security and Compliance IAM advanced configurations Security groups, NACLs, and KMS AWS Organizations, SCPs, and resource policies Audit and compliance services: CloudTrail, Config 7. Monitoring and Management CloudWatch, CloudTrail, and AWS Config Health dashboards and reporting Automated alerts and runbooks Resource tagging strategies 8. High Availability and Fault Tolerance Multi-AZ and multi-region deployments Failover strategies Disaster Recovery Planning (RPO, RTO) 9. Performance Optimization Load balancing with ALB, NLB, and Gateway Caching, replication, and compression techniques Architecture patterns for high throughput and low latency 10. Cost Optimization Reserved instances and spot instances Cost Explorer and budgets Resource scaling and right-sizing Cost-effective design patterns 11. Migration and Hybrid Architectures Lift-and-shift and refactoring strategies Data migration tools: DMS, Snowball, Transfer Family Integrating on-premises and cloud workloads 12. Disaster Recovery and Backup Strategies RTO/RPO planning Backup mechanisms across AWS services Cross-region failover architectures 13. Advanced Application Architectures Event-driven architectures Microservices and API Gateways Serverless workflows and best practices 14. Exam Practice Sample questions Scenario-based problems">
+    <meta name="description" content="Please connect at 2pm by clicking here Recording Link **Table of Contents**0. Introduction to AWS Cloud 0.1 What is AWS Cloud? 0.2 History and Evolution of AWS 0.3 AWS Global Infrastructure 0.4 Core AWS Services 0.5 Benefits of AWS Cloud 0.6 Use Cases for AWS Cloud 0.7 How AWS Differs from Other Cloud Providers 0.8 Getting Started with AWS 0.9 Common AWS Terminology 1. AWS IAM (Identity and Access Management) 1.1 Introduction to IAM 1.2 Creating Users, Groups, and Roles 1.3 Managing Permissions with Policies 1.4 IAM Best Practices 2. AWS EC2 (Elastic Compute Cloud) 2.1 Introduction to EC2 2.2 Launching EC2 Instances 2.3 EC2 Instance Types 2.4 Elastic IP and Security Groups 2.5 EC2 Auto Scaling 3. AWS VPC (Virtual Private Cloud) 3.1 VPC Overview 3.2 VPC Subnets 3.3 Internet Gateway and NAT Gateway 3.4 VPC Peering and Transit Gateway 3.5 Security with VPC - NACLs and Security Groups 4. AWS Route 53, Load Balancers, and Auto Scaling 4.1 Route 53 Overview 4.2 DNS Management in Route 53 4.3 Creating and Configuring Load Balancers 4.3.1 Classic Load Balancer 4.3.2 Application Load Balancer 4.3.3 Network Load Balancer 4.4 AWS Auto Scaling 4.4.1 Auto Scaling Groups 4.4.2 Scaling Policies 5. AWS Storage Services 5.1 Overview of AWS Storage Services 5.2 Amazon S3 (Simple Storage Service) 5.3 Amazon EBS (Elastic Block Store) 5.4 Amazon EFS (Elastic File System) 5.5 AWS Glacier 5.6 Storage Gateway 6. AWS RDS (Relational Database Service) 6.1 RDS Overview 6.2 Supported Database Engines 6.3 Deploying RDS Instances 6.4 Backup and Recovery in RDS 6.5 RDS Performance Optimization 6.6 Security for RDS 7. AWS CloudFront 7.1 Introduction to CloudFront 7.2 Setting up a CloudFront Distribution 7.3 Cache Behavior and Origins 7.4 CloudFront Security 8. AWS Lambda 8.1 Introduction to Lambda 8.2 Creating Lambda Functions 8.3 Triggers and Event Sources 8.4 Managing Lambda Functions 9. AWS DynamoDB 9.1 Introduction to DynamoDB 9.2 Creating Tables and Indexes 9.3 DynamoDB Data Modeling 9.4 Working with DynamoDB Streams 9.5 DynamoDB Best Practices 10. AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service) 10.1 ECS Overview 10.2 ECS Cluster and Task Definitions 10.3 ECS Service and Auto Scaling 10.4 EKS Overview 10.5 Deploying Kubernetes on AWS 10.6 EKS Cluster Management 11. AWS Projects 11.1 Project 1: Building a Scalable Web Application 11.2 Project 2: Serverless API with Lambda and DynamoDB 11.3 Project 3: E-commerce Platform with EC2, RDS, and CloudFront 11.4 Project 4: Real-time Data Processing with Kinesis and Lambda 11.5 Project 5: Multi-tier Application with VPC, Load Balancer, and Auto Scaling">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="AWS Certified Solutions Architect - Professional :: AWS Solution Architect">
-    <meta name="twitter:description" content="Please connect at 2pm by clicking here Recording Link Table of Contents (30 Hrs) 1. Introduction Overview of AWS Certified Solutions Architect – Professional Exam structure and objectives Prerequisites and recommended knowledge 2. AWS Well-Architected Framework Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization Design principles and best practices 3. Advanced Networking VPC peering and Transit Gateway PrivateLink and Direct Connect Route tables and NAT gateways Hybrid connectivity patterns 4. Compute Services EC2 instances and placement groups Auto Scaling strategies Lambda architecture patterns Container services: ECS, EKS, Fargate 5. Storage and Databases S3 advanced features: lifecycle, replication, cross-region access Glacier, EBS optimizations, FSx RDS, Aurora, DynamoDB, Redshift configurations Caching strategies with ElastiCache 6. Security and Compliance IAM advanced configurations Security groups, NACLs, and KMS AWS Organizations, SCPs, and resource policies Audit and compliance services: CloudTrail, Config 7. Monitoring and Management CloudWatch, CloudTrail, and AWS Config Health dashboards and reporting Automated alerts and runbooks Resource tagging strategies 8. High Availability and Fault Tolerance Multi-AZ and multi-region deployments Failover strategies Disaster Recovery Planning (RPO, RTO) 9. Performance Optimization Load balancing with ALB, NLB, and Gateway Caching, replication, and compression techniques Architecture patterns for high throughput and low latency 10. Cost Optimization Reserved instances and spot instances Cost Explorer and budgets Resource scaling and right-sizing Cost-effective design patterns 11. Migration and Hybrid Architectures Lift-and-shift and refactoring strategies Data migration tools: DMS, Snowball, Transfer Family Integrating on-premises and cloud workloads 12. Disaster Recovery and Backup Strategies RTO/RPO planning Backup mechanisms across AWS services Cross-region failover architectures 13. Advanced Application Architectures Event-driven architectures Microservices and API Gateways Serverless workflows and best practices 14. Exam Practice Sample questions Scenario-based problems">
+    <meta name="twitter:description" content="Please connect at 2pm by clicking here Recording Link **Table of Contents**0. Introduction to AWS Cloud 0.1 What is AWS Cloud? 0.2 History and Evolution of AWS 0.3 AWS Global Infrastructure 0.4 Core AWS Services 0.5 Benefits of AWS Cloud 0.6 Use Cases for AWS Cloud 0.7 How AWS Differs from Other Cloud Providers 0.8 Getting Started with AWS 0.9 Common AWS Terminology 1. AWS IAM (Identity and Access Management) 1.1 Introduction to IAM 1.2 Creating Users, Groups, and Roles 1.3 Managing Permissions with Policies 1.4 IAM Best Practices 2. AWS EC2 (Elastic Compute Cloud) 2.1 Introduction to EC2 2.2 Launching EC2 Instances 2.3 EC2 Instance Types 2.4 Elastic IP and Security Groups 2.5 EC2 Auto Scaling 3. AWS VPC (Virtual Private Cloud) 3.1 VPC Overview 3.2 VPC Subnets 3.3 Internet Gateway and NAT Gateway 3.4 VPC Peering and Transit Gateway 3.5 Security with VPC - NACLs and Security Groups 4. AWS Route 53, Load Balancers, and Auto Scaling 4.1 Route 53 Overview 4.2 DNS Management in Route 53 4.3 Creating and Configuring Load Balancers 4.3.1 Classic Load Balancer 4.3.2 Application Load Balancer 4.3.3 Network Load Balancer 4.4 AWS Auto Scaling 4.4.1 Auto Scaling Groups 4.4.2 Scaling Policies 5. AWS Storage Services 5.1 Overview of AWS Storage Services 5.2 Amazon S3 (Simple Storage Service) 5.3 Amazon EBS (Elastic Block Store) 5.4 Amazon EFS (Elastic File System) 5.5 AWS Glacier 5.6 Storage Gateway 6. AWS RDS (Relational Database Service) 6.1 RDS Overview 6.2 Supported Database Engines 6.3 Deploying RDS Instances 6.4 Backup and Recovery in RDS 6.5 RDS Performance Optimization 6.6 Security for RDS 7. AWS CloudFront 7.1 Introduction to CloudFront 7.2 Setting up a CloudFront Distribution 7.3 Cache Behavior and Origins 7.4 CloudFront Security 8. AWS Lambda 8.1 Introduction to Lambda 8.2 Creating Lambda Functions 8.3 Triggers and Event Sources 8.4 Managing Lambda Functions 9. AWS DynamoDB 9.1 Introduction to DynamoDB 9.2 Creating Tables and Indexes 9.3 DynamoDB Data Modeling 9.4 Working with DynamoDB Streams 9.5 DynamoDB Best Practices 10. AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service) 10.1 ECS Overview 10.2 ECS Cluster and Task Definitions 10.3 ECS Service and Auto Scaling 10.4 EKS Overview 10.5 Deploying Kubernetes on AWS 10.6 EKS Cluster Management 11. AWS Projects 11.1 Project 1: Building a Scalable Web Application 11.2 Project 2: Serverless API with Lambda and DynamoDB 11.3 Project 3: E-commerce Platform with EC2, RDS, and CloudFront 11.4 Project 4: Real-time Data Processing with Kinesis and Lambda 11.5 Project 5: Multi-tier Application with VPC, Load Balancer, and Auto Scaling">
     <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/index.html">
     <meta property="og:site_name" content="AWS Solution Architect">
     <meta property="og:title" content="AWS Certified Solutions Architect - Professional :: AWS Solution Architect">
-    <meta property="og:description" content="Please connect at 2pm by clicking here Recording Link Table of Contents (30 Hrs) 1. Introduction Overview of AWS Certified Solutions Architect – Professional Exam structure and objectives Prerequisites and recommended knowledge 2. AWS Well-Architected Framework Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization Design principles and best practices 3. Advanced Networking VPC peering and Transit Gateway PrivateLink and Direct Connect Route tables and NAT gateways Hybrid connectivity patterns 4. Compute Services EC2 instances and placement groups Auto Scaling strategies Lambda architecture patterns Container services: ECS, EKS, Fargate 5. Storage and Databases S3 advanced features: lifecycle, replication, cross-region access Glacier, EBS optimizations, FSx RDS, Aurora, DynamoDB, Redshift configurations Caching strategies with ElastiCache 6. Security and Compliance IAM advanced configurations Security groups, NACLs, and KMS AWS Organizations, SCPs, and resource policies Audit and compliance services: CloudTrail, Config 7. Monitoring and Management CloudWatch, CloudTrail, and AWS Config Health dashboards and reporting Automated alerts and runbooks Resource tagging strategies 8. High Availability and Fault Tolerance Multi-AZ and multi-region deployments Failover strategies Disaster Recovery Planning (RPO, RTO) 9. Performance Optimization Load balancing with ALB, NLB, and Gateway Caching, replication, and compression techniques Architecture patterns for high throughput and low latency 10. Cost Optimization Reserved instances and spot instances Cost Explorer and budgets Resource scaling and right-sizing Cost-effective design patterns 11. Migration and Hybrid Architectures Lift-and-shift and refactoring strategies Data migration tools: DMS, Snowball, Transfer Family Integrating on-premises and cloud workloads 12. Disaster Recovery and Backup Strategies RTO/RPO planning Backup mechanisms across AWS services Cross-region failover architectures 13. Advanced Application Architectures Event-driven architectures Microservices and API Gateways Serverless workflows and best practices 14. Exam Practice Sample questions Scenario-based problems">
+    <meta property="og:description" content="Please connect at 2pm by clicking here Recording Link **Table of Contents**0. Introduction to AWS Cloud 0.1 What is AWS Cloud? 0.2 History and Evolution of AWS 0.3 AWS Global Infrastructure 0.4 Core AWS Services 0.5 Benefits of AWS Cloud 0.6 Use Cases for AWS Cloud 0.7 How AWS Differs from Other Cloud Providers 0.8 Getting Started with AWS 0.9 Common AWS Terminology 1. AWS IAM (Identity and Access Management) 1.1 Introduction to IAM 1.2 Creating Users, Groups, and Roles 1.3 Managing Permissions with Policies 1.4 IAM Best Practices 2. AWS EC2 (Elastic Compute Cloud) 2.1 Introduction to EC2 2.2 Launching EC2 Instances 2.3 EC2 Instance Types 2.4 Elastic IP and Security Groups 2.5 EC2 Auto Scaling 3. AWS VPC (Virtual Private Cloud) 3.1 VPC Overview 3.2 VPC Subnets 3.3 Internet Gateway and NAT Gateway 3.4 VPC Peering and Transit Gateway 3.5 Security with VPC - NACLs and Security Groups 4. AWS Route 53, Load Balancers, and Auto Scaling 4.1 Route 53 Overview 4.2 DNS Management in Route 53 4.3 Creating and Configuring Load Balancers 4.3.1 Classic Load Balancer 4.3.2 Application Load Balancer 4.3.3 Network Load Balancer 4.4 AWS Auto Scaling 4.4.1 Auto Scaling Groups 4.4.2 Scaling Policies 5. AWS Storage Services 5.1 Overview of AWS Storage Services 5.2 Amazon S3 (Simple Storage Service) 5.3 Amazon EBS (Elastic Block Store) 5.4 Amazon EFS (Elastic File System) 5.5 AWS Glacier 5.6 Storage Gateway 6. AWS RDS (Relational Database Service) 6.1 RDS Overview 6.2 Supported Database Engines 6.3 Deploying RDS Instances 6.4 Backup and Recovery in RDS 6.5 RDS Performance Optimization 6.6 Security for RDS 7. AWS CloudFront 7.1 Introduction to CloudFront 7.2 Setting up a CloudFront Distribution 7.3 Cache Behavior and Origins 7.4 CloudFront Security 8. AWS Lambda 8.1 Introduction to Lambda 8.2 Creating Lambda Functions 8.3 Triggers and Event Sources 8.4 Managing Lambda Functions 9. AWS DynamoDB 9.1 Introduction to DynamoDB 9.2 Creating Tables and Indexes 9.3 DynamoDB Data Modeling 9.4 Working with DynamoDB Streams 9.5 DynamoDB Best Practices 10. AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service) 10.1 ECS Overview 10.2 ECS Cluster and Task Definitions 10.3 ECS Service and Auto Scaling 10.4 EKS Overview 10.5 Deploying Kubernetes on AWS 10.6 EKS Cluster Management 11. AWS Projects 11.1 Project 1: Building a Scalable Web Application 11.2 Project 2: Serverless API with Lambda and DynamoDB 11.3 Project 3: E-commerce Platform with EC2, RDS, and CloudFront 11.4 Project 4: Real-time Data Processing with Kinesis and Lambda 11.5 Project 5: Multi-tier Application with VPC, Load Balancer, and Auto Scaling">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="website">
     <meta itemprop="name" content="AWS Certified Solutions Architect - Professional :: AWS Solution Architect">
-    <meta itemprop="description" content="Please connect at 2pm by clicking here Recording Link Table of Contents (30 Hrs) 1. Introduction Overview of AWS Certified Solutions Architect – Professional Exam structure and objectives Prerequisites and recommended knowledge 2. AWS Well-Architected Framework Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization Design principles and best practices 3. Advanced Networking VPC peering and Transit Gateway PrivateLink and Direct Connect Route tables and NAT gateways Hybrid connectivity patterns 4. Compute Services EC2 instances and placement groups Auto Scaling strategies Lambda architecture patterns Container services: ECS, EKS, Fargate 5. Storage and Databases S3 advanced features: lifecycle, replication, cross-region access Glacier, EBS optimizations, FSx RDS, Aurora, DynamoDB, Redshift configurations Caching strategies with ElastiCache 6. Security and Compliance IAM advanced configurations Security groups, NACLs, and KMS AWS Organizations, SCPs, and resource policies Audit and compliance services: CloudTrail, Config 7. Monitoring and Management CloudWatch, CloudTrail, and AWS Config Health dashboards and reporting Automated alerts and runbooks Resource tagging strategies 8. High Availability and Fault Tolerance Multi-AZ and multi-region deployments Failover strategies Disaster Recovery Planning (RPO, RTO) 9. Performance Optimization Load balancing with ALB, NLB, and Gateway Caching, replication, and compression techniques Architecture patterns for high throughput and low latency 10. Cost Optimization Reserved instances and spot instances Cost Explorer and budgets Resource scaling and right-sizing Cost-effective design patterns 11. Migration and Hybrid Architectures Lift-and-shift and refactoring strategies Data migration tools: DMS, Snowball, Transfer Family Integrating on-premises and cloud workloads 12. Disaster Recovery and Backup Strategies RTO/RPO planning Backup mechanisms across AWS services Cross-region failover architectures 13. Advanced Application Architectures Event-driven architectures Microservices and API Gateways Serverless workflows and best practices 14. Exam Practice Sample questions Scenario-based problems">
-    <meta itemprop="wordCount" content="275">
+    <meta itemprop="description" content="Please connect at 2pm by clicking here Recording Link **Table of Contents**0. Introduction to AWS Cloud 0.1 What is AWS Cloud? 0.2 History and Evolution of AWS 0.3 AWS Global Infrastructure 0.4 Core AWS Services 0.5 Benefits of AWS Cloud 0.6 Use Cases for AWS Cloud 0.7 How AWS Differs from Other Cloud Providers 0.8 Getting Started with AWS 0.9 Common AWS Terminology 1. AWS IAM (Identity and Access Management) 1.1 Introduction to IAM 1.2 Creating Users, Groups, and Roles 1.3 Managing Permissions with Policies 1.4 IAM Best Practices 2. AWS EC2 (Elastic Compute Cloud) 2.1 Introduction to EC2 2.2 Launching EC2 Instances 2.3 EC2 Instance Types 2.4 Elastic IP and Security Groups 2.5 EC2 Auto Scaling 3. AWS VPC (Virtual Private Cloud) 3.1 VPC Overview 3.2 VPC Subnets 3.3 Internet Gateway and NAT Gateway 3.4 VPC Peering and Transit Gateway 3.5 Security with VPC - NACLs and Security Groups 4. AWS Route 53, Load Balancers, and Auto Scaling 4.1 Route 53 Overview 4.2 DNS Management in Route 53 4.3 Creating and Configuring Load Balancers 4.3.1 Classic Load Balancer 4.3.2 Application Load Balancer 4.3.3 Network Load Balancer 4.4 AWS Auto Scaling 4.4.1 Auto Scaling Groups 4.4.2 Scaling Policies 5. AWS Storage Services 5.1 Overview of AWS Storage Services 5.2 Amazon S3 (Simple Storage Service) 5.3 Amazon EBS (Elastic Block Store) 5.4 Amazon EFS (Elastic File System) 5.5 AWS Glacier 5.6 Storage Gateway 6. AWS RDS (Relational Database Service) 6.1 RDS Overview 6.2 Supported Database Engines 6.3 Deploying RDS Instances 6.4 Backup and Recovery in RDS 6.5 RDS Performance Optimization 6.6 Security for RDS 7. AWS CloudFront 7.1 Introduction to CloudFront 7.2 Setting up a CloudFront Distribution 7.3 Cache Behavior and Origins 7.4 CloudFront Security 8. AWS Lambda 8.1 Introduction to Lambda 8.2 Creating Lambda Functions 8.3 Triggers and Event Sources 8.4 Managing Lambda Functions 9. AWS DynamoDB 9.1 Introduction to DynamoDB 9.2 Creating Tables and Indexes 9.3 DynamoDB Data Modeling 9.4 Working with DynamoDB Streams 9.5 DynamoDB Best Practices 10. AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service) 10.1 ECS Overview 10.2 ECS Cluster and Task Definitions 10.3 ECS Service and Auto Scaling 10.4 EKS Overview 10.5 Deploying Kubernetes on AWS 10.6 EKS Cluster Management 11. AWS Projects 11.1 Project 1: Building a Scalable Web Application 11.2 Project 2: Serverless API with Lambda and DynamoDB 11.3 Project 3: E-commerce Platform with EC2, RDS, and CloudFront 11.4 Project 4: Real-time Data Processing with Kinesis and Lambda 11.5 Project 5: Multi-tier Application with VPC, Load Balancer, and Auto Scaling">
+    <meta itemprop="wordCount" content="420">
     <title>AWS Certified Solutions Architect - Professional :: AWS Solution Architect</title>
     <link href="./index.xml" rel="alternate" type="application/rss+xml" title="AWS Certified Solutions Architect - Professional :: AWS Solution Architect">
-    <link href="./nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757682941" rel="stylesheet">
-    <script src="./nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/search-lunr.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/search.min.js?1757682941" defer></script>
+    <link href="./nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757930320" rel="stylesheet">
+    <script src="./nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/search-lunr.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/search.min.js?1757930320" defer></script>
     <script>
       window.relearn = window.relearn || {};
-      window.relearn.index_js_url="./searchindex.en.js?1757682941";
+      window.relearn.index_js_url="./searchindex.en.js?1757930320";
     </script>
-    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757682941" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757930320" defer></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.contentLangs=['en'];
     </script>
-    <link href="./nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757682941" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="./nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757682941" rel="stylesheet"></noscript>
-    <link href="./nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757682941" rel="stylesheet">
-    <link href="./css/theme.min.css?1757682941" rel="stylesheet">
-    <link href="./css/format-html.min.css?1757682941" rel="stylesheet" id="R-format-style">
+    <link href="./nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="./nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet"></noscript>
+    <link href="./nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757930320" rel="stylesheet">
+    <link href="./css/theme.min.css?1757930320" rel="stylesheet">
+    <link href="./css/format-html.min.css?1757930320" rel="stylesheet" id="R-format-style">
     <script>
       window.relearn = window.relearn || {};
       // configuration
@@ -111,24 +111,18 @@
   <ul>
     <li><a href="#please-connect-at-2pm-by-clicking-here">Please connect at 2pm by <a href="https://jiomeetpro.jio.com/shortener?meetingId=6743976981&amp;pwd=AD8sD">clicking here</a></a></li>
     <li><a href="#recording-link">Recording Link</a></li>
-    <li><a href="#table-of-contents-30-hrs">Table of Contents (30 Hrs)</a>
-      <ul>
-        <li><a href="#1-introduction">1. Introduction</a></li>
-        <li><a href="#2-aws-well-architected-framework">2. AWS Well-Architected Framework</a></li>
-        <li><a href="#3-advanced-networking">3. Advanced Networking</a></li>
-        <li><a href="#4-compute-services">4. Compute Services</a></li>
-        <li><a href="#5-storage-and-databases">5. Storage and Databases</a></li>
-        <li><a href="#6-security-and-compliance">6. Security and Compliance</a></li>
-        <li><a href="#7-monitoring-and-management">7. Monitoring and Management</a></li>
-        <li><a href="#8-high-availability-and-fault-tolerance">8. High Availability and Fault Tolerance</a></li>
-        <li><a href="#9-performance-optimization">9. Performance Optimization</a></li>
-        <li><a href="#10-cost-optimization">10. Cost Optimization</a></li>
-        <li><a href="#11-migration-and-hybrid-architectures">11. Migration and Hybrid Architectures</a></li>
-        <li><a href="#12-disaster-recovery-and-backup-strategies">12. Disaster Recovery and Backup Strategies</a></li>
-        <li><a href="#13-advanced-application-architectures">13. Advanced Application Architectures</a></li>
-        <li><a href="#14-exam-practice">14. Exam Practice</a></li>
-      </ul>
-    </li>
+    <li><a href="#0-introduction-to-aws-cloud">0. <a href="HAHAHUGOSHORTCODE3s0HBHB">Introduction to AWS Cloud</a></a></li>
+    <li><a href="#1-aws-iam-identity-and-access-management">1. <a href="HAHAHUGOSHORTCODE3s10HBHB">AWS IAM (Identity and Access Management)</a></a></li>
+    <li><a href="#2-aws-ec2-elastic-compute-cloud">2. <a href="https://aws.amazon.com/ec2/">AWS EC2 (Elastic Compute Cloud)</a></a></li>
+    <li><a href="#3-aws-vpc-virtual-private-cloud">3. <a href="https://aws.amazon.com/vpc/">AWS VPC (Virtual Private Cloud)</a></a></li>
+    <li><a href="#4-aws-route-53-load-balancers-and-auto-scaling">4. <a href="https://aws.amazon.com/route53/">AWS Route 53, Load Balancers, and Auto Scaling</a></a></li>
+    <li><a href="#5-aws-storage-services">5. <a href="https://aws.amazon.com/storage/">AWS Storage Services</a></a></li>
+    <li><a href="#6-aws-rds-relational-database-service">6. <a href="https://aws.amazon.com/rds/">AWS RDS (Relational Database Service)</a></a></li>
+    <li><a href="#7-aws-cloudfront">7. <a href="https://aws.amazon.com/cloudfront/">AWS CloudFront</a></a></li>
+    <li><a href="#8-aws-lambda">8. <a href="https://aws.amazon.com/lambda/">AWS Lambda</a></a></li>
+    <li><a href="#9-aws-dynamodb">9. <a href="https://aws.amazon.com/dynamodb/">AWS DynamoDB</a></a></li>
+    <li><a href="#10-aws-ecs-elastic-container-service-or-eks-elastic-kubernetes-service">10. <a href="https://aws.amazon.com/ecs/">AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service)</a></a></li>
+    <li><a href="#11-aws-projects">11. <a href="#aws-projects">AWS Projects</a></a></li>
   </ul>
 </nav>
                 </div>
@@ -140,7 +134,7 @@
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><span class="topbar-control"><i class="fa-fw fas fa-chevron-left"></i></span>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="./getting-started-with-the-course/index.html" title="Getting Started with AWS (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="./part0/index.html" title="Part 01: Introduction to AWS Cloud (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -165,94 +159,119 @@
 <hr>
 <h2 id="please-connect-at-2pm-by-clicking-here">Please connect at 2pm by <a href="https://jiomeetpro.jio.com/shortener?meetingId=6743976981&pwd=AD8sD" rel="external" target="_blank">clicking here</a></h2>
 <h2 id="recording-link">Recording Link</h2>
-<h2 id="table-of-contents-30-hrs">Table of Contents (30 Hrs)</h2>
-<h3 id="1-introduction">1. Introduction</h3>
+<hr>
+<pre><code>                          **Table of Contents**
+</code></pre>
+<hr>
+<h2 id="0-introduction-to-aws-cloud">0. <a href="https://github.com/nirpendra83/aws-doc.git/part0/">Introduction to AWS Cloud</a></h2>
 <ul>
-<li>Overview of AWS Certified Solutions Architect – Professional</li>
-<li>Exam structure and objectives</li>
-<li>Prerequisites and recommended knowledge</li>
+<li>0.1 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#what-is-aws-cloud">What is AWS Cloud?</a></li>
+<li>0.2 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#history-and-evolution-of-aws">History and Evolution of AWS</a></li>
+<li>0.3 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#aws-global-infrastructure">AWS Global Infrastructure</a></li>
+<li>0.4 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#core-aws-services">Core AWS Services</a></li>
+<li>0.5 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#benefits-of-aws-cloud">Benefits of AWS Cloud</a></li>
+<li>0.6 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#use-cases-for-aws-cloud">Use Cases for AWS Cloud</a></li>
+<li>0.7 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#how-aws-differs-from-other-cloud-providers">How AWS Differs from Other Cloud Providers</a></li>
+<li>0.8 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#getting-started-with-aws">Getting Started with AWS</a></li>
+<li>0.9 <a href="https://github.com/nirpendra83/aws-doc.git/part0/#common-aws-terminology">Common AWS Terminology</a></li>
 </ul>
-<h3 id="2-aws-well-architected-framework">2. AWS Well-Architected Framework</h3>
+<h2 id="1-aws-iam-identity-and-access-management">1. <a href="https://github.com/nirpendra83/aws-doc.git/02/">AWS IAM (Identity and Access Management)</a></h2>
 <ul>
-<li>Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization</li>
-<li>Design principles and best practices</li>
+<li>1.1 <a href="./index.html#introduction-to-iam">Introduction to IAM</a></li>
+<li>1.2 <a href="./index.html#creating-users-groups-and-roles">Creating Users, Groups, and Roles</a></li>
+<li>1.3 <a href="./index.html#managing-permissions-with-policies">Managing Permissions with Policies</a></li>
+<li>1.4 <a href="./index.html#iam-best-practices">IAM Best Practices</a></li>
 </ul>
-<h3 id="3-advanced-networking">3. Advanced Networking</h3>
+<h2 id="2-aws-ec2-elastic-compute-cloud">2. <a href="https://aws.amazon.com/ec2/" rel="external" target="_blank">AWS EC2 (Elastic Compute Cloud)</a></h2>
 <ul>
-<li>VPC peering and Transit Gateway</li>
-<li>PrivateLink and Direct Connect</li>
-<li>Route tables and NAT gateways</li>
-<li>Hybrid connectivity patterns</li>
+<li>2.1 <a href="./index.html#introduction-to-ec2">Introduction to EC2</a></li>
+<li>2.2 <a href="./index.html#launching-ec2-instances">Launching EC2 Instances</a></li>
+<li>2.3 <a href="./index.html#ec2-instance-types">EC2 Instance Types</a></li>
+<li>2.4 <a href="./index.html#elastic-ip-and-security-groups">Elastic IP and Security Groups</a></li>
+<li>2.5 <a href="./index.html#ec2-auto-scaling">EC2 Auto Scaling</a></li>
 </ul>
-<h3 id="4-compute-services">4. Compute Services</h3>
+<h2 id="3-aws-vpc-virtual-private-cloud">3. <a href="https://aws.amazon.com/vpc/" rel="external" target="_blank">AWS VPC (Virtual Private Cloud)</a></h2>
 <ul>
-<li>EC2 instances and placement groups</li>
-<li>Auto Scaling strategies</li>
-<li>Lambda architecture patterns</li>
-<li>Container services: ECS, EKS, Fargate</li>
+<li>3.1 <a href="./index.html#vpc-overview">VPC Overview</a></li>
+<li>3.2 <a href="./index.html#vpc-subnets">VPC Subnets</a></li>
+<li>3.3 <a href="./index.html#internet-gateway-and-nat-gateway">Internet Gateway and NAT Gateway</a></li>
+<li>3.4 <a href="./index.html#vpc-peering-and-transit-gateway">VPC Peering and Transit Gateway</a></li>
+<li>3.5 <a href="./index.html#security-with-vpc---nacls-and-security-groups">Security with VPC - NACLs and Security Groups</a></li>
 </ul>
-<h3 id="5-storage-and-databases">5. Storage and Databases</h3>
+<h2 id="4-aws-route-53-load-balancers-and-auto-scaling">4. <a href="https://aws.amazon.com/route53/" rel="external" target="_blank">AWS Route 53, Load Balancers, and Auto Scaling</a></h2>
 <ul>
-<li>S3 advanced features: lifecycle, replication, cross-region access</li>
-<li>Glacier, EBS optimizations, FSx</li>
-<li>RDS, Aurora, DynamoDB, Redshift configurations</li>
-<li>Caching strategies with ElastiCache</li>
+<li>4.1 <a href="./index.html#route-53-overview">Route 53 Overview</a></li>
+<li>4.2 <a href="./index.html#dns-management-in-route-53">DNS Management in Route 53</a></li>
+<li>4.3 <a href="./index.html#creating-and-configuring-load-balancers">Creating and Configuring Load Balancers</a>
+<ul>
+<li>4.3.1 <a href="./index.html#classic-load-balancer">Classic Load Balancer</a></li>
+<li>4.3.2 <a href="./index.html#application-load-balancer">Application Load Balancer</a></li>
+<li>4.3.3 <a href="./index.html#network-load-balancer">Network Load Balancer</a></li>
 </ul>
-<h3 id="6-security-and-compliance">6. Security and Compliance</h3>
+</li>
+<li>4.4 <a href="./index.html#aws-auto-scaling">AWS Auto Scaling</a>
 <ul>
-<li>IAM advanced configurations</li>
-<li>Security groups, NACLs, and KMS</li>
-<li>AWS Organizations, SCPs, and resource policies</li>
-<li>Audit and compliance services: CloudTrail, Config</li>
+<li>4.4.1 <a href="./index.html#auto-scaling-groups">Auto Scaling Groups</a></li>
+<li>4.4.2 <a href="./index.html#scaling-policies">Scaling Policies</a></li>
 </ul>
-<h3 id="7-monitoring-and-management">7. Monitoring and Management</h3>
-<ul>
-<li>CloudWatch, CloudTrail, and AWS Config</li>
-<li>Health dashboards and reporting</li>
-<li>Automated alerts and runbooks</li>
-<li>Resource tagging strategies</li>
+</li>
 </ul>
-<h3 id="8-high-availability-and-fault-tolerance">8. High Availability and Fault Tolerance</h3>
+<h2 id="5-aws-storage-services">5. <a href="https://aws.amazon.com/storage/" rel="external" target="_blank">AWS Storage Services</a></h2>
 <ul>
-<li>Multi-AZ and multi-region deployments</li>
-<li>Failover strategies</li>
-<li>Disaster Recovery Planning (RPO, RTO)</li>
+<li>5.1 <a href="./index.html#overview-of-aws-storage-services">Overview of AWS Storage Services</a></li>
+<li>5.2 <a href="https://aws.amazon.com/s3/" rel="external" target="_blank">Amazon S3 (Simple Storage Service)</a></li>
+<li>5.3 <a href="https://aws.amazon.com/ebs/" rel="external" target="_blank">Amazon EBS (Elastic Block Store)</a></li>
+<li>5.4 <a href="https://aws.amazon.com/efs/" rel="external" target="_blank">Amazon EFS (Elastic File System)</a></li>
+<li>5.5 <a href="https://aws.amazon.com/glacier/" rel="external" target="_blank">AWS Glacier</a></li>
+<li>5.6 <a href="https://aws.amazon.com/storagegateway/" rel="external" target="_blank">Storage Gateway</a></li>
 </ul>
-<h3 id="9-performance-optimization">9. Performance Optimization</h3>
+<h2 id="6-aws-rds-relational-database-service">6. <a href="https://aws.amazon.com/rds/" rel="external" target="_blank">AWS RDS (Relational Database Service)</a></h2>
 <ul>
-<li>Load balancing with ALB, NLB, and Gateway</li>
-<li>Caching, replication, and compression techniques</li>
-<li>Architecture patterns for high throughput and low latency</li>
+<li>6.1 <a href="./index.html#rds-overview">RDS Overview</a></li>
+<li>6.2 <a href="./index.html#supported-database-engines">Supported Database Engines</a></li>
+<li>6.3 <a href="./index.html#deploying-rds-instances">Deploying RDS Instances</a></li>
+<li>6.4 <a href="./index.html#backup-and-recovery-in-rds">Backup and Recovery in RDS</a></li>
+<li>6.5 <a href="./index.html#rds-performance-optimization">RDS Performance Optimization</a></li>
+<li>6.6 <a href="./index.html#security-for-rds">Security for RDS</a></li>
 </ul>
-<h3 id="10-cost-optimization">10. Cost Optimization</h3>
+<h2 id="7-aws-cloudfront">7. <a href="https://aws.amazon.com/cloudfront/" rel="external" target="_blank">AWS CloudFront</a></h2>
 <ul>
-<li>Reserved instances and spot instances</li>
-<li>Cost Explorer and budgets</li>
-<li>Resource scaling and right-sizing</li>
-<li>Cost-effective design patterns</li>
+<li>7.1 <a href="./index.html#introduction-to-cloudfront">Introduction to CloudFront</a></li>
+<li>7.2 <a href="./index.html#setting-up-a-cloudfront-distribution">Setting up a CloudFront Distribution</a></li>
+<li>7.3 <a href="./index.html#cache-behavior-and-origins">Cache Behavior and Origins</a></li>
+<li>7.4 <a href="./index.html#cloudfront-security">CloudFront Security</a></li>
 </ul>
-<h3 id="11-migration-and-hybrid-architectures">11. Migration and Hybrid Architectures</h3>
+<h2 id="8-aws-lambda">8. <a href="https://aws.amazon.com/lambda/" rel="external" target="_blank">AWS Lambda</a></h2>
 <ul>
-<li>Lift-and-shift and refactoring strategies</li>
-<li>Data migration tools: DMS, Snowball, Transfer Family</li>
-<li>Integrating on-premises and cloud workloads</li>
+<li>8.1 <a href="./index.html#introduction-to-lambda">Introduction to Lambda</a></li>
+<li>8.2 <a href="./index.html#creating-lambda-functions">Creating Lambda Functions</a></li>
+<li>8.3 <a href="./index.html#triggers-and-event-sources">Triggers and Event Sources</a></li>
+<li>8.4 <a href="./index.html#managing-lambda-functions">Managing Lambda Functions</a></li>
 </ul>
-<h3 id="12-disaster-recovery-and-backup-strategies">12. Disaster Recovery and Backup Strategies</h3>
+<h2 id="9-aws-dynamodb">9. <a href="https://aws.amazon.com/dynamodb/" rel="external" target="_blank">AWS DynamoDB</a></h2>
 <ul>
-<li>RTO/RPO planning</li>
-<li>Backup mechanisms across AWS services</li>
-<li>Cross-region failover architectures</li>
+<li>9.1 <a href="./index.html#introduction-to-dynamodb">Introduction to DynamoDB</a></li>
+<li>9.2 <a href="./index.html#creating-tables-and-indexes">Creating Tables and Indexes</a></li>
+<li>9.3 <a href="./index.html#dynamodb-data-modeling">DynamoDB Data Modeling</a></li>
+<li>9.4 <a href="./index.html#working-with-dynamodb-streams">Working with DynamoDB Streams</a></li>
+<li>9.5 <a href="./index.html#dynamodb-best-practices">DynamoDB Best Practices</a></li>
 </ul>
-<h3 id="13-advanced-application-architectures">13. Advanced Application Architectures</h3>
+<h2 id="10-aws-ecs-elastic-container-service-or-eks-elastic-kubernetes-service">10. <a href="https://aws.amazon.com/ecs/" rel="external" target="_blank">AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service)</a></h2>
 <ul>
-<li>Event-driven architectures</li>
-<li>Microservices and API Gateways</li>
-<li>Serverless workflows and best practices</li>
+<li>10.1 <a href="./index.html#ecs-overview">ECS Overview</a></li>
+<li>10.2 <a href="./index.html#ecs-cluster-and-task-definitions">ECS Cluster and Task Definitions</a></li>
+<li>10.3 <a href="./index.html#ecs-service-and-auto-scaling">ECS Service and Auto Scaling</a></li>
+<li>10.4 <a href="./index.html#eks-overview">EKS Overview</a></li>
+<li>10.5 <a href="./index.html#deploying-kubernetes-on-aws">Deploying Kubernetes on AWS</a></li>
+<li>10.6 <a href="./index.html#eks-cluster-management">EKS Cluster Management</a></li>
 </ul>
-<h3 id="14-exam-practice">14. Exam Practice</h3>
+<h2 id="11-aws-projects">11. <a href="./index.html#aws-projects">AWS Projects</a></h2>
 <ul>
-<li>Sample questions</li>
-<li>Scenario-based problems</li>
+<li>11.1 <a href="./index.html#project-1-building-a-scalable-web-application">Project 1: Building a Scalable Web Application</a></li>
+<li>11.2 <a href="./index.html#project-2-serverless-api-with-lambda-and-dynamodb">Project 2: Serverless API with Lambda and DynamoDB</a></li>
+<li>11.3 <a href="./index.html#project-3-e-commerce-platform-with-ec2-rds-and-cloudfront">Project 3: E-commerce Platform with EC2, RDS, and CloudFront</a></li>
+<li>11.4 <a href="./index.html#project-4-real-time-data-processing-with-kinesis-and-lambda">Project 4: Real-time Data Processing with Kinesis and Lambda</a></li>
+<li>11.5 <a href="./index.html#project-5-multi-tier-application-with-vpc-load-balancer-and-auto-scaling">Project 5: Multi-tier Application with VPC, Load Balancer, and Auto Scaling</a></li>
 </ul>
 
   <footer class="footline">
@@ -301,8 +320,16 @@
       <div id="R-content-wrapper" class="highlightable">
         <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
-            <li class="" data-nav-id="/getting-started-with-the-course/index.html"><a class="padding" href="./getting-started-with-the-course/index.html">Getting Started with AWS</a></li>
-            <li class="" data-nav-id="/02/index.html"><a class="padding" href="./02/index.html">AWS IAM (Identity and Access Management)</a></li>
+            <li class="" data-nav-id="/part0/index.html"><a class="padding" href="./part0/index.html">Part 01: Introduction to AWS Cloud</a></li>
+            <li class="" data-nav-id="/02/index.html"><a class="padding" href="./02/index.html">Part 02: IAM </a></li>
+            <li class="" data-nav-id="/part03/index.html"><a class="padding" href="./part03/index.html">AWS EC2 (Elastic Compute Cloud)</a></li>
+            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="./part04/index.html">AWS VPC</a></li>
+            <li class="" data-nav-id="/part05/index.html"><a class="padding" href="./part05/index.html">Route 53</a></li>
+            <li class="" data-nav-id="/part06/index.html"><a class="padding" href="./part06/index.html">AWS Storage Services</a></li>
+            <li class="" data-nav-id="/part07/index.html"><a class="padding" href="./part07/index.html">AWS RDS (Relational Database Service)</a></li>
+            <li class="" data-nav-id="/part08/index.html"><a class="padding" href="./part08/index.html">AWS CloudFront</a></li>
+            <li class="" data-nav-id="/part09/index.html"><a class="padding" href="./part09/index.html">AWS Lambda</a></li>
+            <li class="" data-nav-id="/part10/index.html"><a class="padding" href="./part10/index.html"> AWS ECS &amp; EKS</a></li>
             <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="./projects-tasks/index.html">AWS Imp Link</a></li>
           </ul>
         </div>
@@ -321,8 +348,8 @@
 <div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="./nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757682941" defer></script>
-    <script src="./nirpendra83/aws-doc.git/js/theme.min.js?1757682941" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757930320" defer></script>
+    <script src="./nirpendra83/aws-doc.git/js/theme.min.js?1757930320" defer></script>
   </body>
 </html>

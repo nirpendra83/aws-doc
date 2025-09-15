@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Objective Understand the purpose and features of AWS EC2. Learn how to launch, configure, and manage EC2 instances. Explore different EC2 instance types and their use cases. Understand Elastic IPs and Security Groups for networking and security. Learn how to implement Auto Scaling to manage instance availability and cost. Discover other important EC2 features like EBS, Placement Groups, Spot Instances, and more. 2.1 Introduction to EC2 Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers by allowing you to launch and manage virtual servers called instances. EC2 provides secure, scalable computing capacity and supports various operating systems.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AWS EC2 (Elastic Compute Cloud) :: AWS Solution Architect">
+    <meta name="twitter:description" content="Objective Understand the purpose and features of AWS EC2. Learn how to launch, configure, and manage EC2 instances. Explore different EC2 instance types and their use cases. Understand Elastic IPs and Security Groups for networking and security. Learn how to implement Auto Scaling to manage instance availability and cost. Discover other important EC2 features like EBS, Placement Groups, Spot Instances, and more. 2.1 Introduction to EC2 Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers by allowing you to launch and manage virtual servers called instances. EC2 provides secure, scalable computing capacity and supports various operating systems.">
+    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/part03/index.html">
+    <meta property="og:site_name" content="AWS Solution Architect">
+    <meta property="og:title" content="AWS EC2 (Elastic Compute Cloud) :: AWS Solution Architect">
+    <meta property="og:description" content="Objective Understand the purpose and features of AWS EC2. Learn how to launch, configure, and manage EC2 instances. Explore different EC2 instance types and their use cases. Understand Elastic IPs and Security Groups for networking and security. Learn how to implement Auto Scaling to manage instance availability and cost. Discover other important EC2 features like EBS, Placement Groups, Spot Instances, and more. 2.1 Introduction to EC2 Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers by allowing you to launch and manage virtual servers called instances. EC2 provides secure, scalable computing capacity and supports various operating systems.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
+    <meta itemprop="name" content="AWS EC2 (Elastic Compute Cloud) :: AWS Solution Architect">
+    <meta itemprop="description" content="Objective Understand the purpose and features of AWS EC2. Learn how to launch, configure, and manage EC2 instances. Explore different EC2 instance types and their use cases. Understand Elastic IPs and Security Groups for networking and security. Learn how to implement Auto Scaling to manage instance availability and cost. Discover other important EC2 features like EBS, Placement Groups, Spot Instances, and more. 2.1 Introduction to EC2 Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers by allowing you to launch and manage virtual servers called instances. EC2 provides secure, scalable computing capacity and supports various operating systems.">
+    <meta itemprop="wordCount" content="1400">
+    <title>AWS EC2 (Elastic Compute Cloud) :: AWS Solution Architect</title>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757930320" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757930320" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js?1757930320";
+    </script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757930320" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757930320" rel="stylesheet">
+    <link href="../css/theme.min.css?1757930320" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757930320" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = `.min`;
+      window.relearn.path='\/part03\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../part03/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#21-introduction-to-ec2">2.1 Introduction to EC2</a></li>
+    <li><a href="#22-launching-ec2-instances">2.2 Launching EC2 Instances</a>
+      <ul>
+        <li><a href="#ami-amazon-machine-image">AMI (Amazon Machine Image)</a></li>
+        <li><a href="#instance-type">Instance Type</a></li>
+        <li><a href="#placement">Placement</a></li>
+        <li><a href="#ssh-key-pair">SSH Key Pair</a></li>
+        <li><a href="#proximity-placement-groups">Proximity (Placement Groups)</a></li>
+        <li><a href="#debugging-options">Debugging Options</a></li>
+        <li><a href="#additional-steps">Additional Steps:</a></li>
+      </ul>
+    </li>
+    <li><a href="#23-ec2-instance-types">2.3 EC2 Instance Types</a></li>
+    <li><a href="#24-elastic-ip-and-security-groups">2.4 Elastic IP and Security Groups</a>
+      <ul>
+        <li><a href="#elastic-ip">Elastic IP</a></li>
+        <li><a href="#security-groups">Security Groups</a></li>
+      </ul>
+    </li>
+    <li><a href="#25-ec2-auto-scaling">2.5 EC2 Auto Scaling</a></li>
+    <li><a href="#other-important-aws-ec2-features">Other Important AWS EC2 Features</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">AWS EC2 (Elastic Compute Cloud)</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../02/index.html" title="Part 02: IAM  (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part04/index.html" title="AWS VPC (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="aws-ec2-elastic-compute-cloud">AWS EC2 (Elastic Compute Cloud)</h1>
+
+<h2 id="objective">Objective</h2>
+<ul>
+<li><strong>Understand the purpose and features of AWS EC2.</strong></li>
+<li>Learn how to launch, configure, and manage EC2 instances.</li>
+<li>Explore different EC2 instance types and their use cases.</li>
+<li>Understand Elastic IPs and Security Groups for networking and security.</li>
+<li>Learn how to implement Auto Scaling to manage instance availability and cost.</li>
+<li>Discover other important EC2 features like EBS, Placement Groups, Spot Instances, and more.</li>
+</ul>
+<hr>
+<h2 id="21-introduction-to-ec2">2.1 Introduction to EC2</h2>
+<p>Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers by allowing you to launch and manage virtual servers called instances. EC2 provides secure, scalable computing capacity and supports various operating systems.</p>
+<p><strong>Key Features:</strong></p>
+<ul>
+<li>Scalable compute capacity</li>
+<li>Multiple instance types optimized for different workloads</li>
+<li>Flexible cloud hosting services</li>
+<li>Pay-as-you-go pricing model</li>
+<li>Integration with other AWS services</li>
+</ul>
+<hr>
+<h2 id="22-launching-ec2-instances">2.2 Launching EC2 Instances</h2>
+<p>Launching an EC2 instance involves the following steps:</p>
+<ol>
+<li><strong>Sign in to the AWS Management Console</strong></li>
+<li>Navigate to the EC2 Dashboard</li>
+<li>Click <strong>Launch Instance</strong></li>
+</ol>
+<h3 id="ami-amazon-machine-image">AMI (Amazon Machine Image)</h3>
+<ul>
+<li>A preconfigured template that contains the operating system, application server, and applications.</li>
+<li>Provides the information required to launch an instance.</li>
+<li>You can choose from public AMIs, AWS Marketplace AMIs, or create your own custom AMIs.</li>
+</ul>
+<h3 id="instance-type">Instance Type</h3>
+<ul>
+<li>Defines the hardware configuration of the instance (CPU, memory, storage, networking).</li>
+<li>Choose based on your workload requirements.</li>
+</ul>
+<h3 id="placement">Placement</h3>
+<ul>
+<li>Select the <strong>Availability Zone</strong> to specify where your instance will physically run within a region.</li>
+<li>You can also choose <strong>Placement Groups</strong> for optimized network performance or to meet regulatory requirements.</li>
+</ul>
+<h3 id="ssh-key-pair">SSH Key Pair</h3>
+<ul>
+<li>Key pairs are used for secure login to your instances.</li>
+<li>When launching an instance, you specify an SSH key pair; the private key is used to securely connect to the instance.</li>
+<li>AWS does not store your private key — you must keep it safe.</li>
+</ul>
+<h3 id="proximity-placement-groups">Proximity (Placement Groups)</h3>
+<ul>
+<li>Placement Groups control how instances are placed on underlying hardware.</li>
+<li>Types of placement groups:
+<ul>
+<li><strong>Cluster:</strong> Packs instances close together for low-latency network performance.</li>
+<li><strong>Spread:</strong> Distributes instances across distinct hardware to reduce correlated failures.</li>
+<li><strong>Partition:</strong> Divides instances into logical partitions to isolate failure domains.</li>
+</ul>
+</li>
+</ul>
+<h3 id="debugging-options">Debugging Options</h3>
+<ul>
+<li>Enable <strong>detailed monitoring</strong> for performance metrics.</li>
+<li>Use <strong>System Logs</strong> and <strong>Instance Console Output</strong> for troubleshooting boot or OS issues.</li>
+<li>Use <strong>CloudWatch Logs</strong> and <strong>CloudTrail</strong> to track and audit instance activity.</li>
+<li>Configure <strong>IAM Roles</strong> to securely access AWS services from the instance.</li>
+</ul>
+<h3 id="additional-steps">Additional Steps:</h3>
+<ol start="4">
+<li>Configure Instance Details — network settings, IAM role, shutdown behavior</li>
+<li>Add Storage — attach EBS volumes</li>
+<li>Add Tags — optional metadata for organizing resources</li>
+<li>Configure Security Group — firewall settings controlling inbound/outbound traffic</li>
+<li>Review and Launch — confirm settings and launch instance</li>
+<li>Connect to your instance using SSH (Linux) or RDP (Windows)</li>
+</ol>
+<hr>
+<h2 id="23-ec2-instance-types">2.3 EC2 Instance Types</h2>
+<p>EC2 provides a variety of instance types tailored to different use cases. Instances are grouped into families based on their capabilities:</p>
+<ul>
+<li><strong>General Purpose:</strong> Balanced CPU, memory, and networking (e.g., t3, m5)</li>
+<li><strong>Compute Optimized:</strong> High CPU for compute-intensive applications (e.g., c5, c6g)</li>
+<li><strong>Memory Optimized:</strong> High memory for in-memory databases (e.g., r5, x1)</li>
+<li><strong>Storage Optimized:</strong> High disk throughput and IOPS (e.g., i3, d2)</li>
+<li><strong>GPU Instances:</strong> For machine learning and graphics applications (e.g., p3, g4)</li>
+</ul>
+<p>Choosing the right instance depends on your workload requirements and budget.</p>
+<hr>
+<h2 id="24-elastic-ip-and-security-groups">2.4 Elastic IP and Security Groups</h2>
+<h3 id="elastic-ip">Elastic IP</h3>
+<p>An Elastic IP address is a static, public IPv4 address designed for dynamic cloud computing. It allows you to mask instance failures by quickly remapping the address to another instance.</p>
+<ul>
+<li>It is associated with your AWS account, not a specific instance.</li>
+<li>Useful for applications requiring a fixed IP address.</li>
+<li>You can associate or disassociate Elastic IPs as needed.</li>
+</ul>
+<h3 id="security-groups">Security Groups</h3>
+<p>Security Groups act as virtual firewalls that control inbound and outbound traffic for your instances.</p>
+<ul>
+<li>You define rules to allow specific IP addresses or ranges on certain ports.</li>
+<li>By default, inbound traffic is blocked and outbound traffic is allowed.</li>
+<li>Security groups are stateful — if inbound traffic is allowed, the response outbound traffic is automatically allowed.</li>
+<li>You can assign multiple security groups to an instance.</li>
+</ul>
+<hr>
+<h2 id="25-ec2-auto-scaling">2.5 EC2 Auto Scaling</h2>
+<p>EC2 Auto Scaling helps maintain application availability by automatically adjusting the number of instances.</p>
+<ul>
+<li><strong>Auto Scaling Groups:</strong> Define a collection of EC2 instances treated as a logical group for scaling and management.</li>
+<li><strong>Scaling Policies:</strong> Automatically increase or decrease instance count based on metrics like CPU utilization.</li>
+<li>Ensures that you have the right number of instances to handle load.</li>
+<li>Helps reduce costs by scaling down when demand is low.</li>
+<li>Supports health checks to replace unhealthy instances automatically.</li>
+</ul>
+<hr>
+<h2 id="other-important-aws-ec2-features">Other Important AWS EC2 Features</h2>
+<ul>
+<li>
+<p><strong>Elastic Block Store (EBS)</strong><br>
+Persistent block storage volumes that you can attach to your EC2 instances for data storage. Supports snapshots and resizing.</p>
+</li>
+<li>
+<p><strong>Elastic Load Balancing (ELB)</strong><br>
+Automatically distributes incoming traffic across multiple EC2 instances to improve fault tolerance and scalability.</p>
+</li>
+<li>
+<p><strong>Instance Store (Ephemeral Storage)</strong><br>
+Temporary block-level storage physically attached to the host computer, ideal for temporary data.</p>
+</li>
+<li>
+<p><strong>Instance Metadata and User Data</strong><br>
+Provides instance-specific information and allows bootstrapping via user data scripts (cloud-init).</p>
+</li>
+<li>
+<p><strong>Elastic IP Addresses</strong><br>
+Static public IPs that you can associate with your instances to maintain fixed IP addresses.</p>
+</li>
+<li>
+<p><strong>Security Groups</strong><br>
+Virtual firewalls controlling inbound and outbound traffic at the instance level.</p>
+</li>
+<li>
+<p><strong>Network Interfaces (ENIs)</strong><br>
+Attach multiple network interfaces to your instance for advanced networking configurations.</p>
+</li>
+<li>
+<p><strong>Placement Groups</strong><br>
+Placement strategies to optimize latency, throughput, or fault tolerance (cluster, spread, partition).</p>
+</li>
+<li>
+<p><strong>Auto Scaling</strong><br>
+Automatically adjust the number of instances based on demand.</p>
+</li>
+<li>
+<p><strong>Dedicated Hosts and Instances</strong><br>
+Physical servers dedicated to your use for compliance and licensing purposes.</p>
+</li>
+<li>
+<p><strong>Spot Instances</strong><br>
+Use spare AWS compute capacity at discounted prices, ideal for fault-tolerant and flexible applications.</p>
+</li>
+<li>
+<p><strong>Hibernation</strong><br>
+Pause and resume instances with their RAM contents saved, enabling faster start times.</p>
+</li>
+<li>
+<p><strong>Instance Types and Families</strong><br>
+Variety of instance types optimized for compute, memory, storage, or GPU workloads.</p>
+</li>
+<li>
+<p><strong>Amazon Machine Images (AMIs)</strong><br>
+Custom or pre-built OS and software configurations used to launch instances quickly.</p>
+</li>
+<li>
+<p><strong>Enhanced Networking</strong><br>
+Higher bandwidth, lower latency, and lower jitter network interfaces for EC2 instances.</p>
+</li>
+<li>
+<p><strong>Tagging</strong><br>
+Organize and manage instances and related resources using metadata tags.</p>
+</li>
+</ul>
+<h1 id="assignments">Assignments <!-- raw HTML omitted --><!-- raw HTML omitted --></h1>
+<ul>
+<li><input disabled="" type="checkbox"> Create an AWS account and access the EC2 dashboard.</li>
+<li><input disabled="" type="checkbox"> Launch a Linux EC2 instance using the free-tier eligible AMI.</li>
+<li><input disabled="" type="checkbox"> Launch a Windows EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Generate and download an SSH key pair.</li>
+<li><input disabled="" type="checkbox"> Connect to a Linux instance using SSH.</li>
+<li><input disabled="" type="checkbox"> Connect to a Windows instance using RDP.</li>
+<li><input disabled="" type="checkbox"> Stop and start an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Reboot an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Terminate an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Create a custom AMI from an existing instance.</li>
+<li><input disabled="" type="checkbox"> Launch an EC2 instance using a custom AMI.</li>
+<li><input disabled="" type="checkbox"> Attach an Elastic IP to an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Detach an Elastic IP and associate it with another instance.</li>
+<li><input disabled="" type="checkbox"> Create and attach an EBS volume to an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Detach and delete an EBS volume.</li>
+<li><input disabled="" type="checkbox"> Resize an EBS volume attached to an instance.</li>
+<li><input disabled="" type="checkbox"> Take a snapshot of an EBS volume.</li>
+<li><input disabled="" type="checkbox"> Restore an EBS volume from a snapshot.</li>
+<li><input disabled="" type="checkbox"> Create and manage Security Groups.</li>
+<li><input disabled="" type="checkbox"> Add inbound rules to Security Groups to allow SSH, HTTP, and HTTPS.</li>
+<li><input disabled="" type="checkbox"> Remove rules from Security Groups.</li>
+<li><input disabled="" type="checkbox"> Assign multiple Security Groups to an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Use EC2 user data to automate instance setup with shell scripts.</li>
+<li><input disabled="" type="checkbox"> Enable detailed monitoring on an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> View CloudWatch metrics for CPU utilization and network traffic.</li>
+<li><input disabled="" type="checkbox"> Set up CloudWatch alarms for high CPU usage.</li>
+<li><input disabled="" type="checkbox"> Create an IAM role and attach it to an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Use IAM roles to grant EC2 instances permissions to access S3 buckets.</li>
+<li><input disabled="" type="checkbox"> Enable and view instance console output and logs.</li>
+<li><input disabled="" type="checkbox"> Use EC2 instance metadata to query instance-specific information.</li>
+<li><input disabled="" type="checkbox"> Use AWS Systems Manager Session Manager to connect to an EC2 instance without SSH.</li>
+<li><input disabled="" type="checkbox"> Create a placement group and launch instances inside it.</li>
+<li><input disabled="" type="checkbox"> Launch instances in different Availability Zones for high availability.</li>
+<li><input disabled="" type="checkbox"> Set up an Auto Scaling Group with EC2 instances.</li>
+<li><input disabled="" type="checkbox"> Create scaling policies for Auto Scaling Groups based on CPU load.</li>
+<li><input disabled="" type="checkbox"> Create a launch template for EC2 instances.</li>
+<li><input disabled="" type="checkbox"> Update and version a launch template.</li>
+<li><input disabled="" type="checkbox"> Use EC2 Spot Instances to reduce costs.</li>
+<li><input disabled="" type="checkbox"> Create an Elastic Load Balancer and register EC2 instances.</li>
+<li><input disabled="" type="checkbox"> Enable termination protection for an EC2 instance.</li>
+<li><input disabled="" type="checkbox"> Modify instance types by stopping and changing instance size.</li>
+<li><input disabled="" type="checkbox"> Enable EBS encryption for an existing volume.</li>
+<li><input disabled="" type="checkbox"> Use tags to organize EC2 instances.</li>
+<li><input disabled="" type="checkbox"> Implement security best practices for EC2 (restrict SSH access, use key pairs).</li>
+<li><input disabled="" type="checkbox"> Enable EC2 instance hibernation and test it.</li>
+<li><input disabled="" type="checkbox"> Use Amazon EC2 Auto Recovery to automatically recover instances.</li>
+<li><input disabled="" type="checkbox"> Enable Enhanced Networking for high-performance network.</li>
+<li><input disabled="" type="checkbox"> Create a launch configuration and use it with Auto Scaling.</li>
+<li><input disabled="" type="checkbox"> Monitor EC2 instance billing and optimize costs.</li>
+<li><input disabled="" type="checkbox"> Backup EC2 instances and data regularly.</li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../index.html">
+            <div class="logo-title">AWS Solution Architect</div>
+          </a>
+        </div>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/part0/index.html"><a class="padding" href="../part0/index.html">Part 01: Introduction to AWS Cloud</a></li>
+            <li class="" data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">Part 02: IAM </a></li>
+            <li class="active " data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">AWS EC2 (Elastic Compute Cloud)</a></li>
+            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">AWS VPC</a></li>
+            <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Route 53</a></li>
+            <li class="" data-nav-id="/part06/index.html"><a class="padding" href="../part06/index.html">AWS Storage Services</a></li>
+            <li class="" data-nav-id="/part07/index.html"><a class="padding" href="../part07/index.html">AWS RDS (Relational Database Service)</a></li>
+            <li class="" data-nav-id="/part08/index.html"><a class="padding" href="../part08/index.html">AWS CloudFront</a></li>
+            <li class="" data-nav-id="/part09/index.html"><a class="padding" href="../part09/index.html">AWS Lambda</a></li>
+            <li class="" data-nav-id="/part10/index.html"><a class="padding" href="../part10/index.html"> AWS ECS &amp; EKS</a></li>
+            <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="../projects-tasks/index.html">AWS Imp Link</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757930320" defer></script>
+  </body>
+</html>

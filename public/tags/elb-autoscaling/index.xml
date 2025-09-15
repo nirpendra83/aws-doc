@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ELB, Autoscaling :: Tag :: AWS Solution Architect</title>
+    <link>https://github.com/nirpendra83/aws-doc.git/tags/elb-autoscaling/index.html</link>
+    <description></description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://github.com/nirpendra83/aws-doc.git/tags/elb-autoscaling/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Route 53</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part05/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part05/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS Storage Services</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part06/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part06/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS RDS (Relational Database Service)</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part07/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part07/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS CloudFront</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part08/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part08/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS Lambda</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part09/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part09/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title> AWS ECS &amp; EKS</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part10/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part10/index.html</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

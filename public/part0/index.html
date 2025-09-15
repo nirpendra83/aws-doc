@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="Introduction to AWS Cloud Objectives By the end of this page, you will be able to:
+Understand what AWS Cloud is and its evolution Describe AWS’s global infrastructure including Regions and Availability Zones Identify core AWS services and their benefits Recognize common use cases for AWS Cloud Differentiate AWS from other cloud providers Get started with AWS and understand basic terminology Learn about AWS account structure, support plans, and foundational concepts Understand the AWS Well-Architected Framework and its five pillars Perform basic AWS tasks including managing EC2 instances and configuring security 0.1 What is AWS Cloud? AWS Cloud is a comprehensive and widely adopted cloud platform offered by Amazon, providing on-demand computing resources and services such as storage, databases, analytics, and networking over the internet. 0.2 History and Evolution of AWS AWS was launched in 2006 as one of the first cloud service providers. It has rapidly evolved from simple infrastructure services to a vast ecosystem of scalable, secure, and flexible cloud solutions used globally. 0.3 AWS Global Infrastructure AWS’s global infrastructure consists of data centers grouped into Regions and Availability Zones (AZs), strategically located worldwide to provide high availability, fault tolerance, and low latency. 0.4 Core AWS Services Core AWS services include: EC2 (Elastic Compute Cloud) for virtual servers S3 (Simple Storage Service) for scalable storage RDS (Relational Database Service) for managed databases Lambda for serverless computing And many more… 0.5 Benefits of AWS Cloud AWS offers benefits such as: Cost efficiency through pay-as-you-go pricing Scalability to handle varying workloads Robust security features Global presence for high availability and performance 0.6 Use Cases for AWS Cloud AWS supports use cases like: Hosting websites and applications Big data analytics Disaster recovery IoT applications Machine learning workloads 0.7 How AWS Differs from Other Cloud Providers AWS stands out due to: Early market entry and maturity Extensive service portfolio Global reach with many regions and AZs Strong security and compliance Large ecosystem of partners and customers 0.8 Getting Started with AWS To get started: Create an AWS account Explore the AWS Management Console Use the AWS Free Tier to experiment Follow AWS documentation and tutorials 0.9 Common AWS Terminology Region: Geographical area with multiple data centers Availability Zone (AZ): Isolated data center within a region Instance: Virtual server running on EC2 Bucket: Storage container in S3 IAM: Identity and Access Management for permissions AWS Account and Infrastructure Overview Learn about the basic building blocks of the AWS ecosystem.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Part 01: Introduction to AWS Cloud :: AWS Solution Architect">
+    <meta name="twitter:description" content="Introduction to AWS Cloud Objectives By the end of this page, you will be able to:
+Understand what AWS Cloud is and its evolution Describe AWS’s global infrastructure including Regions and Availability Zones Identify core AWS services and their benefits Recognize common use cases for AWS Cloud Differentiate AWS from other cloud providers Get started with AWS and understand basic terminology Learn about AWS account structure, support plans, and foundational concepts Understand the AWS Well-Architected Framework and its five pillars Perform basic AWS tasks including managing EC2 instances and configuring security 0.1 What is AWS Cloud? AWS Cloud is a comprehensive and widely adopted cloud platform offered by Amazon, providing on-demand computing resources and services such as storage, databases, analytics, and networking over the internet. 0.2 History and Evolution of AWS AWS was launched in 2006 as one of the first cloud service providers. It has rapidly evolved from simple infrastructure services to a vast ecosystem of scalable, secure, and flexible cloud solutions used globally. 0.3 AWS Global Infrastructure AWS’s global infrastructure consists of data centers grouped into Regions and Availability Zones (AZs), strategically located worldwide to provide high availability, fault tolerance, and low latency. 0.4 Core AWS Services Core AWS services include: EC2 (Elastic Compute Cloud) for virtual servers S3 (Simple Storage Service) for scalable storage RDS (Relational Database Service) for managed databases Lambda for serverless computing And many more… 0.5 Benefits of AWS Cloud AWS offers benefits such as: Cost efficiency through pay-as-you-go pricing Scalability to handle varying workloads Robust security features Global presence for high availability and performance 0.6 Use Cases for AWS Cloud AWS supports use cases like: Hosting websites and applications Big data analytics Disaster recovery IoT applications Machine learning workloads 0.7 How AWS Differs from Other Cloud Providers AWS stands out due to: Early market entry and maturity Extensive service portfolio Global reach with many regions and AZs Strong security and compliance Large ecosystem of partners and customers 0.8 Getting Started with AWS To get started: Create an AWS account Explore the AWS Management Console Use the AWS Free Tier to experiment Follow AWS documentation and tutorials 0.9 Common AWS Terminology Region: Geographical area with multiple data centers Availability Zone (AZ): Isolated data center within a region Instance: Virtual server running on EC2 Bucket: Storage container in S3 IAM: Identity and Access Management for permissions AWS Account and Infrastructure Overview Learn about the basic building blocks of the AWS ecosystem.">
+    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/part0/index.html">
+    <meta property="og:site_name" content="AWS Solution Architect">
+    <meta property="og:title" content="Part 01: Introduction to AWS Cloud :: AWS Solution Architect">
+    <meta property="og:description" content="Introduction to AWS Cloud Objectives By the end of this page, you will be able to:
+Understand what AWS Cloud is and its evolution Describe AWS’s global infrastructure including Regions and Availability Zones Identify core AWS services and their benefits Recognize common use cases for AWS Cloud Differentiate AWS from other cloud providers Get started with AWS and understand basic terminology Learn about AWS account structure, support plans, and foundational concepts Understand the AWS Well-Architected Framework and its five pillars Perform basic AWS tasks including managing EC2 instances and configuring security 0.1 What is AWS Cloud? AWS Cloud is a comprehensive and widely adopted cloud platform offered by Amazon, providing on-demand computing resources and services such as storage, databases, analytics, and networking over the internet. 0.2 History and Evolution of AWS AWS was launched in 2006 as one of the first cloud service providers. It has rapidly evolved from simple infrastructure services to a vast ecosystem of scalable, secure, and flexible cloud solutions used globally. 0.3 AWS Global Infrastructure AWS’s global infrastructure consists of data centers grouped into Regions and Availability Zones (AZs), strategically located worldwide to provide high availability, fault tolerance, and low latency. 0.4 Core AWS Services Core AWS services include: EC2 (Elastic Compute Cloud) for virtual servers S3 (Simple Storage Service) for scalable storage RDS (Relational Database Service) for managed databases Lambda for serverless computing And many more… 0.5 Benefits of AWS Cloud AWS offers benefits such as: Cost efficiency through pay-as-you-go pricing Scalability to handle varying workloads Robust security features Global presence for high availability and performance 0.6 Use Cases for AWS Cloud AWS supports use cases like: Hosting websites and applications Big data analytics Disaster recovery IoT applications Machine learning workloads 0.7 How AWS Differs from Other Cloud Providers AWS stands out due to: Early market entry and maturity Extensive service portfolio Global reach with many regions and AZs Strong security and compliance Large ecosystem of partners and customers 0.8 Getting Started with AWS To get started: Create an AWS account Explore the AWS Management Console Use the AWS Free Tier to experiment Follow AWS documentation and tutorials 0.9 Common AWS Terminology Region: Geographical area with multiple data centers Availability Zone (AZ): Isolated data center within a region Instance: Virtual server running on EC2 Bucket: Storage container in S3 IAM: Identity and Access Management for permissions AWS Account and Infrastructure Overview Learn about the basic building blocks of the AWS ecosystem.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
+    <meta itemprop="name" content="Part 01: Introduction to AWS Cloud :: AWS Solution Architect">
+    <meta itemprop="description" content="Introduction to AWS Cloud Objectives By the end of this page, you will be able to:
+Understand what AWS Cloud is and its evolution Describe AWS’s global infrastructure including Regions and Availability Zones Identify core AWS services and their benefits Recognize common use cases for AWS Cloud Differentiate AWS from other cloud providers Get started with AWS and understand basic terminology Learn about AWS account structure, support plans, and foundational concepts Understand the AWS Well-Architected Framework and its five pillars Perform basic AWS tasks including managing EC2 instances and configuring security 0.1 What is AWS Cloud? AWS Cloud is a comprehensive and widely adopted cloud platform offered by Amazon, providing on-demand computing resources and services such as storage, databases, analytics, and networking over the internet. 0.2 History and Evolution of AWS AWS was launched in 2006 as one of the first cloud service providers. It has rapidly evolved from simple infrastructure services to a vast ecosystem of scalable, secure, and flexible cloud solutions used globally. 0.3 AWS Global Infrastructure AWS’s global infrastructure consists of data centers grouped into Regions and Availability Zones (AZs), strategically located worldwide to provide high availability, fault tolerance, and low latency. 0.4 Core AWS Services Core AWS services include: EC2 (Elastic Compute Cloud) for virtual servers S3 (Simple Storage Service) for scalable storage RDS (Relational Database Service) for managed databases Lambda for serverless computing And many more… 0.5 Benefits of AWS Cloud AWS offers benefits such as: Cost efficiency through pay-as-you-go pricing Scalability to handle varying workloads Robust security features Global presence for high availability and performance 0.6 Use Cases for AWS Cloud AWS supports use cases like: Hosting websites and applications Big data analytics Disaster recovery IoT applications Machine learning workloads 0.7 How AWS Differs from Other Cloud Providers AWS stands out due to: Early market entry and maturity Extensive service portfolio Global reach with many regions and AZs Strong security and compliance Large ecosystem of partners and customers 0.8 Getting Started with AWS To get started: Create an AWS account Explore the AWS Management Console Use the AWS Free Tier to experiment Follow AWS documentation and tutorials 0.9 Common AWS Terminology Region: Geographical area with multiple data centers Availability Zone (AZ): Isolated data center within a region Instance: Virtual server running on EC2 Bucket: Storage container in S3 IAM: Identity and Access Management for permissions AWS Account and Infrastructure Overview Learn about the basic building blocks of the AWS ecosystem.">
+    <meta itemprop="wordCount" content="635">
+    <title>Part 01: Introduction to AWS Cloud :: AWS Solution Architect</title>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757930320" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757930320" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js?1757930320";
+    </script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757930320" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757930320" rel="stylesheet">
+    <link href="../css/theme.min.css?1757930320" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757930320" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = `.min`;
+      window.relearn.path='\/part0\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../part0/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#introduction-to-aws-cloud">Introduction to AWS Cloud</a></li>
+    <li><a href="#objectives">Objectives</a></li>
+    <li><a href="#01-what-is-aws-cloud">0.1 What is AWS Cloud? <!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#02-history-and-evolution-of-aws">0.2 History and Evolution of AWS</a></li>
+    <li><a href="#03-aws-global-infrastructure">0.3 AWS Global Infrastructure <!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#04-core-aws-services">0.4 Core AWS Services <!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#05-benefits-of-aws-cloud">0.5 Benefits of AWS Cloud</a></li>
+    <li><a href="#06-use-cases-for-aws-cloud">0.6 Use Cases for AWS Cloud <!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#07-how-aws-differs-from-other-cloud-providers">0.7 How AWS Differs from Other Cloud Providers <!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#08-getting-started-with-aws">0.8 Getting Started with AWS <!-- raw HTML omitted --><!-- raw HTML omitted --></a></li>
+    <li><a href="#09-common-aws-terminology">0.9 Common AWS Terminology</a></li>
+    <li><a href="#aws-account-and-infrastructure-overview">AWS Account and Infrastructure Overview <!-- raw HTML omitted --><!-- raw HTML omitted --></a>
+      <ul>
+        <li><a href="#aws-account">AWS Account</a></li>
+        <li><a href="#aws-regions">AWS Regions</a></li>
+        <li><a href="#availability-zones-azs">Availability Zones (AZs)</a></li>
+        <li><a href="#edge-locations">Edge Locations</a></li>
+        <li><a href="#aws-support-plans">AWS Support Plans</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Part 01: Introduction to AWS Cloud</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../index.html" title="AWS Certified Solutions Architect - Professional (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../02/index.html" title="Part 02: IAM  (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="part-01-introduction-to-aws-cloud">Part 01: Introduction to AWS Cloud</h1>
+
+<h2 id="introduction-to-aws-cloud">Introduction to AWS Cloud</h2>
+<h2 id="objectives">Objectives</h2>
+<p>By the end of this page, you will be able to:</p>
+<ul>
+<li><a href="../part0/index.html#01-what-is-aws-cloud">Understand what AWS Cloud is and its evolution</a></li>
+<li><a href="../part0/index.html#03-aws-global-infrastructure">Describe AWS’s global infrastructure including Regions and Availability Zones</a></li>
+<li><a href="../part0/index.html#04-core-aws-services">Identify core AWS services and their benefits</a></li>
+<li><a href="../part0/index.html#06-use-cases-for-aws-cloud">Recognize common use cases for AWS Cloud</a></li>
+<li><a href="../part0/index.html#07-how-aws-differs-from-other-cloud-providers">Differentiate AWS from other cloud providers</a></li>
+<li><a href="../part0/index.html#08-getting-started-with-aws">Get started with AWS and understand basic terminology</a></li>
+<li><a href="../part0/index.html#aws-account-and-infrastructure-overview">Learn about AWS account structure, support plans, and foundational concepts</a></li>
+<li><a href="../part0/index.html#aws-well-architected-framework">Understand the AWS Well-Architected Framework and its five pillars</a></li>
+<li><a href="../part0/index.html#assignments">Perform basic AWS tasks including managing EC2 instances and configuring security</a></li>
+</ul>
+<hr>
+<h2 id="01-what-is-aws-cloud">0.1 What is AWS Cloud? <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>AWS Cloud is a comprehensive and widely adopted cloud platform offered by Amazon, providing on-demand computing resources and services such as storage, databases, analytics, and networking over the internet.</li>
+</ul>
+<h2 id="02-history-and-evolution-of-aws">0.2 History and Evolution of AWS</h2>
+<ul>
+<li>AWS was launched in 2006 as one of the first cloud service providers. It has rapidly evolved from simple infrastructure services to a vast ecosystem of scalable, secure, and flexible cloud solutions used globally.</li>
+</ul>
+<h2 id="03-aws-global-infrastructure">0.3 AWS Global Infrastructure <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>AWS&rsquo;s global infrastructure consists of data centers grouped into <strong>Regions</strong> and <strong>Availability Zones (AZs)</strong>, strategically located worldwide to provide high availability, fault tolerance, and low latency.</li>
+</ul>
+<h2 id="04-core-aws-services">0.4 Core AWS Services <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>Core AWS services include:
+<ul>
+<li><strong>EC2</strong> (Elastic Compute Cloud) for virtual servers</li>
+<li><strong>S3</strong> (Simple Storage Service) for scalable storage</li>
+<li><strong>RDS</strong> (Relational Database Service) for managed databases</li>
+<li><strong>Lambda</strong> for serverless computing</li>
+<li>And many more&hellip;</li>
+</ul>
+</li>
+</ul>
+<h2 id="05-benefits-of-aws-cloud">0.5 Benefits of AWS Cloud</h2>
+<ul>
+<li>AWS offers benefits such as:
+<ul>
+<li>Cost efficiency through pay-as-you-go pricing</li>
+<li>Scalability to handle varying workloads</li>
+<li>Robust security features</li>
+<li>Global presence for high availability and performance</li>
+</ul>
+</li>
+</ul>
+<h2 id="06-use-cases-for-aws-cloud">0.6 Use Cases for AWS Cloud <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>AWS supports use cases like:
+<ul>
+<li>Hosting websites and applications</li>
+<li>Big data analytics</li>
+<li>Disaster recovery</li>
+<li>IoT applications</li>
+<li>Machine learning workloads</li>
+</ul>
+</li>
+</ul>
+<h2 id="07-how-aws-differs-from-other-cloud-providers">0.7 How AWS Differs from Other Cloud Providers <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>AWS stands out due to:
+<ul>
+<li>Early market entry and maturity</li>
+<li>Extensive service portfolio</li>
+<li>Global reach with many regions and AZs</li>
+<li>Strong security and compliance</li>
+<li>Large ecosystem of partners and customers</li>
+</ul>
+</li>
+</ul>
+<h2 id="08-getting-started-with-aws">0.8 Getting Started with AWS <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<ul>
+<li>To get started:
+<ul>
+<li>Create an AWS account</li>
+<li>Explore the AWS Management Console</li>
+<li>Use the <strong>AWS Free Tier</strong> to experiment</li>
+<li>Follow AWS documentation and tutorials</li>
+</ul>
+</li>
+</ul>
+<h2 id="09-common-aws-terminology">0.9 Common AWS Terminology</h2>
+<ul>
+<li><strong>Region:</strong> Geographical area with multiple data centers</li>
+<li><strong>Availability Zone (AZ):</strong> Isolated data center within a region</li>
+<li><strong>Instance:</strong> Virtual server running on EC2</li>
+<li><strong>Bucket:</strong> Storage container in S3</li>
+<li><strong>IAM:</strong> Identity and Access Management for permissions</li>
+</ul>
+<hr>
+<h2 id="aws-account-and-infrastructure-overview">AWS Account and Infrastructure Overview <!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+<p>Learn about the basic building blocks of the AWS ecosystem.</p>
+<h3 id="aws-account">AWS Account</h3>
+<ul>
+<li>Your <strong>AWS Account</strong> is your unique identity in AWS, managing your resources, billing, and permissions.</li>
+<li>Supports multiple users through <strong>IAM</strong>.</li>
+<li>Can be grouped into <strong>Organizations</strong> to manage multiple accounts.</li>
+</ul>
+<h3 id="aws-regions">AWS Regions</h3>
+<ul>
+<li>Geographically isolated locations designed for fault tolerance and low latency.</li>
+<li>Examples: <code>us-east-1</code> (N. Virginia), <code>eu-west-1</code> (Ireland), <code>ap-south-1</code> (Mumbai).</li>
+</ul>
+<h3 id="availability-zones-azs">Availability Zones (AZs)</h3>
+<ul>
+<li>Physically separate data centers within a region.</li>
+<li>Connected with low-latency links for high availability.</li>
+<li>Distribute resources across AZs to increase fault tolerance.</li>
+</ul>
+<h3 id="edge-locations">Edge Locations</h3>
+<ul>
+<li>Part of AWS&rsquo;s Content Delivery Network (CDN).</li>
+<li>Cache and deliver content globally via <strong>Amazon CloudFront</strong>.</li>
+<li>Reduce latency and improve user experience.</li>
+</ul>
+<h3 id="aws-support-plans">AWS Support Plans</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Plan</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Basic</td>
+          <td>Free, includes customer service and documentation</td>
+      </tr>
+      <tr>
+          <td>Developer</td>
+          <td>Business hours email support</td>
+      </tr>
+      <tr>
+          <td>Business</td>
+          <td>24/7 phone, chat, and email support</td>
+      </tr>
+      <tr>
+          <td>Enterprise</td>
+          <td>Dedicated Technical Account Manager and Concierge</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h1 id="assignments">Assignments <!-- raw HTML omitted --><!-- raw HTML omitted --></h1>
+<ol>
+<li><input disabled="" type="checkbox"> <strong>Create your AWS Account</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Explore the AWS Management Console</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Launch and manage EC2 instances:</strong>
+<ul>
+<li><input disabled="" type="checkbox"> Create, start, and stop instances</li>
+<li><input disabled="" type="checkbox"> Connect via SSH using key pairs</li>
+<li><input disabled="" type="checkbox"> Modify or replace SSH keys if needed</li>
+<li><input disabled="" type="checkbox"> Check the ec2 instance terminate protection and stop Protection.</li>
+<li><input disabled="" type="checkbox"> Add a role to instance</li>
+<li><input disabled="" type="checkbox"> Change the Instance Type</li>
+<li><input disabled="" type="checkbox"> Add a new Disk</li>
+<li><input disabled="" type="checkbox"> Create an AMI</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> <strong>Learn about default users in various AWS AMIs</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Use AWS CloudShell for command-line access without setup</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Install AWS CLI and configure credentials:</strong>
+<ul>
+<li><input disabled="" type="checkbox"> Test AWS CLI commands for various services</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> <strong>Practice configuring Security Groups by opening and blocking ports to control traffic</strong></li>
+</ol>
+<hr>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../index.html">
+            <div class="logo-title">AWS Solution Architect</div>
+          </a>
+        </div>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="active " data-nav-id="/part0/index.html"><a class="padding" href="../part0/index.html">Part 01: Introduction to AWS Cloud</a></li>
+            <li class="" data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">Part 02: IAM </a></li>
+            <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">AWS EC2 (Elastic Compute Cloud)</a></li>
+            <li class="" data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">AWS VPC</a></li>
+            <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Route 53</a></li>
+            <li class="" data-nav-id="/part06/index.html"><a class="padding" href="../part06/index.html">AWS Storage Services</a></li>
+            <li class="" data-nav-id="/part07/index.html"><a class="padding" href="../part07/index.html">AWS RDS (Relational Database Service)</a></li>
+            <li class="" data-nav-id="/part08/index.html"><a class="padding" href="../part08/index.html">AWS CloudFront</a></li>
+            <li class="" data-nav-id="/part09/index.html"><a class="padding" href="../part09/index.html">AWS Lambda</a></li>
+            <li class="" data-nav-id="/part10/index.html"><a class="padding" href="../part10/index.html"> AWS ECS &amp; EKS</a></li>
+            <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="../projects-tasks/index.html">AWS Imp Link</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757930320" defer></script>
+  </body>
+</html>

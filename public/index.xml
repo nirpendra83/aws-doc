@@ -3,23 +3,79 @@
   <channel>
     <title>AWS Certified Solutions Architect - Professional :: AWS Solution Architect</title>
     <link>https://github.com/nirpendra83/aws-doc.git/index.html</link>
-    <description>Please connect at 2pm by clicking here Recording Link Table of Contents (30 Hrs) 1. Introduction Overview of AWS Certified Solutions Architect – Professional Exam structure and objectives Prerequisites and recommended knowledge 2. AWS Well-Architected Framework Pillars: Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization Design principles and best practices 3. Advanced Networking VPC peering and Transit Gateway PrivateLink and Direct Connect Route tables and NAT gateways Hybrid connectivity patterns 4. Compute Services EC2 instances and placement groups Auto Scaling strategies Lambda architecture patterns Container services: ECS, EKS, Fargate 5. Storage and Databases S3 advanced features: lifecycle, replication, cross-region access Glacier, EBS optimizations, FSx RDS, Aurora, DynamoDB, Redshift configurations Caching strategies with ElastiCache 6. Security and Compliance IAM advanced configurations Security groups, NACLs, and KMS AWS Organizations, SCPs, and resource policies Audit and compliance services: CloudTrail, Config 7. Monitoring and Management CloudWatch, CloudTrail, and AWS Config Health dashboards and reporting Automated alerts and runbooks Resource tagging strategies 8. High Availability and Fault Tolerance Multi-AZ and multi-region deployments Failover strategies Disaster Recovery Planning (RPO, RTO) 9. Performance Optimization Load balancing with ALB, NLB, and Gateway Caching, replication, and compression techniques Architecture patterns for high throughput and low latency 10. Cost Optimization Reserved instances and spot instances Cost Explorer and budgets Resource scaling and right-sizing Cost-effective design patterns 11. Migration and Hybrid Architectures Lift-and-shift and refactoring strategies Data migration tools: DMS, Snowball, Transfer Family Integrating on-premises and cloud workloads 12. Disaster Recovery and Backup Strategies RTO/RPO planning Backup mechanisms across AWS services Cross-region failover architectures 13. Advanced Application Architectures Event-driven architectures Microservices and API Gateways Serverless workflows and best practices 14. Exam Practice Sample questions Scenario-based problems</description>
+    <description>Please connect at 2pm by clicking here Recording Link **Table of Contents**&#xD;0. Introduction to AWS Cloud 0.1 What is AWS Cloud? 0.2 History and Evolution of AWS 0.3 AWS Global Infrastructure 0.4 Core AWS Services 0.5 Benefits of AWS Cloud 0.6 Use Cases for AWS Cloud 0.7 How AWS Differs from Other Cloud Providers 0.8 Getting Started with AWS 0.9 Common AWS Terminology 1. AWS IAM (Identity and Access Management) 1.1 Introduction to IAM 1.2 Creating Users, Groups, and Roles 1.3 Managing Permissions with Policies 1.4 IAM Best Practices 2. AWS EC2 (Elastic Compute Cloud) 2.1 Introduction to EC2 2.2 Launching EC2 Instances 2.3 EC2 Instance Types 2.4 Elastic IP and Security Groups 2.5 EC2 Auto Scaling 3. AWS VPC (Virtual Private Cloud) 3.1 VPC Overview 3.2 VPC Subnets 3.3 Internet Gateway and NAT Gateway 3.4 VPC Peering and Transit Gateway 3.5 Security with VPC - NACLs and Security Groups 4. AWS Route 53, Load Balancers, and Auto Scaling 4.1 Route 53 Overview 4.2 DNS Management in Route 53 4.3 Creating and Configuring Load Balancers 4.3.1 Classic Load Balancer 4.3.2 Application Load Balancer 4.3.3 Network Load Balancer 4.4 AWS Auto Scaling 4.4.1 Auto Scaling Groups 4.4.2 Scaling Policies 5. AWS Storage Services 5.1 Overview of AWS Storage Services 5.2 Amazon S3 (Simple Storage Service) 5.3 Amazon EBS (Elastic Block Store) 5.4 Amazon EFS (Elastic File System) 5.5 AWS Glacier 5.6 Storage Gateway 6. AWS RDS (Relational Database Service) 6.1 RDS Overview 6.2 Supported Database Engines 6.3 Deploying RDS Instances 6.4 Backup and Recovery in RDS 6.5 RDS Performance Optimization 6.6 Security for RDS 7. AWS CloudFront 7.1 Introduction to CloudFront 7.2 Setting up a CloudFront Distribution 7.3 Cache Behavior and Origins 7.4 CloudFront Security 8. AWS Lambda 8.1 Introduction to Lambda 8.2 Creating Lambda Functions 8.3 Triggers and Event Sources 8.4 Managing Lambda Functions 9. AWS DynamoDB 9.1 Introduction to DynamoDB 9.2 Creating Tables and Indexes 9.3 DynamoDB Data Modeling 9.4 Working with DynamoDB Streams 9.5 DynamoDB Best Practices 10. AWS ECS (Elastic Container Service) or EKS (Elastic Kubernetes Service) 10.1 ECS Overview 10.2 ECS Cluster and Task Definitions 10.3 ECS Service and Auto Scaling 10.4 EKS Overview 10.5 Deploying Kubernetes on AWS 10.6 EKS Cluster Management 11. AWS Projects 11.1 Project 1: Building a Scalable Web Application 11.2 Project 2: Serverless API with Lambda and DynamoDB 11.3 Project 3: E-commerce Platform with EC2, RDS, and CloudFront 11.4 Project 4: Real-time Data Processing with Kinesis and Lambda 11.5 Project 5: Multi-tier Application with VPC, Load Balancer, and Auto Scaling</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="https://github.com/nirpendra83/aws-doc.git/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Getting Started with AWS</title>
-      <link>https://github.com/nirpendra83/aws-doc.git/getting-started-with-the-course/index.html</link>
+      <title>Part 01: Introduction to AWS Cloud</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part0/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://github.com/nirpendra83/aws-doc.git/getting-started-with-the-course/index.html</guid>
-      <description>Learn the foundational concepts of AWS.&#xA;AWS Account Regions Availability Zones (AZs) Edge Locations Support AWS Account Your AWS Account is your unique identity in the AWS ecosystem. It acts as a container for your resources, billing, and permissions.&#xA;Manages access to AWS services Tracks usage and billing Supports multiple users via IAM (Identity and Access Management) Can be organized into Organizations for managing multiple accounts AWS Regions An AWS Region is a geographically distinct area containing multiple data centers.</description>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part0/index.html</guid>
+      <description>Introduction to AWS Cloud Objectives By the end of this page, you will be able to:&#xA;Understand what AWS Cloud is and its evolution Describe AWS’s global infrastructure including Regions and Availability Zones Identify core AWS services and their benefits Recognize common use cases for AWS Cloud Differentiate AWS from other cloud providers Get started with AWS and understand basic terminology Learn about AWS account structure, support plans, and foundational concepts Understand the AWS Well-Architected Framework and its five pillars Perform basic AWS tasks including managing EC2 instances and configuring security 0.1 What is AWS Cloud? AWS Cloud is a comprehensive and widely adopted cloud platform offered by Amazon, providing on-demand computing resources and services such as storage, databases, analytics, and networking over the internet. 0.2 History and Evolution of AWS AWS was launched in 2006 as one of the first cloud service providers. It has rapidly evolved from simple infrastructure services to a vast ecosystem of scalable, secure, and flexible cloud solutions used globally. 0.3 AWS Global Infrastructure AWS’s global infrastructure consists of data centers grouped into Regions and Availability Zones (AZs), strategically located worldwide to provide high availability, fault tolerance, and low latency. 0.4 Core AWS Services Core AWS services include: EC2 (Elastic Compute Cloud) for virtual servers S3 (Simple Storage Service) for scalable storage RDS (Relational Database Service) for managed databases Lambda for serverless computing And many more… 0.5 Benefits of AWS Cloud AWS offers benefits such as: Cost efficiency through pay-as-you-go pricing Scalability to handle varying workloads Robust security features Global presence for high availability and performance 0.6 Use Cases for AWS Cloud AWS supports use cases like: Hosting websites and applications Big data analytics Disaster recovery IoT applications Machine learning workloads 0.7 How AWS Differs from Other Cloud Providers AWS stands out due to: Early market entry and maturity Extensive service portfolio Global reach with many regions and AZs Strong security and compliance Large ecosystem of partners and customers 0.8 Getting Started with AWS To get started: Create an AWS account Explore the AWS Management Console Use the AWS Free Tier to experiment Follow AWS documentation and tutorials 0.9 Common AWS Terminology Region: Geographical area with multiple data centers Availability Zone (AZ): Isolated data center within a region Instance: Virtual server running on EC2 Bucket: Storage container in S3 IAM: Identity and Access Management for permissions AWS Account and Infrastructure Overview Learn about the basic building blocks of the AWS ecosystem.</description>
     </item>
     <item>
-      <title>AWS IAM (Identity and Access Management)</title>
+      <title>Part 02: IAM </title>
       <link>https://github.com/nirpendra83/aws-doc.git/02/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://github.com/nirpendra83/aws-doc.git/02/index.html</guid>
       <description>Objectives [Understand the fundamentals of AWS IAM and its components] Learn how to manage users, groups, roles, and permissions securely Implement best practices for access control and identity federation Configure permissions for services like EC2. 📚 AWS IAM (Identity and Access Management) AWS IAM is a web service that helps you securely control access to AWS services and resources for your users.&#xA;✅ What is AWS IAM? AWS Identity and Access Management (IAM) enables you to:</description>
+    </item>
+    <item>
+      <title>AWS EC2 (Elastic Compute Cloud)</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part03/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part03/index.html</guid>
+      <description>Objective Understand the purpose and features of AWS EC2. Learn how to launch, configure, and manage EC2 instances. Explore different EC2 instance types and their use cases. Understand Elastic IPs and Security Groups for networking and security. Learn how to implement Auto Scaling to manage instance availability and cost. Discover other important EC2 features like EBS, Placement Groups, Spot Instances, and more. 2.1 Introduction to EC2 Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale cloud computing easier for developers by allowing you to launch and manage virtual servers called instances. EC2 provides secure, scalable computing capacity and supports various operating systems.</description>
+    </item>
+    <item>
+      <title>AWS VPC</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part04/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part04/index.html</guid>
+      <description>3. AWS VPC (Virtual Private Cloud) Objective Understand the purpose and components of a Virtual Private Cloud. Learn how to design and manage networking in AWS using VPC. Explore routing, subnets, gateways, peering, and security best practices. 3.1 Introduction to AWS VPC What is a VPC? Why use a VPC? Benefits of VPC in cloud networking 3.2 VPC Components Overview Subnets (Public vs Private) Route Tables Internet Gateway (IGW) NAT Gateway / NAT Instance Elastic IPs VPC Endpoints DHCP Options Set Network ACLs Security Groups 3.3 Creating a Custom VPC Steps to create a VPC from scratch CIDR block selection and planning Creating subnets in multiple Availability Zones Associating route tables with subnets 3.4 Public and Private Subnets Use cases and design patterns How to create and route traffic for each Testing internet access from different subnets 3.5 Internet Gateway Attaching and detaching IGWs Updating route tables to allow outbound traffic 3.6 NAT Gateway vs NAT Instance Differences and use cases High availability setup Cost and performance comparison 3.7 Route Tables Associating route tables to subnets Custom vs main route tables Routing traffic between subnets and to the internet 3.8 VPC Peering VPC-to-VPC communication Creating and accepting peering connections Limitations and routing configuration 3.9 VPC Endpoints Interface vs Gateway endpoints Connecting privately to AWS services like S3 or DynamoDB Security benefits 3.10 Security in VPC Security Groups vs NACLs Inbound and outbound rules Stateful vs Stateless behavior Best practices for securing subnets and traffic flow 3.11 Elastic IPs and ENIs Allocating and associating Elastic IPs Attaching multiple ENIs (Elastic Network Interfaces) to an instance Use cases for secondary ENIs 3.12 Monitoring and Troubleshooting VPC Flow Logs CloudWatch metrics for networking Troubleshooting connectivity issues 3.13 VPC Design Best Practices Multi-AZ design Least privilege principle in security Using public and private subnets effectively High availability and fault tolerance 3.14 IPv6 Support in VPC Enabling IPv6 in a VPC Dual-stack networking (IPv4 + IPv6) Security considerations with IPv6 3.15 Hybrid Networking (Advanced) VPN connections AWS Direct Connect Transit Gateway overview Hybrid architecture design tips Optional Hands-On Tasks Create a custom VPC with 2 public and 2 private subnets Launch EC2 instances in both subnet types and test internet access Create and test a NAT Gateway Set up a VPC peering connection Use a VPC endpoint to connect to S3 privately Enable VPC Flow Logs and analyze traffic patterns</description>
+    </item>
+    <item>
+      <title>Route 53</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part05/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part05/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS Storage Services</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part06/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part06/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS RDS (Relational Database Service)</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part07/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part07/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS CloudFront</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part08/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part08/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AWS Lambda</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part09/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part09/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title> AWS ECS &amp; EKS</title>
+      <link>https://github.com/nirpendra83/aws-doc.git/part10/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://github.com/nirpendra83/aws-doc.git/part10/index.html</guid>
+      <description></description>
     </item>
     <item>
       <title>AWS Imp Link</title>

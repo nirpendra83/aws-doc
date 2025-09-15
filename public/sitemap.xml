@@ -1,10 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://github.com/nirpendra83/aws-doc.git/getting-started-with-the-course/index.html</loc>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part0/index.html</loc>
   </url>
   <url>
     <loc>https://github.com/nirpendra83/aws-doc.git/02/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part03/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part04/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part05/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part06/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part07/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part08/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part09/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/part10/index.html</loc>
   </url>
   <url>
     <loc>https://github.com/nirpendra83/aws-doc.git/projects-tasks/index.html</loc>
@@ -14,6 +38,9 @@
   </url>
   <url>
     <loc>https://github.com/nirpendra83/aws-doc.git/categories/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/nirpendra83/aws-doc.git/tags/elb-autoscaling/index.html</loc>
   </url>
   <url>
     <loc>https://github.com/nirpendra83/aws-doc.git/tags/index.html</loc>

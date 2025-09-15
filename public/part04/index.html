@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.148.2">
+    <meta name="generator" content="Relearn 8.0.0+9803d5122ebb3276acea823f476e9eb44f607862">
+    <meta name="description" content="3. AWS VPC (Virtual Private Cloud) Objective Understand the purpose and components of a Virtual Private Cloud. Learn how to design and manage networking in AWS using VPC. Explore routing, subnets, gateways, peering, and security best practices. 3.1 Introduction to AWS VPC What is a VPC? Why use a VPC? Benefits of VPC in cloud networking 3.2 VPC Components Overview Subnets (Public vs Private) Route Tables Internet Gateway (IGW) NAT Gateway / NAT Instance Elastic IPs VPC Endpoints DHCP Options Set Network ACLs Security Groups 3.3 Creating a Custom VPC Steps to create a VPC from scratch CIDR block selection and planning Creating subnets in multiple Availability Zones Associating route tables with subnets 3.4 Public and Private Subnets Use cases and design patterns How to create and route traffic for each Testing internet access from different subnets 3.5 Internet Gateway Attaching and detaching IGWs Updating route tables to allow outbound traffic 3.6 NAT Gateway vs NAT Instance Differences and use cases High availability setup Cost and performance comparison 3.7 Route Tables Associating route tables to subnets Custom vs main route tables Routing traffic between subnets and to the internet 3.8 VPC Peering VPC-to-VPC communication Creating and accepting peering connections Limitations and routing configuration 3.9 VPC Endpoints Interface vs Gateway endpoints Connecting privately to AWS services like S3 or DynamoDB Security benefits 3.10 Security in VPC Security Groups vs NACLs Inbound and outbound rules Stateful vs Stateless behavior Best practices for securing subnets and traffic flow 3.11 Elastic IPs and ENIs Allocating and associating Elastic IPs Attaching multiple ENIs (Elastic Network Interfaces) to an instance Use cases for secondary ENIs 3.12 Monitoring and Troubleshooting VPC Flow Logs CloudWatch metrics for networking Troubleshooting connectivity issues 3.13 VPC Design Best Practices Multi-AZ design Least privilege principle in security Using public and private subnets effectively High availability and fault tolerance 3.14 IPv6 Support in VPC Enabling IPv6 in a VPC Dual-stack networking (IPv4 &#43; IPv6) Security considerations with IPv6 3.15 Hybrid Networking (Advanced) VPN connections AWS Direct Connect Transit Gateway overview Hybrid architecture design tips Optional Hands-On Tasks Create a custom VPC with 2 public and 2 private subnets Launch EC2 instances in both subnet types and test internet access Create and test a NAT Gateway Set up a VPC peering connection Use a VPC endpoint to connect to S3 privately Enable VPC Flow Logs and analyze traffic patterns">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AWS VPC :: AWS Solution Architect">
+    <meta name="twitter:description" content="3. AWS VPC (Virtual Private Cloud) Objective Understand the purpose and components of a Virtual Private Cloud. Learn how to design and manage networking in AWS using VPC. Explore routing, subnets, gateways, peering, and security best practices. 3.1 Introduction to AWS VPC What is a VPC? Why use a VPC? Benefits of VPC in cloud networking 3.2 VPC Components Overview Subnets (Public vs Private) Route Tables Internet Gateway (IGW) NAT Gateway / NAT Instance Elastic IPs VPC Endpoints DHCP Options Set Network ACLs Security Groups 3.3 Creating a Custom VPC Steps to create a VPC from scratch CIDR block selection and planning Creating subnets in multiple Availability Zones Associating route tables with subnets 3.4 Public and Private Subnets Use cases and design patterns How to create and route traffic for each Testing internet access from different subnets 3.5 Internet Gateway Attaching and detaching IGWs Updating route tables to allow outbound traffic 3.6 NAT Gateway vs NAT Instance Differences and use cases High availability setup Cost and performance comparison 3.7 Route Tables Associating route tables to subnets Custom vs main route tables Routing traffic between subnets and to the internet 3.8 VPC Peering VPC-to-VPC communication Creating and accepting peering connections Limitations and routing configuration 3.9 VPC Endpoints Interface vs Gateway endpoints Connecting privately to AWS services like S3 or DynamoDB Security benefits 3.10 Security in VPC Security Groups vs NACLs Inbound and outbound rules Stateful vs Stateless behavior Best practices for securing subnets and traffic flow 3.11 Elastic IPs and ENIs Allocating and associating Elastic IPs Attaching multiple ENIs (Elastic Network Interfaces) to an instance Use cases for secondary ENIs 3.12 Monitoring and Troubleshooting VPC Flow Logs CloudWatch metrics for networking Troubleshooting connectivity issues 3.13 VPC Design Best Practices Multi-AZ design Least privilege principle in security Using public and private subnets effectively High availability and fault tolerance 3.14 IPv6 Support in VPC Enabling IPv6 in a VPC Dual-stack networking (IPv4 &#43; IPv6) Security considerations with IPv6 3.15 Hybrid Networking (Advanced) VPN connections AWS Direct Connect Transit Gateway overview Hybrid architecture design tips Optional Hands-On Tasks Create a custom VPC with 2 public and 2 private subnets Launch EC2 instances in both subnet types and test internet access Create and test a NAT Gateway Set up a VPC peering connection Use a VPC endpoint to connect to S3 privately Enable VPC Flow Logs and analyze traffic patterns">
+    <meta property="og:url" content="https://github.com/nirpendra83/aws-doc.git/part04/index.html">
+    <meta property="og:site_name" content="AWS Solution Architect">
+    <meta property="og:title" content="AWS VPC :: AWS Solution Architect">
+    <meta property="og:description" content="3. AWS VPC (Virtual Private Cloud) Objective Understand the purpose and components of a Virtual Private Cloud. Learn how to design and manage networking in AWS using VPC. Explore routing, subnets, gateways, peering, and security best practices. 3.1 Introduction to AWS VPC What is a VPC? Why use a VPC? Benefits of VPC in cloud networking 3.2 VPC Components Overview Subnets (Public vs Private) Route Tables Internet Gateway (IGW) NAT Gateway / NAT Instance Elastic IPs VPC Endpoints DHCP Options Set Network ACLs Security Groups 3.3 Creating a Custom VPC Steps to create a VPC from scratch CIDR block selection and planning Creating subnets in multiple Availability Zones Associating route tables with subnets 3.4 Public and Private Subnets Use cases and design patterns How to create and route traffic for each Testing internet access from different subnets 3.5 Internet Gateway Attaching and detaching IGWs Updating route tables to allow outbound traffic 3.6 NAT Gateway vs NAT Instance Differences and use cases High availability setup Cost and performance comparison 3.7 Route Tables Associating route tables to subnets Custom vs main route tables Routing traffic between subnets and to the internet 3.8 VPC Peering VPC-to-VPC communication Creating and accepting peering connections Limitations and routing configuration 3.9 VPC Endpoints Interface vs Gateway endpoints Connecting privately to AWS services like S3 or DynamoDB Security benefits 3.10 Security in VPC Security Groups vs NACLs Inbound and outbound rules Stateful vs Stateless behavior Best practices for securing subnets and traffic flow 3.11 Elastic IPs and ENIs Allocating and associating Elastic IPs Attaching multiple ENIs (Elastic Network Interfaces) to an instance Use cases for secondary ENIs 3.12 Monitoring and Troubleshooting VPC Flow Logs CloudWatch metrics for networking Troubleshooting connectivity issues 3.13 VPC Design Best Practices Multi-AZ design Least privilege principle in security Using public and private subnets effectively High availability and fault tolerance 3.14 IPv6 Support in VPC Enabling IPv6 in a VPC Dual-stack networking (IPv4 &#43; IPv6) Security considerations with IPv6 3.15 Hybrid Networking (Advanced) VPN connections AWS Direct Connect Transit Gateway overview Hybrid architecture design tips Optional Hands-On Tasks Create a custom VPC with 2 public and 2 private subnets Launch EC2 instances in both subnet types and test internet access Create and test a NAT Gateway Set up a VPC peering connection Use a VPC endpoint to connect to S3 privately Enable VPC Flow Logs and analyze traffic patterns">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="AWS Certified Solutions Architect - Professional">
+    <meta itemprop="name" content="AWS VPC :: AWS Solution Architect">
+    <meta itemprop="description" content="3. AWS VPC (Virtual Private Cloud) Objective Understand the purpose and components of a Virtual Private Cloud. Learn how to design and manage networking in AWS using VPC. Explore routing, subnets, gateways, peering, and security best practices. 3.1 Introduction to AWS VPC What is a VPC? Why use a VPC? Benefits of VPC in cloud networking 3.2 VPC Components Overview Subnets (Public vs Private) Route Tables Internet Gateway (IGW) NAT Gateway / NAT Instance Elastic IPs VPC Endpoints DHCP Options Set Network ACLs Security Groups 3.3 Creating a Custom VPC Steps to create a VPC from scratch CIDR block selection and planning Creating subnets in multiple Availability Zones Associating route tables with subnets 3.4 Public and Private Subnets Use cases and design patterns How to create and route traffic for each Testing internet access from different subnets 3.5 Internet Gateway Attaching and detaching IGWs Updating route tables to allow outbound traffic 3.6 NAT Gateway vs NAT Instance Differences and use cases High availability setup Cost and performance comparison 3.7 Route Tables Associating route tables to subnets Custom vs main route tables Routing traffic between subnets and to the internet 3.8 VPC Peering VPC-to-VPC communication Creating and accepting peering connections Limitations and routing configuration 3.9 VPC Endpoints Interface vs Gateway endpoints Connecting privately to AWS services like S3 or DynamoDB Security benefits 3.10 Security in VPC Security Groups vs NACLs Inbound and outbound rules Stateful vs Stateless behavior Best practices for securing subnets and traffic flow 3.11 Elastic IPs and ENIs Allocating and associating Elastic IPs Attaching multiple ENIs (Elastic Network Interfaces) to an instance Use cases for secondary ENIs 3.12 Monitoring and Troubleshooting VPC Flow Logs CloudWatch metrics for networking Troubleshooting connectivity issues 3.13 VPC Design Best Practices Multi-AZ design Least privilege principle in security Using public and private subnets effectively High availability and fault tolerance 3.14 IPv6 Support in VPC Enabling IPv6 in a VPC Dual-stack networking (IPv4 &#43; IPv6) Security considerations with IPv6 3.15 Hybrid Networking (Advanced) VPN connections AWS Direct Connect Transit Gateway overview Hybrid architecture design tips Optional Hands-On Tasks Create a custom VPC with 2 public and 2 private subnets Launch EC2 instances in both subnet types and test internet access Create and test a NAT Gateway Set up a VPC peering connection Use a VPC endpoint to connect to S3 privately Enable VPC Flow Logs and analyze traffic patterns">
+    <meta itemprop="wordCount" content="395">
+    <title>AWS VPC :: AWS Solution Architect</title>
+    <link href="../nirpendra83/aws-doc.git/css/auto-complete/auto-complete.min.css?1757930320" rel="stylesheet">
+    <script src="../nirpendra83/aws-doc.git/js/auto-complete/auto-complete.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search-lunr.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/search.min.js?1757930320" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.index_js_url="../searchindex.en.js?1757930320";
+    </script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.stemmer.support.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.multi.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/lunr/lunr.en.min.js?1757930320" defer></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.contentLangs=['en'];
+    </script>
+    <link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../nirpendra83/aws-doc.git/fonts/fontawesome/css/fontawesome-all.min.css?1757930320" rel="stylesheet"></noscript>
+    <link href="../nirpendra83/aws-doc.git/css/perfect-scrollbar/perfect-scrollbar.min.css?1757930320" rel="stylesheet">
+    <link href="../css/theme.min.css?1757930320" rel="stylesheet">
+    <link href="../css/format-html.min.css?1757930320" rel="stylesheet" id="R-format-style">
+    <script>
+      window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = `.min`;
+      window.relearn.path='\/part04\/index.html';
+      window.relearn.relBasePath='..';
+      window.relearn.relBaseUri='..';
+      window.relearn.absBaseUri='https:\/\/github.com\/nirpendra83\/aws-doc.git';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+      // variant stuff
+      window.relearn.themevariants = [ 'auto' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="../part04/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+            <div class="topbar-button topbar-button-toc" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="Table of Contents (CTRL&#43;ALT&#43;t)"><i class="fa-fw fas fa-list-alt"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+<nav class="TableOfContents">
+  <ul>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#31-introduction-to-aws-vpc">3.1 Introduction to AWS VPC</a></li>
+    <li><a href="#32-vpc-components-overview">3.2 VPC Components Overview</a></li>
+    <li><a href="#33-creating-a-custom-vpc">3.3 Creating a Custom VPC</a></li>
+    <li><a href="#34-public-and-private-subnets">3.4 Public and Private Subnets</a></li>
+    <li><a href="#35-internet-gateway">3.5 Internet Gateway</a></li>
+    <li><a href="#36-nat-gateway-vs-nat-instance">3.6 NAT Gateway vs NAT Instance</a></li>
+    <li><a href="#37-route-tables">3.7 Route Tables</a></li>
+    <li><a href="#38-vpc-peering">3.8 VPC Peering</a></li>
+    <li><a href="#39-vpc-endpoints">3.9 VPC Endpoints</a></li>
+    <li><a href="#310-security-in-vpc">3.10 Security in VPC</a></li>
+    <li><a href="#311-elastic-ips-and-enis">3.11 Elastic IPs and ENIs</a></li>
+    <li><a href="#312-monitoring-and-troubleshooting">3.12 Monitoring and Troubleshooting</a></li>
+    <li><a href="#313-vpc-design-best-practices">3.13 VPC Design Best Practices</a></li>
+    <li><a href="#314-ipv6-support-in-vpc">3.14 IPv6 Support in VPC</a></li>
+    <li><a href="#315-hybrid-networking-advanced">3.15 Hybrid Networking (Advanced)</a></li>
+    <li><a href="#optional-hands-on-tasks">Optional Hands-On Tasks</a></li>
+  </ul>
+</nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="../index.html"><span itemprop="name">AWS Certified Solutions Architect - Professional</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">AWS VPC</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part03/index.html" title="AWS EC2 (Elastic Compute Cloud) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="../part05/index.html" title="Route 53 (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable page" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="aws-vpc">AWS VPC</h1>
+
+<h1 id="3-aws-vpc-virtual-private-cloud">3. AWS VPC (Virtual Private Cloud)</h1>
+<h2 id="objective">Objective</h2>
+<ul>
+<li>Understand the purpose and components of a Virtual Private Cloud.</li>
+<li>Learn how to design and manage networking in AWS using VPC.</li>
+<li>Explore routing, subnets, gateways, peering, and security best practices.</li>
+</ul>
+<hr>
+<h2 id="31-introduction-to-aws-vpc">3.1 Introduction to AWS VPC</h2>
+<ul>
+<li>What is a VPC?</li>
+<li>Why use a VPC?</li>
+<li>Benefits of VPC in cloud networking</li>
+</ul>
+<h2 id="32-vpc-components-overview">3.2 VPC Components Overview</h2>
+<ul>
+<li>Subnets (Public vs Private)</li>
+<li>Route Tables</li>
+<li>Internet Gateway (IGW)</li>
+<li>NAT Gateway / NAT Instance</li>
+<li>Elastic IPs</li>
+<li>VPC Endpoints</li>
+<li>DHCP Options Set</li>
+<li>Network ACLs</li>
+<li>Security Groups</li>
+</ul>
+<h2 id="33-creating-a-custom-vpc">3.3 Creating a Custom VPC</h2>
+<ul>
+<li>Steps to create a VPC from scratch</li>
+<li>CIDR block selection and planning</li>
+<li>Creating subnets in multiple Availability Zones</li>
+<li>Associating route tables with subnets</li>
+</ul>
+<h2 id="34-public-and-private-subnets">3.4 Public and Private Subnets</h2>
+<ul>
+<li>Use cases and design patterns</li>
+<li>How to create and route traffic for each</li>
+<li>Testing internet access from different subnets</li>
+</ul>
+<h2 id="35-internet-gateway">3.5 Internet Gateway</h2>
+<ul>
+<li>Attaching and detaching IGWs</li>
+<li>Updating route tables to allow outbound traffic</li>
+</ul>
+<h2 id="36-nat-gateway-vs-nat-instance">3.6 NAT Gateway vs NAT Instance</h2>
+<ul>
+<li>Differences and use cases</li>
+<li>High availability setup</li>
+<li>Cost and performance comparison</li>
+</ul>
+<h2 id="37-route-tables">3.7 Route Tables</h2>
+<ul>
+<li>Associating route tables to subnets</li>
+<li>Custom vs main route tables</li>
+<li>Routing traffic between subnets and to the internet</li>
+</ul>
+<h2 id="38-vpc-peering">3.8 VPC Peering</h2>
+<ul>
+<li>VPC-to-VPC communication</li>
+<li>Creating and accepting peering connections</li>
+<li>Limitations and routing configuration</li>
+</ul>
+<h2 id="39-vpc-endpoints">3.9 VPC Endpoints</h2>
+<ul>
+<li>Interface vs Gateway endpoints</li>
+<li>Connecting privately to AWS services like S3 or DynamoDB</li>
+<li>Security benefits</li>
+</ul>
+<h2 id="310-security-in-vpc">3.10 Security in VPC</h2>
+<ul>
+<li>Security Groups vs NACLs</li>
+<li>Inbound and outbound rules</li>
+<li>Stateful vs Stateless behavior</li>
+<li>Best practices for securing subnets and traffic flow</li>
+</ul>
+<h2 id="311-elastic-ips-and-enis">3.11 Elastic IPs and ENIs</h2>
+<ul>
+<li>Allocating and associating Elastic IPs</li>
+<li>Attaching multiple ENIs (Elastic Network Interfaces) to an instance</li>
+<li>Use cases for secondary ENIs</li>
+</ul>
+<h2 id="312-monitoring-and-troubleshooting">3.12 Monitoring and Troubleshooting</h2>
+<ul>
+<li>VPC Flow Logs</li>
+<li>CloudWatch metrics for networking</li>
+<li>Troubleshooting connectivity issues</li>
+</ul>
+<h2 id="313-vpc-design-best-practices">3.13 VPC Design Best Practices</h2>
+<ul>
+<li>Multi-AZ design</li>
+<li>Least privilege principle in security</li>
+<li>Using public and private subnets effectively</li>
+<li>High availability and fault tolerance</li>
+</ul>
+<h2 id="314-ipv6-support-in-vpc">3.14 IPv6 Support in VPC</h2>
+<ul>
+<li>Enabling IPv6 in a VPC</li>
+<li>Dual-stack networking (IPv4 + IPv6)</li>
+<li>Security considerations with IPv6</li>
+</ul>
+<h2 id="315-hybrid-networking-advanced">3.15 Hybrid Networking (Advanced)</h2>
+<ul>
+<li>VPN connections</li>
+<li>AWS Direct Connect</li>
+<li>Transit Gateway overview</li>
+<li>Hybrid architecture design tips</li>
+</ul>
+<hr>
+<h2 id="optional-hands-on-tasks">Optional Hands-On Tasks</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Create a custom VPC with 2 public and 2 private subnets</li>
+<li><input disabled="" type="checkbox"> Launch EC2 instances in both subnet types and test internet access</li>
+<li><input disabled="" type="checkbox"> Create and test a NAT Gateway</li>
+<li><input disabled="" type="checkbox"> Set up a VPC peering connection</li>
+<li><input disabled="" type="checkbox"> Use a VPC endpoint to connect to S3 privately</li>
+<li><input disabled="" type="checkbox"> Enable VPC Flow Logs and analyze traffic patterns</li>
+</ul>
+
+  <footer class="footline">
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+          <a id="R-logo" class="R-default" href="../index.html">
+            <div class="logo-title">AWS Solution Architect</div>
+          </a>
+        </div>
+        <search><form action="../search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="../index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/part0/index.html"><a class="padding" href="../part0/index.html">Part 01: Introduction to AWS Cloud</a></li>
+            <li class="" data-nav-id="/02/index.html"><a class="padding" href="../02/index.html">Part 02: IAM </a></li>
+            <li class="" data-nav-id="/part03/index.html"><a class="padding" href="../part03/index.html">AWS EC2 (Elastic Compute Cloud)</a></li>
+            <li class="active " data-nav-id="/part04/index.html"><a class="padding" href="../part04/index.html">AWS VPC</a></li>
+            <li class="" data-nav-id="/part05/index.html"><a class="padding" href="../part05/index.html">Route 53</a></li>
+            <li class="" data-nav-id="/part06/index.html"><a class="padding" href="../part06/index.html">AWS Storage Services</a></li>
+            <li class="" data-nav-id="/part07/index.html"><a class="padding" href="../part07/index.html">AWS RDS (Relational Database Service)</a></li>
+            <li class="" data-nav-id="/part08/index.html"><a class="padding" href="../part08/index.html">AWS CloudFront</a></li>
+            <li class="" data-nav-id="/part09/index.html"><a class="padding" href="../part09/index.html">AWS Lambda</a></li>
+            <li class="" data-nav-id="/part10/index.html"><a class="padding" href="../part10/index.html"> AWS ECS &amp; EKS</a></li>
+            <li class="" data-nav-id="/projects-tasks/index.html"><a class="padding" href="../projects-tasks/index.html">AWS Imp Link</a></li>
+          </ul>
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
+        </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
+      </div>
+    </aside>
+    <script src="../nirpendra83/aws-doc.git/js/clipboard/clipboard.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/perfect-scrollbar/perfect-scrollbar.min.js?1757930320" defer></script>
+    <script src="../nirpendra83/aws-doc.git/js/theme.min.js?1757930320" defer></script>
+  </body>
+</html>
